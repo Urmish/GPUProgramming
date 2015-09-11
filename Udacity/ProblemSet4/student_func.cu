@@ -1,8 +1,8 @@
 //Udacity HW 4
 //Radix Sorting
 
+#include "reference_calc.cpp"
 #include "utils.h"
-#include <thrust/host_vector.h>
 
 /* Red Eye Removal
    ===============
@@ -41,14 +41,58 @@
    at the end.
 
  */
-
+#include <stdio.h>
+int get_max_size (int a, int d)
+{
+    int temp = a/d;
+    if (a%d != 0)
+    {
+        temp = temp+1;
+    }
+    return temp;
+}
+__global__ void createHistogram ( unsigned int* d_bins,
+                            unsigned int* const d_inputVals,
+                            const size_t numElems,
+                            int compareAndValue)
+{
+    int myId = blockDim.x*blockIdx.x + threadIdx.x;
+    //int tid = threadIdx.x;
+    if (myId < numElems)
+    {
+        if ((d_inputVals[myId] & compareAndValue) != 0)
+        {
+            atomicAdd(&d_bins[1], 1);
+        }
+        else
+        {
+            atomicAdd(&d_bins[0], 1);
+        }
+    }
+}
 
 void your_sort(unsigned int* const d_inputVals,
                unsigned int* const d_inputPos,
                unsigned int* const d_outputVals,
                unsigned int* const d_outputPos,
                const size_t numElems)
-{ 
-  //TODO
-  //PUT YOUR SORT HERE
+{
+     unsigned int* d_bins;
+     unsigned int  h_bins[2];
+     const size_t histo_size = 2*sizeof(unsigned int);
+     checkCudaErrors(cudaMalloc(&d_bins, histo_size));
+     for (int i=0;i<32;i++)
+     {
+         checkCudaErrors(cudaMemset(d_bins, 0, histo_size));
+         int compareAddValue = 1 << i;
+         int numThreadsPerBlock = 512;
+         dim3 blockDim(numThreadsPerBlock);
+         dim3 gridDim(get_max_size(numElems,numThreadsPerBlock));
+         createHistogram <<<gridDim, blockDim>>> (d_bins,d_inputVals,numElems,compareAddValue);
+         cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());
+         // copy the histogram data to host
+         checkCudaErrors(cudaMemcpy(&h_bins, d_bins, histo_size, cudaMemcpyDeviceToHost));
+         printf("Histogram Values - %d %d %d %d %d \n", h_bins[0], h_bins[1], h_bins[0]+h_bins[1], numElems, compareAddValue);
+     }
 }
+
