@@ -51,7 +51,7 @@ int get_max_size (int a, int d)
     }
     return temp;
 }
-__global__ void createHistogram ( unsigned int* d_bins,
+__global__ void createHistogramSlow ( unsigned int* d_bins,
                             unsigned int* const d_inputVals,
                             const size_t numElems,
                             int compareAndValue)
@@ -71,6 +71,126 @@ __global__ void createHistogram ( unsigned int* d_bins,
     }
 }
 
+__global__ void localHistograms (const unsigned int *input,
+                                 unsigned int *output,
+                                 const int size,
+                                 int numBins,
+                                 int perThreadReads,
+                                 unsigned int compareAndValue,
+                                 unsigned int *d_setOneIfOne)
+{
+    int myX = blockDim.x*blockIdx.x + threadIdx.x;
+    for (int i=0;i<perThreadReads;i++)
+    {
+        if (myX*perThreadReads+i < size)
+        {
+            if ((input[myX*perThreadReads + i] & compareAndValue) != 0)
+            {
+                //Write to global Value
+                output[myX*numBins + 1] = output[myX*numBins + 1]+1;
+                d_setOneIfOne[myX] = 1;
+            }
+            else
+            {
+                //Write to global Value
+                output[myX*numBins] = output[myX*numBins]+1;
+                d_setOneIfOne[myX] = 0;
+            }
+        }
+    }
+}
+
+__global__ void histogramReduce (int numBins,
+                                 unsigned int *input,
+                                 unsigned int *output,
+                                 int size
+                                )
+{
+    extern __shared__ unsigned int sdata3[];
+    int myX = blockDim.x*blockIdx.x + threadIdx.x;
+    int tid = threadIdx.x;
+    for (int i=0;i<numBins;i++)
+    {
+        int index = myX*numBins+i;
+        if (myX >= size)
+        {
+            sdata3[tid*numBins+i] = 0;
+        }
+        else
+        {
+            sdata3[tid*numBins+i] = input[index];
+        }
+    }
+    __syncthreads();
+    
+    if (myX >= size)
+    {
+        if (tid == 0)
+        {
+            for (int i=0;i < numBins;i++)
+            {
+                output[blockIdx.x*numBins+i] = 0;
+            }
+        }
+        return;
+    }
+    
+    for (unsigned int s = blockDim.x/2; s > 0; s/=2)
+    {
+        if(tid < s)
+        {
+            for (int i=0;i<numBins;i++)
+            {
+                sdata3[tid*numBins+i] = sdata3[tid*numBins+i] + sdata3[tid*numBins+i+s*numBins];
+            }
+        }
+        __syncthreads();
+    }
+    if (tid==0)
+    {
+        for (int i=0;i<numBins;i++)
+        {
+            //printf("Writing %d for bin value %d\n",sdata3[i],i);
+            output[blockIdx.x*numBins+i] = sdata3[i];
+        }
+    }
+}
+
+void fastHistogram(unsigned int *d_finalHist, 
+              unsigned int* const d_inputVals,
+              const size_t numElems,
+              unsigned int compareAndValue,
+              unsigned int* d_setOneIfOne)
+{
+    int numBins = 2;
+    unsigned int *d_histBins;
+    int numBlocksPerGrid = 1024;
+    int size = numElems;
+    dim3 blockDim(1);
+    dim3 gridDim(numBlocksPerGrid);
+    int sizeOfBins = numBins*sizeof(unsigned int)*numBlocksPerGrid;
+    int perThreadReads = get_max_size(size,numBlocksPerGrid);
+    //Initialize temperory array variable
+    checkCudaErrors(cudaMalloc(&d_histBins, sizeOfBins));
+    checkCudaErrors(cudaMemset(d_histBins, 0, sizeOfBins));
+    
+    //Call first kernel
+    localHistograms<<<gridDim,blockDim>>>(d_inputVals,d_histBins,size,numBins,perThreadReads,compareAndValue,d_setOneIfOne);
+    cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());
+    
+    size = numBlocksPerGrid;
+    int localHistThreadsPerBlock = numBlocksPerGrid;
+    dim3 blockDimLocalHist(localHistThreadsPerBlock);   
+    unsigned int* d_curr_in;
+    d_curr_in = d_histBins; 
+
+    dim3 gridDimLocalHist(get_max_size(size,localHistThreadsPerBlock));
+    histogramReduce<<<gridDimLocalHist,blockDimLocalHist,numBins*sizeof(unsigned int)*localHistThreadsPerBlock>>>(numBins,d_curr_in,d_finalHist,size);        
+    cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());      
+    checkCudaErrors(cudaFree(d_curr_in));
+}
+
+
 void your_sort(unsigned int* const d_inputVals,
                unsigned int* const d_inputPos,
                unsigned int* const d_outputVals,
@@ -81,18 +201,16 @@ void your_sort(unsigned int* const d_inputVals,
      unsigned int  h_bins[2];
      const size_t histo_size = 2*sizeof(unsigned int);
      checkCudaErrors(cudaMalloc(&d_bins, histo_size));
+     unsigned int* d_setOneIfOne;
+     checkCudaErrors(cudaMalloc(&d_setOneIfOne, numElems*sizeof(numElems)));
      for (int i=0;i<32;i++)
      {
          checkCudaErrors(cudaMemset(d_bins, 0, histo_size));
-         int compareAddValue = 1 << i;
-         int numThreadsPerBlock = 512;
-         dim3 blockDim(numThreadsPerBlock);
-         dim3 gridDim(get_max_size(numElems,numThreadsPerBlock));
-         createHistogram <<<gridDim, blockDim>>> (d_bins,d_inputVals,numElems,compareAddValue);
-         cudaDeviceSynchronize(); checkCudaErrors(cudaGetLastError());
-         // copy the histogram data to host
+         int compareAndValue = 1 << i;
+         fastHistogram(d_bins,d_inputVals,numElems,compareAndValue,d_setOneIfOne);
          checkCudaErrors(cudaMemcpy(&h_bins, d_bins, histo_size, cudaMemcpyDeviceToHost));
-         printf("Histogram Values - %d %d %d %d %d \n", h_bins[0], h_bins[1], h_bins[0]+h_bins[1], numElems, compareAddValue);
+         printf("Histogram Values - %d %d %d %d %d \n", h_bins[0], h_bins[1], h_bins[0]+h_bins[1], numElems, compareAndValue);
      }
+     checkCudaErrors(cudaFree(d_bins));
 }
 
