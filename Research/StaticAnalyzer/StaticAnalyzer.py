@@ -3,7 +3,28 @@ import sys
 import re
 import argparse
 
+variables = dict()
+TotalTranscendentals = 0
+previousLine = ""
 ###################################Function and Class Definition Starts Here################################################################
+class VariableState():
+  def __init__(self,name,scope,varType,size,value):
+    self.name = name
+    self.scope = scope
+    self.varType = varType #0 - Int, 1 - Float, 2 - Double
+    self.size = size
+    self.value = value
+    return None
+  
+  def printValues(self):
+    print "The values of this entry are"
+    print "Name -     ",self.name
+    print "Scope -    ",self.scope
+    print "varType -  ",self.varType
+    print "size -     ",self.size
+    print "value-     ",self.value
+    return None
+
 class Stack():
   def __init__(self):
     self.items = []
@@ -25,14 +46,31 @@ class Stack():
     self.push(Obj)
     return Obj
 
-scope = Stack()
+scope = Stack() #Accessed to understand the scope of a variable
 scope.push('Global')
+
+def printVariables():
+    print "**********"
+    for key in variables:
+      variables[key].printValues()
+      print "**********"
+    return True
+
+def pushVariables(name,
+		  varType,
+		  size,
+		  value):
+  #name - Name of the variable, varType - int/float/double, size - scalar has size 1, array has size > 1, value - for a scalar, value if assigned, else None
+  #varType 0 - Int, 1 - Float, 2 - Double
+  "This function pushes the variables and its associated properties to dictionary variables"
+  variables[name] = VariableState(name,scope.front(),varType,size,value)
+  return True
 
 def isStartOfAnnotation(currentLine):
   "This function checks for start of an annotated code"
   matchObj = re.search('Annotation Begin',currentLine, re.I)
   if matchObj:
-    print "Annotation Begin Found"
+    #print "Annotation Begin Found"
     return True
   else:
     return False
@@ -41,7 +79,7 @@ def isEndOfAnnotation(currentLine):
   "This function checks for end of an annotated code"
   matchObj = re.search('Annotation End',currentLine, re.I)
   if matchObj:
-    print "Annotation End Found"
+    #print "Annotation End Found"
     return True
   else:
     return False
@@ -57,12 +95,127 @@ def getVariables(currentLine):
   matchObjFloat = re.search('float ',currentLine, re.I)
   matchObjDouble = re.search('double ',currentLine, re.I)
   if matchObjInt:
-    print "Found an Int Variable"
+    #print "Found an Int Variable"
+    matchObjIntArray       = re.search('int (\w+)\[(\d+)\]',currentLine, re.I)
+    matchObjIntScalar      = re.search('int (\w+)',currentLine, re.I)
+    matchObjIntScalarValue = re.search('=\D*(\d+)',currentLine, re.I)
+    intName = ""
+    intVarType = 0
+    intSize = 0
+    intValue = None
+    if matchObjIntArray:
+      #print "Its an array with Name - ",matchObjIntArray.group(1)," and Size - ",matchObjIntArray.group(2)
+      intName = matchObjIntArray.group(1)
+      intSize = matchObjIntArray.group(2)
+    elif matchObjIntScalar:
+      #print "Its a Scalar with Name ",matchObjIntScalar.group(1)
+      intName = matchObjIntScalar.group(1)
+      intSize = 1
+    if matchObjIntScalarValue:
+      #print "And Value ",matchObjIntScalarValue.group(1)
+      intValue = matchObjIntScalarValue.group(1)
+    pushVariables(intName,
+                  intVarType,
+                  intSize,
+                  intValue)
   if matchObjFloat:
-    print "Found a Float Variable"
+    #print "Found a Float Variable" 
+    matchObjFloatArray       = re.search('float (\w+)\[(\d+)\]',currentLine, re.I)
+    matchObjFloatScalar      = re.search('float (\w+)',currentLine, re.I)
+    matchObjFloatScalarValue = re.search('=\D*(\d+)',currentLine, re.I)
+    floatName = ""
+    floatVarType = 0
+    floatSize = 0
+    floatValue = None
+    if matchObjFloatArray:
+      #print "Its an array with Name - ",matchObjFloatArray.group(1)," and Size - ",matchObjFloatArray.group(2)
+      floatName = matchObjFloatArray.group(1)
+      floatSize = matchObjFloatArray.group(2)
+    elif matchObjFloatScalar:
+      #print "Its a Scalar with Name ",matchObjFloatScalar.group(1)
+      floatName = matchObjFloatScalar.group(1)
+      floatSize = 1
+    if matchObjFloatScalarValue:
+      #print "And Value ",matchObjFloatScalarValue.group(1)
+      floatValue = matchObjFloatScalarValue.group(1)
+    pushVariables(floatName,
+                  floatVarType,
+                  floatSize,
+                  floatValue)
+ 
   if matchObjDouble:
-    print "Found a Double Variable"
+    #print "Found a Double Variable"
+    matchObjDoubleArray       = re.search('double (\w+)\[(\d+)\]',currentLine, re.I)
+    matchObjDoubleScalar      = re.search('double (\w+)',currentLine, re.I)
+    matchObjDoubleScalarValue = re.search('=\D*(\d+)',currentLine, re.I)
+    doubleName = ""
+    doubleVarType = 0
+    doubleSize = 0
+    doubleValue = None
+    if matchObjDoubleArray:
+      #print "Its an array with Name - ",matchObjDoubleArray.group(1)," and Size - ",matchObjFloatArray.group(2)
+      doubleName = matchObjDoubleArray.group(1)
+      doubleSize = matchObjDoubleArray.group(2)
+    elif matchObjDoubleScalar:
+      #print "Its a Scalar with Name ",matchObjDoubleScalar.group(1)
+      doubleName = matchObjDoubleScalar.group(1)
+      doubleSize = 1
+    if matchObjDoubleScalarValue:
+      #print "And Value ",matchObjDoubleScalarValue.group(1)
+      doubleValue = matchObjDoubleScalarValue.group(1)
+    pushVariables(doubleName,
+                  doubleVarType,
+                  doubleSize,
+                  doubleValue)
+  return None
+
+def transcendental(currentLine):
+  "checks for transcendental functions in a line"
+  matchObjLog  = re.findall('logf',currentLine, re.I)
+  matchObjSin  = re.findall('sinf',currentLine, re.I)
+  matchObjCos  = re.findall('cosf',currentLine, re.I)
+  matchObjExp  = re.findall('expf',currentLine, re.I)
+  matchObjSqrt = re.findall('sqrtf',currentLine, re.I)
+  if matchObjLog:
+    TotalTranscendentals = TotalTranscendentals + len(matchObjLog)  
+  if matchObjSin:
+    TotalTranscendentals = TotalTranscendentals + len(matchObjSin)  
+  if matchObjCos:
+    TotalTranscendentals = TotalTranscendentals + len(matchObjCos)  
+  if matchObjExp:
+    TotalTranscendentals = TotalTranscendentals + len(matchObjExp)  
+  if matchObjSqrt:
+    TotalTranscendentals = TotalTranscendentals + len(matchObjSqrt)  
+  return None
+
+
+def checkStartEndScope(currentline):
+  "Checks for { and } to identify scope of a variable"
+  matchStart  = re.search('{',currentLine, re.I)
+  matchEnd    = re.search('}',currentLine, re.I)
+  if matchStart:
+    matchFor    = re.search('for',currentLine, re.I)
+    matchWhile  = re.search('while',currentLine, re.I)
+    matchIf     = re.search('if',currentLine, re.I)
+
+    matchForPrev    = re.search('for',  previousLine, re.I)
+    matchWhilePrev  = re.search('while',previousLine, re.I)
+    matchIfPrev     = re.search('if',   previousLine, re.I)
+    if matchFor or matchWhile or matchIf or matchForPrev or matchWhilePrev or matchIfPrev:
+      scopeInitializer = ""
+      if matchFor or matchForPrev:
+	scopeInitializer = "For"
+      elif matchWhile or matchWhilePrev:
+	scopeInitializer = "While"
+      elif matchIf or matchIfPrev:
+	scopeInitializer = "if"
+      scope.push(scopeInitializer)
+    else:
+      raise RuntimeError('Found a start of scope but was not able to find scope initializer')
+  elif matchEnd:
+    scope.pop()
   return
+     
 ###################################Function and Class Definition Ends Here################################################################
 
 print "**************************************************************************"
@@ -71,22 +224,31 @@ print "*************************************************************************
 print "****		   Please Use Python 2.7 or later		      ****"
 print "**************************************************************************"
 try:
-  # open file stream
   parser = argparse.ArgumentParser(description='Reads inputs to Static Serial Code Analyzer')
   parser.add_argument('-file',required=True, dest='file_name',help='file that you want analyzed')
   args = parser.parse_args()
-  #file_name = "/afs/cs.wisc.edu/u/u/t/uthakker/Documents/StaticAnalyzerInput/Input1.txt"
   fileHandler = open(args.file_name, "r")
 except IOError:
   print "There was an error reading ", args.file_name
   sys.exit()
 
 for currentLine in fileHandler:
-  printFileLine(currentLine)
+  #printFileLine(currentLine)
+  checkStartEndScope(currentLine)
+  #Call get variables after scope to detect scenarios like for(int i...)
   getVariables(currentLine)
   if isStartOfAnnotation(currentLine) :
     print "Start Analyzing"
+    transcendental(currentLine)
   
   if isEndOfAnnotation(currentLine) :
     print "End Analyzing" 
     break
+  previousLine = currentLine
+
+print "######################################################"
+printVariables()
+print "\n\n"
+print "TotalTranscendentals -",TotalTranscendentals
+print "\n\n"
+print "######################################################"
