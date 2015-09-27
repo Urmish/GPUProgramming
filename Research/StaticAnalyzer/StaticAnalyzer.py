@@ -1,7 +1,9 @@
 #!/usr/bin/python
 import sys
 import re
+import argparse
 
+###################################Function and Class Definition Starts Here################################################################
 class Stack():
   def __init__(self):
     self.items = []
@@ -17,6 +19,11 @@ class Stack():
   
   def getElements(self):
     return self.items
+
+  def front(self):
+    Obj = self.pop()
+    self.push(Obj)
+    return Obj
 
 scope = Stack()
 scope.push('Global')
@@ -46,19 +53,37 @@ def printFileLine(currentLine):
 
 def getVariables(currentLine):
   "This function looks for variable declaration and tries to understand their type"
+  matchObjInt = re.search('int ',currentLine, re.I)
+  matchObjFloat = re.search('float ',currentLine, re.I)
+  matchObjDouble = re.search('double ',currentLine, re.I)
+  if matchObjInt:
+    print "Found an Int Variable"
+  if matchObjFloat:
+    print "Found a Float Variable"
+  if matchObjDouble:
+    print "Found a Double Variable"
   return
+###################################Function and Class Definition Ends Here################################################################
 
-print "Hi, This is a Static Code Analyzer. Please Use Python 2.7 or later version"
+print "**************************************************************************"
+print "****			Static Code Analyzer			      ****"
+print "**************************************************************************"
+print "****		   Please Use Python 2.7 or later		      ****"
+print "**************************************************************************"
 try:
   # open file stream
-  file_name = "/afs/cs.wisc.edu/u/u/t/uthakker/Documents/StaticAnalyzerInput/Input1.txt"
-  fileHandler = open(file_name, "r")
+  parser = argparse.ArgumentParser(description='Reads inputs to Static Serial Code Analyzer')
+  parser.add_argument('-file',required=True, dest='file_name',help='file that you want analyzed')
+  args = parser.parse_args()
+  #file_name = "/afs/cs.wisc.edu/u/u/t/uthakker/Documents/StaticAnalyzerInput/Input1.txt"
+  fileHandler = open(args.file_name, "r")
 except IOError:
-  print "There was an error reading ", file_name
+  print "There was an error reading ", args.file_name
   sys.exit()
 
 for currentLine in fileHandler:
   printFileLine(currentLine)
+  getVariables(currentLine)
   if isStartOfAnnotation(currentLine) :
     print "Start Analyzing"
   
