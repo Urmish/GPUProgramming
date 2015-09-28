@@ -5,7 +5,11 @@ import argparse
 
 variables = dict()
 TotalTranscendentals = 0
+TotalArithmeticInstructions = 0
+StartAnalyzing = False
 previousLine = ""
+NumLoadOperations = 0
+NumStoreOperations = 0
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value):
@@ -70,7 +74,9 @@ def isStartOfAnnotation(currentLine):
   "This function checks for start of an annotated code"
   matchObj = re.search('Annotation Begin',currentLine, re.I)
   if matchObj:
-    #print "Annotation Begin Found"
+    print "Annotation Begin Found"
+    global StartAnalyzing
+    StartAnalyzing = True
     return True
   else:
     return False
@@ -79,7 +85,7 @@ def isEndOfAnnotation(currentLine):
   "This function checks for end of an annotated code"
   matchObj = re.search('Annotation End',currentLine, re.I)
   if matchObj:
-    #print "Annotation End Found"
+    print "Annotation End Found"
     return True
   else:
     return False
@@ -169,13 +175,14 @@ def getVariables(currentLine):
                   doubleValue)
   return None
 
-def transcendental(currentLine):
+def Transcendental(currentLine):
   "checks for transcendental functions in a line"
   matchObjLog  = re.findall('logf',currentLine, re.I)
   matchObjSin  = re.findall('sinf',currentLine, re.I)
   matchObjCos  = re.findall('cosf',currentLine, re.I)
   matchObjExp  = re.findall('expf',currentLine, re.I)
   matchObjSqrt = re.findall('sqrtf',currentLine, re.I)
+  global TotalTranscendentals
   if matchObjLog:
     TotalTranscendentals = TotalTranscendentals + len(matchObjLog)  
   if matchObjSin:
@@ -215,7 +222,30 @@ def checkStartEndScope(currentline):
   elif matchEnd:
     scope.pop()
   return
-     
+ 
+def MemoryOperations(currentLine):
+  "Check for memory access in currentline"
+  #TODO FIXME !!This wont work!! 
+  #Does not detect A[B[i]]!! Instead, use this detect number of [, number of ] and if = [resent. Store would be one, loads would be (number([)-1)/2. Keep a check Number([) = Number(])
+  storeOperations = re.findall('\w+\[.*\].*\=',currentLine, re.I)
+  loadOperations = re.findall('\=.*\w+\[.*\]',currentLine, re.I)
+  global NumLoadOperations
+  global NumStoreOperations
+  NumStoreOperations = NumStoreOperations + len(storeOperations)
+  NumLoadOperations  = NumLoadOperations + len(loadOperations)
+  return False
+
+def ArithmeticInstructions(currentLine):
+  "Checks for number of arithmetic operations in a line"
+  #Right now A[i+4] is also included, need to take care of this!!!! TODO FIXME
+  #print currentLine
+  numArithmetic  = re.findall('\+\+|\+|\-|\*|/|\<\=|\>\=|\<\<|\>\>|\=\=|\<|\>',currentLine, re.I)
+  global TotalArithmeticInstructions
+  #print len(numArithmetic)
+  TotalArithmeticInstructions = TotalArithmeticInstructions + len(numArithmetic)
+  numArithmetic  = re.findall('\w+\[.*\+.*\]',currentLine, re.I)
+  TotalArithmeticInstructions = TotalArithmeticInstructions - len(numArithmetic)
+  return    
 ###################################Function and Class Definition Ends Here################################################################
 
 print "**************************************************************************"
@@ -237,18 +267,24 @@ for currentLine in fileHandler:
   checkStartEndScope(currentLine)
   #Call get variables after scope to detect scenarios like for(int i...)
   getVariables(currentLine)
-  if isStartOfAnnotation(currentLine) :
-    print "Start Analyzing"
-    transcendental(currentLine)
+  isStartOfAnnotation(currentLine)
+  if StartAnalyzing :
+    Transcendental(currentLine)
+    ArithmeticInstructions(currentLine)
+    MemoryOperations(currentLine)
   
   if isEndOfAnnotation(currentLine) :
-    print "End Analyzing" 
+    global StartAnalyzing
+    StartAnalyzing = False
     break
   previousLine = currentLine
 
 print "######################################################"
 printVariables()
-print "\n\n"
+print "\n"
 print "TotalTranscendentals -",TotalTranscendentals
-print "\n\n"
+print "TotalArithmeticInstructions -",TotalArithmeticInstructions
+print "NumLoadOperations -",NumLoadOperations
+print "NumStoreOperations -",NumStoreOperations
+print "\n"
 print "######################################################"
