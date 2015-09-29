@@ -10,6 +10,8 @@ StartAnalyzing = False
 previousLine = ""
 NumLoadOperations = 0
 NumStoreOperations = 0
+NumOffsetAccesses = 0
+NumIndirectAccesses = 0 #A[B[i]]
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value):
@@ -223,6 +225,21 @@ def checkStartEndScope(currentline):
     scope.pop()
   return
  
+def GlobalMemoryTransaction(currentLine):
+  "Collects data to estimate the number of global memory transaction of each warp"
+  matches = re.findall('\[(.*?)\]',currentLine)
+  #Sample Output
+  #>>> re.findall('\[(.*?)\]',currentLine)
+  #['i', 'i+4', 'B[i']
+  for access in matches:
+    offsets = re.findall('\+',access)
+    indirect = re.findall('\w+\[',access)
+    global NumOffsetAccesses
+    global NumIndirectAccesses
+    NumOffsetAccesses = NumOffsetAccesses + len(offsets)   
+    NumIndirectAccesses = NumIndirectAccesses + len(indirect)
+  return False
+
 def MemoryOperations(currentLine):
   "Check for memory access in currentline"
   #TODO FIXME !!This wont work!! 
@@ -235,6 +252,8 @@ def MemoryOperations(currentLine):
   global NumStoreOperations
   NumStoreOperations = NumStoreOperations + len(storeOperations)
   NumLoadOperations  = NumLoadOperations + len(loadOperations) - len(storeOperations)
+  if len(loadOperations) > 0 or len(storeOperations) > 0:
+    GlobalMemoryTransaction(currentLine)
   return False
 
 def ArithmeticInstructions(currentLine):
@@ -247,7 +266,11 @@ def ArithmeticInstructions(currentLine):
   TotalArithmeticInstructions = TotalArithmeticInstructions + len(numArithmetic)
   numArithmetic  = re.findall('\w+\[.*\+.*\]',currentLine, re.I)
   TotalArithmeticInstructions = TotalArithmeticInstructions - len(numArithmetic)
-  return    
+  return False
+
+def FPDivMult(currentLine):
+  "Checks for Floating Point Multiplication and Division"
+  return False
 ###################################Function and Class Definition Ends Here################################################################
 
 print "**************************************************************************"
@@ -288,5 +311,7 @@ print "TotalTranscendentals -",TotalTranscendentals
 print "TotalArithmeticInstructions -",TotalArithmeticInstructions
 print "NumLoadOperations -",NumLoadOperations
 print "NumStoreOperations -",NumStoreOperations
+print "NumOffsetAccesses - ", NumOffsetAccesses 
+print "NumIndirectAccesses - ", NumIndirectAccesses
 print "\n"
 print "######################################################"
