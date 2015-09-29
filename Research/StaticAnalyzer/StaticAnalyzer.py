@@ -227,12 +227,14 @@ def MemoryOperations(currentLine):
   "Check for memory access in currentline"
   #TODO FIXME !!This wont work!! 
   #Does not detect A[B[i]]!! Instead, use this detect number of [, number of ] and if = [resent. Store would be one, loads would be (number([)-1)/2. Keep a check Number([) = Number(])
-  storeOperations = re.findall('\w+\[.*\].*\=',currentLine, re.I)
-  loadOperations = re.findall('\=.*\w+\[.*\]',currentLine, re.I)
+  #storeOperations = re.findall('\w+\[.*\].*\=',currentLine, re.I)
+  storeOperations = re.findall('\[.*=',currentLine, re.I)
+  #loadOperations = re.findall('\=.*\w+\[.*\]',currentLine, re.I)
+  loadOperations = re.findall('\[',currentLine, re.I)
   global NumLoadOperations
   global NumStoreOperations
   NumStoreOperations = NumStoreOperations + len(storeOperations)
-  NumLoadOperations  = NumLoadOperations + len(loadOperations)
+  NumLoadOperations  = NumLoadOperations + len(loadOperations) - len(storeOperations)
   return False
 
 def ArithmeticInstructions(currentLine):
