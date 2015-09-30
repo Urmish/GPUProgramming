@@ -299,7 +299,7 @@ def FPDivMult(currentLine):
 	start=start-1  
       start=start-1 #Just Reached [, need to decrement
     print currentLine[startFrom:start+1]
-    temp = re.search('[ *=/\(\+](\w.*)$',currentLine[startFrom:start+1])
+    temp = re.search('[\( *=\/\+](\w.*)$',currentLine[startFrom:start+1])
     if temp:
       print "match"
       print temp.group(1)
@@ -368,3 +368,4 @@ print "NumOffsetAccesses - ", NumOffsetAccesses
 print "NumIndirectAccesses - ", NumIndirectAccesses
 print "\n"
 print "######################################################"
+
