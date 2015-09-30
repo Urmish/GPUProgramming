@@ -368,4 +368,27 @@ print "NumOffsetAccesses - ", NumOffsetAccesses
 print "NumIndirectAccesses - ", NumIndirectAccesses
 print "\n"
 print "######################################################"
+if (TotalTranscendentals==0):
+  print "Transcendental Ratio - L"
+elif ( TotalTranscendentals/(TotalArithmeticInstructions+NumLoadOperations+NumStoreOperations) < 0.15):
+  print "Transcendental Ratio - M"
+else:
+  print "Transcendental Ratio - H"
 
+if (NumOffsetAccesses>0 or NumIndirectAccesses>0):
+  print "Global Memory Operation - L"
+else:
+  print "Global Memory Operation - H"
+
+if (TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreOperations < 70):
+  print "Total Instruction - L"
+else:
+  print "Total Instruction - H"
+
+if (TotalArithmeticInstructions < NumLoadOperations+NumStoreOperations):
+  print "Arithmetic Intensity - L"
+elif ((TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))>1 and (TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))<5 ):
+  print "Arithmetic Intensity - M"
+else:
+  print "Arithmetic Intensity - H"
+  
