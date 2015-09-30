@@ -242,8 +242,9 @@ def GlobalMemoryTransaction(currentLine):
 
 def MemoryOperations(currentLine):
   "Check for memory access in currentline"
-  #TODO FIXME !!This wont work!! 
+  #Below commented method do not work as -
   #Does not detect A[B[i]]!! Instead, use this detect number of [, number of ] and if = [resent. Store would be one, loads would be (number([)-1)/2. Keep a check Number([) = Number(])
+  #Non commented ones are these new implementation
   #storeOperations = re.findall('\w+\[.*\].*\=',currentLine, re.I)
   storeOperations = re.findall('\[.*=',currentLine, re.I)
   #loadOperations = re.findall('\=.*\w+\[.*\]',currentLine, re.I)
@@ -270,11 +271,21 @@ def ArithmeticInstructions(currentLine):
 
 def FPDivMult(currentLine):
   "Checks for Floating Point Multiplication and Division"
+  #Possible Scenario
+  #>>> matches = re.findall('(\w+.*?)\+(.*?\w+?)',currentLine)
+  #>>> matches
+  #[('A', 'B'), ('A ', ' B'), ('A[i', '4'), ('B[i', '4')]
+  #>>> currentLine
+  #'A+B A + B A[i+4]+B[i+4]'
+  #>>> matches = re.findall('(\w+.*?)\+(.*?\w+?)',currentLine)
+  #>>> matches
+  #[('A', 'B'), ('A ', ' B'), ('A[i', '4'), ('B[i', '4'), ('A', 'B')]
+
   return False
 ###################################Function and Class Definition Ends Here################################################################
 
 print "**************************************************************************"
-print "****			Static Code Analyzer			      ****"
+print "****			C Code Parser   			      ****"
 print "**************************************************************************"
 print "****		   Please Use Python 2.7 or later		      ****"
 print "**************************************************************************"
