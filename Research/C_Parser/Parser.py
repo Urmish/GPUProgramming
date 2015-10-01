@@ -12,6 +12,9 @@ NumLoadOperations = 0
 NumStoreOperations = 0
 NumOffsetAccesses = 0
 NumIndirectAccesses = 0 #A[B[i]]
+FoundFLPMulDiv = False
+ControlDensity = "L"
+WarpDivergenceRatio = 0 
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value):
@@ -30,6 +33,9 @@ class VariableState():
     print "size -     ",self.size
     print "value-     ",self.value
     return None
+  
+  def getVarType(self):
+    return self.varType
 
 class Stack():
   def __init__(self):
@@ -220,8 +226,11 @@ def checkStartEndScope(currentline):
 	scopeInitializer = "if"
       scope.push(scopeInitializer)
     else:
-      raise RuntimeError('Found a start of scope but was not able to find scope initializer')
-  elif matchEnd:
+      if matchEnd == None: #for scenarios like struct {}, scope ends in same line
+        raise RuntimeError('Found a start of scope but was not able to find scope initializer')
+      else:
+        scope.push("struct/class")
+  elif matchEnd: #for scenarios like struct {}, scope ends in same line
     scope.pop()
   return
  
@@ -293,16 +302,26 @@ def FPDivMult(currentLine):
       start=start-1
     if (currentLine[start] == ")"):
       start=start-1
+      startFrom = start
+      while(currentLine[startFrom] != "("):
+        startFrom = startFrom-1
     if (currentLine[start] == "]"):
       operandA = 2
       while (currentLine[start] != "["):
 	start=start-1  
-      start=start-1 #Just Reached [, need to decrement
+      start=start-1 #Just Reached [, need to decrement 
     print currentLine[startFrom:start+1]
     temp = re.search('[\( *=\/\+](\w.*)$',currentLine[startFrom:start+1])
     if temp:
       print "match"
-      print temp.group(1)
+      print temp.group(1) 
+      if temp.group(1) in variables:
+        if variables[temp.group(1)].getVarType() == 1 :
+	  global FoundFLPMulDiv
+          FoundFLPMulDiv = True
+      elif re.search('\df',temp.group(1)):
+	global FoundFLPMulDiv
+        FoundFLPMulDiv = True
     else:
       operandA=3 #If no variable found, then its a constant
     startFrom = end 
@@ -311,6 +330,13 @@ def FPDivMult(currentLine):
     if temp:
       print "match"
       print temp.group(1)
+      if temp.group(1) in variables:
+        if variables[temp.group(1)].getVarType() == 1 :
+	  global FoundFLPMulDiv
+          FoundFLPMulDiv = True
+      elif re.search('\df',temp.group(1)):
+	global FoundFLPMulDiv
+        FoundFLPMulDiv = True
       (p,tempStartFrom) = temp.span()
       startFrom = startFrom+tempStartFrom-1
       print startFrom, " ",currentLine[startFrom]
@@ -323,6 +349,30 @@ def FPDivMult(currentLine):
     else:
       operandB=3 #If no match found, then a constant
   return False
+
+def checkControlDensity(currentLine):
+  "Checks for if/while/do statements"
+  ifCheck = re.findall('\Wif\W', currentLine)
+  whileCheck = re.findall('\Wwhile\W', currentLine)
+  forCheck = re.findall('\Wfor\W', currentLine)
+  if len(ifCheck)>0 or len(whileCheck)>0 or len(forCheck)>0 :
+    global ControlDensity
+    ControlDensity = "H"
+  return False
+
+def checkWarpDivergence(currentLine):
+  "Checks for Warp Divergence"
+  ratios = re.findall('BRATIO\d+\.\d+?',currentLine)
+  bratio = 0
+  for ratio in ratios:
+    value = re.findall('\d+\.\d+',ratio)
+    #print ratio
+    #print value
+    bratio = bratio*float(value[0])
+  if (bratio > WarpDivergenceRatio):
+    global WarpDivergenceRatio
+    WarpDivergenceRatio = bratio
+  return
 ###################################Function and Class Definition Ends Here################################################################
 
 print "**************************************************************************"
@@ -340,7 +390,7 @@ except IOError:
   sys.exit()
 
 for currentLine in fileHandler:
-  #printFileLine(currentLine)
+  printFileLine(currentLine)
   checkStartEndScope(currentLine)
   #Call get variables after scope to detect scenarios like for(int i...)
   getVariables(currentLine)
@@ -350,6 +400,8 @@ for currentLine in fileHandler:
     ArithmeticInstructions(currentLine)
     MemoryOperations(currentLine)
     FPDivMult(currentLine)
+    checkControlDensity(currentLine)
+    checkWarpDivergence(currentLine)
   
   if isEndOfAnnotation(currentLine) :
     global StartAnalyzing
@@ -391,4 +443,15 @@ elif ((TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))>1 and
   print "Arithmetic Intensity - M"
 else:
   print "Arithmetic Intensity - H"
-  
+
+if (FoundFLPMulDiv):
+  print "Floating Point Mul/Div - H" 
+else:
+  print "Floating Point Mul/Div - L" 
+
+print "ControlDensity - ",ControlDensity
+
+if (WarpDivergenceRatio >=0 and WarpDivergenceRatio <=1):
+  print "BranchDivergence - L"
+else:
+  print "BranchDivergence - H"
