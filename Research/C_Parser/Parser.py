@@ -15,6 +15,8 @@ NumIndirectAccesses = 0 #A[B[i]]
 FoundFLPMulDiv = False
 ControlDensity = "L"
 WarpDivergenceRatio = 0 
+MultiplicationFactorFor = 1 #Useful for scenarios where for loop is executed by thread body
+MultiplicationFactorIf = 1 #Useful for scenarios where if is taken, different from for as multiplication factor would depend on bratio and we need a multiplication factor proportional to 1/32
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value):
@@ -60,6 +62,12 @@ class Stack():
 
 scope = Stack() #Accessed to understand the scope of a variable
 scope.push('Global')
+
+MultiplicationFactorFor = Stack()
+MultiplicationFactorFor.push(1)
+
+MultiplicationFactorIf = Stack()
+MultiplicationFactorIf.push(1)
 
 def printVariables():
     print "**********"
@@ -183,7 +191,7 @@ def getVariables(currentLine):
                   doubleValue)
   return None
 
-def Transcendental(currentLine):
+def Transcendental(currentLine, MultiplicationFactorFor,MultiplicationFactorIf):
   "checks for transcendental functions in a line"
   matchObjLog  = re.findall('logf',currentLine, re.I)
   matchObjSin  = re.findall('sinf',currentLine, re.I)
@@ -192,15 +200,15 @@ def Transcendental(currentLine):
   matchObjSqrt = re.findall('sqrtf',currentLine, re.I)
   global TotalTranscendentals
   if matchObjLog:
-    TotalTranscendentals = TotalTranscendentals + len(matchObjLog)  
+    TotalTranscendentals = TotalTranscendentals + len(matchObjLog)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   if matchObjSin:
-    TotalTranscendentals = TotalTranscendentals + len(matchObjSin)  
+    TotalTranscendentals = TotalTranscendentals + len(matchObjSin)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   if matchObjCos:
-    TotalTranscendentals = TotalTranscendentals + len(matchObjCos)  
+    TotalTranscendentals = TotalTranscendentals + len(matchObjCos)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   if matchObjExp:
-    TotalTranscendentals = TotalTranscendentals + len(matchObjExp)  
+    TotalTranscendentals = TotalTranscendentals + len(matchObjExp)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()  
   if matchObjSqrt:
-    TotalTranscendentals = TotalTranscendentals + len(matchObjSqrt)  
+    TotalTranscendentals = TotalTranscendentals + len(matchObjSqrt)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   return None
 
 
@@ -208,6 +216,7 @@ def checkStartEndScope(currentline):
   "Checks for { and } to identify scope of a variable"
   matchStart  = re.search('{',currentLine, re.I)
   matchEnd    = re.search('}',currentLine, re.I)
+  global StartAnalyzing
   if matchStart:
     matchFor    = re.search('for',currentLine, re.I)
     matchWhile  = re.search('while',currentLine, re.I)
@@ -231,6 +240,11 @@ def checkStartEndScope(currentline):
       else:
         scope.push("struct/class")
   elif matchEnd: #for scenarios like struct {}, scope ends in same line
+    if StartAnalyzing:
+      if scope.front() == "if":
+        MultiplicationFactorIf.pop()
+      elif scope.front() == "for":
+        MultiplicationFactorFor.pop()
     scope.pop()
   return
  
@@ -249,7 +263,7 @@ def GlobalMemoryTransaction(currentLine):
     NumIndirectAccesses = NumIndirectAccesses + len(indirect)
   return False
 
-def MemoryOperations(currentLine):
+def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf):
   "Check for memory access in currentline"
   #Below commented method do not work as -
   #Does not detect A[B[i]]!! Instead, use this detect number of [, number of ] and if = [resent. Store would be one, loads would be (number([)-1)/2. Keep a check Number([) = Number(])
@@ -260,22 +274,22 @@ def MemoryOperations(currentLine):
   loadOperations = re.findall('\[',currentLine, re.I)
   global NumLoadOperations
   global NumStoreOperations
-  NumStoreOperations = NumStoreOperations + len(storeOperations)
-  NumLoadOperations  = NumLoadOperations + len(loadOperations) - len(storeOperations)
+  NumStoreOperations = NumStoreOperations + len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  NumLoadOperations  = NumLoadOperations + len(loadOperations) - len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   if len(loadOperations) > 0 or len(storeOperations) > 0:
     GlobalMemoryTransaction(currentLine)
   return False
 
-def ArithmeticInstructions(currentLine):
+def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFactorIf):
   "Checks for number of arithmetic operations in a line"
   #Right now A[i+4] is also included, need to take care of this!!!! TODO FIXME
   #print currentLine
   numArithmetic  = re.findall('\+\+|\+|\-|\*|/|\<\=|\>\=|\<\<|\>\>|\=\=|\<|\>',currentLine, re.I)
   global TotalArithmeticInstructions
   #print len(numArithmetic)
-  TotalArithmeticInstructions = TotalArithmeticInstructions + len(numArithmetic)
+  TotalArithmeticInstructions = TotalArithmeticInstructions + len(numArithmetic)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   numArithmetic  = re.findall('\w+\[.*\+.*\]',currentLine, re.I)
-  TotalArithmeticInstructions = TotalArithmeticInstructions - len(numArithmetic)
+  TotalArithmeticInstructions = TotalArithmeticInstructions - len(numArithmetic)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   return False
 
 def FPDivMult(currentLine):
@@ -372,7 +386,21 @@ def checkWarpDivergence(currentLine):
   if (bratio > WarpDivergenceRatio):
     global WarpDivergenceRatio
     WarpDivergenceRatio = bratio
+  MultiplicationFactorIf.push(bratio)
   return
+
+def checkForMultFactor(currentLine):
+  "Checks Multiplicative factor of For Loop within a thread body"
+  ratios = re.findall('FRATIO\d+?',currentLine)
+  fratio = 0
+  for ratio in ratios:
+    value = re.findall('\d+',ratio)
+    #print ratio
+    #print value
+    fratio = fratio*int(value[0])
+  MultiplicationFactorFor.push(fratio)
+  return
+
 ###################################Function and Class Definition Ends Here################################################################
 
 print "**************************************************************************"
@@ -396,12 +424,13 @@ for currentLine in fileHandler:
   getVariables(currentLine)
   isStartOfAnnotation(currentLine)
   if StartAnalyzing :
-    Transcendental(currentLine)
-    ArithmeticInstructions(currentLine)
-    MemoryOperations(currentLine)
+    Transcendental(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
+    ArithmeticInstructions(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
+    MemoryOperations(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
     FPDivMult(currentLine)
     checkControlDensity(currentLine)
     checkWarpDivergence(currentLine)
+    checkForMultFactor(currentLine)
   
   if isEndOfAnnotation(currentLine) :
     global StartAnalyzing
