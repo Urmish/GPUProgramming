@@ -1,0 +1,34 @@
+count = 10000;
+maxheight = 2;
+threadsPerBlock = 508;
+
+long currKnode[10000], offset[10000];
+
+typedef struct knode {
+        int location;
+        int indices [509];
+        int  keys [509];
+        bool is_leaf;
+        int num_keys;
+} knode;
+
+####Annotation Begins####
+for(bid = 0; bid < count; bid++){
+    for(i = 0; i < maxheight; i++){
+        for(thid = 0; thid < threadsPerBlock; thid++){
+             if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
+                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
+                      offset[bid] = knodes[offset[bid]].indices[thid];
+                  }
+             }
+        }
+        currKnode[bid] = offset[bid];
+    }
+ 
+    for(thid = 0; thid < threadsPerBlock; thid++){
+        if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
+            ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
+        }
+    }
+}
+####Annotation Ends####

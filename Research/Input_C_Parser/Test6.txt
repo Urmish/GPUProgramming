@@ -1,0 +1,42 @@
+truct float3 { float x, y, z; };
+iterations = 2000;
+nelr = 97046;
+NVAR = 5;
+GAMMA = 1.4;
+VAR_MOMENTUM = 1;
+VAR_DENSITY = 0;
+VAR_DENSITY_ENERGY = 4;
+float variables[nelr*NVAR], ff_variable[NVAR], step_factors[nelr], areas[nelr];
+
+
+for(int iter=0; iter < iterations; iter++){
+    for(int i = 0; i < nelr*NVAR; i++){
+        old_variables[i] = variables[i];
+    }
+
+####Annotation Begins####
+    for(int i = 0; i < nelr; i++){
+        float density = variables[NVAR*i + VAR_DENSITY];
+        float3 momentum;
+        momentum.x = variables[NVAR*i + (VAR_MOMENTUM+0)];
+        momentum.y = variables[NVAR*i + (VAR_MOMENTUM+1)];
+        momentum.z = variables[NVAR*i + (VAR_MOMENTUM+2)];
+ 
+        float density_energy = variables[NVAR*i + VAR_DENSITY_ENERGY];
+ 
+        float3 velocity;
+        velocity.x = momentum.x / density;
+        velocity.y = momentum.y / density;
+        velocity.z = momentum.z / density;
+ 
+        float speed_sqd = velocity.x*velocity.x + velocity.y*velocity.y + velocity.z*velocity.z;
+        float pressure = (float(GAMMA)-float(1.0f))*(density_energy - float(0.5f)*density*speed_sqd);
+        float speed_of_sound = sqrtf(float(GAMMA)*pressure/density);
+        step_factors[i] = float(0.5f) / (sqrtf(areas[i]) * (sqrtf(speed_sqd) + speed_of_sound));
+    }
+####Annotation Ends####
+    for(int j = 0; j < RK; j++){
+        compute_flux(nelr, elements_surrounding_elements, normals, variables, fluxes);
+        time_step(j, nelr, old_variables, variables, step_factors, fluxes);
+    }
+}

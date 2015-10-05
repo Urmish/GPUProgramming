@@ -1,0 +1,55 @@
+nt Nc = 458, Nr = 502, niter=100; 
+float image[229916]; 
+long Nr,Nc;
+long Ne;
+int niter;  
+float lambda;  
+int r1,r2,c1,c2; 
+long NeROI;     
+float meanROI, varROI, q0sqr;     
+int iN[502], iS[502];
+int jE[458], jW[458];
+float Jc;
+float dN[229916], dS[229916], dW[229916], dE[229916];
+float tmp,sum,sum2;
+float G2,L,num,den,qsqr,D;
+float c[229916];
+float cN,cS,cW,cE;
+int iter;    // primary loop
+long i,j;    // image row/col
+long k;      // image single index    
+
+for (i=0; i<Nr; i++) {
+    iN[i] = i-1;       // holds index of IMAGE row above
+    iS[i] = i+1;       // holds index of IMAGE row below
+}
+
+for (j=0; j<Nc; j++) {
+    jW[j] = j-1;       // holds index of IMAGE column on the left
+    jE[j] = j+1;       // holds index of IMAGE column on the right
+}
+
+// N/S/W/E boundary conditions, fix surrounding indices outside boundary of IMAGE
+iN[0]    = 0;      // changes IMAGE top row index from -1 to 0
+iS[Nr-1] = Nr-1;   // changes IMAGE bottom row index from Nr to Nr-1 
+jW[0]    = 0;          
+
+ 
+
+for (iter=0; iter < niter; iter++){
+####Annotation Begins####
+for (j=0; j<Nc; j++) {                       
+    for (i=0; i<Nr; i++) {
+        k = i + Nr*j;      
+        cN = c[k];        
+        cS = c[iS[i] + Nr*j];
+        cW = c[k];          
+        cE = c[i + Nr*jE[j]];
+        D = cN*dN[k] + cS*dS[k] + cW*dW[k] + cE*dE[k];          
+        image[k] = image[k] + 0.25*lambda*D;   
+    }
+}
+####Annotation Ends####
+
+}
+

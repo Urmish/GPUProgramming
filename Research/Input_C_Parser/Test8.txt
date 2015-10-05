@@ -1,0 +1,21 @@
+#define NTOTAL 8388608
+
+int *indexmap;
+int i, k, j, id;
+int ii, ii2, jj, ij2, kk;
+####Annotation Begins####
+for(int idx=0; idx<NTOTAL; idx++){
+    i = idx % NX;
+    k = idx / NX;
+    j = k % NY;
+    k = k / NY;
+ 
+    ii =  (i+NX/2)%NX - NX/2;
+    ii2 = ii*ii;
+    jj = (j+NY/2)%NY - NY/2;
+    ij2 = jj*jj+ii2;
+    kk = (k+NZ/2)%NZ - NZ/2;
+ 
+    indexmap[idx] = kk*kk+ij2;
+}
+####Annotation Ends####

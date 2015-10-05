@@ -1,0 +1,10 @@
+
+int Ne = 229916
+float image[229916];
+####Annotation Begins####
+    for (i=0; i<Ne; i++) {                 
+        image[i] = logf(image[i])*255.0f;                  
+    }
+####Annotation Ends####
+
+

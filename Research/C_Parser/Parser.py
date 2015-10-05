@@ -2,6 +2,7 @@
 import sys
 import re
 import argparse
+import os
 
 variables = dict()
 TotalTranscendentals = 0
@@ -449,38 +450,63 @@ print "NumOffsetAccesses - ", NumOffsetAccesses
 print "NumIndirectAccesses - ", NumIndirectAccesses
 print "\n"
 print "######################################################"
+basename = os.path.basename(args.file_name)
+writeLine = os.path.splitext(basename)[0]
 if (TotalTranscendentals==0):
   print "Transcendental Ratio - L"
+  writeLine= writeLine+",L"
 elif ( TotalTranscendentals/(TotalArithmeticInstructions+NumLoadOperations+NumStoreOperations) < 0.15):
   print "Transcendental Ratio - M"
+  writeLine= writeLine+",M"
 else:
   print "Transcendental Ratio - H"
-
-if (NumOffsetAccesses>0 or NumIndirectAccesses>0):
-  print "Global Memory Operation - L"
-else:
-  print "Global Memory Operation - H"
-
-if (TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreOperations < 70):
-  print "Total Instruction - L"
-else:
-  print "Total Instruction - H"
+  writeLine= writeLine+",H"
 
 if (TotalArithmeticInstructions < NumLoadOperations+NumStoreOperations):
   print "Arithmetic Intensity - L"
+  writeLine= writeLine+",L"
 elif ((TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))>1 and (TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))<5 ):
   print "Arithmetic Intensity - M"
+  writeLine= writeLine+",M"
 else:
   print "Arithmetic Intensity - H"
+  writeLine= writeLine+",H"
 
-if (FoundFLPMulDiv):
-  print "Floating Point Mul/Div - H" 
+
+
+if (NumOffsetAccesses>0 or NumIndirectAccesses>0):
+  print "Global Memory Operation - L"
+  writeLine= writeLine+",L"
 else:
-  print "Floating Point Mul/Div - L" 
-
-print "ControlDensity - ",ControlDensity
+  print "Global Memory Operation - H"
+  writeLine= writeLine+",H"
 
 if (WarpDivergenceRatio >=0 and WarpDivergenceRatio <=1):
   print "BranchDivergence - L"
+  writeLine= writeLine+",L"
 else:
   print "BranchDivergence - H"
+  writeLine= writeLine+",H"
+
+print "ControlDensity - ",ControlDensity
+writeLine=writeLine+","+ControlDensity
+
+if (FoundFLPMulDiv):
+  print "Floating Point Mul/Div - H" 
+  writeLine=writeLine+",H"
+else:
+  print "Floating Point Mul/Div - L" 
+  writeLine=writeLine+",L"
+
+if (TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreOperations < 70):
+  print "Total Instruction - L"
+  writeLine=writeLine+",L"
+else:
+  print "Total Instruction - H"
+  writeLine=writeLine+",H"
+
+
+writeLine=writeLine+",NA"
+
+with open('Output.txt','ab') as apfile:
+  apfile.write(writeLine);

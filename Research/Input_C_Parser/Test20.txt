@@ -1,0 +1,75 @@
+int Nc = 458, Nr = 502, niter=100; 
+float image[229916]; 
+long Nr,Nc;
+long Ne;
+int niter;  
+float lambda;  
+int r1,r2,c1,c2; 
+long NeROI;     
+float meanROI, varROI, q0sqr;     
+int iN[502], iS[502];
+int jE[458], jW[458];
+float Jc;
+float dN[229916], dS[229916], dW[229916], dE[229916];
+float tmp,sum,sum2;
+float G2,L,num,den,qsqr,D;
+float c[229916];
+float cN,cS,cW,cE;
+int iter;    // primary loop
+long i,j;    // image row/col
+long k;      // image single index    
+
+for (i=0; i<Nr; i++) {
+    iN[i] = i-1;       // holds index of IMAGE row above
+    iS[i] = i+1;       // holds index of IMAGE row below
+}
+
+for (j=0; j<Nc; j++) {
+    jW[j] = j-1;       // holds index of IMAGE column on the left
+    jE[j] = j+1;       // holds index of IMAGE column on the right
+}
+
+// N/S/W/E boundary conditions, fix surrounding indices outside boundary of IMAGE
+iN[0]    = 0;      // changes IMAGE top row index from -1 to 0
+iS[Nr-1] = Nr-1;   // changes IMAGE bottom row index from Nr to Nr-1 
+jW[0]    = 0;          
+
+for (iter=0; iter < niter; iter++){
+for (j=0; j < Nc; j++) {                                       
+####Annotation Begins####
+   for (i=0; i < Nr; i++) {                                  
+      k = i + Nr*j;                                   
+      Jc = image[k];                                     
+                     
+      dN[k] = image[iN[i] + Nr*j] - Jc;                        
+      dS[k] = image[iS[i] + Nr*j] - Jc;                        
+      dW[k] = image[i + Nr*jW[j]] - Jc;                        
+      dE[k] = image[i + Nr*jE[j]] - Jc;                        
+ 
+               
+      G2 = (dN[k]*dN[k] + dS[k]*dS[k] + dW[k]*dW[k] + dE[k]*dE[k]) / (Jc*Jc);
+ 
+      L = (dN[k] + dS[k] + dW[k] + dE[k]) / Jc;             
+ 
+      num  = (0.5*G2) - ((1.0/16.0)*(L*L)) ;                
+      den  = 1 + (.25*L);                                
+      qsqr = num/(den*den);                              
+ 
+      den = (qsqr-q0sqr) / (q0sqr * (1+q0sqr)) ;               
+      c[k] = 1.0 / (1.0+den) ;                           
+ 
+      if (c[k] < 0) {   	// Always not-taken.           //BRATIO0.0
+         c[k] = 0;
+      }                                   
+      
+      else if (c[k] > 1) {  	// Taken BRATIO99.9992% of the time.          
+         c[k] = 1;
+      }                                   
+ 
+   }
+}
+####Annotation Ends####
+ 
+
+}
+

@@ -1,0 +1,22 @@
+#define NTOTAL 8388608
+#define NX 256
+#define NY 256
+#define NZ 128
+int i, k, j, var;
+int niter = 2;
+double y0_r[NTOTAL], y0_i[NTOTAL], x_r[NTOTAL], x_i[NTOTAL];
+
+for (iter = 1; iteri<=niter; iter++) {
+####Annotation Begins####
+    for(int idx=0; idx<NTOTAL; idx++){
+        i = idx % NX;
+        k = idx / NX;
+        j = k % NY;
+        k = k / NY;
+        var = j*NX*NZ + k*NX + i;
+ 
+        y0_r[var] = x_r[idx];
+        y0_i[var] = x_i[idx];
+    }
+}
+####Annotation Ends####

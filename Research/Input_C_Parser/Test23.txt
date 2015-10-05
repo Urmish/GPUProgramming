@@ -1,0 +1,56 @@
+int rows = 2048;
+int cols = 2048;
+niter = 2;
+int iN[2048], iS[2048], jE[2048], jW[2048];
+float Jc;
+float dNi[4194304], dS[4194304], dW[4194304], dE[4194304];
+float tmp,sum,sum2;
+float G2,L,num,den,qsqr,D;
+float c[4194304];
+float cN,cS,cW,cE;
+int iter;   // primary loop
+long i,j;    // image row/col
+long k;      // image single index    
+
+for (int i=0; i< rows; i++) {
+    iN[i] = i-1;
+    iS[i] = i+1;
+}
+
+for (int j=0; j< cols; j++) {
+    jW[j] = j-1;
+    jE[j] = j+1;
+}
+
+iN[0]    = 0;
+iS[rows-1] = rows-1;
+jW[0]    = 0;
+jE[cols-1] = cols-1;
+
+for (iter=0; iter<niter; iter++){                                           
+
+    for (int i = 0; i < rows; i++) {
+####Annotation Begins####
+        for (int j = 0; j < cols; j++) {
+            // current index
+            k = i * cols + j;
+ 
+            // diffusion coefficent
+            cN = c[k];
+            cS = c[iS[i] * cols + j];
+            cW = c[k];
+            cE = c[i * cols + jE[j]];
+ 
+            // divergence (equ 58)
+            D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
+ 
+            // image update (equ 61)
+            J[k] = J[k] + 0.25*lambda*D;
+        }
+    }
+
+}
+####Annotation Ends####
+
+
+
