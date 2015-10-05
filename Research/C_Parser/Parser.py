@@ -222,18 +222,28 @@ def checkStartEndScope(currentline):
     matchFor    = re.search('for',currentLine, re.I)
     matchWhile  = re.search('while',currentLine, re.I)
     matchIf     = re.search('if',currentLine, re.I)
+    matchElse     = re.search('else',currentLine, re.I)
+    matchStruct     = re.search('struct',   currentLine, re.I)
+    matchDo     = re.search('do',   currentLine, re.I)
 
     matchForPrev    = re.search('for',  previousLine, re.I)
     matchWhilePrev  = re.search('while',previousLine, re.I)
     matchIfPrev     = re.search('if',   previousLine, re.I)
-    if matchFor or matchWhile or matchIf or matchForPrev or matchWhilePrev or matchIfPrev:
+    matchElsePrev     = re.search('Else',   previousLine, re.I)
+    matchStructPrev     = re.search('struct',   previousLine, re.I)
+    matchDoPrev     = re.search('do',   previousLine, re.I)
+    if matchFor or matchWhile or matchIf or matchForPrev or matchWhilePrev or matchIfPrev or matchStruct or matchStructPrev or matchDo or matchDoPrev or matchElse or matchElsePrev:
       scopeInitializer = ""
       if matchFor or matchForPrev:
 	scopeInitializer = "For"
       elif matchWhile or matchWhilePrev:
 	scopeInitializer = "While"
-      elif matchIf or matchIfPrev:
+      elif matchIf or matchIfPrev or matchElsePrev or matchElse:
 	scopeInitializer = "if"
+      elif matchStruct or matchStructPrev:
+        scopeInitializer = "struct"
+      elif matchDo or matchDoPrev:
+        scopeInitializer = "do"
       scope.push(scopeInitializer)
     else:
       if matchEnd == None: #for scenarios like struct {}, scope ends in same line
@@ -369,10 +379,12 @@ def checkControlDensity(currentLine):
   "Checks for if/while/do statements"
   ifCheck = re.findall('\Wif\W', currentLine)
   whileCheck = re.findall('\Wwhile\W', currentLine)
-  forCheck = re.findall('\Wfor\W', currentLine)
-  if len(ifCheck)>0 or len(whileCheck)>0 or len(forCheck)>0 :
+  #forCheck = re.findall('\Wfor\W', currentLine)
+  #if len(ifCheck)>0 or len(whileCheck)>0 or len(forCheck)>0 :
+  if len(ifCheck)>0 or len(whileCheck)>0 : #Removing For as Annotation Starts above For
     global ControlDensity
     ControlDensity = "H"
+    print "Found Control Density"
   return False
 
 def checkWarpDivergence(currentLine):
@@ -414,6 +426,7 @@ try:
   parser.add_argument('-file',required=True, dest='file_name',help='file that you want analyzed')
   args = parser.parse_args()
   fileHandler = open(args.file_name, "r")
+  print args.file_name
 except IOError:
   print "There was an error reading ", args.file_name
   sys.exit()
@@ -506,7 +519,7 @@ else:
   writeLine=writeLine+",H"
 
 
-writeLine=writeLine+",NA"
+writeLine=writeLine+"\n"
 
 with open('Output.txt','ab') as apfile:
   apfile.write(writeLine);
