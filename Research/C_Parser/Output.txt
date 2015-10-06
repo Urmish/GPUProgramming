@@ -16,7 +16,7 @@ Test15,L,H,L,L,H,H,L
 Test16,L,H,L,L,H,H,L
 Test17,M,M,H,L,L,H,L
 Test18,L,M,H,L,H,L,H
-Test19,H,H,H,L,L,L,L
+Test19,H,H,H,L,L,H,L
 Test20,L,M,L,L,H,H,L
 Test21,L,H,L,L,L,H,L
 Test22,H,H,H,L,L,H,L

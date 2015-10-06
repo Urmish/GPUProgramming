@@ -382,6 +382,80 @@ def FPDivMult(currentLine):
       operandB=3 #If no match found, then a constant
   return False
 
+def FPDiv(currentLine):
+  "Checks for Floating Point Multiplication and Division"
+  matches = re.finditer("/",currentLine)
+  startFrom=0
+  equalto = re.finditer("=",currentLine)
+  #print equalto
+  for iterE in equalto:
+    (startFrom,nouse) = iterE.span()
+    startFrom = startFrom+1
+    break
+
+  for match in matches:
+    print "Division Found"
+    print "####"
+    (start,end) = match.span()
+    print start, " ",currentLine[start]
+    print end, " ",currentLine[end]
+    operandA = 1; #1 - Scalar, 2 - Array, 3 - Constant
+    operandB = 1;
+    start = start - 1 #start is the position of *
+    print start, " ",currentLine[start]
+    while (currentLine[start] == " "):
+      start=start-1
+    if (currentLine[start] == ")"):
+      start=start-1
+      startFrom = start
+      while(currentLine[startFrom] != "("):
+        startFrom = startFrom-1
+    if (currentLine[start] == "]"):
+      operandA = 2
+      while (currentLine[start] != "["):
+	start=start-1  
+      start=start-1 #Just Reached [, need to decrement 
+    print currentLine[startFrom:start+1]
+    temp = re.search('[( *=/+](\w.*)$',currentLine[startFrom:start+1].strip())
+    if temp:
+      print "match"
+      print temp.group(1) 
+      if temp.group(1) in variables:
+        if variables[temp.group(1)].getVarType() == 1 :
+	  global FoundFLPMulDiv
+          FoundFLPMulDiv = True
+      elif re.search('\df',temp.group(1)):
+	global FoundFLPMulDiv
+        FoundFLPMulDiv = True
+    else:
+      operandA=3 #If no variable found, then its a constant
+    startFrom = end 
+    print currentLine[startFrom:]
+    temp = re.search('(\w.*?)[ +*/\[\)]',currentLine[startFrom:])
+    if temp:
+      print "match"
+      print temp.group(1)
+      if temp.group(1) in variables:
+        if variables[temp.group(1)].getVarType() == 1 :
+	  global FoundFLPMulDiv
+          FoundFLPMulDiv = True
+      elif re.search('\df',temp.group(1)):
+	global FoundFLPMulDiv
+        FoundFLPMulDiv = True
+      (p,tempStartFrom) = temp.span()
+      startFrom = startFrom+tempStartFrom-1
+      print startFrom, " ",currentLine[startFrom]
+      if (currentLine[startFrom] == "["):
+	operandB=2
+	while(currentLine[startFrom] != "]"):
+	  startFrom=startFrom+1
+	startFrom=startFrom+1 #You just reached ], increment by 1
+	print startFrom
+    else:
+      operandB=3 #If no match found, then a constant
+  return False
+
+
 def checkControlDensity(currentLine):
   "Checks for if/while/do statements"
   ifCheck = re.findall('\Wif\W', currentLine)
@@ -450,6 +524,7 @@ for currentLine in fileHandler:
     ArithmeticInstructions(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
     MemoryOperations(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
     FPDivMult(currentLine)
+    FPDiv(currentLine)
     checkControlDensity(currentLine)
     checkWarpDivergence(currentLine)
     checkForMultFactor(currentLine)
@@ -503,10 +578,10 @@ else:
   writeLine= writeLine+",H"
 
 if (WarpDivergenceRatio >=0 and WarpDivergenceRatio <=1):
-  print "BranchDivergence - L"
+  print "BranchDivergence - L"+" "+str(WarpDivergenceRatio)
   writeLine= writeLine+",L"
 else:
-  print "BranchDivergence - H"
+  print "BranchDivergence - H"+" "+str(WarpDivergenceRatio)
   writeLine= writeLine+",H"
 
 print "ControlDensity - ",ControlDensity
