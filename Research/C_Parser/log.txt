@@ -1,12 +1,12 @@
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -20,7 +20,15 @@
 
 
 
-float new_dwi, *delta, **w, **old_w, *ly;
+float new_dwi;
+
+float *delta;
+
+float  **w;
+
+float **old_w;
+
+float *ly;
 
 int k, j;
 
@@ -33,16 +41,20 @@ ly[0] = 1.0;
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7faa55173c50>
+0
+0
 for (k = 0; k <= nly; k++) { 
 
-<callable-iterator object at 0x7faa55173d50>
-    for (j = 1; j <= ndelta; j++) { //FRATIO16
+2
+2
+    for (j = 1; j <= ndelta; j++) {
 
-<callable-iterator object at 0x7faa55173d50>
+4
+4
         new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
 
-<callable-iterator object at 0x7faa55173d10>
+8
+7
 ####
 23   *
 24    
@@ -82,28 +94,40 @@ oldw
 64
         w[k][j] += new_dw;
 
-<callable-iterator object at 0x7faa55173c50>
+8
+8
         oldw[k][j] = new_dw;
 
-<callable-iterator object at 0x7faa55173d50>
+8
+8
     }
 
-<callable-iterator object at 0x7faa55173d50>
+8
+8
 }
 
-<callable-iterator object at 0x7faa55173d10>
+8
+8
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7faa55173c50>
+8
+8
 ######################################################
 **********
 The values of this entry are
-Name -      new_dwi
+Name -      
+Scope -     Global
+varType -   1
+size -      0
+value-      None
+**********
+The values of this entry are
+Name -      ndelta
 Scope -     Global
 varType -   0
 size -      1
-value-      None
+value-      16
 **********
 The values of this entry are
 Name -      nly
@@ -120,39 +144,53 @@ size -      1
 value-      None
 **********
 The values of this entry are
-Name -      ndelta
+Name -      delta
 Scope -     Global
-varType -   0
+varType -   1
+size -      3
+value-      None
+**********
+The values of this entry are
+Name -      new_dwi
+Scope -     Global
+varType -   1
 size -      1
-value-      16
+value-      None
+**********
+The values of this entry are
+Name -      ly
+Scope -     Global
+varType -   1
+size -      3
+value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 8
-NumStoreOperations - 0
+TotalArithmeticInstructions - 8
+NumLoadOperations - 6
+NumStoreOperations - 2
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  L
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -197,35 +235,45 @@ do{
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7fbe986ddc50>
+0
+0
 for(int tid=0; tid < no_of_nodes ; tid++ ){
 
-<callable-iterator object at 0x7fbe986ddd50>
+2
+2
     if (h_updating_graph_mask[tid] == true){		//BRATIO0.08
 
-<callable-iterator object at 0x7fbe986ddd50>
+5
+5
 Found Control Density
         h_graph_mask[tid]=true;
 
-<callable-iterator object at 0x7fbe986ddd10>
+5.0
+5.0
         h_graph_visited[tid]=true;
 
-<callable-iterator object at 0x7fbe986ddd50>
+5.0
+5.0
         stop=true;
 
-<callable-iterator object at 0x7fbe986ddd10>
+5.0
+5.0
         h_updating_graph_mask[tid]=false;
 
-<callable-iterator object at 0x7fbe986ddd50>
+5.0
+5.0
     }
 
-<callable-iterator object at 0x7fbe986ddd10>
+5.0
+5.0
 }
 
-<callable-iterator object at 0x7fbe986ddd50>
+5.0
+5.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7fbe986ddc50>
+5.0
+5.0
 Annotation End Found
 ######################################################
 **********
@@ -260,30 +308,30 @@ value-      1000000
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 4.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 5.0
+NumLoadOperations - 0.0
+NumStoreOperations - 1.0
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  H
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -322,67 +370,87 @@ typedef struct knode {
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f9065383c50>
+0
+0
 for(bid = 0; bid < count; bid++){
 
-<callable-iterator object at 0x7f9065383d10>
+2
+2
     for(i = 0; i < maxheight; i++){
 
-<callable-iterator object at 0x7f9065383d10>
+4
+4
         for(thid = 0; thid < threadsPerBlock; thid++){
 
-<callable-iterator object at 0x7f9065383d50>
+6
+6
              if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
 
-<callable-iterator object at 0x7f9065383d10>
+11
+10
 Found Control Density
                   if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
 
-<callable-iterator object at 0x7f9065383d50>
+13
+13
 Found Control Density
                       offset[bid] = knodes[offset[bid]].indices[thid];
 
-<callable-iterator object at 0x7f9065383d10>
+13
+13
                   }
 
-<callable-iterator object at 0x7f9065383c50>
+13
+13
              }
 
-<callable-iterator object at 0x7f9065383d50>
+13
+13
         }
 
-<callable-iterator object at 0x7f9065383d50>
+13
+13
         currKnode[bid] = offset[bid];
 
-<callable-iterator object at 0x7f9065383d10>
+13
+13
     }
 
-<callable-iterator object at 0x7f9065383d50>
+13
+13
  
 
-<callable-iterator object at 0x7f9065383d10>
+13
+13
     for(thid = 0; thid < threadsPerBlock; thid++){
 
-<callable-iterator object at 0x7f9065383d50>
+15
+15
         if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
 
-<callable-iterator object at 0x7f9065383d10>
+18
+18
 Found Control Density
             ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
 
-<callable-iterator object at 0x7f9065383d50>
+18
+18
         }
 
-<callable-iterator object at 0x7f9065383d10>
+18
+18
     }
 
-<callable-iterator object at 0x7f9065383d50>
+18
+18
 }
 
-<callable-iterator object at 0x7f9065383d10>
+18
+18
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f9065383c50>
+18
+18
 Annotation End Found
 ######################################################
 **********
@@ -417,9 +485,9 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 26
-NumStoreOperations - 0
+TotalArithmeticInstructions - 18
+NumLoadOperations - 21
+NumStoreOperations - 5
 NumOffsetAccesses -  1
 NumIndirectAccesses -  7
 
@@ -432,15 +500,15 @@ BranchDivergence - L
 ControlDensity -  H
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -479,100 +547,131 @@ typedef struct knode {
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f03c1e2dc50>
+0
+0
 for(bid = 0; bid < count; bid++){
 
-<callable-iterator object at 0x7f03c1e2dd10>
+2
+2
     for(i = 0; i < maxheight; i++){ //FRATIO2
 
-<callable-iterator object at 0x7f03c1e2dd10>
+6
+6
+FRATIO2
         for(thid = 0; thid < threadsPerBlock; thid++){
 
-<callable-iterator object at 0x7f03c1e2dd50>
+10
+10
             if((knodes[currKnode[bid]].keys[thid] <= start[bid]) && (knodes[currKnode[bid]].keys[thid+1] > start[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
 
-<callable-iterator object at 0x7f03c1e2dd10>
+24
+22
 Found Control Density
                 if(knodes[currKnode[bid]].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
 Found Control Density
                     offset[bid] = knodes[currKnode[bid]].indices[thid];
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
                 }
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
             }
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
             if((knodes[lastKnode[bid]].keys[thid] <= end[bid]) && (knodes[lastKnode[bid]].keys[thid+1] > end[bid])){	//taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
 Found Control Density
                 if(knodes[lastKnode[bid]].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
 Found Control Density
                     offset_2[bid] = knodes[lastKnode[bid]].indices[thid];
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
                 }
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
             }
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
         }
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
         currKnode[bid] = offset[bid];
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
         lastKnode[bid] = offset_2[bid];
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
     }
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
     for(thid = 0; thid < threadsPerBlock; thid++){
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
         if(knodes[currKnode[bid]].keys[thid] == start[bid]){				//only taken once for each iteration of count //BRATIO0.0001
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
 Found Control Density
             recstart[bid] = knodes[currKnode[bid]].indices[thid];
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
         }
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
     }
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
     for(thid = 0; thid < threadsPerBlock; thid++){
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
         if(knodes[lastKnode[bid]].keys[thid] == end[bid]){				//only taken once for each iteration of count //BRATIO0.0001
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
 Found Control Density
             reclength[bid] = knodes[lastKnode[bid]].indices[thid] - recstart[bid]+1;
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
         }
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
     }
 
-<callable-iterator object at 0x7f03c1e2dd50>
+22.0
+22.0
 }
 
-<callable-iterator object at 0x7f03c1e2dd10>
+22.0
+22.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f03c1e2dc50>
+22.0
+22.0
 Annotation End Found
 ######################################################
 **********
@@ -607,30 +706,30 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 51.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 22.0
+NumLoadOperations - 14.0
+NumStoreOperations - 2.0
 NumOffsetAccesses -  2
 NumIndirectAccesses -  12
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - M
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  H
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -649,13 +748,16 @@ float variables[nelr*NVAR], ff_variable[NVAR];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f444ebd5c50>
+0
+0
 for(int i = 0; i < nelr; i++){
 
-<callable-iterator object at 0x7f444ebd5d50>
+2
+2
     variables[i*NVAR + 0] = ff_variable[0];
 
-<callable-iterator object at 0x7f444ebd5d50>
+4
+3
 ####
 15   *
 16   N
@@ -668,7 +770,8 @@ NVAR
 20    
     variables[i*NVAR + 1] = ff_variable[1];
 
-<callable-iterator object at 0x7f444ebd5d10>
+5
+4
 ####
 15   *
 16   N
@@ -681,7 +784,8 @@ NVAR
 20    
     variables[i*NVAR + 2] = ff_variable[2];
 
-<callable-iterator object at 0x7f444ebd5d50>
+6
+5
 ####
 15   *
 16   N
@@ -694,7 +798,8 @@ NVAR
 20    
     variables[i*NVAR + 3] = ff_variable[3];
 
-<callable-iterator object at 0x7f444ebd5d10>
+7
+6
 ####
 15   *
 16   N
@@ -707,7 +812,8 @@ NVAR
 20    
     variables[i*NVAR + 4] = ff_variable[4];
 
-<callable-iterator object at 0x7f444ebd5d50>
+8
+7
 ####
 15   *
 16   N
@@ -720,10 +826,12 @@ NVAR
 20    
 }
 
-<callable-iterator object at 0x7f444ebd5d10>
+7
+7
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f444ebd5c50>
+7
+7
 Annotation End Found
 ######################################################
 **********
@@ -744,7 +852,7 @@ value-      5
 The values of this entry are
 Name -      variables
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -758,9 +866,9 @@ value-      97046
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 10
-NumStoreOperations - 0
+TotalArithmeticInstructions - 7
+NumLoadOperations - 5
+NumStoreOperations - 5
 NumOffsetAccesses -  5
 NumIndirectAccesses -  0
 
@@ -773,15 +881,15 @@ BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -824,13 +932,16 @@ for(int iter=0; iter < iterations; iter++){
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f90095a8c50>
+0
+0
     for(int i = 0; i < nelr; i++){
 
-<callable-iterator object at 0x7f90095a8d50>
+2
+2
         float density = variables[NVAR*i + VAR_DENSITY];
 
-<callable-iterator object at 0x7f90095a8d50>
+4
+3
 ####
 38   *
 39   i
@@ -845,10 +956,12 @@ i
 40    
         float3 momentum;
 
-<callable-iterator object at 0x7f90095a8c50>
+3
+3
         momentum.x = variables[NVAR*i + (VAR_MOMENTUM+0)];
 
-<callable-iterator object at 0x7f90095a8d10>
+6
+5
 ####
 35   *
 36   i
@@ -863,7 +976,8 @@ i
 37    
         momentum.y = variables[NVAR*i + (VAR_MOMENTUM+1)];
 
-<callable-iterator object at 0x7f90095a8c90>
+8
+7
 ####
 35   *
 36   i
@@ -878,7 +992,8 @@ i
 37    
         momentum.z = variables[NVAR*i + (VAR_MOMENTUM+2)];
 
-<callable-iterator object at 0x7f90095a8c90>
+10
+9
 ####
 35   *
 36   i
@@ -893,10 +1008,12 @@ i
 37    
  
 
-<callable-iterator object at 0x7f90095a8c90>
+9
+9
         float density_energy = variables[NVAR*i + VAR_DENSITY_ENERGY];
 
-<callable-iterator object at 0x7f90095a8d50>
+11
+10
 ####
 45   *
 46   i
@@ -911,25 +1028,32 @@ i
 47    
  
 
-<callable-iterator object at 0x7f90095a8d50>
+10
+10
         float3 velocity;
 
-<callable-iterator object at 0x7f90095a8c90>
+10
+10
         velocity.x = momentum.x / density;
 
-<callable-iterator object at 0x7f90095a8d10>
+11
+11
         velocity.y = momentum.y / density;
 
-<callable-iterator object at 0x7f90095a8d10>
+12
+12
         velocity.z = momentum.z / density;
 
-<callable-iterator object at 0x7f90095a8d50>
+13
+13
  
 
-<callable-iterator object at 0x7f90095a8d10>
+13
+13
         float speed_sqd = velocity.x*velocity.x + velocity.y*velocity.y + velocity.z*velocity.z;
 
-<callable-iterator object at 0x7f90095a8d50>
+18
+18
 ####
 36   *
 37   v
@@ -965,7 +1089,8 @@ velocity.z;
 
         float pressure = (float(GAMMA)-float(1.0f))*(density_energy - float(0.5f)*density*speed_sqd);
 
-<callable-iterator object at 0x7f90095a8d10>
+23
+23
 ####
 51   *
 52   (
@@ -1002,7 +1127,8 @@ speed_sqd
 99   )
         float speed_of_sound = sqrtf(float(GAMMA)*pressure/density);
 
-<callable-iterator object at 0x7f90095a8d50>
+25
+25
 ####
 49   *
 50   p
@@ -1017,7 +1143,8 @@ pressure
 58   /
         step_factors[i] = float(0.5f) / (sqrtf(areas[i]) * (sqrtf(speed_sqd) + speed_of_sound));
 
-<callable-iterator object at 0x7f90095a8d10>
+28
+28
 ####
 57   *
 58    
@@ -1032,17 +1159,19 @@ sqrtf(speed_sqd
 75   )
     }
 
-<callable-iterator object at 0x7f90095a8d50>
+28
+28
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f90095a8c90>
+28
+28
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      density
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -1056,14 +1185,14 @@ value-      0
 The values of this entry are
 Name -      speed_of_sound
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      variables
 Scope -     struct/class
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -1077,58 +1206,58 @@ value-      0
 The values of this entry are
 Name -      density_energy
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      speed_sqd
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      x
 Scope -     struct/class
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      pressure
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      1
 **********
 
 
-TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 7
-NumStoreOperations - 0
+TotalTranscendentals - 3
+TotalArithmeticInstructions - 28
+NumLoadOperations - 6
+NumStoreOperations - 1
 NumOffsetAccesses -  8
 NumIndirectAccesses -  0
 
 
 ######################################################
-Transcendental Ratio - L
-Arithmetic Intensity - L
+Transcendental Ratio - M0.0857142857143
+Arithmetic Intensity - M
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -1152,7 +1281,11 @@ VAR_DENSITY = 0;
 
 VAR_DENSITY_ENERGY = 4;
 
-float variables[nelr*NVAR], old_variables[nelr*NVAR], fluxes[nelr*NVAR];
+float variables[nelr*NVAR]
+
+float old_variables[nelr*NVAR]
+
+float fluxes[nelr*NVAR];
 
 float ff_variable[NVAR], step_factors[nelr], areas[nelr];
 
@@ -1215,19 +1348,24 @@ for(int iter=0; iter < iterations; iter++){
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f44710b2c50>
+0
+0
         for(int i = 0; i < nelr; i++){
 
-<callable-iterator object at 0x7f44710b2d50>
+2
+2
             float factor = step_factors[i]/float(RK+1-j);
 
-<callable-iterator object at 0x7f44710b2d50>
+5
+5
  
 
-<callable-iterator object at 0x7f44710b2d10>
+5
+5
             variables[NVAR*i + VAR_DENSITY] = old_variables[NVAR*i + VAR_DENSITY] + factor*fluxes[NVAR*i + VAR_DENSITY];
 
-<callable-iterator object at 0x7f44710b2c90>
+13
+12
 ####
 26   *
 27   i
@@ -1275,7 +1413,8 @@ i
 104    
             variables[NVAR*i + VAR_DENSITY_ENERGY] = old_variables[NVAR*i + VAR_DENSITY_ENERGY] + factor*fluxes[NVAR*i + VAR_DENSITY_ENERGY];
 
-<callable-iterator object at 0x7f44710b2c90>
+20
+19
 ####
 26   *
 27   i
@@ -1323,7 +1462,8 @@ i
 118    
             variables[NVAR*i + (VAR_MOMENTUM+0)] = old_variables[NVAR*i + (VAR_MOMENTUM+0)] + factor*fluxes[NVAR*i + (VAR_MOMENTUM+0)];
 
-<callable-iterator object at 0x7f44710b2d10>
+30
+29
 ####
 26   *
 27   i
@@ -1371,7 +1511,8 @@ i
 114    
             variables[NVAR*i + (VAR_MOMENTUM+1)] = old_variables[NVAR*i + (VAR_MOMENTUM+1)] + factor*fluxes[NVAR*i + (VAR_MOMENTUM+1)];
 
-<callable-iterator object at 0x7f44710b2c90>
+40
+39
 ####
 26   *
 27   i
@@ -1419,7 +1560,8 @@ i
 114    
             variables[NVAR*i + (VAR_MOMENTUM+2)] = old_variables[NVAR*i + (VAR_MOMENTUM+2)] + factor*fluxes[NVAR*i + (VAR_MOMENTUM+2)];
 
-<callable-iterator object at 0x7f44710b2d10>
+50
+49
 ####
 26   *
 27   i
@@ -1467,31 +1609,40 @@ i
 114    
         }
 
-<callable-iterator object at 0x7f44710b2d10>
+49
+49
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f44710b2d50>
+49
+49
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      ff_variable
 Scope -     struct
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      factor
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      1
 **********
 The values of this entry are
+Name -      old_variables
+Scope -     struct
+varType -   1
+size -      1
+value-      None
+**********
+The values of this entry are
 Name -      density
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -1505,14 +1656,14 @@ value-      0
 The values of this entry are
 Name -      speed_of_sound
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      variables
 Scope -     struct
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -1533,58 +1684,65 @@ value-      0
 The values of this entry are
 Name -      density_energy
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      speed_sqd
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      x
 Scope -     struct
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      pressure
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      1
+**********
+The values of this entry are
+Name -      fluxes
+Scope -     struct
+varType -   1
+size -      1
+value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 16
-NumStoreOperations - 0
+TotalArithmeticInstructions - 49
+NumLoadOperations - 11
+NumStoreOperations - 5
 NumOffsetAccesses -  24
 NumIndirectAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - M
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  L
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -1605,31 +1763,40 @@ int ii, ii2, jj, ij2, kk;
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f4316515c90>
+0
+0
 for(int idx=0; idx<NTOTAL; idx++){
 
-<callable-iterator object at 0x7f4316515c90>
+2
+2
     i = idx % NX;
 
-<callable-iterator object at 0x7f4316515c90>
+2
+2
     k = idx / NX;
 
-<callable-iterator object at 0x7f4316515d50>
+3
+3
     j = k % NY;
 
-<callable-iterator object at 0x7f4316515c90>
+3
+3
     k = k / NY;
 
-<callable-iterator object at 0x7f4316515d50>
+4
+4
  
 
-<callable-iterator object at 0x7f4316515c90>
+4
+4
     ii =  (i+NX/2)%NX - NX/2;
 
-<callable-iterator object at 0x7f4316515d50>
+8
+8
     ii2 = ii*ii;
 
-<callable-iterator object at 0x7f4316515c90>
+9
+9
 ####
 12   *
 13   i
@@ -1641,10 +1808,12 @@ ii;
 
     jj = (j+NY/2)%NY - NY/2;
 
-<callable-iterator object at 0x7f4316515d50>
+13
+13
     ij2 = jj*jj+ii2;
 
-<callable-iterator object at 0x7f4316515d10>
+15
+15
 ####
 12   *
 13   j
@@ -1659,13 +1828,16 @@ jj
 15   +
     kk = (k+NZ/2)%NZ - NZ/2;
 
-<callable-iterator object at 0x7f4316515c90>
+19
+19
  
 
-<callable-iterator object at 0x7f4316515c90>
+19
+19
     indexmap[idx] = kk*kk+ij2;
 
-<callable-iterator object at 0x7f4316515d50>
+21
+21
 ####
 22   *
 23   k
@@ -1680,10 +1852,12 @@ kk
 25   +
 }
 
-<callable-iterator object at 0x7f4316515c90>
+21
+21
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f4316515d10>
+21
+21
 Annotation End Found
 ######################################################
 **********
@@ -1718,30 +1892,30 @@ value-      0
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 1
-NumStoreOperations - 0
+TotalArithmeticInstructions - 21
+NumLoadOperations - 0
+NumStoreOperations - 1
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -1770,25 +1944,32 @@ for (iter = 1; iteri<=niter; iter++) {
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f20545bbc50>
+0
+0
     for(int idx=0; idx<NTOTAL; idx++){
 
-<callable-iterator object at 0x7f20545bbd50>
+2
+2
         i = idx % NX;
 
-<callable-iterator object at 0x7f20545bbc50>
+2
+2
         k = idx / NX;
 
-<callable-iterator object at 0x7f20545bbc90>
+3
+3
         j = k % NY;
 
-<callable-iterator object at 0x7f20545bbd50>
+3
+3
         k = k / NY;
 
-<callable-iterator object at 0x7f20545bbc90>
+4
+4
         var = j*NX*NZ + k*NX + i;
 
-<callable-iterator object at 0x7f20545bbc90>
+9
+9
 ####
 15   *
 16   N
@@ -1825,22 +2006,28 @@ NX
 28    
  
 
-<callable-iterator object at 0x7f20545bbc90>
+9
+9
         y0_r[var] = x_r[idx];
 
-<callable-iterator object at 0x7f20545bbc50>
+9
+9
         y0_i[var] = x_i[idx];
 
-<callable-iterator object at 0x7f20545bbc90>
+9
+9
     }
 
-<callable-iterator object at 0x7f20545bbc50>
+9
+9
 }
 
-<callable-iterator object at 0x7f20545bbc90>
+9
+9
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f20545bbd10>
+9
+9
 Annotation End Found
 ######################################################
 **********
@@ -1861,7 +2048,7 @@ value-      2
 The values of this entry are
 Name -      y0_r
 Scope -     Global
-varType -   0
+varType -   2
 size -      1
 value-      None
 **********
@@ -1875,30 +2062,30 @@ value-      0
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 4
-NumStoreOperations - 0
+TotalArithmeticInstructions - 9
+NumLoadOperations - 2
+NumStoreOperations - 2
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - M
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -1931,25 +2118,32 @@ for (iter = 1; iteri<=niter; iter++) {
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f76764a8c50>
+0
+0
         for(int idx=0; idx<NTOTAL; idx++){
 
-<callable-iterator object at 0x7f76764a8d50>
+2
+2
                 xout_r[idx] = y1_r[idx];
 
-<callable-iterator object at 0x7f76764a8d50>
+2
+2
                 xout_i[idx] = y1_i[idx];
 
-<callable-iterator object at 0x7f76764a8d10>
+2
+2
         }
 
-<callable-iterator object at 0x7f76764a8d50>
+2
+2
 }
 
-<callable-iterator object at 0x7f76764a8d10>
+2
+2
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f76764a8c50>
+2
+2
 Annotation End Found
 ######################################################
 **********
@@ -1970,7 +2164,7 @@ value-      2
 The values of this entry are
 Name -      y1_r
 Scope -     Global
-varType -   0
+varType -   2
 size -      1
 value-      None
 **********
@@ -1984,16 +2178,16 @@ value-      0
 The values of this entry are
 Name -      xout_r
 Scope -     Global
-varType -   0
+varType -   2
 size -      1
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 4
-NumStoreOperations - 0
+TotalArithmeticInstructions - 2
+NumLoadOperations - 2
+NumStoreOperations - 2
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
@@ -2006,15 +2200,15 @@ BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2049,13 +2243,16 @@ for (iter = 1; iteri<=niter; iter++) {
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7ff6a3a9fc50>
+0
+0
     for(int idx=0; idx < NTOTAL; idx++){
 
-<callable-iterator object at 0x7ff6a3a9fd10>
+2
+2
         u1_r[idx] = u0_r[idx] * ex[t*indexmap[idx]];
 
-<callable-iterator object at 0x7ff6a3a9fd10>
+4
+4
 ####
 30   *
 31    
@@ -2082,7 +2279,8 @@ indexmap
 50
         u1_i[idx] = u0_i[idx] * ex[t*indexmap[idx]];
 
-<callable-iterator object at 0x7ff6a3a9fd50>
+6
+6
 ####
 30   *
 31    
@@ -2109,10 +2307,12 @@ indexmap
 50
     }
 
-<callable-iterator object at 0x7ff6a3a9fd10>
+6
+6
 ####Annotation Ends####
 
-<callable-iterator object at 0x7ff6a3a9fc50>
+6
+6
 Annotation End Found
 ######################################################
 **********
@@ -2140,14 +2340,14 @@ value-      None
 The values of this entry are
 Name -      u1_r
 Scope -     Global
-varType -   0
+varType -   2
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      ex
 Scope -     Global
-varType -   0
+varType -   2
 size -      1
 value-      None
 **********
@@ -2161,9 +2361,9 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 8
-NumStoreOperations - 0
+TotalArithmeticInstructions - 6
+NumLoadOperations - 6
+NumStoreOperations - 2
 NumOffsetAccesses -  0
 NumIndirectAccesses -  2
 
@@ -2176,15 +2376,15 @@ BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2201,26 +2401,33 @@ int randIndex[1024000], window[1024000];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7fec648cbc50>
+0
+0
     for (i = 0; i<=n; ++i) {
 
-<callable-iterator object at 0x7fec648cbd50>
+2
+2
         if(window[i] == 1){		//0.03125
 
-<callable-iterator object at 0x7fec648cbd50>
+5
+5
 Found Control Density
             float temp = 0.0f;
 
-<callable-iterator object at 0x7fec648cbd10>
+5
+5
             int upperBound = randIndex[i]+768;
 
-<callable-iterator object at 0x7fec648cbd50>
+6
+6
             for(j=randIndex[i]; j<upperBound && j<n; j++){
 
-<callable-iterator object at 0x7fec648cbd10>
+9
+9
                 temp += sa * sx[randIndex[j]];
 
-<callable-iterator object at 0x7fec648cbd50>
+11
+11
 ####
 27   *
 28    
@@ -2236,19 +2443,24 @@ sx
 44
             }
 
-<callable-iterator object at 0x7fec648cbd10>
+11
+11
             sy[i] = temp;
 
-<callable-iterator object at 0x7fec648cbc50>
+11
+11
         }
 
-<callable-iterator object at 0x7fec648cbd50>
+11
+11
 }
 
-<callable-iterator object at 0x7fec648cbd50>
+11
+11
 ####Annotation Ends####
 
-<callable-iterator object at 0x7fec648cbc50>
+11
+11
 Annotation End Found
 ######################################################
 **********
@@ -2262,14 +2474,14 @@ value-      768
 The values of this entry are
 Name -      sx
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
 Name -      temp
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      0
 **********
@@ -2283,30 +2495,30 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 6
-NumStoreOperations - 0
+TotalArithmeticInstructions - 11
+NumLoadOperations - 4
+NumStoreOperations - 2
 NumOffsetAccesses -  0
 NumIndirectAccesses -  1
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  H
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2325,26 +2537,33 @@ float randArray[1024000];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7fd01cc32c90>
+0
+0
     for (i = 0; i<=n; ++i) {
 
-<callable-iterator object at 0x7fd01cc32c90>
+2
+2
         if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIO0.03125
 
-<callable-iterator object at 0x7fd01cc32c90>
+7
+7
 Found Control Density
             float temp = 0.0f;
 
-<callable-iterator object at 0x7fd01cc32d50>
+7.0
+7.0
             int upperBound = randIndex[i]+1024;
 
-<callable-iterator object at 0x7fd01cc32c90>
+7.0
+7.0
             for(j=randIndex[i]; j<upperBound && j<n; j++){
 
-<callable-iterator object at 0x7fd01cc32d50>
+7.0
+7.0
                 temp += sa * (sx[randIndex[j]] + randArray[randIndex[j]]);
 
-<callable-iterator object at 0x7fd01cc32c90>
+7.0
+7.0
 ####
 27   *
 28    
@@ -2360,19 +2579,24 @@ sx
 45
             }
 
-<callable-iterator object at 0x7fd01cc32d50>
+7.0
+7.0
             sy[i] = temp;
 
-<callable-iterator object at 0x7fd01cc32d10>
+7.0
+7.0
         }
 
-<callable-iterator object at 0x7fd01cc32c90>
+7.0
+7.0
     }
 
-<callable-iterator object at 0x7fd01cc32c90>
+7.0
+7.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7fd01cc32d10>
+7.0
+7.0
 Annotation End Found
 ######################################################
 **********
@@ -2386,22 +2610,22 @@ value-      1024
 The values of this entry are
 Name -      temp
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      0
 **********
 The values of this entry are
 Name -      sx
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
 Name -      randArray
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -2414,30 +2638,30 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 8.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 7.0
+NumLoadOperations - 0.0
+NumStoreOperations - 1.0
 NumOffsetAccesses -  0
 NumIndirectAccesses -  2
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  H
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2456,26 +2680,33 @@ float randArray[1024000];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f858d107c90>
+0
+0
     for (i = 0; i<=n; ++i) {
 
-<callable-iterator object at 0x7f858d107c90>
+2
+2
         if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIO0.03125
 
-<callable-iterator object at 0x7f858d107c90>
+7
+7
 Found Control Density
             float temp = 0.0f;
 
-<callable-iterator object at 0x7f858d107d50>
+7.0
+7.0
             int upperBound = randIndex[i]+1024;
 
-<callable-iterator object at 0x7f858d107c90>
+7.0
+7.0
             for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){
 
-<callable-iterator object at 0x7f858d107d50>
+7.0
+7.0
                 temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
 
-<callable-iterator object at 0x7f858d107c90>
+7.0
+7.0
 ####
 27   *
 28    
@@ -2491,19 +2722,24 @@ sx
 45
             }
 
-<callable-iterator object at 0x7f858d107d50>
+7.0
+7.0
             sy[i] = temp;
 
-<callable-iterator object at 0x7f858d107d10>
+7.0
+7.0
         }
 
-<callable-iterator object at 0x7f858d107c90>
+7.0
+7.0
     }
 
-<callable-iterator object at 0x7f858d107c90>
+7.0
+7.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f858d107d10>
+7.0
+7.0
 Annotation End Found
 ######################################################
 **********
@@ -2517,22 +2753,22 @@ value-      1024
 The values of this entry are
 Name -      temp
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      0
 **********
 The values of this entry are
 Name -      sx
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
 Name -      randArray
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -2545,30 +2781,30 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 9.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 7.0
+NumLoadOperations - 0.0
+NumStoreOperations - 1.0
 NumOffsetAccesses -  0
 NumIndirectAccesses -  2
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  H
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2587,36 +2823,46 @@ float randArray[1024000];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f1683c7fc90>
+0
+0
     for (i = 0; i<=n; ++i) {
 
-<callable-iterator object at 0x7f1683c7fc90>
+2
+2
         if(window[i] == 1){				//this condition is met once every 32 iterations //BRATIO0.03125
 
-<callable-iterator object at 0x7f1683c7fc90>
+7
+7
 Found Control Density
             float temp = 0.0f;
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
             int upperBound1, upperBound2;
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
             if(emrIndex[i] > randIndex[i]){		//taken for 50% of the iterations //BRATIO0.03125 //BRATIO0.5
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
 Found Control Density
                 upperBound1 = emrIndex[i];
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
                 upperBound2 = randIndex[i]+1024;
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
                 for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
                     temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[j]]);
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
 ####
 31   *
 32    
@@ -2632,22 +2878,28 @@ sx
 58
                 }
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
             }else{//BRATIO0.03125 //BRATIO0.5
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
                 upperBound1 = randIndex[i];
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
                 upperBound2 = emrIndex[i]+768;
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
                 for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
                     temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[randIndex[j]]]);
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
 ####
 31   *
 32    
@@ -2663,37 +2915,43 @@ sx
 58
                 }
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
             }
 
-<callable-iterator object at 0x7f1683c7fc90>
+7.0
+7.0
             sy[i] = temp;
 
-<callable-iterator object at 0x7f1683c7fd10>
+7.0
+7.0
         }
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
     }
 
-<callable-iterator object at 0x7f1683c7fd50>
+7.0
+7.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f1683c7fd10>
+7.0
+7.0
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      temp
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      0
 **********
 The values of this entry are
 Name -      sx
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -2706,8 +2964,8 @@ value-      None
 The values of this entry are
 Name -      randArray
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -2720,30 +2978,30 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 23.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 7.0
+NumLoadOperations - 0.0
+NumStoreOperations - 1.0
 NumOffsetAccesses -  0
 NumIndirectAccesses -  7
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  H
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2762,36 +3020,46 @@ float randArray[1024000];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f723875ac90>
+0
+0
     for (i = 0; i<=n; ++i) {
 
-<callable-iterator object at 0x7f723875ac90>
+2
+2
         if(window[i] == 1){				//this condition is met once every 32 iterations //BRATIO0.03125
 
-<callable-iterator object at 0x7f723875ac90>
+7
+7
 Found Control Density
             float temp = 0.0f;
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
             int upperBound1, upperBound2;
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
             if(emrIndex[i] > randIndex[i]){		//taken for 50% of the iterations //BRATIO0.03125 BRATIO0.5
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
 Found Control Density
                 upperBound1 = emrIndex[i];
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
                 upperBound2 = randIndex[i]+1024;
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
                 for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && j<n && emrIndex[j]<n; j++){
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
                     temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
 ####
 31   *
 32    
@@ -2807,22 +3075,28 @@ sx
 49
                 }
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
             }else{//BRATIO0.03125 BRATIO0.5
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
                 upperBound1 = randIndex[i];
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
                 upperBound2 = emrIndex[i]+1024;
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
                 for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && j<n && emrIndex[j]<n; j++){
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
                     temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
 ####
 31   *
 32    
@@ -2838,37 +3112,43 @@ sx
 49
                 }
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
             }
 
-<callable-iterator object at 0x7f723875ad50>
+7.0
+7.0
             sy[i] = temp;
 
-<callable-iterator object at 0x7f723875ad10>
+7.0
+7.0
         }
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
     }
 
-<callable-iterator object at 0x7f723875ac90>
+7.0
+7.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f723875ad10>
+7.0
+7.0
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      temp
 Scope -     For
-varType -   0
+varType -   1
 size -      1
 value-      0
 **********
 The values of this entry are
 Name -      sx
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -2881,8 +3161,8 @@ value-      None
 The values of this entry are
 Name -      randArray
 Scope -     Global
-varType -   0
-size -      1024000
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -2895,30 +3175,30 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 20.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 7.0
+NumLoadOperations - 0.0
+NumStoreOperations - 1.0
 NumOffsetAccesses -  0
 NumIndirectAccesses -  4
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  H
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2941,16 +3221,20 @@ float target_lat;
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7fdfa4c09c50>
+0
+0
 while(!done){      //executes for 4280 iterations
 
-<callable-iterator object at 0x7fdfa4c09d50>
+2
+2
    for( i = 0 ; i < rec_count ; i++ ){
 
-<callable-iterator object at 0x7fdfa4c09d50>
+4
+4
       z[i] = sqrtf(( (tmp_lat[i]-target_lat) * (tmp_lat[i]-target_lat) )+( (tmp_long[i]-target_long) * (tmp_long[i]-target_long) ));
 
-<callable-iterator object at 0x7fdfa4c09d10>
+11
+10
 ####
 45   *
 46    
@@ -2979,28 +3263,38 @@ tmp_long
 115
    }
 
-<callable-iterator object at 0x7fdfa4c09d50>
+10
+10
 }      //executes for 4280 iterations
 
-<callable-iterator object at 0x7fdfa4c09d10>
+12
+12
 ####Annotation Ends####
 
-<callable-iterator object at 0x7fdfa4c09c50>
+12
+12
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name -      
+Name -      target_lat
 Scope -     Global
-varType -   0
-size -      0
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
-Name -      target_lat
+Name -      tmp_lat
 Scope -     Global
-varType -   0
-size -      1
+varType -   1
+size -      3
+value-      None
+**********
+The values of this entry are
+Name -      z
+Scope -     Global
+varType -   1
+size -      3
 value-      None
 **********
 The values of this entry are
@@ -3012,31 +3306,31 @@ value-      10
 **********
 
 
-TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 5
-NumStoreOperations - 0
+TotalTranscendentals - 1
+TotalArithmeticInstructions - 12
+NumLoadOperations - 4
+NumStoreOperations - 1
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
-Transcendental Ratio - L
-Arithmetic Intensity - L
+Transcendental Ratio - M0.0588235294118
+Arithmetic Intensity - M
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  L
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3053,109 +3347,144 @@ double arrayX[1000], arrayY[1000], xj[1000], yj[1000], CDF[1000], u[1000];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f810d622c50>
+0
+0
 for(j = 0; j<Nparticles; j++)
 
-<callable-iterator object at 0x7f810d622d50>
+2
+2
 {
 
-<callable-iterator object at 0x7f810d622d50>
+2
+2
    
 
-<callable-iterator object at 0x7f810d622d10>
+2
+2
    int index = -1;
 
-<callable-iterator object at 0x7f810d622d50>
+3
+3
    
 
-<callable-iterator object at 0x7f810d622d10>
+3
+3
    for(int x = 0; x < Nparticles; x++) //FRATIO1000
 
-<callable-iterator object at 0x7f810d622d50>
+7
+7
+FRATIO1000
    {
 
-<callable-iterator object at 0x7f810d622d10>
+7
+7
       if(CDF[x] >= u[j])	//taken very rarely// BRATIO0.0
 
-<callable-iterator object at 0x7f810d622d50>
+5007
+5007
 Found Control Density
       {
 
-<callable-iterator object at 0x7f810d622d10>
+5007.0
+5007.0
          index = x;
 
-<callable-iterator object at 0x7f810d622c50>
+5007.0
+5007.0
          break;
 
-<callable-iterator object at 0x7f810d622d50>
+5007.0
+5007.0
       }
 
-<callable-iterator object at 0x7f810d622d50>
+5007.0
+5007.0
    }
 
-<callable-iterator object at 0x7f810d622d10>
+5007.0
+5007.0
  
 
-<callable-iterator object at 0x7f810d622d50>
+5007.0
+5007.0
    if(index == -1)		//never taken // BRATIO0.0
 
-<callable-iterator object at 0x7f810d622d10>
+11007.0
+11007.0
 Found Control Density
    {
 
-<callable-iterator object at 0x7f810d622d50>
+11007.0
+11007.0
       i = Nparticles - 1;
 
-<callable-iterator object at 0x7f810d622c50>
+11007.0
+11007.0
    }
 
-<callable-iterator object at 0x7f810d622d10>
+11007.0
+11007.0
    else // BRATIO0.0
 
-<callable-iterator object at 0x7f810d622c50>
+13007.0
+13007.0
    {
 
-<callable-iterator object at 0x7f810d622d10>
+13007.0
+13007.0
       i = index;
 
-<callable-iterator object at 0x7f810d622d10>
+13007.0
+13007.0
    }
 
-<callable-iterator object at 0x7f810d622d50>
+13007.0
+13007.0
    
 
-<callable-iterator object at 0x7f810d622d10>
+13007.0
+13007.0
    if(i == -1)			//never taken // BRATIO0.0
 
-<callable-iterator object at 0x7f810d622d50>
+19007.0
+19007.0
 Found Control Density
    { 
 
-<callable-iterator object at 0x7f810d622d10>
+19007.0
+19007.0
       i = Nparticles-1;
 
-<callable-iterator object at 0x7f810d622c50>
+19007.0
+19007.0
    }
 
-<callable-iterator object at 0x7f810d622d50>
+19007.0
+19007.0
    
 
-<callable-iterator object at 0x7f810d622d50>
+19007.0
+19007.0
    xj[j] = arrayX[i];
 
-<callable-iterator object at 0x7f810d622c50>
+19007.0
+19007.0
    yj[j] = arrayY[i];
 
-<callable-iterator object at 0x7f810d622c90>
+19007.0
+19007.0
    
 
-<callable-iterator object at 0x7f810d622c90>
+19007.0
+19007.0
 }
 
-<callable-iterator object at 0x7f810d622c90>
+19007.0
+19007.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f810d622d50>
+19007.0
+19007.0
 Annotation End Found
 ######################################################
 **********
@@ -3169,7 +3498,7 @@ value-      1
 The values of this entry are
 Name -      arrayX
 Scope -     Global
-varType -   0
+varType -   2
 size -      1000
 value-      None
 **********
@@ -3190,21 +3519,21 @@ value-      0
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 6.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 19007.0
+NumLoadOperations - 3000.0
+NumStoreOperations - 3000.0
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - M
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  H
 Floating Point Mul/Div - L
-Total Instruction - L
+Total Instruction - H
 ../Input_C_Parser/Test1.txt
 
 ['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test1.txt']
@@ -3261,15 +3590,15 @@ Total Instruction - L
 ['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test18.txt']
 ../Input_C_Parser/Test19.txt
 
-['python', '/home/urmish/Documents/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+['python', '/home/urmish/Documents/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3284,27 +3613,32 @@ float image[229916];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f49b3db9c90>
+0
+0
 for (i=0; i < Ne; i++) {                                       
 
-<callable-iterator object at 0x7f49b3db9c90>
+2
+2
    image[i] = expf(image[i]/255);                                 
 
-<callable-iterator object at 0x7f49b3db9c90>
+3
+3
 }
 
-<callable-iterator object at 0x7f49b3db9d50>
+3
+3
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f49b3db9d10>
+3
+3
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      image
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -3316,31 +3650,31 @@ value-      229916
 **********
 
 
-TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 2
-NumStoreOperations - 0
+TotalTranscendentals - 1
+TotalArithmeticInstructions - 3
+NumLoadOperations - 1
+NumStoreOperations - 1
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
-Transcendental Ratio - L
-Arithmetic Intensity - L
+Transcendental Ratio - H
+Arithmetic Intensity - H
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - L
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3427,13 +3761,16 @@ for (j=0; j < Nc; j++) {
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f529e720c50>
+0
+0
    for (i=0; i < Nr; i++) {                                  
 
-<callable-iterator object at 0x7f529e720d50>
+2
+2
       k = i + Nr*j;                                   
 
-<callable-iterator object at 0x7f529e720d50>
+4
+4
 ####
 16   *
 17   j
@@ -3448,13 +3785,16 @@ j;
 19    
       Jc = image[k];                                     
 
-<callable-iterator object at 0x7f529e720d10>
+4
+4
                      
 
-<callable-iterator object at 0x7f529e720c50>
+4
+4
       dN[k] = image[iN[i] + Nr*j] - Jc;                        
 
-<callable-iterator object at 0x7f529e720d50>
+7
+6
 ####
 30   *
 31   j
@@ -3469,7 +3809,8 @@ j]
 33    
       dS[k] = image[iS[i] + Nr*j] - Jc;                        
 
-<callable-iterator object at 0x7f529e720d50>
+9
+8
 ####
 30   *
 31   j
@@ -3484,7 +3825,8 @@ j]
 33    
       dW[k] = image[i + Nr*jW[j]] - Jc;                        
 
-<callable-iterator object at 0x7f529e720d10>
+11
+10
 ####
 26   *
 27   j
@@ -3500,7 +3842,8 @@ jW
 32
       dE[k] = image[i + Nr*jE[j]] - Jc;                        
 
-<callable-iterator object at 0x7f529e720d50>
+13
+12
 ####
 26   *
 27   j
@@ -3516,65 +3859,76 @@ jE
 32
  
 
-<callable-iterator object at 0x7f529e720d10>
-               
+12
+12
+      temp1 = dW[k];
 
-<callable-iterator object at 0x7f529e720d50>
-      G2 = (dN[k]*dN[k] + dS[k]*dS[k] + dW[k]*dW[k] + dE[k]*dE[k]) / (Jc*Jc);
+12
+12
+      temp2 = dE[k];
 
-<callable-iterator object at 0x7f529e720d10>
+12
+12
+      temp3 = dS[k];
+
+12
+12
+      temp4 = dN[k];
+
+12
+12
+      G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
+
+21
+21
 ####
 17   *
-18   d
-16   ]
- (dN
+18   t
+16   1
+ (temp1
 match
-dN
-dN[k] + dS[k]*dS[k] + dW[k]*dW[k] + dE[k]*dE[k]) / (Jc*Jc);
+temp1
+temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
 
 match
-dN
-20   [
-23
+temp1
+23    
 ####
 31   *
-32   d
-30   ]
- + dS
+32   t
+30   2
+ + temp2
 match
-dS
-dS[k] + dW[k]*dW[k] + dE[k]*dE[k]) / (Jc*Jc);
+temp2
+temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
 
 match
-dS
-34   [
-37
+temp2
+37    
 ####
 45   *
-46   d
-44   ]
- + dW
+46   t
+44   3
+ + temp3
 match
-dW
-dW[k] + dE[k]*dE[k]) / (Jc*Jc);
+temp3
+temp3 + temp4*temp4) / (Jc*Jc);
 
 match
-dW
-48   [
-51
+temp3
+51    
 ####
 59   *
-60   d
-58   ]
- + dE
+60   t
+58   4
+ + temp4
 match
-dE
-dE[k]) / (Jc*Jc);
+temp4
+temp4) / (Jc*Jc);
 
 match
-dE
-62   [
-65
+temp4
+65   )
 ####
 72   *
 73   J
@@ -3589,16 +3943,20 @@ Jc
 75   )
  
 
-<callable-iterator object at 0x7f529e720d50>
-      L = (dN[k] + dS[k] + dW[k] + dE[k]) / Jc;             
+21
+21
+      L = (temp1 + temp2 + temp3 + temp4) / Jc;             
 
-<callable-iterator object at 0x7f529e720d10>
+25
+25
  
 
-<callable-iterator object at 0x7f529e720d50>
+25
+25
       num  = (0.5*G2) - ((1.0/16.0)*(L*L)) ;                
 
-<callable-iterator object at 0x7f529e720d10>
+30
+30
 ####
 17   *
 18   G
@@ -3635,7 +3993,8 @@ L
 40   )
       den  = 1 + (.25*L);                                
 
-<callable-iterator object at 0x7f529e720d10>
+32
+32
 ####
 21   *
 22   L
@@ -3650,7 +4009,8 @@ L
 23   )
       qsqr = num/(den*den);                              
 
-<callable-iterator object at 0x7f529e720c50>
+34
+34
 ####
 21   *
 22   d
@@ -3665,10 +4025,12 @@ den
 25   )
  
 
-<callable-iterator object at 0x7f529e720d10>
+34
+34
       den = (qsqr-q0sqr) / (q0sqr * (1+q0sqr)) ;               
 
-<callable-iterator object at 0x7f529e720c50>
+38
+38
 ####
 34   *
 35    
@@ -3683,53 +4045,66 @@ match
 38   +
       c[k] = 1.0 / (1.0+den) ;                           
 
-<callable-iterator object at 0x7f529e720d10>
+40
+40
  
 
-<callable-iterator object at 0x7f529e720c50>
+40
+40
       if (c[k] < 0) {   	// Always not-taken.           //BRATIO0.0
 
-<callable-iterator object at 0x7f529e720d10>
+46
+46
 Found Control Density
          c[k] = 0;
 
-<callable-iterator object at 0x7f529e720c50>
+46.0
+46.0
       }                                   
 
-<callable-iterator object at 0x7f529e720d10>
+46.0
+46.0
       
 
-<callable-iterator object at 0x7f529e720c50>
-      else if (c[k] > 1) {  	// Taken BRATIO99.9992% of the time.          
+46.0
+46.0
+      else if (c[k] > 1) {  	// Taken BRATIO0.999992 of the time.          
 
-<callable-iterator object at 0x7f529e720d10>
+49.0
+49.0
 Found Control Density
          c[k] = 1;
 
-<callable-iterator object at 0x7f529e720c50>
+49.0
+49.0
       }                                   
 
-<callable-iterator object at 0x7f529e720d10>
+49.0
+49.0
  
 
-<callable-iterator object at 0x7f529e720c50>
+49.0
+49.0
    }
 
-<callable-iterator object at 0x7f529e720d10>
+49.0
+49.0
 }
 
-<callable-iterator object at 0x7f529e720c50>
+49.0
+49.0
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f529e720d50>
+49.0
+49.0
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      dN
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -3742,8 +4117,8 @@ value-      None
 The values of this entry are
 Name -      c
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -3756,8 +4131,8 @@ value-      None
 The values of this entry are
 Name -      image
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -3784,7 +4159,7 @@ value-      None
 The values of this entry are
 Name -      cN
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -3798,65 +4173,65 @@ value-      None
 The values of this entry are
 Name -      G2
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      Jc
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      meanROI
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      tmp
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      lambda
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0.0
-NumLoadOperations - 30.0
-NumStoreOperations - 0.0
+TotalArithmeticInstructions - 49.0
+NumLoadOperations - 15.0
+NumStoreOperations - 5.9
 NumOffsetAccesses -  2
 NumIndirectAccesses -  4
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - M
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  H
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3945,16 +4320,20 @@ for (iter=0; iter < niter; iter++){
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7fe51d458c50>
+0
+0
 for (j=0; j<Nc; j++) {                       
 
-<callable-iterator object at 0x7fe51d458d50>
+2
+2
     for (i=0; i<Nr; i++) {
 
-<callable-iterator object at 0x7fe51d458c50>
+4
+4
         k = i + Nr*j;      
 
-<callable-iterator object at 0x7fe51d458d50>
+6
+6
 ####
 18   *
 19   j
@@ -3969,10 +4348,12 @@ j;
 21    
         cN = c[k];        
 
-<callable-iterator object at 0x7fe51d458c50>
+6
+6
         cS = c[iS[i] + Nr*j];
 
-<callable-iterator object at 0x7fe51d458d50>
+8
+7
 ####
 25   *
 26   j
@@ -3984,10 +4365,12 @@ j];
 
         cW = c[k];          
 
-<callable-iterator object at 0x7fe51d458d50>
+7
+7
         cE = c[i + Nr*jE[j]];
 
-<callable-iterator object at 0x7fe51d458d10>
+9
+8
 ####
 21   *
 22   j
@@ -4003,7 +4386,8 @@ jE
 27
         D = cN*dN[k] + cS*dS[k] + cW*dW[k] + cE*dE[k];          
 
-<callable-iterator object at 0x7fe51d458d50>
+15
+14
 ####
 14   *
 15   d
@@ -4058,7 +4442,8 @@ dE
 53
         image[k] = image[k] + 0.25*lambda*D;   
 
-<callable-iterator object at 0x7fe51d458d10>
+17
+17
 ####
 34   *
 35   l
@@ -4083,21 +4468,24 @@ D;
 44    
     }
 
-<callable-iterator object at 0x7fe51d458d50>
+17
+17
 }
 
-<callable-iterator object at 0x7fe51d458d10>
+17
+17
 ####Annotation Ends####
 
-<callable-iterator object at 0x7fe51d458c50>
+17
+17
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      dN
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -4110,8 +4498,8 @@ value-      None
 The values of this entry are
 Name -      c
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -4124,8 +4512,8 @@ value-      None
 The values of this entry are
 Name -      image
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -4145,7 +4533,7 @@ value-      None
 The values of this entry are
 Name -      cN
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -4159,65 +4547,65 @@ value-      None
 The values of this entry are
 Name -      G2
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      Jc
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      meanROI
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      tmp
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      lambda
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 12
-NumStoreOperations - 0
+TotalArithmeticInstructions - 17
+NumLoadOperations - 11
+NumStoreOperations - 1
 NumOffsetAccesses -  1
 NumIndirectAccesses -  2
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  L
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -4234,13 +4622,16 @@ float image[229916];
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f24a497dc90>
+0
+0
     for (i=0; i<Ne; i++) {                 
 
-<callable-iterator object at 0x7f24a497dc90>
+2
+2
         image[i] = logf(image[i])*255.0f;                  
 
-<callable-iterator object at 0x7f24a497dc90>
+3
+3
 ####
 33   *
 34   2
@@ -4255,18 +4646,20 @@ match
 41    
     }
 
-<callable-iterator object at 0x7f24a497dc90>
+3
+3
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f24a497dd50>
+3
+3
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      image
 Scope -     Global
-varType -   0
-size -      229916
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -4278,31 +4671,31 @@ value-      229916
 **********
 
 
-TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 2
-NumStoreOperations - 0
+TotalTranscendentals - 1
+TotalArithmeticInstructions - 3
+NumLoadOperations - 1
+NumStoreOperations - 1
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 
 
 ######################################################
-Transcendental Ratio - L
-Arithmetic Intensity - L
+Transcendental Ratio - H
+Arithmetic Intensity - H
 Global Memory Operation - H
 BranchDivergence - L
 ControlDensity -  L
 Floating Point Mul/Div - H
 Total Instruction - L
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:348: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:363: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:400: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:407: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:450: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:458: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -4377,16 +4770,20 @@ for (iter=0; iter<niter; iter++){
 ####Annotation Begins####
 
 Annotation Begin Found
-<callable-iterator object at 0x7f862c182c50>
+0
+0
         for (int j = 0; j < cols; j++) {
 
-<callable-iterator object at 0x7f862c182d10>
+2
+2
             // current index
 
-<callable-iterator object at 0x7f862c182d10>
+4
+4
             k = i * cols + j;
 
-<callable-iterator object at 0x7f862c182d50>
+6
+6
 ####
 18   *
 19    
@@ -4401,16 +4798,20 @@ cols
 24    
  
 
-<callable-iterator object at 0x7f862c182d10>
+6
+6
             // diffusion coefficent
 
-<callable-iterator object at 0x7f862c182d50>
+8
+8
             cN = c[k];
 
-<callable-iterator object at 0x7f862c182c50>
+8
+8
             cS = c[iS[i] * cols + j];
 
-<callable-iterator object at 0x7f862c182d10>
+10
+9
 ####
 25   *
 26    
@@ -4425,10 +4826,12 @@ cols
 31    
             cW = c[k];
 
-<callable-iterator object at 0x7f862c182c50>
+9
+9
             cE = c[i * cols + jE[j]];
 
-<callable-iterator object at 0x7f862c182d10>
+11
+10
 ####
 21   *
 22    
@@ -4443,13 +4846,16 @@ cols
 27    
  
 
-<callable-iterator object at 0x7f862c182d10>
+10
+10
             // divergence (equ 58)
 
-<callable-iterator object at 0x7f862c182d50>
+12
+12
             D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
 
-<callable-iterator object at 0x7f862c182d10>
+19
+18
 ####
 19   *
 20    
@@ -4504,13 +4910,16 @@ dE
 65
  
 
-<callable-iterator object at 0x7f862c182d50>
+18
+18
             // image update (equ 61)
 
-<callable-iterator object at 0x7f862c182d10>
+20
+20
             J[k] = J[k] + 0.25*lambda*D;
 
-<callable-iterator object at 0x7f862c182d50>
+23
+23
 ####
 30   *
 31   l
@@ -4532,41 +4941,46 @@ D;
 
         }
 
-<callable-iterator object at 0x7f862c182d10>
+23
+23
     }
 
-<callable-iterator object at 0x7f862c182d50>
+23
+23
 
 
-<callable-iterator object at 0x7f862c182d10>
+23
+23
 }
 
-<callable-iterator object at 0x7f862c182d50>
+23
+23
 ####Annotation Ends####
 
-<callable-iterator object at 0x7f862c182c50>
+23
+23
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
 Name -      tmp
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      cN
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
 Name -      c
 Scope -     Global
-varType -   0
-size -      4194304
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -4579,7 +4993,7 @@ value-      2048
 The values of this entry are
 Name -      G2
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
@@ -4600,8 +5014,8 @@ value-      0
 The values of this entry are
 Name -      dNi
 Scope -     Global
-varType -   0
-size -      4194304
+varType -   1
+size -      1
 value-      None
 **********
 The values of this entry are
@@ -4628,27 +5042,27 @@ value-      None
 The values of this entry are
 Name -      Jc
 Scope -     Global
-varType -   0
+varType -   1
 size -      1
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 0
-NumLoadOperations - 12
-NumStoreOperations - 0
+TotalArithmeticInstructions - 23
+NumLoadOperations - 11
+NumStoreOperations - 1
 NumOffsetAccesses -  1
 NumIndirectAccesses -  2
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - H
 Global Memory Operation - L
 BranchDivergence - L
 ControlDensity -  L
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
 /research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test19.txt']
 ../Input_C_Parser/Test20.txt
@@ -4663,10 +5077,10 @@ Total Instruction - L
 ../Input_C_Parser/Test23.txt
 
 ['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test23.txt']
-Transcedentals  -  4 /23 Failing Tests -   Test6 Test17 Test19 Test22
-CompInt  -  19 /23 Failing Tests -   Test1 Test2 Test3 Test4 Test6 Test8 Test9 Test12 Test13 Test14 Test15 Test16 Test17 Test18 Test19 Test20 Test21 Test22 Test23
+Transcedentals  -  0 /23 Failing Tests -  
+CompInt  -  13 /23 Failing Tests -   Test1 Test2 Test3 Test7 Test12 Test13 Test14 Test15 Test16 Test19 Test21 Test22 Test23
 Coallesced  -  10 /23 Failing Tests -   Test3 Test4 Test5 Test6 Test7 Test9 Test18 Test20 Test21 Test23
 Lbdiv32  -  7 /23 Failing Tests -   Test2 Test12 Test13 Test14 Test15 Test16 Test18
 Lbdiv1024  -  0 /23 Failing Tests -  
-fmuldiv  -  12 /23 Failing Tests -   Test1 Test7 Test12 Test13 Test14 Test15 Test16 Test17 Test19 Test20 Test21 Test23
-ilp16384  -  1 /23 Failing Tests -   Test18
+fmuldiv  -  1 /23 Failing Tests -   Test19
+ilp16384  -  0 /23 Failing Tests -  

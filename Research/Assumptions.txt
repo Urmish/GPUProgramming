@@ -1,0 +1,3 @@
+Test20 - lot of ds[k] type loads. Instead Assumed, temp = ds[k] and used temp everywhere
+Test7 -  float3 into 3 float variables
+

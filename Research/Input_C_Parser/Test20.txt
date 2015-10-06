@@ -46,10 +46,13 @@ for (j=0; j < Nc; j++) {
       dW[k] = image[i + Nr*jW[j]] - Jc;                        
       dE[k] = image[i + Nr*jE[j]] - Jc;                        
  
-               
-      G2 = (dN[k]*dN[k] + dS[k]*dS[k] + dW[k]*dW[k] + dE[k]*dE[k]) / (Jc*Jc);
+      temp1 = dW[k];
+      temp2 = dE[k];
+      temp3 = dS[k];
+      temp4 = dN[k];
+      G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
  
-      L = (dN[k] + dS[k] + dW[k] + dE[k]) / Jc;             
+      L = (temp1 + temp2 + temp3 + temp4) / Jc;             
  
       num  = (0.5*G2) - ((1.0/16.0)*(L*L)) ;                
       den  = 1 + (.25*L);                                
@@ -62,7 +65,7 @@ for (j=0; j < Nc; j++) {
          c[k] = 0;
       }                                   
       
-      else if (c[k] > 1) {  	// Taken BRATIO99.9992% of the time.          
+      else if (c[k] > 1) {  	// Taken BRATIO0.999992 of the time.          
          c[k] = 1;
       }                                   
  

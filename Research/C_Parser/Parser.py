@@ -82,7 +82,7 @@ def pushVariables(name,
 		  size,
 		  value):
   #name - Name of the variable, varType - int/float/double, size - scalar has size 1, array has size > 1, value - for a scalar, value if assigned, else None
-  #varType 0 - Int, 1 - Float, 2 - Double
+  #varType 0 - Int, 1 - Float, 2 - Double, 3 - Pointer
   "This function pushes the variables and its associated properties to dictionary variables"
   variables[name] = VariableState(name,scope.front(),varType,size,value)
   return True
@@ -144,16 +144,21 @@ def getVariables(currentLine):
   if matchObjFloat:
     #print "Found a Float Variable" 
     matchObjFloatArray       = re.search('float (\w+)\[(\d+)\]',currentLine, re.I)
+    matchObjFloatArray2       = re.search('float \*(\w+)',currentLine, re.I)
     matchObjFloatScalar      = re.search('float (\w+)',currentLine, re.I)
     matchObjFloatScalarValue = re.search('=\D*(\d+)',currentLine, re.I)
     floatName = ""
-    floatVarType = 0
+    floatVarType = 1
     floatSize = 0
     floatValue = None
     if matchObjFloatArray:
       #print "Its an array with Name - ",matchObjFloatArray.group(1)," and Size - ",matchObjFloatArray.group(2)
       floatName = matchObjFloatArray.group(1)
       floatSize = matchObjFloatArray.group(2)
+    if matchObjFloatArray2:
+      #print "Its an array with Name - ",matchObjFloatArray.group(1)," and Size - ",matchObjFloatArray.group(2)
+      floatName = matchObjFloatArray2.group(1)
+      floatSize = 3
     elif matchObjFloatScalar:
       #print "Its a Scalar with Name ",matchObjFloatScalar.group(1)
       floatName = matchObjFloatScalar.group(1)
@@ -172,7 +177,7 @@ def getVariables(currentLine):
     matchObjDoubleScalar      = re.search('double (\w+)',currentLine, re.I)
     matchObjDoubleScalarValue = re.search('=\D*(\d+)',currentLine, re.I)
     doubleName = ""
-    doubleVarType = 0
+    doubleVarType = 2
     doubleSize = 0
     doubleValue = None
     if matchObjDoubleArray:
@@ -286,7 +291,7 @@ def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf)
   global NumLoadOperations
   global NumStoreOperations
   NumStoreOperations = NumStoreOperations + len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
-  NumLoadOperations  = NumLoadOperations + len(loadOperations) - len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  NumLoadOperations  = NumLoadOperations + len(loadOperations) *MultiplicationFactorFor.front()*MultiplicationFactorIf.front() - len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   if len(loadOperations) > 0 or len(storeOperations) > 0:
     GlobalMemoryTransaction(currentLine)
   return False
@@ -299,8 +304,10 @@ def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFac
   global TotalArithmeticInstructions
   #print len(numArithmetic)
   TotalArithmeticInstructions = TotalArithmeticInstructions + len(numArithmetic)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  print TotalArithmeticInstructions
   numArithmetic  = re.findall('\w+\[.*\+.*\]',currentLine, re.I)
   TotalArithmeticInstructions = TotalArithmeticInstructions - len(numArithmetic)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  print TotalArithmeticInstructions
   return False
 
 def FPDivMult(currentLine):
@@ -308,7 +315,7 @@ def FPDivMult(currentLine):
   matches = re.finditer("\*",currentLine)
   startFrom=0
   equalto = re.finditer("=",currentLine)
-  print equalto
+  #print equalto
   for iterE in equalto:
     (startFrom,nouse) = iterE.span()
     startFrom = startFrom+1
@@ -390,7 +397,7 @@ def checkControlDensity(currentLine):
 def checkWarpDivergence(currentLine):
   "Checks for Warp Divergence"
   ratios = re.findall('BRATIO\d+\.\d+?',currentLine)
-  bratio = 0
+  bratio = 1
   for ratio in ratios:
     value = re.findall('\d+\.\d+',ratio)
     #print ratio
@@ -399,19 +406,20 @@ def checkWarpDivergence(currentLine):
   if (bratio > WarpDivergenceRatio):
     global WarpDivergenceRatio
     WarpDivergenceRatio = bratio
-  MultiplicationFactorIf.push(bratio)
+  if (ratios):
+    MultiplicationFactorIf.push(bratio)
   return
 
 def checkForMultFactor(currentLine):
   "Checks Multiplicative factor of For Loop within a thread body"
-  ratios = re.findall('FRATIO\d+?',currentLine)
-  fratio = 0
+  ratios = re.findall('FRATIO\d+',currentLine)
+  fratio = 1
   for ratio in ratios:
     value = re.findall('\d+',ratio)
-    #print ratio
+    print ratio
     #print value
     fratio = fratio*int(value[0])
-  MultiplicationFactorFor.push(fratio)
+    MultiplicationFactorFor.push(fratio)
   return
 
 ###################################Function and Class Definition Ends Here################################################################
@@ -468,8 +476,8 @@ writeLine = os.path.splitext(basename)[0]
 if (TotalTranscendentals==0):
   print "Transcendental Ratio - L"
   writeLine= writeLine+",L"
-elif ( TotalTranscendentals/(TotalArithmeticInstructions+NumLoadOperations+NumStoreOperations) < 0.15):
-  print "Transcendental Ratio - M"
+elif ( (TotalTranscendentals)/((float)(TotalArithmeticInstructions+NumLoadOperations+NumStoreOperations)) < 0.15):
+  print "Transcendental Ratio - M" + str(TotalTranscendentals/((float)(TotalArithmeticInstructions+NumLoadOperations+NumStoreOperations)))
   writeLine= writeLine+",M"
 else:
   print "Transcendental Ratio - H"

@@ -6,7 +6,9 @@ GAMMA = 1.4;
 VAR_MOMENTUM = 1;
 VAR_DENSITY = 0;
 VAR_DENSITY_ENERGY = 4;
-float variables[nelr*NVAR], old_variables[nelr*NVAR], fluxes[nelr*NVAR];
+float variables[nelr*NVAR]
+float old_variables[nelr*NVAR]
+float fluxes[nelr*NVAR];
 float ff_variable[NVAR], step_factors[nelr], areas[nelr];
 
 
