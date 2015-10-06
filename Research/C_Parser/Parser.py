@@ -477,9 +477,13 @@ def checkWarpDivergence(currentLine):
     #print ratio
     #print value
     bratio = bratio*float(value[0])
-  if (bratio > WarpDivergenceRatio):
-    global WarpDivergenceRatio
-    WarpDivergenceRatio = bratio
+  if (ratios):
+    tempBratio=bratio*32 #To see how many warps diverge
+    if (32-tempBratio<bratio*32):
+      tempBratio = 32-tempBratio
+    if (tempBratio > WarpDivergenceRatio):
+      global WarpDivergenceRatio
+      WarpDivergenceRatio = tempBratio
   if (ratios):
     MultiplicationFactorIf.push(bratio)
   return
