@@ -7,7 +7,7 @@ float randArray[1024000];
         if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIO0.03125
             float temp = 0.0f;
             int upperBound = randIndex[i]+1024;
-            for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){
+            for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){ //FRATIO1024
                 temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
             }
             sy[i] = temp;
