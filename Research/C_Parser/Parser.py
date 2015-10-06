@@ -470,20 +470,25 @@ def checkControlDensity(currentLine):
 
 def checkWarpDivergence(currentLine):
   "Checks for Warp Divergence"
-  ratios = re.findall('BRATIO\d+\.\d+?',currentLine)
+  ratios = re.findall('BRATIO\d+\.\d+',currentLine)
   bratio = 1
   for ratio in ratios:
     value = re.findall('\d+\.\d+',ratio)
     #print ratio
-    #print value
+    print value
     bratio = bratio*float(value[0])
   if (ratios):
+    print "Bratio found"
     tempBratio=bratio*32 #To see how many warps diverge
     if (32-tempBratio<bratio*32):
       tempBratio = 32-tempBratio
+    print "temp bratio is ",str(tempBratio)
     if (tempBratio > WarpDivergenceRatio):
       global WarpDivergenceRatio
       WarpDivergenceRatio = tempBratio
+      print "Divergence ratio is ",str(WarpDivergenceRatio)
+    else:
+      print "Divergence ratio using old ",str(WarpDivergenceRatio)
   if (ratios):
     MultiplicationFactorIf.push(bratio)
   return
@@ -581,7 +586,7 @@ else:
   print "Global Memory Operation - H"
   writeLine= writeLine+",H"
 
-if (WarpDivergenceRatio >=0 and WarpDivergenceRatio <=1):
+if (WarpDivergenceRatio >=0 and WarpDivergenceRatio <1):
   print "BranchDivergence - L"+" "+str(WarpDivergenceRatio)
   writeLine= writeLine+",L"
 else:
