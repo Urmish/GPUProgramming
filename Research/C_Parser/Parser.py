@@ -571,7 +571,7 @@ else:
 if (TotalArithmeticInstructions < NumLoadOperations+NumStoreOperations):
   print "Arithmetic Intensity - L"
   writeLine= writeLine+",L"
-elif ((TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))>1 and (TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))<5 ):
+elif ((TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))>=1 and (TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))<5 ):
   print "Arithmetic Intensity - M"
   writeLine= writeLine+",M"
 else:

@@ -182,7 +182,7 @@ NumIndirectAccesses -  0
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - H
+Arithmetic Intensity - M
 Global Memory Operation - H
 BranchDivergence - L 0
 ControlDensity -  L
@@ -4958,7 +4958,7 @@ NumIndirectAccesses -  0
 
 ######################################################
 Transcendental Ratio - H
-Arithmetic Intensity - H
+Arithmetic Intensity - M
 Global Memory Operation - H
 BranchDivergence - L 0
 ControlDensity -  L
@@ -6047,7 +6047,7 @@ NumIndirectAccesses -  2
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - H
+Arithmetic Intensity - M
 Global Memory Operation - L
 BranchDivergence - L 0
 ControlDensity -  L
@@ -6143,7 +6143,7 @@ NumIndirectAccesses -  0
 
 ######################################################
 Transcendental Ratio - H
-Arithmetic Intensity - H
+Arithmetic Intensity - M
 Global Memory Operation - H
 BranchDivergence - L 0
 ControlDensity -  L
@@ -6614,7 +6614,7 @@ NumIndirectAccesses -  2
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - H
+Arithmetic Intensity - M
 Global Memory Operation - L
 BranchDivergence - L 0
 ControlDensity -  L
@@ -6634,7 +6634,7 @@ Total Instruction - L
 
 ['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test23.txt']
 Transcedentals  -  0 /23 Failing Tests -  
-CompInt  -  11 /23 Failing Tests -   Test1 Test3 Test7 Test13 Test14 Test15 Test16 Test19 Test21 Test22 Test23
+CompInt  -  6 /23 Failing Tests -   Test3 Test7 Test13 Test14 Test15 Test16
 Coallesced  -  10 /23 Failing Tests -   Test3 Test4 Test5 Test6 Test7 Test9 Test18 Test20 Test21 Test23
 Lbdiv32  -  0 /23 Failing Tests -  
 Lbdiv1024  -  0 /23 Failing Tests -  
