@@ -9,7 +9,7 @@ for(j = 0; j<Nparticles; j++)
    
    for(int x = 0; x < Nparticles; x++) //FRATIO1000
    {
-      if(CDF[x] >= u[j])	//taken very rarely// BRATIO0.0
+      if(CDF[x] >= u[j])	//taken very rarely// BRATIO0.0001
       {
          index = x;
          break;
@@ -20,7 +20,7 @@ for(j = 0; j<Nparticles; j++)
    {
       i = Nparticles - 1;
    }
-   else // BRATIO0.0
+   else  //BRATIO0.0
    {
       i = index;
    }

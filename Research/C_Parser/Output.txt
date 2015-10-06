@@ -9,13 +9,13 @@ Test8,L,H,H,L,L,L,L
 Test9,L,M,H,L,L,L,L
 Test10,L,L,H,L,L,L,L
 Test11,L,L,L,L,L,L,L
-Test12,L,H,L,L,H,H,L
+Test12,L,M,L,H,H,H,L
 Test13,L,H,L,H,H,H,L
 Test14,L,H,L,H,H,H,L
 Test15,L,H,L,H,H,H,L
 Test16,L,H,L,H,H,H,L
 Test17,M,M,H,L,L,H,L
-Test18,L,M,H,L,H,L,H
+Test18,L,M,H,H,H,L,H
 Test19,H,H,H,L,L,H,L
 Test20,L,M,L,L,H,H,L
 Test21,L,H,L,L,L,H,L

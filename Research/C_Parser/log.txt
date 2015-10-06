@@ -10,9 +10,9 @@
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -200,9 +200,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -369,9 +369,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -624,9 +624,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -747,8 +747,8 @@ BRATIO0.01
 Found Control Density
 ['0.01']
 Bratio found
-temp bratio is  0.32
-Divergence ratio is  0.32
+temp bratio is  0.64
+Divergence ratio is  0.64
                 if(knodes[currKnode[bid]].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
 
 22.14
@@ -821,8 +821,8 @@ Found Control Density
 ['0.5']
 ['0.01']
 Bratio found
-temp bratio is  0.16
-Divergence ratio using old  0.32
+temp bratio is  0.32
+Divergence ratio using old  0.64
                     offset[bid] = knodes[currKnode[bid]].indices[thid];
 
 22.14
@@ -866,8 +866,8 @@ taken
 Found Control Density
 ['0.01']
 Bratio found
-temp bratio is  0.32
-Divergence ratio using old  0.32
+temp bratio is  0.64
+Divergence ratio using old  0.64
                 if(knodes[lastKnode[bid]].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
 
 22.28
@@ -924,8 +924,8 @@ Found Control Density
 ['0.01']
 ['0.5']
 Bratio found
-temp bratio is  0.16
-Divergence ratio using old  0.32
+temp bratio is  0.32
+Divergence ratio using old  0.64
                     offset_2[bid] = knodes[lastKnode[bid]].indices[thid];
 
 22.28
@@ -1007,8 +1007,8 @@ BRATIO0.0001
 Found Control Density
 ['0.0001']
 Bratio found
-temp bratio is  0.0032
-Divergence ratio using old  0.32
+temp bratio is  0.0064
+Divergence ratio using old  0.64
             recstart[bid] = knodes[currKnode[bid]].indices[thid];
 
 22.35
@@ -1074,8 +1074,8 @@ BRATIO0.0001
 Found Control Density
 ['0.0001']
 Bratio found
-temp bratio is  0.0032
-Divergence ratio using old  0.32
+temp bratio is  0.0064
+Divergence ratio using old  0.64
             reclength[bid] = knodes[lastKnode[bid]].indices[thid] - recstart[bid]+1;
 
 22.3518
@@ -1141,7 +1141,7 @@ NumIndirectAccesses -  12
 Transcendental Ratio - L
 Arithmetic Intensity - M
 Global Memory Operation - L
-BranchDivergence - L 0.32
+BranchDivergence - L 0.64
 ControlDensity -  H
 Floating Point Mul/Div - L
 Total Instruction - L
@@ -1157,9 +1157,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -1323,9 +1323,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -1748,9 +1748,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2250,9 +2250,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2514,9 +2514,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2706,9 +2706,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -2835,9 +2835,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3017,9 +3017,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3042,7 +3042,7 @@ Annotation Begin Found
 
 2
 2
-        if(window[i] == 1){		//0.03125
+        if(window[i] == 1){		//BRATIO0.03125
 
 5
 5
@@ -3054,33 +3054,37 @@ Division Found
 = 1){		
 match
 1){
-/0.03125
+/BRATIO0.03125
 
 Division Found
 ####
 30   /
-31   0
+31   B
 29   /
 
-0.03125
+BRATIO0.03125
 
 Found Control Density
+['0.03125']
+Bratio found
+temp bratio is  1.0
+Divergence ratio is  1.0
             float temp = 0.0f;
 
-5
-5
+5.0
+5.0
             int upperBound = randIndex[i]+768;
 
-6
-6
+5.03125
+5.03125
             for(j=randIndex[i]; j<upperBound && j<n; j++){
 
-9
-9
+5.125
+5.125
                 temp += sa * sx[randIndex[j]];
 
-11
-11
+5.1875
+5.1875
 ####
 27   *
 28    
@@ -3096,24 +3100,24 @@ sx
 44
             }
 
-11
-11
+5.1875
+5.1875
             sy[i] = temp;
 
-11
-11
+5.1875
+5.1875
         }
 
-11
-11
+5.1875
+5.1875
 }
 
-11
-11
+5.1875
+5.1875
 ####Annotation Ends####
 
-11
-11
+5.1875
+5.1875
 Annotation End Found
 ######################################################
 **********
@@ -3148,18 +3152,18 @@ value-      None
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 11
-NumLoadOperations - 4
-NumStoreOperations - 2
+TotalArithmeticInstructions - 5.1875
+NumLoadOperations - 0.125
+NumStoreOperations - 1.03125
 NumOffsetAccesses -  0
 NumIndirectAccesses -  1
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - H
+Arithmetic Intensity - M
 Global Memory Operation - L
-BranchDivergence - L 0
+BranchDivergence - H 1.0
 ControlDensity -  H
 Floating Point Mul/Div - H
 Total Instruction - L
@@ -3175,9 +3179,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3370,9 +3374,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3565,9 +3569,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -3926,9 +3930,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -4255,9 +4259,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -4437,9 +4441,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -4505,7 +4509,7 @@ FRATIO1000
 
 7
 7
-      if(CDF[x] >= u[j])	//taken very rarely// BRATIO0.0
+      if(CDF[x] >= u[j])	//taken very rarely// BRATIO0.0001
 
 5007
 5007
@@ -4515,7 +4519,7 @@ Division Found
 26   /
 24   	
  u[j])	
-/taken very rarely// BRATIO0.0
+/taken very rarely// BRATIO0.0001
 
 match
 taken
@@ -4526,7 +4530,7 @@ Division Found
 27   t
 25   /
 
-taken very rarely// BRATIO0.0
+taken very rarely// BRATIO0.0001
 
 match
 taken
@@ -4539,7 +4543,7 @@ Division Found
  very rarely
 match
 rarely
-/ BRATIO0.0
+/ BRATIO0.0001
 
 Division Found
 ####
@@ -4547,13 +4551,13 @@ Division Found
 46    
 44   /
 
- BRATIO0.0
+ BRATIO0.0001
 
 Found Control Density
-['0.0']
+['0.0001']
 Bratio found
-temp bratio is  0.0
-Divergence ratio using old  0
+temp bratio is  3.2
+Divergence ratio is  3.2
       {
 
 5007.0
@@ -4624,7 +4628,7 @@ Found Control Density
 ['0.0']
 Bratio found
 temp bratio is  0.0
-Divergence ratio using old  0
+Divergence ratio using old  3.2
    {
 
 11007.0
@@ -4637,30 +4641,30 @@ Divergence ratio using old  0
 
 11007.0
 11007.0
-   else // BRATIO0.0
+   else  //BRATIO0.0
 
 13007.0
 13007.0
 Division Found
 ####
-8   /
 9   /
-7    
+10   /
+8    
    else
-/ BRATIO0.0
+/BRATIO0.0
 
 Division Found
 ####
+10   /
+11   B
 9   /
-10    
-8   /
 
- BRATIO0.0
+BRATIO0.0
 
 ['0.0']
 Bratio found
 temp bratio is  0.0
-Divergence ratio using old  0
+Divergence ratio using old  3.2
    {
 
 13007.0
@@ -4723,7 +4727,7 @@ Found Control Density
 ['0.0']
 Bratio found
 temp bratio is  0.0
-Divergence ratio using old  0
+Divergence ratio using old  3.2
    { 
 
 19007.0
@@ -4805,7 +4809,7 @@ NumIndirectAccesses -  0
 Transcendental Ratio - L
 Arithmetic Intensity - M
 Global Memory Operation - H
-BranchDivergence - L 0
+BranchDivergence - H 3.2
 ControlDensity -  H
 Floating Point Mul/Div - L
 Total Instruction - H
@@ -4877,9 +4881,9 @@ Total Instruction - H
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -4972,9 +4976,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -5681,9 +5685,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -6061,9 +6065,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -6157,9 +6161,9 @@ Total Instruction - L
   global FoundFLPMulDiv
 /home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:487: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:542: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
@@ -6630,9 +6634,9 @@ Total Instruction - L
 
 ['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test23.txt']
 Transcedentals  -  0 /23 Failing Tests -  
-CompInt  -  12 /23 Failing Tests -   Test1 Test3 Test7 Test12 Test13 Test14 Test15 Test16 Test19 Test21 Test22 Test23
+CompInt  -  11 /23 Failing Tests -   Test1 Test3 Test7 Test13 Test14 Test15 Test16 Test19 Test21 Test22 Test23
 Coallesced  -  10 /23 Failing Tests -   Test3 Test4 Test5 Test6 Test7 Test9 Test18 Test20 Test21 Test23
-Lbdiv32  -  2 /23 Failing Tests -   Test12 Test18
+Lbdiv32  -  0 /23 Failing Tests -  
 Lbdiv1024  -  0 /23 Failing Tests -  
 fmuldiv  -  0 /23 Failing Tests -  
 ilp16384  -  0 /23 Failing Tests -  
