@@ -12,6 +12,7 @@ previousLine = ""
 NumLoadOperations = 0
 NumStoreOperations = 0
 NumOffsetAccesses = 0
+NumDoubleAccesses = 0
 NumIndirectAccesses = 0 #A[B[i]]
 FoundFLPMulDiv = False
 ControlDensity = "L"
@@ -294,6 +295,7 @@ def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf)
   NumLoadOperations  = NumLoadOperations + len(loadOperations) *MultiplicationFactorFor.front()*MultiplicationFactorIf.front() - len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   if len(loadOperations) > 0 or len(storeOperations) > 0:
     GlobalMemoryTransaction(currentLine)
+    doubleMem(currentLine)
   return False
 
 def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFactorIf):
@@ -458,6 +460,43 @@ def FPDiv(currentLine):
       operandB=3 #If no match found, then a constant
   return False
 
+def doubleMem(currentLine):
+  "Checks Load to a double variable"
+  storeOperations = re.finditer('\[.*=',currentLine, re.I)
+  print "Checking double store operation"
+  startFrom = 0
+  for store in storeOperations:
+    (start,end) = store.span()
+    print start, " ",currentLine[start]
+    operandA = 1; #1 - Scalar, 2 - Float, 3 - Double
+    start = start - 1 #start is the position of [
+    print start, " ",currentLine[start]
+    while (currentLine[start] == " "):
+      start=start-1
+    if (currentLine[start] == ")"):
+      start=start-1
+      startFrom = start
+      while(currentLine[startFrom] != "("):
+        startFrom = startFrom-1
+    if (currentLine[start] == "]"):
+      operandA = 2
+      while (currentLine[start] != "["):
+	start=start-1  
+      start=start-1 #Just Reached [, need to decrement 
+    print currentLine[startFrom:start+1]
+    #temp = re.search('[(\s*=/+](\w.*)$',currentLine[startFrom:start+1].strip())
+    temp = re.search('[(\s*=/+](\w.*)$',currentLine[startFrom:start+1])
+    #temp = currentLine[startFrom:start+1] #For store, all the above hoops may not be true
+    if temp:
+      print "match"
+      print temp.group(1)
+      if temp.group(1) in variables:
+	print "Found variable in List!"
+        if variables[temp.group(1)].getVarType() == 2 :
+	  global NumDoubleAccesses
+          NumDoubleAccesses = NumDoubleAccesses+1
+  print "Checking double store operation - Done"
+  return False
 
 def checkControlDensity(currentLine):
   "Checks for if/while/do statements"
@@ -557,6 +596,7 @@ print "NumLoadOperations -",NumLoadOperations
 print "NumStoreOperations -",NumStoreOperations
 print "NumOffsetAccesses - ", NumOffsetAccesses 
 print "NumIndirectAccesses - ", NumIndirectAccesses
+print "NumDoubleAccesses - ", NumDoubleAccesses
 print "\n"
 print "######################################################"
 basename = os.path.basename(args.file_name)
@@ -583,7 +623,7 @@ else:
 
 
 
-if (NumOffsetAccesses>0 or NumIndirectAccesses>0):
+if (NumOffsetAccesses>0 or NumIndirectAccesses>0 or NumDoubleAccesses>0):
   print "Global Memory Operation - L"
   writeLine= writeLine+",L"
 else:

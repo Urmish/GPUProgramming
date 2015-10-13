@@ -5,7 +5,7 @@ float variables[nelr*NVAR], ff_variable[NVAR];
 ####Annotation Begins####
 for(int i = 0; i < nelr; i++){
     variables[i*NVAR + 0] = ff_variable[0];
-    variables[i*NVAR + 1] = ff_variable[1];
+    variables[i*NVAR + 1] = ff_v[1];
     variables[i*NVAR + 2] = ff_variable[2];
     variables[i*NVAR + 3] = ff_variable[3];
     variables[i*NVAR + 4] = ff_variable[4];

@@ -1,5 +1,10 @@
 int Nparticles = 1000, index;
-double arrayX[1000], arrayY[1000], xj[1000], yj[1000], CDF[1000], u[1000];
+double arrayX[1000];
+double arrayY[1000];
+double xj[1000];
+double yj[1000];
+double CDF[1000];
+double u[1000];
 
 ####Annotation Begins####
 for(j = 0; j<Nparticles; j++)

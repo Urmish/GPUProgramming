@@ -6,8 +6,8 @@ Test5,L,L,L,L,L,L,L
 Test6,M,M,L,L,L,H,L
 Test7,L,L,L,L,L,H,L
 Test8,L,H,H,L,L,L,L
-Test9,L,M,H,L,L,L,L
-Test10,L,L,H,L,L,L,L
+Test9,L,M,L,L,L,L,L
+Test10,L,L,L,L,L,L,L
 Test11,L,L,L,L,L,L,L
 Test12,L,M,L,H,H,H,L
 Test13,L,M,L,H,H,H,L
@@ -15,7 +15,7 @@ Test14,L,M,L,H,H,H,L
 Test15,L,M,L,H,H,H,L
 Test16,L,M,L,H,H,H,L
 Test17,M,M,H,L,L,H,L
-Test18,L,M,H,H,H,L,H
+Test18,L,M,L,H,H,L,H
 Test19,H,M,H,L,L,H,L
 Test20,L,M,L,L,H,H,L
 Test21,L,M,L,L,L,H,L

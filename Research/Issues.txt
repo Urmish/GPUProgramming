@@ -1,8 +1,21 @@
 CompInt
 --------
-1) Test 1 - new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
-
-delta[j] * ly[k]) + (MOMENTUM * oldw[k] identified as mem[A+B] pattern while delta[j] * ly[k] identified as mem[A*B] pattern. Even after no greedy search. 
+Test 1 - new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
+  delta[j] * ly[k]) + (MOMENTUM * oldw[k] identified as mem[A+B] pattern while delta[j] * ly[k] identified as mem[A*B] pattern. Even after no greedy search. 
 Difficult to come up with patterns that identify mem[A*B[i]*k] and dont give issues like above. Also filtering out adds from mem[A+B] is important.
+  As a result, total arithmetic inst - 7 instead of 9 and compint is (7/8) instead of (9/8)
 
-As a result, total arithmetic inst - 7 instead of 9 and compint is (7/8) instead of (9/8)
+Test 3 -  Complicated with all the unrolling and understanding that max height is 2, so once branch is taken once not taken and both path executed when unrolled
+
+Coalescing
+-----------
+
+Test 3 - knodes[currKnode[bid]] is the issue. Although the access is of type A[B[i]], currKnode[bid] is constant across iteration. As a result we get a coalescing ratio of 3 while actually it is 4.
+Test 4 - Same issue as Test 3
+Test 5 - I feel the Parser is right. It is an aligned access so each warp would generate more than one global memory transaction for every load.
+Test 6 - Similar problem like Test 5 
+Test 7 - Similar problem like Test 7
+Test 10 - Key is wrong. Double operation for load and store, global memory coalescing should be low
+Test 20 - image[iN[i] + Nr*j] is an indirect access, so the parser says it has low coalescing, however the value of iN[i] is i-1 so the access is actually predictable. Even if we replace it, my parser would still report it as low because of the way I handle offset
+Test21 - Similar issue as Test20
+Test23 - Similar issue as Test20

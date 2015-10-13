@@ -4,7 +4,10 @@
 #define NZ 128
 int i, k, j, var;
 int niter = 2;
-double y0_r[NTOTAL], y0_i[NTOTAL], x_r[NTOTAL], x_i[NTOTAL];
+double y0_r[NTOTAL];
+double y0_i[NTOTAL];
+double x_r[NTOTAL;
+double x_i[NTOTAL];
 
 for (iter = 1; iteri<=niter; iter++) {
 ####Annotation Begins####

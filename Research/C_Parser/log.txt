@@ -1,189 +1,488 @@
-Parser.py:358: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:372: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:373: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:375: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:431: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:433: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:445: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:446: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:448: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:491: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+Parser.py:530: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-Parser.py:546: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+Parser.py:585: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test1.txt
-#define ETA 0.3
+../Input_C_Parser/Test23.txt
+int rows = 2048;
 
-#define MOMENTUM 0.3
+int cols = 2048;
+
+niter = 2;
+
+int iN[2048], iS[2048], jE[2048], jW[2048];
+
+float Jc;
+
+float dNi[4194304], dS[4194304], dW[4194304], dE[4194304];
+
+float tmp,sum,sum2;
+
+float G2,L,num,den,qsqr,D;
+
+float c[4194304];
+
+float cN,cS,cW,cE;
+
+int iter;   // primary loop
+
+long i,j;    // image row/col
+
+long k;      // image single index    
 
 
 
-float new_dwi;
+for (int i=0; i< rows; i++) {
 
-float *delta;
+    iN[i] = i-1;
 
-float  **w;
+    iS[i] = i+1;
 
-float **old_w;
+}
 
-float *ly;
 
-int k, j;
 
-int ndelta = 16;
+for (int j=0; j< cols; j++) {
 
-int nly = 65536;
+    jW[j] = j-1;
 
-ly[0] = 1.0;
+    jE[j] = j+1;
+
+}
+
+
+
+iN[0]    = 0;
+
+iS[rows-1] = rows-1;
+
+jW[0]    = 0;
+
+jE[cols-1] = cols-1;
+
+
+
+for (iter=0; iter<niter; iter++){                                           
+
+
+
+    for (int i = 0; i < rows; i++) {
 
 ####Annotation Begins####
 
 Annotation Begin Found
 TotalArithmeticInstructions  0
 TotalArithmeticInstructions  0
-for (k = 0; k <= nly; k++) { 
+        for (int j = 0; j < cols; j++) {
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-    for (j = 1; j <= ndelta; j++) {
+            // current index
 
-TotalArithmeticInstructions  4
-TotalArithmeticInstructions  4
-        new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
+TotalArithmeticInstructions  3
+TotalArithmeticInstructions  3
+Division Found
+####
+12   /
+13   /
+11    
+
+/ current index
+
+match
+current
+22    
+Division Found
+####
+13   /
+14    
+12   /
+
+ current index
+
+match
+current
+22    
+            k = i * cols + j;
+
+TotalArithmeticInstructions  5
+TotalArithmeticInstructions  5
+####
+18   *
+19    
+17    
+ i
+match
+i
+ cols + j;
+
+match
+cols
+24    
+ 
+
+TotalArithmeticInstructions  5
+TotalArithmeticInstructions  5
+            // diffusion coefficent
+
+TotalArithmeticInstructions  6
+TotalArithmeticInstructions  6
+Division Found
+####
+12   /
+13   /
+11    
+
+/ diffusion coefficent
+
+match
+diffusion
+24    
+Division Found
+####
+13   /
+14    
+12   /
+
+ diffusion coefficent
+
+match
+diffusion
+24    
+            cN = c[k];
+
+TotalArithmeticInstructions  6
+TotalArithmeticInstructions  6
+Checking double store operation
+Checking double store operation - Done
+            cS = c[iS[i] * cols + j];
 
 TotalArithmeticInstructions  8
 TotalArithmeticInstructions  6
+Checking double store operation
+Checking double store operation - Done
 ####
-23   *
+25   *
+26    
 24    
+ c[iS
+match
+c[iS
+ cols + j];
+
+match
+cols
+31    
+            cW = c[k];
+
+TotalArithmeticInstructions  6
+TotalArithmeticInstructions  6
+Checking double store operation
+Checking double store operation - Done
+            cE = c[i * cols + jE[j]];
+
+TotalArithmeticInstructions  8
+TotalArithmeticInstructions  6
+Checking double store operation
+Checking double store operation - Done
+####
+21   *
 22    
- ((ETA
+20    
+ c[i
 match
-ETA
- delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
+c[i
+ cols + jE[j]];
 
 match
-delta
-30   [
-33
+cols
+27    
+ 
+
+TotalArithmeticInstructions  6
+TotalArithmeticInstructions  6
+            // divergence (equ 58)
+
+TotalArithmeticInstructions  7
+TotalArithmeticInstructions  7
+Division Found
 ####
-34   *
-35    
+12   /
+13   /
+11    
+
+/ divergence (equ 58)
+
+match
+divergence
+25    
+Division Found
+####
+13   /
+14    
+12   /
+
+ divergence (equ 58)
+
+match
+divergence
+25    
+            D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
+
+TotalArithmeticInstructions  14
+TotalArithmeticInstructions  10
+Checking double store operation
+Checking double store operation - Done
+####
+19   *
+20    
+18    
+ cN
+match
+cN
+ dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
+
+match
+dN
+23   [
+26
+####
+32   *
 33    
-
- ly[k]) + (MOMENTUM * oldw[k][j]));
+31    
+ + cS
+match
+cS
+ dS[k] + cW * dW[k] + cE * dE[k];
 
 match
-ly
-38   [
-41
+dS
+36   [
+39
 ####
-55   *
-56    
-54    
-) + (MOMENTUM
+45   *
+46    
+44    
+ + cW
 match
-MOMENTUM
- oldw[k][j]));
+cW
+ dW[k] + cE * dE[k];
 
 match
-oldw
-61   [
-64
-        w[k][j] += new_dw;
+dW
+49   [
+52
+####
+58   *
+59    
+57    
+ + cE
+match
+cE
+ dE[k];
 
-TotalArithmeticInstructions  7
-TotalArithmeticInstructions  7
-        oldw[k][j] = new_dw;
+match
+dE
+62   [
+65
+ 
 
-TotalArithmeticInstructions  7
-TotalArithmeticInstructions  7
+TotalArithmeticInstructions  10
+TotalArithmeticInstructions  10
+            // image update (equ 61)
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+Division Found
+####
+12   /
+13   /
+11    
+
+/ image update (equ 61)
+
+match
+image
+20    
+Division Found
+####
+13   /
+14    
+12   /
+
+ image update (equ 61)
+
+match
+image
+20    
+            J[k] = J[k] + 0.25*lambda*D;
+
+TotalArithmeticInstructions  14
+TotalArithmeticInstructions  14
+Checking double store operation
+13   [
+12   J
+            J
+match
+J
+Checking double store operation - Done
+####
+30   *
+31   l
+29   5
+ J[k] + 0.25
+match
+J[k] + 0.25
+lambda*D;
+
+match
+lambda
+37   *
+####
+37   *
+38   D
+36   a
+
+D;
+
+        }
+
+TotalArithmeticInstructions  14
+TotalArithmeticInstructions  14
     }
 
-TotalArithmeticInstructions  7
-TotalArithmeticInstructions  7
+TotalArithmeticInstructions  14
+TotalArithmeticInstructions  14
+
+
+TotalArithmeticInstructions  14
+TotalArithmeticInstructions  14
 }
 
-TotalArithmeticInstructions  7
-TotalArithmeticInstructions  7
-####Annotation Begins####
+TotalArithmeticInstructions  14
+TotalArithmeticInstructions  14
+####Annotation Ends####
 
-Annotation Begin Found
-TotalArithmeticInstructions  7
-TotalArithmeticInstructions  7
+TotalArithmeticInstructions  14
+TotalArithmeticInstructions  14
+Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name -      
+Name -      tmp
 Scope -     Global
 varType -   1
-size -      0
+size -      1
 value-      None
 **********
 The values of this entry are
-Name -      ndelta
+Name -      cN
+Scope -     Global
+varType -   1
+size -      1
+value-      None
+**********
+The values of this entry are
+Name -      c
+Scope -     Global
+varType -   1
+size -      1
+value-      None
+**********
+The values of this entry are
+Name -      rows
 Scope -     Global
 varType -   0
 size -      1
-value-      16
+value-      2048
 **********
 The values of this entry are
-Name -      nly
+Name -      G2
+Scope -     Global
+varType -   1
+size -      1
+value-      None
+**********
+The values of this entry are
+Name -      i
+Scope -     For
+varType -   0
+size -      1
+value-      0
+**********
+The values of this entry are
+Name -      j
+Scope -     For
+varType -   0
+size -      1
+value-      0
+**********
+The values of this entry are
+Name -      dNi
+Scope -     Global
+varType -   1
+size -      1
+value-      None
+**********
+The values of this entry are
+Name -      cols
 Scope -     Global
 varType -   0
 size -      1
-value-      65536
+value-      2048
 **********
 The values of this entry are
-Name -      k
+Name -      iter
 Scope -     Global
 varType -   0
 size -      1
 value-      None
 **********
 The values of this entry are
-Name -      delta
+Name -      iN
 Scope -     Global
-varType -   1
-size -      3
+varType -   0
+size -      2048
 value-      None
 **********
 The values of this entry are
-Name -      new_dwi
+Name -      Jc
 Scope -     Global
 varType -   1
 size -      1
-value-      None
-**********
-The values of this entry are
-Name -      ly
-Scope -     Global
-varType -   1
-size -      3
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 7
-NumLoadOperations - 6
-NumStoreOperations - 2
-NumOffsetAccesses -  0
-NumIndirectAccesses -  0
+TotalArithmeticInstructions - 14
+NumLoadOperations - 11
+NumStoreOperations - 1
+NumOffsetAccesses -  1
+NumIndirectAccesses -  2
+NumDoubleAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
-Global Memory Operation - H
+Arithmetic Intensity - M
+Global Memory Operation - L
 BranchDivergence - L 0
 ControlDensity -  L
 Floating Point Mul/Div - H
