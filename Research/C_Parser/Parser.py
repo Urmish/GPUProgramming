@@ -300,13 +300,14 @@ def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFac
   "Checks for number of arithmetic operations in a line"
   #Right now A[i+4] is also included, need to take care of this!!!! TODO FIXME
   #print currentLine
-  numArithmetic  = re.findall('\+\+|\+|\-|\*|/|\<\=|\>\=|\<\<|\>\>|\=\=|\<|\>',currentLine, re.I)
+  numArithmetic  = re.findall('\+\+|\+|\-|\*|/|<=|\>=|<<|>>|==|<|>',currentLine, re.I)
+  numFalseArithmetic  = re.findall('//',currentLine, re.I) #// interpreted as 2 divisions
   global TotalArithmeticInstructions
   #print len(numArithmetic)
-  TotalArithmeticInstructions = TotalArithmeticInstructions + len(numArithmetic)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  TotalArithmeticInstructions = TotalArithmeticInstructions + (len(numArithmetic) -len(numFalseArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   print TotalArithmeticInstructions
   numArithmetic  = re.findall('\w+\[.*\+.*\]',currentLine, re.I)
-  TotalArithmeticInstructions = TotalArithmeticInstructions - len(numArithmetic)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  TotalArithmeticInstructions = TotalArithmeticInstructions - (len(numArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   print TotalArithmeticInstructions
   return False
 

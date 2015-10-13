@@ -1,255 +1,195 @@
-Parser.py:355: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:356: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:367: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:368: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:371: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:428: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:429: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:440: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:441: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:444: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:488: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+Parser.py:489: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-Parser.py:543: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+Parser.py:544: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test3.txt
-count = 10000;
+../Input_C_Parser/Test14.txt
+n = 1024000;
 
-maxheight = 2;
+float sx[1024000], sy[1024000];
 
-threadsPerBlock = 508;
+int randIndex[1024000], window[1024000], emrIndex[1024000];
 
-
-
-long currKnode[10000], offset[10000];
-
-
-
-typedef struct knode {
-
-        int location;
-
-        int indices [509];
-
-        int  keys [509];
-
-        bool is_leaf;
-
-        int num_keys;
-
-} knode;
-
-
+float randArray[1024000];
 
 ####Annotation Begins####
 
 Annotation Begin Found
 0
 0
-for(bid = 0; bid < count; bid++){
+    for (i = 0; i<=n; ++i) {
 
 2
 2
-    for(i = 0; i < maxheight; i++){
+        if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIO0.03125
 
-4
-4
-        for(thid = 0; thid < threadsPerBlock; thid++){
-
-6
-6
-             if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
-
-11
-10
+5
+5
 Division Found
 ####
-120   /
-121   /
-119   	
- keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	
+29   /
+30   /
+28   	
+= 1){		
 match
-knodes[currKnode[bid]].keys[thid+1] > keys[bid])){
-/taken for less than 1% of the iterations of threadsPerBlock
+1){
+/this condition is met once every 32 iterations //BRATIO0.03125
 
 match
-taken
-127    
+this
+35    
 Division Found
 ####
-121   /
-122   t
-120   /
+30   /
+31   t
+29   /
 
-taken for less than 1% of the iterations of threadsPerBlock
+this condition is met once every 32 iterations //BRATIO0.03125
 
 match
-taken
-127    
+this
+35    
+Division Found
+####
+78   /
+79   /
+77    
+ condition is met once every 32 iterations
+match
+is met once every 32 iterations
+/BRATIO0.03125
+
+Division Found
+####
+79   /
+80   B
+78   /
+
+BRATIO0.03125
+
 Found Control Density
-                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
+['0.03125']
+Bratio found
+temp bratio is  1.0
+Divergence ratio is  1.0
+            float temp = 0.0f;
 
-13
-13
-Division Found
+5.0
+5.0
+            int upperBound = randIndex[i]+1024;
+
+5.03125
+5.03125
+            for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){
+
+5.15625
+5.15625
+                temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
+
+5.25
+5.21875
 ####
-71   /
-72   /
-70   	
-                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	
+27   *
+28    
+26    
+ sa
 match
-knodes[offset[bid]].indices[thid] < knodes_elem){
-/taken once per iteration of maxheight
-
-match
-taken
-78    
-Division Found
-####
-72   /
-73   t
-71   /
-
-taken once per iteration of maxheight
+sa
+ (sx[randIndex[j]] + sx[emrIndex[j]]);
 
 match
-taken
-78    
-Found Control Density
-                      offset[bid] = knodes[offset[bid]].indices[thid];
+sx
+32   [
+45
+            }
 
-13
-13
-                  }
+5.21875
+5.21875
+            sy[i] = temp;
 
-13
-13
-             }
-
-13
-13
+5.21875
+5.21875
         }
 
-13
-13
-        currKnode[bid] = offset[bid];
-
-13
-13
+5.21875
+5.21875
     }
 
-13
-13
- 
-
-13
-13
-    for(thid = 0; thid < threadsPerBlock; thid++){
-
-15
-15
-        if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
-
-18
-18
-Division Found
-####
-62   /
-63   /
-61   	
-= keys[bid]){			
-match
-keys[bid]){
-/taken once per iteration of count
-
-match
-taken
-69    
-Division Found
-####
-63   /
-64   t
-62   /
-
-taken once per iteration of count
-
-match
-taken
-69    
-Found Control Density
-            ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
-
-18
-18
-        }
-
-18
-18
-    }
-
-18
-18
-}
-
-18
-18
+5.21875
+5.21875
 ####Annotation Ends####
 
-18
-18
+5.21875
+5.21875
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name -      indices
-Scope -     struct
+Name -      upperBound
+Scope -     For
 varType -   0
+size -      1
+value-      1024
+**********
+The values of this entry are
+Name -      temp
+Scope -     For
+varType -   1
+size -      1
+value-      0
+**********
+The values of this entry are
+Name -      sx
+Scope -     Global
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
-Name -      
-Scope -     struct
-varType -   0
-size -      0
-value-      None
-**********
-The values of this entry are
-Name -      location
-Scope -     struct
-varType -   0
+Name -      randArray
+Scope -     Global
+varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
-Name -      num_keys
-Scope -     struct
+Name -      randIndex
+Scope -     Global
 varType -   0
-size -      1
+size -      1024000
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 18
-NumLoadOperations - 21
-NumStoreOperations - 5
-NumOffsetAccesses -  1
-NumIndirectAccesses -  7
+TotalArithmeticInstructions - 5.21875
+NumLoadOperations - 0.21875
+NumStoreOperations - 1.03125
+NumOffsetAccesses -  0
+NumIndirectAccesses -  2
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
+Arithmetic Intensity - M
 Global Memory Operation - L
-BranchDivergence - L 0
+BranchDivergence - H 1.0
 ControlDensity -  H
-Floating Point Mul/Div - L
+Floating Point Mul/Div - H
 Total Instruction - L
