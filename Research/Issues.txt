@@ -1,0 +1,8 @@
+CompInt
+--------
+1) Test 1 - new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
+
+delta[j] * ly[k]) + (MOMENTUM * oldw[k] identified as mem[A+B] pattern while delta[j] * ly[k] identified as mem[A*B] pattern. Even after no greedy search. 
+Difficult to come up with patterns that identify mem[A*B[i]*k] and dont give issues like above. Also filtering out adds from mem[A+B] is important.
+
+As a result, total arithmetic inst - 7 instead of 9 and compint is (7/8) instead of (9/8)

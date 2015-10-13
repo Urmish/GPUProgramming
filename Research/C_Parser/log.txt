@@ -1,195 +1,190 @@
-Parser.py:356: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:358: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:368: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:370: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:371: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:373: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:429: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:431: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:441: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:443: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:444: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:446: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:489: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+Parser.py:491: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-Parser.py:544: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+Parser.py:546: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test14.txt
-n = 1024000;
+../Input_C_Parser/Test1.txt
+#define ETA 0.3
 
-float sx[1024000], sy[1024000];
+#define MOMENTUM 0.3
 
-int randIndex[1024000], window[1024000], emrIndex[1024000];
 
-float randArray[1024000];
+
+float new_dwi;
+
+float *delta;
+
+float  **w;
+
+float **old_w;
+
+float *ly;
+
+int k, j;
+
+int ndelta = 16;
+
+int nly = 65536;
+
+ly[0] = 1.0;
 
 ####Annotation Begins####
 
 Annotation Begin Found
-0
-0
-    for (i = 0; i<=n; ++i) {
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for (k = 0; k <= nly; k++) { 
 
-2
-2
-        if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIO0.03125
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+    for (j = 1; j <= ndelta; j++) {
 
-5
-5
-Division Found
+TotalArithmeticInstructions  4
+TotalArithmeticInstructions  4
+        new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
+
+TotalArithmeticInstructions  8
+TotalArithmeticInstructions  6
 ####
-29   /
-30   /
-28   	
-= 1){		
+23   *
+24    
+22    
+ ((ETA
 match
-1){
-/this condition is met once every 32 iterations //BRATIO0.03125
+ETA
+ delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
 
 match
-this
+delta
+30   [
+33
+####
+34   *
 35    
-Division Found
-####
-30   /
-31   t
-29   /
+33    
 
-this condition is met once every 32 iterations //BRATIO0.03125
+ ly[k]) + (MOMENTUM * oldw[k][j]));
 
 match
-this
-35    
-Division Found
+ly
+38   [
+41
 ####
-78   /
-79   /
-77    
- condition is met once every 32 iterations
+55   *
+56    
+54    
+) + (MOMENTUM
 match
-is met once every 32 iterations
-/BRATIO0.03125
-
-Division Found
-####
-79   /
-80   B
-78   /
-
-BRATIO0.03125
-
-Found Control Density
-['0.03125']
-Bratio found
-temp bratio is  1.0
-Divergence ratio is  1.0
-            float temp = 0.0f;
-
-5.0
-5.0
-            int upperBound = randIndex[i]+1024;
-
-5.03125
-5.03125
-            for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){
-
-5.15625
-5.15625
-                temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
-
-5.25
-5.21875
-####
-27   *
-28    
-26    
- sa
-match
-sa
- (sx[randIndex[j]] + sx[emrIndex[j]]);
+MOMENTUM
+ oldw[k][j]));
 
 match
-sx
-32   [
-45
-            }
+oldw
+61   [
+64
+        w[k][j] += new_dw;
 
-5.21875
-5.21875
-            sy[i] = temp;
+TotalArithmeticInstructions  7
+TotalArithmeticInstructions  7
+        oldw[k][j] = new_dw;
 
-5.21875
-5.21875
-        }
-
-5.21875
-5.21875
+TotalArithmeticInstructions  7
+TotalArithmeticInstructions  7
     }
 
-5.21875
-5.21875
-####Annotation Ends####
+TotalArithmeticInstructions  7
+TotalArithmeticInstructions  7
+}
 
-5.21875
-5.21875
-Annotation End Found
+TotalArithmeticInstructions  7
+TotalArithmeticInstructions  7
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  7
+TotalArithmeticInstructions  7
 ######################################################
 **********
 The values of this entry are
-Name -      upperBound
-Scope -     For
+Name -      
+Scope -     Global
+varType -   1
+size -      0
+value-      None
+**********
+The values of this entry are
+Name -      ndelta
+Scope -     Global
 varType -   0
 size -      1
-value-      1024
+value-      16
 **********
 The values of this entry are
-Name -      temp
-Scope -     For
-varType -   1
+Name -      nly
+Scope -     Global
+varType -   0
 size -      1
-value-      0
+value-      65536
 **********
 The values of this entry are
-Name -      sx
+Name -      k
+Scope -     Global
+varType -   0
+size -      1
+value-      None
+**********
+The values of this entry are
+Name -      delta
+Scope -     Global
+varType -   1
+size -      3
+value-      None
+**********
+The values of this entry are
+Name -      new_dwi
 Scope -     Global
 varType -   1
 size -      1
 value-      None
 **********
 The values of this entry are
-Name -      randArray
+Name -      ly
 Scope -     Global
 varType -   1
-size -      1
-value-      None
-**********
-The values of this entry are
-Name -      randIndex
-Scope -     Global
-varType -   0
-size -      1024000
+size -      3
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 5.21875
-NumLoadOperations - 0.21875
-NumStoreOperations - 1.03125
+TotalArithmeticInstructions - 7
+NumLoadOperations - 6
+NumStoreOperations - 2
 NumOffsetAccesses -  0
-NumIndirectAccesses -  2
+NumIndirectAccesses -  0
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - M
-Global Memory Operation - L
-BranchDivergence - H 1.0
-ControlDensity -  H
+Arithmetic Intensity - L
+Global Memory Operation - H
+BranchDivergence - L 0
+ControlDensity -  L
 Floating Point Mul/Div - H
 Total Instruction - L

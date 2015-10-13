@@ -305,10 +305,12 @@ def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFac
   global TotalArithmeticInstructions
   #print len(numArithmetic)
   TotalArithmeticInstructions = TotalArithmeticInstructions + (len(numArithmetic) -len(numFalseArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
-  print TotalArithmeticInstructions
-  numArithmetic  = re.findall('\w+\[.*\+.*\]',currentLine, re.I)
+  print "TotalArithmeticInstructions ", TotalArithmeticInstructions
+  numArithmetic  = re.findall('\w+\[.*?\+.*?\]',currentLine, re.I)
   TotalArithmeticInstructions = TotalArithmeticInstructions - (len(numArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
-  print TotalArithmeticInstructions
+  numArithmetic  = re.findall('\w+\[.*?\*.*?\]',currentLine, re.I)
+  TotalArithmeticInstructions = TotalArithmeticInstructions - (len(numArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  print "TotalArithmeticInstructions ",TotalArithmeticInstructions
   return False
 
 def FPDivMult(currentLine):
