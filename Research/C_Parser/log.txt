@@ -19,471 +19,127 @@ Parser.py:585: SyntaxWarning: name 'StartAnalyzing' is assigned to before global
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test23.txt
-int rows = 2048;
+../Input_C_Parser/Test10.txt
+#define NTOTAL 8388608
 
-int cols = 2048;
+#define NX 256
 
-niter = 2;
+#define NY 256
 
-int iN[2048], iS[2048], jE[2048], jW[2048];
+#define NZ 128
 
-float Jc;
+int i, k, j, id;
 
-float dNi[4194304], dS[4194304], dW[4194304], dE[4194304];
+int niter = 2;
 
-float tmp,sum,sum2;
+double y1_r[NTOTAL], y1_i[NTOTAL], x_r[NTOTAL], x_i[NTOTAL];
 
-float G2,L,num,den,qsqr,D;
-
-float c[4194304];
-
-float cN,cS,cW,cE;
-
-int iter;   // primary loop
-
-long i,j;    // image row/col
-
-long k;      // image single index    
+double xout_r[NTOTAL], xout_i[NTOTAL];
 
 
 
-for (int i=0; i< rows; i++) {
-
-    iN[i] = i-1;
-
-    iS[i] = i+1;
-
-}
+for (iter = 1; iteri<=niter; iter++) {
 
 
-
-for (int j=0; j< cols; j++) {
-
-    jW[j] = j-1;
-
-    jE[j] = j+1;
-
-}
-
-
-
-iN[0]    = 0;
-
-iS[rows-1] = rows-1;
-
-jW[0]    = 0;
-
-jE[cols-1] = cols-1;
-
-
-
-for (iter=0; iter<niter; iter++){                                           
-
-
-
-    for (int i = 0; i < rows; i++) {
 
 ####Annotation Begins####
 
 Annotation Begin Found
 TotalArithmeticInstructions  0
 TotalArithmeticInstructions  0
-        for (int j = 0; j < cols; j++) {
+        for(int idx=0; idx<NTOTAL; idx++){
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-            // current index
+                xout_r[idx] = y1_r[idx];
 
-TotalArithmeticInstructions  3
-TotalArithmeticInstructions  3
-Division Found
-####
-12   /
-13   /
-11    
-
-/ current index
-
-match
-current
-22    
-Division Found
-####
-13   /
-14    
-12   /
-
- current index
-
-match
-current
-22    
-            k = i * cols + j;
-
-TotalArithmeticInstructions  5
-TotalArithmeticInstructions  5
-####
-18   *
-19    
-17    
- i
-match
-i
- cols + j;
-
-match
-cols
-24    
- 
-
-TotalArithmeticInstructions  5
-TotalArithmeticInstructions  5
-            // diffusion coefficent
-
-TotalArithmeticInstructions  6
-TotalArithmeticInstructions  6
-Division Found
-####
-12   /
-13   /
-11    
-
-/ diffusion coefficent
-
-match
-diffusion
-24    
-Division Found
-####
-13   /
-14    
-12   /
-
- diffusion coefficent
-
-match
-diffusion
-24    
-            cN = c[k];
-
-TotalArithmeticInstructions  6
-TotalArithmeticInstructions  6
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
 Checking double store operation
+22   [
+21   r
+                xout_r
+match
+xout_r
+Found variable in List!
 Checking double store operation - Done
-            cS = c[iS[i] * cols + j];
+                xout_i[idx] = y1_i[idx];
 
-TotalArithmeticInstructions  8
-TotalArithmeticInstructions  6
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
 Checking double store operation
+22   [
+21   i
+                xout_i
+match
+xout_i
 Checking double store operation - Done
-####
-25   *
-26    
-24    
- c[iS
-match
-c[iS
- cols + j];
-
-match
-cols
-31    
-            cW = c[k];
-
-TotalArithmeticInstructions  6
-TotalArithmeticInstructions  6
-Checking double store operation
-Checking double store operation - Done
-            cE = c[i * cols + jE[j]];
-
-TotalArithmeticInstructions  8
-TotalArithmeticInstructions  6
-Checking double store operation
-Checking double store operation - Done
-####
-21   *
-22    
-20    
- c[i
-match
-c[i
- cols + jE[j]];
-
-match
-cols
-27    
- 
-
-TotalArithmeticInstructions  6
-TotalArithmeticInstructions  6
-            // divergence (equ 58)
-
-TotalArithmeticInstructions  7
-TotalArithmeticInstructions  7
-Division Found
-####
-12   /
-13   /
-11    
-
-/ divergence (equ 58)
-
-match
-divergence
-25    
-Division Found
-####
-13   /
-14    
-12   /
-
- divergence (equ 58)
-
-match
-divergence
-25    
-            D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
-
-TotalArithmeticInstructions  14
-TotalArithmeticInstructions  10
-Checking double store operation
-Checking double store operation - Done
-####
-19   *
-20    
-18    
- cN
-match
-cN
- dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
-
-match
-dN
-23   [
-26
-####
-32   *
-33    
-31    
- + cS
-match
-cS
- dS[k] + cW * dW[k] + cE * dE[k];
-
-match
-dS
-36   [
-39
-####
-45   *
-46    
-44    
- + cW
-match
-cW
- dW[k] + cE * dE[k];
-
-match
-dW
-49   [
-52
-####
-58   *
-59    
-57    
- + cE
-match
-cE
- dE[k];
-
-match
-dE
-62   [
-65
- 
-
-TotalArithmeticInstructions  10
-TotalArithmeticInstructions  10
-            // image update (equ 61)
-
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-Division Found
-####
-12   /
-13   /
-11    
-
-/ image update (equ 61)
-
-match
-image
-20    
-Division Found
-####
-13   /
-14    
-12   /
-
- image update (equ 61)
-
-match
-image
-20    
-            J[k] = J[k] + 0.25*lambda*D;
-
-TotalArithmeticInstructions  14
-TotalArithmeticInstructions  14
-Checking double store operation
-13   [
-12   J
-            J
-match
-J
-Checking double store operation - Done
-####
-30   *
-31   l
-29   5
- J[k] + 0.25
-match
-J[k] + 0.25
-lambda*D;
-
-match
-lambda
-37   *
-####
-37   *
-38   D
-36   a
-
-D;
-
         }
 
-TotalArithmeticInstructions  14
-TotalArithmeticInstructions  14
-    }
-
-TotalArithmeticInstructions  14
-TotalArithmeticInstructions  14
-
-
-TotalArithmeticInstructions  14
-TotalArithmeticInstructions  14
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
 }
 
-TotalArithmeticInstructions  14
-TotalArithmeticInstructions  14
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
 ####Annotation Ends####
 
-TotalArithmeticInstructions  14
-TotalArithmeticInstructions  14
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name -      tmp
-Scope -     Global
-varType -   1
-size -      1
-value-      None
-**********
-The values of this entry are
-Name -      cN
-Scope -     Global
-varType -   1
-size -      1
-value-      None
-**********
-The values of this entry are
-Name -      c
-Scope -     Global
-varType -   1
-size -      1
-value-      None
-**********
-The values of this entry are
-Name -      rows
-Scope -     Global
-varType -   0
-size -      1
-value-      2048
-**********
-The values of this entry are
-Name -      G2
-Scope -     Global
-varType -   1
-size -      1
-value-      None
-**********
-The values of this entry are
 Name -      i
+Scope -     Global
+varType -   0
+size -      1
+value-      None
+**********
+The values of this entry are
+Name -      niter
+Scope -     Global
+varType -   0
+size -      1
+value-      2
+**********
+The values of this entry are
+Name -      y1_r
+Scope -     Global
+varType -   2
+size -      1
+value-      None
+**********
+The values of this entry are
+Name -      idx
 Scope -     For
 varType -   0
 size -      1
 value-      0
 **********
 The values of this entry are
-Name -      j
-Scope -     For
-varType -   0
-size -      1
-value-      0
-**********
-The values of this entry are
-Name -      dNi
+Name -      xout_r
 Scope -     Global
-varType -   1
-size -      1
-value-      None
-**********
-The values of this entry are
-Name -      cols
-Scope -     Global
-varType -   0
-size -      1
-value-      2048
-**********
-The values of this entry are
-Name -      iter
-Scope -     Global
-varType -   0
-size -      1
-value-      None
-**********
-The values of this entry are
-Name -      iN
-Scope -     Global
-varType -   0
-size -      2048
-value-      None
-**********
-The values of this entry are
-Name -      Jc
-Scope -     Global
-varType -   1
+varType -   2
 size -      1
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 14
-NumLoadOperations - 11
-NumStoreOperations - 1
-NumOffsetAccesses -  1
-NumIndirectAccesses -  2
-NumDoubleAccesses -  0
+TotalArithmeticInstructions - 2
+NumLoadOperations - 2
+NumStoreOperations - 2
+NumOffsetAccesses -  0
+NumIndirectAccesses -  0
+NumDoubleAccesses -  1
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - M
+Arithmetic Intensity - L
 Global Memory Operation - L
 BranchDivergence - L 0
 ControlDensity -  L
-Floating Point Mul/Div - H
+Floating Point Mul/Div - L
 Total Instruction - L
