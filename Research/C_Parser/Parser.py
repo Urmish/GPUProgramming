@@ -19,6 +19,7 @@ ControlDensity = "L"
 WarpDivergenceRatio = 0 
 MultiplicationFactorFor = 1 #Useful for scenarios where for loop is executed by thread body
 MultiplicationFactorIf = 1 #Useful for scenarios where if is taken, different from for as multiplication factor would depend on bratio and we need a multiplication factor proportional to 1/32
+Warnings=[]
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value):
@@ -40,6 +41,9 @@ class VariableState():
   
   def getVarType(self):
     return self.varType
+  
+  def getValue(self):
+    return self.value
 
 class Stack():
   def __init__(self):
@@ -276,9 +280,47 @@ def GlobalMemoryTransaction(currentLine):
     indirect = re.findall('\w+\[',access)
     global NumOffsetAccesses
     global NumIndirectAccesses
-    NumOffsetAccesses = NumOffsetAccesses + len(offsets)   
+    #NumOffsetAccesses = NumOffsetAccesses + len(offsets)   #access has list of all memory transactions, if a + is there in it, increment offset accesses
+    if (offsets):
+      GlobalOffsetTransaction(access,currentLine)
     NumIndirectAccesses = NumIndirectAccesses + len(indirect)
+    if (indirect):
+      GenerateIndirectWarning(access,currentLine)
   return False
+
+def GlobalOffsetTransaction(access,currentLine):
+  "Checks the offset for A[i+c] sort of memory transactions"
+  global NumOffsetAccesses
+  offsets = re.findall('\+(.*)',access)
+  print "offset pattern is"
+  print access
+  print "and extracted value is"
+  print offsets
+  if(offsets):
+    print "Offset is"
+    print offsets[0].strip()
+    if(re.match('\d+',offsets[0].strip())):
+      if (int(offsets[0].strip()) <= 4):
+	print "Offset is a int with number <=2"
+      else:
+	print "Offset is quite huge!"
+	NumOffsetAccesses=NumOffsetAccesses+1
+    else: #Offset is not an integer, need to check if variable exists
+      if offsets[0].strip() in variables:
+	value = variables[offsets[0].strip()].getValue()
+	if (value == None):
+	  Warnings.append("Check Out "+access.strip()+" in line "+currentLine.strip()+"\n")
+	else:
+	  if (value > 4):
+	    print "Offset is quite huge!"
+            NumOffsetAccesses=NumOffsetAccesses+1
+	
+  return False
+
+def GenerateIndirectWarning(access,currentLine):
+  "Generates warning for indirect access"
+  print "Indirect Warning"
+  Warnings.append("Memory Coalescing Warning - ***"+access.strip()+"]*** is an indirect access in line "+currentLine.strip())
 
 def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf):
   "Check for memory access in currentline"
@@ -597,6 +639,10 @@ print "NumStoreOperations -",NumStoreOperations
 print "NumOffsetAccesses - ", NumOffsetAccesses 
 print "NumIndirectAccesses - ", NumIndirectAccesses
 print "NumDoubleAccesses - ", NumDoubleAccesses
+if (len(Warnings)>0):
+  print "Warnings!!!!"
+  for i in Warnings:
+    print i
 print "\n"
 print "######################################################"
 basename = os.path.basename(args.file_name)

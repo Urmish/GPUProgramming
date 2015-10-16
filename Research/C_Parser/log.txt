@@ -1,44 +1,50 @@
-Parser.py:360: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:402: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:372: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:414: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:375: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:417: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:433: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:475: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:445: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:487: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:448: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:490: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:530: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+Parser.py:572: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-Parser.py:585: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+Parser.py:627: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test10.txt
-#define NTOTAL 8388608
+../Input_C_Parser/Test3.txt
+count = 10000;
 
-#define NX 256
+maxheight = 2;
 
-#define NY 256
-
-#define NZ 128
-
-int i, k, j, id;
-
-int niter = 2;
-
-double y1_r[NTOTAL], y1_i[NTOTAL], x_r[NTOTAL], x_i[NTOTAL];
-
-double xout_r[NTOTAL], xout_i[NTOTAL];
+threadsPerBlock = 508;
 
 
 
-for (iter = 1; iteri<=niter; iter++) {
+long currKnode[10000], offset[10000];
+
+
+
+typedef struct knode {
+
+        int location;
+
+        int indices [509];
+
+        int  keys [509];
+
+        bool is_leaf;
+
+        int num_keys;
+
+} knode;
 
 
 
@@ -47,92 +53,254 @@ for (iter = 1; iteri<=niter; iter++) {
 Annotation Begin Found
 TotalArithmeticInstructions  0
 TotalArithmeticInstructions  0
-        for(int idx=0; idx<NTOTAL; idx++){
+for(bid = 0; bid < count; bid++){
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-                xout_r[idx] = y1_r[idx];
+    for(i = 0; i < maxheight; i++){
 
-TotalArithmeticInstructions  2
-TotalArithmeticInstructions  2
+TotalArithmeticInstructions  4
+TotalArithmeticInstructions  4
+        for(thid = 0; thid < threadsPerBlock; thid++){
+
+TotalArithmeticInstructions  6
+TotalArithmeticInstructions  6
+             if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
+
+TotalArithmeticInstructions  10
+TotalArithmeticInstructions  9
+Indirect Warning
+Indirect Warning
+offset pattern is
+thid+1
+and extracted value is
+['1']
+Offset is
+1
+Offset is a int with number <=2
 Checking double store operation
-22   [
-21   r
-                xout_r
+23   [
+22   s
+             if((knodes
 match
-xout_r
-Found variable in List!
+if((knodes
 Checking double store operation - Done
-                xout_i[idx] = y1_i[idx];
-
-TotalArithmeticInstructions  2
-TotalArithmeticInstructions  2
-Checking double store operation
-22   [
-21   i
-                xout_i
+Division Found
+####
+120   /
+121   /
+119   	
+ keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	
 match
-xout_i
+knodes[currKnode[bid]].keys[thid+1] > keys[bid])){
+/taken for less than 1% of the iterations of threadsPerBlock
+
+match
+taken
+127    
+Division Found
+####
+121   /
+122   t
+120   /
+
+taken for less than 1% of the iterations of threadsPerBlock
+
+match
+taken
+127    
+Found Control Density
+                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+Indirect Warning
+Checking double store operation
+Checking double store operation - Done
+Division Found
+####
+71   /
+72   /
+70   	
+                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	
+match
+knodes[offset[bid]].indices[thid] < knodes_elem){
+/taken once per iteration of maxheight
+
+match
+taken
+78    
+Division Found
+####
+72   /
+73   t
+71   /
+
+taken once per iteration of maxheight
+
+match
+taken
+78    
+Found Control Density
+                      offset[bid] = knodes[offset[bid]].indices[thid];
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+Indirect Warning
+Checking double store operation
+28   [
+27   t
+                      offset
+match
+offset
+Checking double store operation - Done
+                  }
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+             }
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+        }
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+        currKnode[bid] = offset[bid];
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+Checking double store operation
+17   [
+16   e
+        currKnode
+match
+currKnode
+Checking double store operation - Done
+    }
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+ 
+
+TotalArithmeticInstructions  11
+TotalArithmeticInstructions  11
+    for(thid = 0; thid < threadsPerBlock; thid++){
+
+TotalArithmeticInstructions  13
+TotalArithmeticInstructions  13
+        if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
+
+TotalArithmeticInstructions  15
+TotalArithmeticInstructions  15
+Indirect Warning
+Checking double store operation
+17   [
+16   s
+        if(knodes
+match
+if(knodes
+Checking double store operation - Done
+Division Found
+####
+62   /
+63   /
+61   	
+= keys[bid]){			
+match
+keys[bid]){
+/taken once per iteration of count
+
+match
+taken
+69    
+Division Found
+####
+63   /
+64   t
+62   /
+
+taken once per iteration of count
+
+match
+taken
+69    
+Found Control Density
+            ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
+
+TotalArithmeticInstructions  15
+TotalArithmeticInstructions  15
+Indirect Warning
+Checking double store operation
+15   [
+14   s
+            ans
+match
+ans
 Checking double store operation - Done
         }
 
-TotalArithmeticInstructions  2
-TotalArithmeticInstructions  2
+TotalArithmeticInstructions  15
+TotalArithmeticInstructions  15
+    }
+
+TotalArithmeticInstructions  15
+TotalArithmeticInstructions  15
 }
 
-TotalArithmeticInstructions  2
-TotalArithmeticInstructions  2
+TotalArithmeticInstructions  15
+TotalArithmeticInstructions  15
 ####Annotation Ends####
 
-TotalArithmeticInstructions  2
-TotalArithmeticInstructions  2
+TotalArithmeticInstructions  15
+TotalArithmeticInstructions  15
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name -      i
-Scope -     Global
+Name -      indices
+Scope -     struct
 varType -   0
 size -      1
 value-      None
 **********
 The values of this entry are
-Name -      niter
-Scope -     Global
+Name -      
+Scope -     struct
 varType -   0
-size -      1
-value-      2
+size -      0
+value-      None
 **********
 The values of this entry are
-Name -      y1_r
-Scope -     Global
-varType -   2
+Name -      location
+Scope -     struct
+varType -   0
 size -      1
 value-      None
 **********
 The values of this entry are
-Name -      idx
-Scope -     For
+Name -      num_keys
+Scope -     struct
 varType -   0
-size -      1
-value-      0
-**********
-The values of this entry are
-Name -      xout_r
-Scope -     Global
-varType -   2
 size -      1
 value-      None
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 2
-NumLoadOperations - 2
-NumStoreOperations - 2
+TotalArithmeticInstructions - 15
+NumLoadOperations - 21
+NumStoreOperations - 5
 NumOffsetAccesses -  0
-NumIndirectAccesses -  0
-NumDoubleAccesses -  1
+NumIndirectAccesses -  7
+NumDoubleAccesses -  0
+Warnings!!!!
+Memory Coalescing Warning - ***currKnode[bid]*** is an indirect access in line if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
+Memory Coalescing Warning - ***currKnode[bid]*** is an indirect access in line if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
+Memory Coalescing Warning - ***offset[bid]*** is an indirect access in line if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
+Memory Coalescing Warning - ***offset[bid]*** is an indirect access in line offset[bid] = knodes[offset[bid]].indices[thid];
+Memory Coalescing Warning - ***currKnode[bid]*** is an indirect access in line if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
+Memory Coalescing Warning - ***knodes[currKnode[bid]*** is an indirect access in line ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
 
 
 ######################################################
@@ -140,6 +308,6 @@ Transcendental Ratio - L
 Arithmetic Intensity - L
 Global Memory Operation - L
 BranchDivergence - L 0
-ControlDensity -  L
+ControlDensity -  H
 Floating Point Mul/Div - L
 Total Instruction - L
