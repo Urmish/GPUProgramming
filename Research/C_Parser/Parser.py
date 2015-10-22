@@ -20,23 +20,26 @@ WarpDivergenceRatio = 0
 MultiplicationFactorFor = 1 #Useful for scenarios where for loop is executed by thread body
 MultiplicationFactorIf = 1 #Useful for scenarios where if is taken, different from for as multiplication factor would depend on bratio and we need a multiplication factor proportional to 1/32
 Warnings=[]
+WarningsCounter=1
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
-  def __init__(self,name,scope,varType,size,value):
+  def __init__(self,name,scope,varType,size,value,iteratorVar):
     self.name = name
     self.scope = scope
     self.varType = varType #0 - Int, 1 - Float, 2 - Double
     self.size = size
     self.value = value
+    self.iteratorVar = iteratorVar
     return None
   
   def printValues(self):
     print "The values of this entry are"
-    print "Name -     ",self.name
-    print "Scope -    ",self.scope
-    print "varType -  ",self.varType
-    print "size -     ",self.size
-    print "value-     ",self.value
+    print "Name                 - ",self.name
+    print "Scope                - ",self.scope
+    print "varType              - ",self.varType
+    print "size                 - ",self.size
+    print "value                - ",self.value
+    print "iteratorVar          - ",self.iteratorVar
     return None
   
   def getVarType(self):
@@ -44,6 +47,9 @@ class VariableState():
   
   def getValue(self):
     return self.value
+  
+  def getIteratorVar(self):
+    return self.iteratorVar
 
 class Stack():
   def __init__(self):
@@ -89,7 +95,11 @@ def pushVariables(name,
   #name - Name of the variable, varType - int/float/double, size - scalar has size 1, array has size > 1, value - for a scalar, value if assigned, else None
   #varType 0 - Int, 1 - Float, 2 - Double, 3 - Pointer
   "This function pushes the variables and its associated properties to dictionary variables"
-  variables[name] = VariableState(name,scope.front(),varType,size,value)
+  iteratorVar = False
+  if (scope.front() == "For"):
+    if (StartAnalyzing == True):
+      iteratorVar = True #TODO FIXME - This is still not accurate, need to verify this!
+  variables[name] = VariableState(name,scope.front(),varType,size,value, iteratorVar)
   return True
 
 def isStartOfAnnotation(currentLine):
@@ -300,27 +310,42 @@ def GlobalOffsetTransaction(access,currentLine):
     print "Offset is"
     print offsets[0].strip()
     if(re.match('\d+',offsets[0].strip())):
-      if (int(offsets[0].strip()) <= 4):
-	print "Offset is a int with number <=2"
-      else:
-	print "Offset is quite huge!"
-	NumOffsetAccesses=NumOffsetAccesses+1
+      try:
+	if (int(offsets[0].strip()) <= 4):
+	  print "Offset is a int with number <=2"
+	else:
+	  print "Offset is quite huge! Constant > 4!"
+	  NumOffsetAccesses=NumOffsetAccesses+1
+      except:
+	print str(WarningsCounter)+". Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- "+currentLine.strip()+"\n"
+	Warnings.append(str(WarningsCounter)+". Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- "+currentLine.strip()+"\n")
+	global WarningsCounter
+        WarningsCounter=WarningsCounter+1
     else: #Offset is not an integer, need to check if variable exists
       if offsets[0].strip() in variables:
 	value = variables[offsets[0].strip()].getValue()
+	iterVar = variables[offsets[0].strip()].getIteratorVar()
 	if (value == None):
-	  Warnings.append("Check Out "+access.strip()+" in line "+currentLine.strip()+"\n")
+	  Warnings.append(str(WarningsCounter)+". Check Out "+access.strip()+" in line "+currentLine.strip()+"\n")
+	  global WarningsCounter
+	  WarningsCounter=WarningsCounter+1
 	else:
-	  if (value > 4):
-	    print "Offset is quite huge!"
+	  if (value > 4 and iterVar==False):
+	    print "Offset is quite huge! Value > 4! Value is "+value
             NumOffsetAccesses=NumOffsetAccesses+1
-	
+      else:	
+	print str(WarningsCounter)+". Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- "+currentLine.strip()+"\n"
+	Warnings.append(str(WarningsCounter)+". Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- "+currentLine.strip()+"\n")
+	global WarningsCounter
+        WarningsCounter=WarningsCounter+1
   return False
 
 def GenerateIndirectWarning(access,currentLine):
   "Generates warning for indirect access"
   print "Indirect Warning"
-  Warnings.append("Memory Coalescing Warning - ***"+access.strip()+"]*** is an indirect access in line "+currentLine.strip())
+  Warnings.append(str(WarningsCounter)+". Memory Coalescing Warning - ***"+access.strip()+"]*** is an indirect access in line "+currentLine.strip()+"\n")
+  global WarningsCounter
+  WarningsCounter=WarningsCounter+1
 
 def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf):
   "Check for memory access in currentline"
@@ -342,8 +367,6 @@ def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf)
 
 def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFactorIf):
   "Checks for number of arithmetic operations in a line"
-  #Right now A[i+4] is also included, need to take care of this!!!! TODO FIXME
-  #print currentLine
   numArithmetic  = re.findall('\+\+|\+|\-|\*|/|<=|\>=|<<|>>|==|<|>',currentLine, re.I)
   numFalseArithmetic  = re.findall('//',currentLine, re.I) #// interpreted as 2 divisions
   global TotalArithmeticInstructions

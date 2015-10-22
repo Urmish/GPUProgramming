@@ -1,313 +1,526 @@
-Parser.py:402: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:322: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+Parser.py:330: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+Parser.py:339: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+Parser.py:347: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+Parser.py:425: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:414: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:437: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:417: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:440: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:475: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:487: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:510: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:490: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:513: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:572: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+Parser.py:595: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-Parser.py:627: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+Parser.py:650: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test3.txt
-count = 10000;
+../Input_C_Parser/Test23.txt
+int rows = 2048;
 
-maxheight = 2;
+int cols = 2048;
 
-threadsPerBlock = 508;
+niter = 2;
+
+int iN[2048], iS[2048], jE[2048], jW[2048];
+
+float Jc;
+
+float dNi[4194304], dS[4194304], dW[4194304], dE[4194304];
+
+float tmp,sum,sum2;
+
+float G2,L,num,den,qsqr,D;
+
+float c[4194304];
+
+float cN,cS,cW,cE;
+
+int iter;   // primary loop
+
+long i,j;    // image row/col
+
+long k;      // image single index    
 
 
 
-long currKnode[10000], offset[10000];
+for (int i=0; i< rows; i++) {
+
+    iN[i] = i-1;
+
+    iS[i] = i+1;
+
+}
 
 
 
-typedef struct knode {
+for (int j=0; j< cols; j++) {
 
-        int location;
+    jW[j] = j-1;
 
-        int indices [509];
+    jE[j] = j+1;
 
-        int  keys [509];
-
-        bool is_leaf;
-
-        int num_keys;
-
-} knode;
+}
 
 
+
+iN[0]    = 0;
+
+iS[rows-1] = rows-1;
+
+jW[0]    = 0;
+
+jE[cols-1] = cols-1;
+
+
+
+for (iter=0; iter<niter; iter++){                                           
+
+
+
+    for (int i = 0; i < rows; i++) {
 
 ####Annotation Begins####
 
 Annotation Begin Found
 TotalArithmeticInstructions  0
 TotalArithmeticInstructions  0
-for(bid = 0; bid < count; bid++){
+        for (int j = 0; j < cols; j++) {
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-    for(i = 0; i < maxheight; i++){
+            // current index
 
-TotalArithmeticInstructions  4
-TotalArithmeticInstructions  4
-        for(thid = 0; thid < threadsPerBlock; thid++){
-
-TotalArithmeticInstructions  6
-TotalArithmeticInstructions  6
-             if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
-
-TotalArithmeticInstructions  10
-TotalArithmeticInstructions  9
-Indirect Warning
-Indirect Warning
-offset pattern is
-thid+1
-and extracted value is
-['1']
-Offset is
-1
-Offset is a int with number <=2
-Checking double store operation
-23   [
-22   s
-             if((knodes
-match
-if((knodes
-Checking double store operation - Done
+TotalArithmeticInstructions  3
+TotalArithmeticInstructions  3
 Division Found
 ####
-120   /
-121   /
-119   	
- keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	
-match
-knodes[currKnode[bid]].keys[thid+1] > keys[bid])){
-/taken for less than 1% of the iterations of threadsPerBlock
+12   /
+13   /
+11    
+
+/ current index
 
 match
-taken
-127    
+current
+22    
 Division Found
 ####
-121   /
-122   t
-120   /
+13   /
+14    
+12   /
 
-taken for less than 1% of the iterations of threadsPerBlock
+ current index
 
 match
-taken
-127    
-Found Control Density
-                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
+current
+22    
+            k = i * cols + j;
 
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-Indirect Warning
-Checking double store operation
-Checking double store operation - Done
-Division Found
+TotalArithmeticInstructions  5
+TotalArithmeticInstructions  5
 ####
-71   /
-72   /
-70   	
-                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	
+18   *
+19    
+17    
+ i
 match
-knodes[offset[bid]].indices[thid] < knodes_elem){
-/taken once per iteration of maxheight
-
-match
-taken
-78    
-Division Found
-####
-72   /
-73   t
-71   /
-
-taken once per iteration of maxheight
+i
+ cols + j;
 
 match
-taken
-78    
-Found Control Density
-                      offset[bid] = knodes[offset[bid]].indices[thid];
-
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-Indirect Warning
-Checking double store operation
-28   [
-27   t
-                      offset
-match
-offset
-Checking double store operation - Done
-                  }
-
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-             }
-
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-        }
-
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-        currKnode[bid] = offset[bid];
-
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-Checking double store operation
-17   [
-16   e
-        currKnode
-match
-currKnode
-Checking double store operation - Done
-    }
-
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
+cols
+24    
  
 
-TotalArithmeticInstructions  11
-TotalArithmeticInstructions  11
-    for(thid = 0; thid < threadsPerBlock; thid++){
+TotalArithmeticInstructions  5
+TotalArithmeticInstructions  5
+            // diffusion coefficent
+
+TotalArithmeticInstructions  6
+TotalArithmeticInstructions  6
+Division Found
+####
+12   /
+13   /
+11    
+
+/ diffusion coefficent
+
+match
+diffusion
+24    
+Division Found
+####
+13   /
+14    
+12   /
+
+ diffusion coefficent
+
+match
+diffusion
+24    
+            cN = c[k];
+
+TotalArithmeticInstructions  6
+TotalArithmeticInstructions  6
+Checking double store operation
+Checking double store operation - Done
+            cS = c[i*cols -cols + j];
+
+TotalArithmeticInstructions  9
+TotalArithmeticInstructions  7
+offset pattern is
+i*cols -cols + j
+and extracted value is
+[' j']
+Offset is
+j
+Checking double store operation
+Checking double store operation - Done
+####
+20   *
+21   c
+19   i
+ c[i
+match
+c[i
+cols -cols + j];
+
+match
+cols
+25    
+            cW = c[k];
+
+TotalArithmeticInstructions  7
+TotalArithmeticInstructions  7
+Checking double store operation
+Checking double store operation - Done
+            cE = c[i*cols + i+1];
+
+TotalArithmeticInstructions  10
+TotalArithmeticInstructions  8
+offset pattern is
+i*cols + i+1
+and extracted value is
+[' i+1']
+Offset is
+i+1
+1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- cE = c[i*cols + i+1];
+
+Checking double store operation
+Checking double store operation - Done
+####
+20   *
+21   c
+19   i
+ c[i
+match
+c[i
+cols + i+1];
+
+match
+cols
+25    
+ 
+
+TotalArithmeticInstructions  8
+TotalArithmeticInstructions  8
+            // divergence (equ 58)
+
+TotalArithmeticInstructions  9
+TotalArithmeticInstructions  9
+Division Found
+####
+12   /
+13   /
+11    
+
+/ divergence (equ 58)
+
+match
+divergence
+25    
+Division Found
+####
+13   /
+14    
+12   /
+
+ divergence (equ 58)
+
+match
+divergence
+25    
+            D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
+
+TotalArithmeticInstructions  16
+TotalArithmeticInstructions  12
+Checking double store operation
+Checking double store operation - Done
+####
+19   *
+20    
+18    
+ cN
+match
+cN
+ dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
+
+match
+dN
+23   [
+26
+####
+32   *
+33    
+31    
+ + cS
+match
+cS
+ dS[k] + cW * dW[k] + cE * dE[k];
+
+match
+dS
+36   [
+39
+####
+45   *
+46    
+44    
+ + cW
+match
+cW
+ dW[k] + cE * dE[k];
+
+match
+dW
+49   [
+52
+####
+58   *
+59    
+57    
+ + cE
+match
+cE
+ dE[k];
+
+match
+dE
+62   [
+65
+ 
+
+TotalArithmeticInstructions  12
+TotalArithmeticInstructions  12
+            // image update (equ 61)
 
 TotalArithmeticInstructions  13
 TotalArithmeticInstructions  13
-        if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
-
-TotalArithmeticInstructions  15
-TotalArithmeticInstructions  15
-Indirect Warning
-Checking double store operation
-17   [
-16   s
-        if(knodes
-match
-if(knodes
-Checking double store operation - Done
 Division Found
 ####
-62   /
-63   /
-61   	
-= keys[bid]){			
-match
-keys[bid]){
-/taken once per iteration of count
+12   /
+13   /
+11    
+
+/ image update (equ 61)
 
 match
-taken
-69    
+image
+20    
 Division Found
 ####
-63   /
-64   t
-62   /
+13   /
+14    
+12   /
 
-taken once per iteration of count
+ image update (equ 61)
 
 match
-taken
-69    
-Found Control Density
-            ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
+image
+20    
+            J[k] = J[k] + 0.25*lambda*D;
 
-TotalArithmeticInstructions  15
-TotalArithmeticInstructions  15
-Indirect Warning
+TotalArithmeticInstructions  16
+TotalArithmeticInstructions  16
 Checking double store operation
-15   [
-14   s
-            ans
+13   [
+12   J
+            J
 match
-ans
+J
 Checking double store operation - Done
+####
+30   *
+31   l
+29   5
+ J[k] + 0.25
+match
+J[k] + 0.25
+lambda*D;
+
+match
+lambda
+37   *
+####
+37   *
+38   D
+36   a
+
+D;
+
         }
 
-TotalArithmeticInstructions  15
-TotalArithmeticInstructions  15
+TotalArithmeticInstructions  16
+TotalArithmeticInstructions  16
     }
 
-TotalArithmeticInstructions  15
-TotalArithmeticInstructions  15
+TotalArithmeticInstructions  16
+TotalArithmeticInstructions  16
+
+
+TotalArithmeticInstructions  16
+TotalArithmeticInstructions  16
 }
 
-TotalArithmeticInstructions  15
-TotalArithmeticInstructions  15
+TotalArithmeticInstructions  16
+TotalArithmeticInstructions  16
 ####Annotation Ends####
 
-TotalArithmeticInstructions  15
-TotalArithmeticInstructions  15
+TotalArithmeticInstructions  16
+TotalArithmeticInstructions  16
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name -      indices
-Scope -     struct
-varType -   0
-size -      1
-value-      None
+Name                 -  tmp
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
 **********
 The values of this entry are
-Name -      
-Scope -     struct
-varType -   0
-size -      0
-value-      None
+Name                 -  cN
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
 **********
 The values of this entry are
-Name -      location
-Scope -     struct
-varType -   0
-size -      1
-value-      None
+Name                 -  c
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
 **********
 The values of this entry are
-Name -      num_keys
-Scope -     struct
-varType -   0
-size -      1
-value-      None
+Name                 -  rows
+Scope                -  Global
+varType              -  0
+size                 -  1
+value                -  2048
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  G2
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  i
+Scope                -  For
+varType              -  0
+size                 -  1
+value                -  0
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  j
+Scope                -  For
+varType              -  0
+size                 -  1
+value                -  0
+iteratorVar          -  True
+**********
+The values of this entry are
+Name                 -  dNi
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  cols
+Scope                -  Global
+varType              -  0
+size                 -  1
+value                -  2048
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  iter
+Scope                -  Global
+varType              -  0
+size                 -  1
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  iN
+Scope                -  Global
+varType              -  0
+size                 -  2048
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  Jc
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
 **********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 15
-NumLoadOperations - 21
-NumStoreOperations - 5
+TotalArithmeticInstructions - 16
+NumLoadOperations - 9
+NumStoreOperations - 1
 NumOffsetAccesses -  0
-NumIndirectAccesses -  7
+NumIndirectAccesses -  0
 NumDoubleAccesses -  0
 Warnings!!!!
-Memory Coalescing Warning - ***currKnode[bid]*** is an indirect access in line if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
-Memory Coalescing Warning - ***currKnode[bid]*** is an indirect access in line if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
-Memory Coalescing Warning - ***offset[bid]*** is an indirect access in line if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
-Memory Coalescing Warning - ***offset[bid]*** is an indirect access in line offset[bid] = knodes[offset[bid]].indices[thid];
-Memory Coalescing Warning - ***currKnode[bid]*** is an indirect access in line if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
-Memory Coalescing Warning - ***knodes[currKnode[bid]*** is an indirect access in line ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
+1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- cE = c[i*cols + i+1];
+
 
 
 ######################################################
 Transcendental Ratio - L
-Arithmetic Intensity - L
-Global Memory Operation - L
+Arithmetic Intensity - M
+Global Memory Operation - H
 BranchDivergence - L 0
-ControlDensity -  H
-Floating Point Mul/Div - L
+ControlDensity -  L
+Floating Point Mul/Div - H
 Total Instruction - L

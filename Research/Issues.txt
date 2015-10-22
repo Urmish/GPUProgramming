@@ -12,10 +12,17 @@ Coalescing
 
 Test 3 - knodes[currKnode[bid]] is the issue. Although the access is of type A[B[i]], currKnode[bid] is constant across iteration. As a result we get a coalescing ratio of 3 while actually it is 4.
 Test 4 - Same issue as Test 3
-Test 20 - image[iN[i] + Nr*j] is an indirect access, so the parser says it has low coalescing, however the value of iN[i] is i-1 so the access is actually predictable. Even if we replace it, my parser would still report it as low because of the way I handle offset
+
+
+Talk to Newsha/Karu About this
+---------------------------------
+
+Test 20 - dN[k] = image[i-1 + Nr*j] - Jc not parsing them correctly for now. Need more sophisticated mechanism to parse it. Could code, depends on time/deadline!!! Problem - j is constant, as a result, the offset remains constant and incremented by 1. This understanding is lacking in the parser
 Test21 - Similar issue as Test20
 Test23 - Similar issue as Test20
 
+
+---------------------------------------------------------------------------------------------------------
 Fixed (Coalescing) - Verify again
 Test 5 - I feel the Parser is right. It is an aligned access so each warp would generate more than one global memory transaction for every load.
 Test 6 - Similar problem like Test 5 

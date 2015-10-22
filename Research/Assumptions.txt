@@ -2,3 +2,6 @@ Test20 - lot of ds[k] type loads. Instead Assumed, temp = ds[k] and used temp ev
 Test7 -  float3 into 3 float variables, Line 47,48,49 - VAR_MOMENTUM+0,1,2 removed, calculated as addition, basially doing compiler optimizations on my own to get to answer! since if var_momentum=0, simply optimized
 Test 9 - Multiline initialization instead of something done in one line
 Test 18 - Multiline initialization instead of something done in one line
+
+Test20 - Changed lines related to indirect memory access pattern. A[B[i]] where B[i]=i-1 is replaced to A[i-1]. This allows the parser to detect that the memory access pattern is regular
+Test21,22 - Same as Test 20

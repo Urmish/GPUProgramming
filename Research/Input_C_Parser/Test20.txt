@@ -1,4 +1,6 @@
-int Nc = 458, Nr = 502, niter=100; 
+int Nc = 458;
+int Nr = 502;
+int niter=100; 
 float image[229916]; 
 long Nr,Nc;
 long Ne;
@@ -41,10 +43,10 @@ for (j=0; j < Nc; j++) {
       k = i + Nr*j;                                   
       Jc = image[k];                                     
                      
-      dN[k] = image[iN[i] + Nr*j] - Jc;                        
-      dS[k] = image[iS[i] + Nr*j] - Jc;                        
-      dW[k] = image[i + Nr*jW[j]] - Jc;                        
-      dE[k] = image[i + Nr*jE[j]] - Jc;                        
+      dN[k] = image[i-1 + Nr*j] - Jc;                        
+      dS[k] = image[i-1 + Nr*j] - Jc;                        
+      dW[k] = image[i + Nr*(j-1)] - Jc;                        
+      dE[k] = image[i + Nr*(j+1)] - Jc;                        
  
       temp1 = dW[k];
       temp2 = dE[k];
@@ -76,3 +78,8 @@ for (j=0; j < Nc; j++) {
 
 }
 
+//Old Statements
+      dN[k] = image[iN[i] + Nr*j] - Jc;                        
+      dS[k] = image[iS[i] + Nr*j] - Jc;                        
+      dW[k] = image[i + Nr*jW[j]] - Jc;                        
+      dE[k] = image[i + Nr*jE[j]] - Jc;                        

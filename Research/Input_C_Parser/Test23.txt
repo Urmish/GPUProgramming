@@ -37,9 +37,9 @@ for (iter=0; iter<niter; iter++){
  
             // diffusion coefficent
             cN = c[k];
-            cS = c[iS[i] * cols + j];
+            cS = c[i*cols -cols + j];
             cW = c[k];
-            cE = c[i * cols + jE[j]];
+            cE = c[i*cols + i+1];
  
             // divergence (equ 58)
             D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
@@ -52,5 +52,6 @@ for (iter=0; iter<niter; iter++){
 }
 ####Annotation Ends####
 
-
-
+//Changes
+            cS = c[iS[i] * cols + j];
+            cE = c[i * cols + jE[j]];
