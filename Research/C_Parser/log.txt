@@ -6,49 +6,67 @@ Parser.py:339: SyntaxWarning: name 'WarningsCounter' is assigned to before globa
   global WarningsCounter
 Parser.py:347: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
-Parser.py:425: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:435: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:437: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:447: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:440: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:450: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:508: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:510: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:520: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:513: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+Parser.py:523: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:595: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+Parser.py:605: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-Parser.py:650: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+Parser.py:660: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test23.txt
-int rows = 2048;
+../Input_C_Parser/Test20.txt
+int Nc = 458;
 
-int cols = 2048;
+int Nr = 502;
 
-niter = 2;
+int niter=100; 
 
-int iN[2048], iS[2048], jE[2048], jW[2048];
+float image[229916]; 
+
+long Nr,Nc;
+
+long Ne;
+
+int niter;  
+
+float lambda;  
+
+int r1,r2,c1,c2; 
+
+long NeROI;     
+
+float meanROI, varROI, q0sqr;     
+
+int iN[502], iS[502];
+
+int jE[458], jW[458];
 
 float Jc;
 
-float dNi[4194304], dS[4194304], dW[4194304], dE[4194304];
+float dN[229916], dS[229916], dW[229916], dE[229916];
 
 float tmp,sum,sum2;
 
 float G2,L,num,den,qsqr,D;
 
-float c[4194304];
+float c[229916];
 
 float cN,cS,cW,cE;
 
-int iter;   // primary loop
+int iter;    // primary loop
 
 long i,j;    // image row/col
 
@@ -56,358 +74,627 @@ long k;      // image single index
 
 
 
-for (int i=0; i< rows; i++) {
+for (i=0; i<Nr; i++) {
 
-    iN[i] = i-1;
+    iN[i] = i-1;       // holds index of IMAGE row above
 
-    iS[i] = i+1;
-
-}
-
-
-
-for (int j=0; j< cols; j++) {
-
-    jW[j] = j-1;
-
-    jE[j] = j+1;
+    iS[i] = i+1;       // holds index of IMAGE row below
 
 }
 
 
 
-iN[0]    = 0;
+for (j=0; j<Nc; j++) {
 
-iS[rows-1] = rows-1;
+    jW[j] = j-1;       // holds index of IMAGE column on the left
 
-jW[0]    = 0;
+    jE[j] = j+1;       // holds index of IMAGE column on the right
 
-jE[cols-1] = cols-1;
-
-
-
-for (iter=0; iter<niter; iter++){                                           
+}
 
 
 
-    for (int i = 0; i < rows; i++) {
+// N/S/W/E boundary conditions, fix surrounding indices outside boundary of IMAGE
+
+iN[0]    = 0;      // changes IMAGE top row index from -1 to 0
+
+iS[Nr-1] = Nr-1;   // changes IMAGE bottom row index from Nr to Nr-1 
+
+jW[0]    = 0;          
+
+
+
+for (iter=0; iter < niter; iter++){
+
+for (j=0; j < Nc; j++) {                                       
 
 ####Annotation Begins####
 
 Annotation Begin Found
 TotalArithmeticInstructions  0
 TotalArithmeticInstructions  0
-        for (int j = 0; j < cols; j++) {
+   for (i=0; i < Nr; i++) {                                  
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-            // current index
+      k = i + Nr*j;                                   
 
-TotalArithmeticInstructions  3
-TotalArithmeticInstructions  3
-Division Found
+TotalArithmeticInstructions  4
+TotalArithmeticInstructions  4
 ####
-12   /
-13   /
-11    
-
-/ current index
+16   *
+17   j
+15   r
+ i + Nr
+match
+i + Nr
+j;                                   
 
 match
-current
-22    
-Division Found
-####
-13   /
-14    
-12   /
-
- current index
-
-match
-current
-22    
-            k = i * cols + j;
-
-TotalArithmeticInstructions  5
-TotalArithmeticInstructions  5
-####
-18   *
+j;
 19    
-17    
- i
-match
-i
- cols + j;
+      Jc = image[k];                                     
 
-match
-cols
-24    
- 
-
-TotalArithmeticInstructions  5
-TotalArithmeticInstructions  5
-            // diffusion coefficent
-
-TotalArithmeticInstructions  6
-TotalArithmeticInstructions  6
-Division Found
-####
-12   /
-13   /
-11    
-
-/ diffusion coefficent
-
-match
-diffusion
-24    
-Division Found
-####
-13   /
-14    
-12   /
-
- diffusion coefficent
-
-match
-diffusion
-24    
-            cN = c[k];
-
-TotalArithmeticInstructions  6
-TotalArithmeticInstructions  6
+TotalArithmeticInstructions  4
+TotalArithmeticInstructions  4
 Checking double store operation
 Checking double store operation - Done
-            cS = c[i*cols -cols + j];
+                     
 
-TotalArithmeticInstructions  9
-TotalArithmeticInstructions  7
-offset pattern is
-i*cols -cols + j
-and extracted value is
-[' j']
-Offset is
-j
-Checking double store operation
-Checking double store operation - Done
-####
-20   *
-21   c
-19   i
- c[i
-match
-c[i
-cols -cols + j];
+TotalArithmeticInstructions  4
+TotalArithmeticInstructions  4
+      dN[k] = image[i-1 + Nr*j] - Jc;                        
 
-match
-cols
-25    
-            cW = c[k];
-
-TotalArithmeticInstructions  7
-TotalArithmeticInstructions  7
-Checking double store operation
-Checking double store operation - Done
-            cE = c[i*cols + i+1];
-
-TotalArithmeticInstructions  10
+TotalArithmeticInstructions  8
 TotalArithmeticInstructions  8
 offset pattern is
-i*cols + i+1
+i-1 + Nr*j
 and extracted value is
-[' i+1']
+[' Nr*j']
 Offset is
-i+1
-1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- cE = c[i*cols + i+1];
+Nr*j
+1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dN[k] = image[i-1 + Nr*j] - Jc;
 
 Checking double store operation
-Checking double store operation - Done
-####
-20   *
-21   c
-19   i
- c[i
-match
-c[i
-cols + i+1];
-
-match
-cols
-25    
- 
-
-TotalArithmeticInstructions  8
-TotalArithmeticInstructions  8
-            // divergence (equ 58)
-
-TotalArithmeticInstructions  9
-TotalArithmeticInstructions  9
-Division Found
-####
-12   /
-13   /
-11    
-
-/ divergence (equ 58)
-
-match
-divergence
-25    
-Division Found
-####
-13   /
-14    
-12   /
-
- divergence (equ 58)
-
-match
-divergence
-25    
-            D = cN * dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
-
-TotalArithmeticInstructions  16
-TotalArithmeticInstructions  12
-Checking double store operation
-Checking double store operation - Done
-####
-19   *
-20    
-18    
- cN
-match
-cN
- dN[k] + cS * dS[k] + cW * dW[k] + cE * dE[k];
-
+8   [
+7   N
+      dN
 match
 dN
-23   [
-26
-####
-32   *
-33    
-31    
- + cS
-match
-cS
- dS[k] + cW * dW[k] + cE * dE[k];
-
-match
-dS
-36   [
-39
-####
-45   *
-46    
-44    
- + cW
-match
-cW
- dW[k] + cE * dE[k];
-
-match
-dW
-49   [
-52
-####
-58   *
-59    
-57    
- + cE
-match
-cE
- dE[k];
-
-match
-dE
-62   [
-65
- 
-
-TotalArithmeticInstructions  12
-TotalArithmeticInstructions  12
-            // image update (equ 61)
-
-TotalArithmeticInstructions  13
-TotalArithmeticInstructions  13
-Division Found
-####
-12   /
-13   /
-11    
-
-/ image update (equ 61)
-
-match
-image
-20    
-Division Found
-####
-13   /
-14    
-12   /
-
- image update (equ 61)
-
-match
-image
-20    
-            J[k] = J[k] + 0.25*lambda*D;
-
-TotalArithmeticInstructions  16
-TotalArithmeticInstructions  16
-Checking double store operation
-13   [
-12   J
-            J
-match
-J
+Found variable in List!
 Checking double store operation - Done
 ####
-30   *
-31   l
-29   5
- J[k] + 0.25
+28   *
+29   j
+27   r
+ image[i-1 + Nr
 match
-J[k] + 0.25
-lambda*D;
+image[i-1 + Nr
+j] - Jc;                        
 
 match
-lambda
-37   *
+j]
+31    
+      dS[k] = image[i-1 + Nr*j] - Jc;                        
+
+TotalArithmeticInstructions  12
+TotalArithmeticInstructions  12
+offset pattern is
+i-1 + Nr*j
+and extracted value is
+[' Nr*j']
+Offset is
+Nr*j
+2. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dS[k] = image[i-1 + Nr*j] - Jc;
+
+Checking double store operation
+8   [
+7   S
+      dS
+match
+dS
+Checking double store operation - Done
 ####
-37   *
-38   D
-36   a
+28   *
+29   j
+27   r
+ image[i-1 + Nr
+match
+image[i-1 + Nr
+j] - Jc;                        
 
-D;
-
-        }
-
-TotalArithmeticInstructions  16
-TotalArithmeticInstructions  16
-    }
-
-TotalArithmeticInstructions  16
-TotalArithmeticInstructions  16
-
+match
+j]
+31    
+      dW[k] = image[i + Nr*(j-1)] - Jc;                        
 
 TotalArithmeticInstructions  16
 TotalArithmeticInstructions  16
+offset pattern is
+i + Nr*(j-1)
+and extracted value is
+[' Nr*(j-1)']
+Offset is
+Nr*(j-1)
+3. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dW[k] = image[i + Nr*(j-1)] - Jc;
+
+Checking double store operation
+8   [
+7   W
+      dW
+match
+dW
+Checking double store operation - Done
+####
+26   *
+27   (
+25   r
+ image[i + Nr
+match
+image[i + Nr
+(j-1)] - Jc;                        
+
+match
+j-1
+31   )
+      dE[k] = image[i + Nr*(j+1)] - Jc;                        
+
+TotalArithmeticInstructions  20
+TotalArithmeticInstructions  20
+offset pattern is
+i + Nr*(j+1)
+and extracted value is
+[' Nr*(j+1)']
+Offset is
+Nr*(j+1)
+4. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dE[k] = image[i + Nr*(j+1)] - Jc;
+
+Checking double store operation
+8   [
+7   E
+      dE
+match
+dE
+Checking double store operation - Done
+####
+26   *
+27   (
+25   r
+ image[i + Nr
+match
+image[i + Nr
+(j+1)] - Jc;                        
+
+match
+j
+29   +
+ 
+
+TotalArithmeticInstructions  20
+TotalArithmeticInstructions  20
+      temp1 = dW[k];
+
+TotalArithmeticInstructions  20
+TotalArithmeticInstructions  20
+Checking double store operation
+Checking double store operation - Done
+      temp2 = dE[k];
+
+TotalArithmeticInstructions  20
+TotalArithmeticInstructions  20
+Checking double store operation
+Checking double store operation - Done
+      temp3 = dS[k];
+
+TotalArithmeticInstructions  20
+TotalArithmeticInstructions  20
+Checking double store operation
+Checking double store operation - Done
+      temp4 = dN[k];
+
+TotalArithmeticInstructions  20
+TotalArithmeticInstructions  20
+Checking double store operation
+Checking double store operation - Done
+      G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
+
+TotalArithmeticInstructions  29
+TotalArithmeticInstructions  29
+####
+17   *
+18   t
+16   1
+ (temp1
+match
+temp1
+temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
+
+match
+temp1
+23    
+####
+31   *
+32   t
+30   2
+ + temp2
+match
+temp2
+temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
+
+match
+temp2
+37    
+####
+45   *
+46   t
+44   3
+ + temp3
+match
+temp3
+temp3 + temp4*temp4) / (Jc*Jc);
+
+match
+temp3
+51    
+####
+59   *
+60   t
+58   4
+ + temp4
+match
+temp4
+temp4) / (Jc*Jc);
+
+match
+temp4
+65   )
+####
+72   *
+73   J
+71   c
+) / (Jc
+match
+Jc
+Jc);
+
+match
+Jc
+75   )
+Division Found
+####
+67   /
+68    
+66    
+(temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4
+match
+temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4
+ (Jc*Jc);
+
+match
+Jc
+72   *
+ 
+
+TotalArithmeticInstructions  29
+TotalArithmeticInstructions  29
+      L = (temp1 + temp2 + temp3 + temp4) / Jc;             
+
+TotalArithmeticInstructions  33
+TotalArithmeticInstructions  33
+Division Found
+####
+42   /
+43    
+41    
+(temp1 + temp2 + temp3 + temp4
+match
+temp1 + temp2 + temp3 + temp4
+ Jc;             
+
+match
+Jc;
+47    
+ 
+
+TotalArithmeticInstructions  33
+TotalArithmeticInstructions  33
+      num  = (0.5*G2) - ((1.0/16.0)*(L*L)) ;                
+
+TotalArithmeticInstructions  38
+TotalArithmeticInstructions  38
+####
+17   *
+18   G
+16   5
+ (0.5
+match
+0.5
+G2) - ((1.0/16.0)*(L*L)) ;                
+
+match
+G2
+20   )
+####
+35   *
+36   (
+34   )
+(1.0/16.0
+match
+1.0/16.0
+(L*L)) ;                
+
+match
+L
+38   *
+####
+38   *
+39   L
+37   L
+
+L)) ;                
+
+match
+L
+40   )
+Division Found
+####
+29   /
+30   1
+28   0
+ (0.5*G2) - ((1.0
+match
+0.5*G2) - ((1.0
+16.0)*(L*L)) ;                
+
+match
+16.0
+34   )
+      den  = 1 + (.25*L);                                
+
+TotalArithmeticInstructions  40
+TotalArithmeticInstructions  40
+####
+21   *
+22   L
+20   5
+ 1 + (.25
+match
+1 + (.25
+L);                                
+
+match
+L
+23   )
+      qsqr = num/(den*den);                              
+
+TotalArithmeticInstructions  42
+TotalArithmeticInstructions  42
+####
+21   *
+22   d
+20   n
+ num/(den
+match
+num/(den
+den);                              
+
+match
+den
+25   )
+Division Found
+####
+16   /
+17   (
+15   m
+ num
+(den*den);                              
+
+match
+den
+21   *
+ 
+
+TotalArithmeticInstructions  42
+TotalArithmeticInstructions  42
+      den = (qsqr-q0sqr) / (q0sqr * (1+q0sqr)) ;               
+
+TotalArithmeticInstructions  46
+TotalArithmeticInstructions  46
+####
+34   *
+35    
+33    
+ (qsqr-q0sqr) / (q0sqr
+match
+qsqr-q0sqr) / (q0sqr
+ (1+q0sqr)) ;               
+
+match
+1
+38   +
+Division Found
+####
+25   /
+26    
+24    
+(qsqr-q0sqr
+match
+qsqr-q0sqr
+ (q0sqr * (1+q0sqr)) ;               
+
+match
+q0sqr
+33    
+      c[k] = 1.0 / (1.0+den) ;                           
+
+TotalArithmeticInstructions  48
+TotalArithmeticInstructions  48
+Checking double store operation
+7   [
+6   c
+      c
+match
+c
+Found variable in List!
+Checking double store operation - Done
+Division Found
+####
+17   /
+18    
+16    
+ 1.0
+ (1.0+den) ;                           
+
+match
+1.0
+23   +
+ 
+
+TotalArithmeticInstructions  48
+TotalArithmeticInstructions  48
+      if (c[k] < 0) {   	// Always not-taken.           //BRATIO0.0
+
+TotalArithmeticInstructions  52
+TotalArithmeticInstructions  52
+Checking double store operation
+Checking double store operation - Done
+Division Found
+####
+25   /
+26   /
+24   	
+      if (c[k] < 0) {   	
+match
+c[k] < 0) {
+/ Always not-taken.           //BRATIO0.0
+
+match
+Always
+34    
+Division Found
+####
+26   /
+27    
+25   /
+
+ Always not-taken.           //BRATIO0.0
+
+match
+Always
+34    
+Division Found
+####
+56   /
+57   /
+55    
+ not-taken.
+/BRATIO0.0
+
+Division Found
+####
+57   /
+58   B
+56   /
+
+BRATIO0.0
+
+Found Control Density
+['0.0']
+Bratio found
+temp bratio is  0.0
+Divergence ratio using old  0
+         c[k] = 0;
+
+TotalArithmeticInstructions  52.0
+TotalArithmeticInstructions  52.0
+Checking double store operation
+10   [
+9   c
+         c
+match
+c
+Found variable in List!
+Checking double store operation - Done
+      }                                   
+
+TotalArithmeticInstructions  52.0
+TotalArithmeticInstructions  52.0
+      
+
+TotalArithmeticInstructions  52.0
+TotalArithmeticInstructions  52.0
+      else if (c[k] > 1) {  	// Taken BRATIO0.999992 of the time.          
+
+TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  54.0
+Checking double store operation
+Checking double store operation - Done
+Division Found
+####
+29   /
+30   /
+28   	
+      else if (c[k] > 1) {  	
+match
+if (c[k] > 1) {
+/ Taken BRATIO0.999992 of the time.          
+
+match
+Taken
+37    
+Division Found
+####
+30   /
+31    
+29   /
+
+ Taken BRATIO0.999992 of the time.          
+
+match
+Taken
+37    
+Found Control Density
+['0.999992']
+Bratio found
+temp bratio is  0.000256
+Divergence ratio is  0.000256
+         c[k] = 1;
+
+TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  54.0
+Checking double store operation
+10   [
+9   c
+         c
+match
+c
+Found variable in List!
+Checking double store operation - Done
+      }                                   
+
+TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  54.0
+ 
+
+TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  54.0
+   }
+
+TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  54.0
 }
 
-TotalArithmeticInstructions  16
-TotalArithmeticInstructions  16
+TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  54.0
 ####Annotation Ends####
 
-TotalArithmeticInstructions  16
-TotalArithmeticInstructions  16
+TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  54.0
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name                 -  tmp
+Name                 -  dN
 Scope                -  Global
 varType              -  1
 size                 -  1
@@ -415,9 +702,9 @@ value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  cN
+Name                 -  niter
 Scope                -  Global
-varType              -  1
+varType              -  0
 size                 -  1
 value                -  None
 iteratorVar          -  False
@@ -431,14 +718,6 @@ value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  rows
-Scope                -  Global
-varType              -  0
-size                 -  1
-value                -  2048
-iteratorVar          -  False
-**********
-The values of this entry are
 Name                 -  G2
 Scope                -  Global
 varType              -  1
@@ -447,23 +726,15 @@ value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  i
-Scope                -  For
+Name                 -  r1
+Scope                -  Global
 varType              -  0
 size                 -  1
-value                -  0
+value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  j
-Scope                -  For
-varType              -  0
-size                 -  1
-value                -  0
-iteratorVar          -  True
-**********
-The values of this entry are
-Name                 -  dNi
+Name                 -  image
 Scope                -  Global
 varType              -  1
 size                 -  1
@@ -471,11 +742,11 @@ value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  cols
+Name                 -  Nc
 Scope                -  Global
 varType              -  0
 size                 -  1
-value                -  2048
+value                -  458
 iteratorVar          -  False
 **********
 The values of this entry are
@@ -490,8 +761,32 @@ The values of this entry are
 Name                 -  iN
 Scope                -  Global
 varType              -  0
-size                 -  2048
+size                 -  502
 value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  cN
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  jE
+Scope                -  Global
+varType              -  0
+size                 -  458
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  Nr
+Scope                -  Global
+varType              -  0
+size                 -  1
+value                -  502
 iteratorVar          -  False
 **********
 The values of this entry are
@@ -502,17 +797,47 @@ size                 -  1
 value                -  None
 iteratorVar          -  False
 **********
+The values of this entry are
+Name                 -  meanROI
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  tmp
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  lambda
+Scope                -  Global
+varType              -  1
+size                 -  1
+value                -  None
+iteratorVar          -  False
+**********
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 16
-NumLoadOperations - 9
-NumStoreOperations - 1
+TotalArithmeticInstructions - 54.0
+NumLoadOperations - 11.0
+NumStoreOperations - 5.999992
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 NumDoubleAccesses -  0
 Warnings!!!!
-1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- cE = c[i*cols + i+1];
+1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dN[k] = image[i-1 + Nr*j] - Jc;
+
+2. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dS[k] = image[i-1 + Nr*j] - Jc;
+
+3. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dW[k] = image[i + Nr*(j-1)] - Jc;
+
+4. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dE[k] = image[i + Nr*(j+1)] - Jc;
 
 
 
@@ -520,7 +845,7 @@ Warnings!!!!
 Transcendental Ratio - L
 Arithmetic Intensity - M
 Global Memory Operation - H
-BranchDivergence - L 0
-ControlDensity -  L
+BranchDivergence - L 0.000256
+ControlDensity -  H
 Floating Point Mul/Div - H
-Total Instruction - L
+Total Instruction - H

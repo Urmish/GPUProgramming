@@ -1,4 +1,4 @@
-Test1,L,L,H,L,L,H,L
+Test1,L,M,H,L,L,H,L
 Test2,L,M,H,H,H,L,L
 Test3,L,L,L,L,H,L,L
 Test4,L,M,L,L,H,L,L

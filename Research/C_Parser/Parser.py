@@ -373,9 +373,19 @@ def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFac
   #print len(numArithmetic)
   TotalArithmeticInstructions = TotalArithmeticInstructions + (len(numArithmetic) -len(numFalseArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   print "TotalArithmeticInstructions ", TotalArithmeticInstructions
-  numArithmetic  = re.findall('\w+\[.*?\+.*?\]',currentLine, re.I)
+  #numArithmetic  = re.findall('\w+\[.*?\+.*?\]',currentLine, re.I) 
+  numArithmetic  = re.findall('\w+\[[^=]*?\+.*?\]',currentLine, re.I) 
+  for matches in numArithmetic: 
+  #Required as for example in line - new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
+  #delta[j] * ly[k]) + (MOMENTUM * oldw[k] identified as mem[A+B] pattern while delta[j] * ly[k] identified as mem[A*B] pattern. Even after no greedy search. Difficult to come up with patterns that identify mem[A*B[i]*k] and dont give issues like above. Also filtering out adds from mem[A+B] is important. As a result 2 would be subtracted and number of arithmetic instructions in this would become 2
+    if(re.findall('\].*?\[',matches)):
+      numArithmetic.remove(matches)
   TotalArithmeticInstructions = TotalArithmeticInstructions - (len(numArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
-  numArithmetic  = re.findall('\w+\[.*?\*.*?\]',currentLine, re.I)
+  #numArithmetic  = re.findall('\w+\[.*?\*.*?\]',currentLine, re.I)
+  numArithmetic  = re.findall('\w+\[[^=]*?\*.*?\]',currentLine, re.I)
+  for matches in numArithmetic: 
+    if(re.findall('\].*?\[',matches)):
+      numArithmetic.remove(matches)
   TotalArithmeticInstructions = TotalArithmeticInstructions - (len(numArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   print "TotalArithmeticInstructions ",TotalArithmeticInstructions
   return False
