@@ -14,20 +14,24 @@ typedef struct knode {
 
 ####Annotation Begins####
 for(bid = 0; bid < count; bid++){
-    for(i = 0; i < maxheight; i++){
+    int access = currKnode[bid];
+    for(i = 0; i < maxheight; i++){ //FRATIO2
         for(thid = 0; thid < threadsPerBlock; thid++){
-             if((knodes[currKnode[bid]].keys[thid]) <= keys[bid] && (knodes[currKnode[bid]].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock
-                  if(knodes[offset[bid]].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
-                      offset[bid] = knodes[offset[bid]].indices[thid];
+             if((knodes[access].keys[thid]) <= keys[bid] && (knodes[access].keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
+		  int offaccess = offset[bid];
+                  if(knodes[offaccess].indices[thid] < knodes_elem){	//taken once per iteration of maxheight
+                      offset[bid] = knodes[offaccess].indices[thid];
                   }
              }
         }
         currKnode[bid] = offset[bid];
     }
+    int access2 = currKnode[bid];
  
     for(thid = 0; thid < threadsPerBlock; thid++){
-        if(knodes[currKnode[bid]].keys[thid] == keys[bid]){			//taken once per iteration of count
-            ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value;
+        if(knodes[access2].keys[thid] == keys[bid]){			//taken once per iteration of count //BRATIO0.00001
+	    int access5 = knodes[access2].indices[thid];
+            ans[bid].value = records[access5].value;
         }
     }
 }

@@ -1,7 +1,7 @@
 Test1,L,M,H,L,L,H,L
 Test2,L,M,H,H,H,L,L
-Test3,L,L,L,L,H,L,L
-Test4,L,M,L,L,H,L,L
+Test3,L,M,H,L,H,L,L
+Test4,L,M,H,L,H,L,L
 Test5,L,L,H,L,L,L,L
 Test6,M,M,H,L,L,H,L
 Test7,L,L,H,L,L,H,L

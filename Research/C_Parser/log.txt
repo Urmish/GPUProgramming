@@ -27,796 +27,612 @@ Parser.py:660: SyntaxWarning: name 'StartAnalyzing' is assigned to before global
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test20.txt
-int Nc = 458;
+../Input_C_Parser/Test4.txt
+count = 6000;
 
-int Nr = 502;
+maxheight = 2;
 
-int niter=100; 
-
-float image[229916]; 
-
-long Nr,Nc;
-
-long Ne;
-
-int niter;  
-
-float lambda;  
-
-int r1,r2,c1,c2; 
-
-long NeROI;     
-
-float meanROI, varROI, q0sqr;     
-
-int iN[502], iS[502];
-
-int jE[458], jW[458];
-
-float Jc;
-
-float dN[229916], dS[229916], dW[229916], dE[229916];
-
-float tmp,sum,sum2;
-
-float G2,L,num,den,qsqr,D;
-
-float c[229916];
-
-float cN,cS,cW,cE;
-
-int iter;    // primary loop
-
-long i,j;    // image row/col
-
-long k;      // image single index    
+threadsPerBlock = 508;
 
 
 
-for (i=0; i<Nr; i++) {
-
-    iN[i] = i-1;       // holds index of IMAGE row above
-
-    iS[i] = i+1;       // holds index of IMAGE row below
-
-}
+long currKnode[10000], offset[10000];
 
 
 
-for (j=0; j<Nc; j++) {
+typedef struct knode {
 
-    jW[j] = j-1;       // holds index of IMAGE column on the left
+        int location;
 
-    jE[j] = j+1;       // holds index of IMAGE column on the right
+        int indices [509];
 
-}
+        int  keys [509];
 
+        bool is_leaf;
 
+        int num_keys;
 
-// N/S/W/E boundary conditions, fix surrounding indices outside boundary of IMAGE
-
-iN[0]    = 0;      // changes IMAGE top row index from -1 to 0
-
-iS[Nr-1] = Nr-1;   // changes IMAGE bottom row index from Nr to Nr-1 
-
-jW[0]    = 0;          
+} knode;
 
 
-
-for (iter=0; iter < niter; iter++){
-
-for (j=0; j < Nc; j++) {                                       
 
 ####Annotation Begins####
 
 Annotation Begin Found
 TotalArithmeticInstructions  0
 TotalArithmeticInstructions  0
-   for (i=0; i < Nr; i++) {                                  
+for(bid = 0; bid < count; bid++){
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-      k = i + Nr*j;                                   
+    access = currKnode[bid];
 
-TotalArithmeticInstructions  4
-TotalArithmeticInstructions  4
-####
-16   *
-17   j
-15   r
- i + Nr
-match
-i + Nr
-j;                                   
-
-match
-j;
-19    
-      Jc = image[k];                                     
-
-TotalArithmeticInstructions  4
-TotalArithmeticInstructions  4
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
 Checking double store operation
 Checking double store operation - Done
-                     
+    access3 = lastKnode[bid];
 
-TotalArithmeticInstructions  4
-TotalArithmeticInstructions  4
-      dN[k] = image[i-1 + Nr*j] - Jc;                        
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+Checking double store operation
+Checking double store operation - Done
+    for(i = 0; i < maxheight; i++){ //FRATIO2
 
-TotalArithmeticInstructions  8
-TotalArithmeticInstructions  8
+TotalArithmeticInstructions  5
+TotalArithmeticInstructions  5
+Division Found
+####
+36   /
+37   /
+35    
+ 0; i < maxheight; i++){
+match
+i < maxheight; i++){
+/FRATIO2
+
+Division Found
+####
+37   /
+38   F
+36   /
+
+FRATIO2
+
+FRATIO2
+        for(thid = 0; thid < threadsPerBlock; thid++){
+
+TotalArithmeticInstructions  9
+TotalArithmeticInstructions  9
+            if((knodes[access].keys[thid] <= start[bid]) && (knodes[access].keys[thid+1] > start[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
+
+TotalArithmeticInstructions  19
+TotalArithmeticInstructions  19
 offset pattern is
-i-1 + Nr*j
+thid+1
 and extracted value is
-[' Nr*j']
+['1']
 Offset is
-Nr*j
-1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dN[k] = image[i-1 + Nr*j] - Jc;
-
+1
+Offset is a int with number <=2
 Checking double store operation
-8   [
-7   N
-      dN
+22   [
+21   s
+            if((knodes
 match
-dN
-Found variable in List!
+if((knodes
 Checking double store operation - Done
+Division Found
 ####
-28   *
-29   j
-27   r
- image[i-1 + Nr
+105   /
+106   /
+104   	
+ start[bid]) && (knodes[access].keys[thid+1] > start[bid])){	
 match
-image[i-1 + Nr
-j] - Jc;                        
+knodes[access].keys[thid+1] > start[bid])){
+/taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
 
 match
-j]
-31    
-      dS[k] = image[i-1 + Nr*j] - Jc;                        
+taken
+112    
+Division Found
+####
+106   /
+107   t
+105   /
 
-TotalArithmeticInstructions  12
-TotalArithmeticInstructions  12
+taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
+
+match
+taken
+112    
+Division Found
+####
+167   /
+168   /
+166    
+ for less than 1% of the iterations of threadsPerBlock
+match
+less than 1% of the iterations of threadsPerBlock
+/BRATIO0.01
+
+Division Found
+####
+168   /
+169   B
+167   /
+
+BRATIO0.01
+
+Found Control Density
+['0.01']
+Bratio found
+temp bratio is  0.64
+Divergence ratio is  0.64
+                if(knodes[access].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
+
+TotalArithmeticInstructions  19.08
+TotalArithmeticInstructions  19.08
+Checking double store operation
+Checking double store operation - Done
+Division Found
+####
+65   /
+66   /
+64   	
+                if(knodes[access].indices[thid] < knodes_elem){		
+match
+knodes[access].indices[thid] < knodes_elem){
+/only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
+
+match
+only
+71    
+Division Found
+####
+66   /
+67   o
+65   /
+
+only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
+
+match
+only
+71    
+Division Found
+####
+117   /
+118   /
+116    
+ taken once for every iteration of maxheight
+match
+once for every iteration of maxheight
+/BRATIO0.5 //BRATIO0.01
+
+match
+BRATIO0.5
+128    
+Division Found
+####
+118   /
+119   B
+117   /
+
+BRATIO0.5 //BRATIO0.01
+
+match
+BRATIO0.5
+128    
+Division Found
+####
+129   /
+130   /
+128    
+
+/BRATIO0.01
+
+Division Found
+####
+130   /
+131   B
+129   /
+
+BRATIO0.01
+
+Found Control Density
+['0.5']
+['0.01']
+Bratio found
+temp bratio is  0.32
+Divergence ratio using old  0.64
+                    offset[bid] = knodes[access].indices[thid];
+
+TotalArithmeticInstructions  19.08
+TotalArithmeticInstructions  19.08
+Checking double store operation
+26   [
+25   t
+                    offset
+match
+offset
+Checking double store operation - Done
+                }
+
+TotalArithmeticInstructions  19.08
+TotalArithmeticInstructions  19.08
+            }
+
+TotalArithmeticInstructions  19.08
+TotalArithmeticInstructions  19.08
+            if((knodes[access3].keys[thid] <= end[bid]) && (knodes[access3].keys[thid+1] > end[bid])){	//taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
+
+TotalArithmeticInstructions  19.12
+TotalArithmeticInstructions  19.12
 offset pattern is
-i-1 + Nr*j
+thid+1
 and extracted value is
-[' Nr*j']
+['1']
 Offset is
-Nr*j
-2. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dS[k] = image[i-1 + Nr*j] - Jc;
-
+1
+Offset is a int with number <=2
 Checking double store operation
-8   [
-7   S
-      dS
+22   [
+21   s
+            if((knodes
 match
-dS
+if((knodes
 Checking double store operation - Done
+Division Found
 ####
-28   *
-29   j
-27   r
- image[i-1 + Nr
+103   /
+104   /
+102   	
+ end[bid]) && (knodes[access3].keys[thid+1] > end[bid])){	
 match
-image[i-1 + Nr
-j] - Jc;                        
+knodes[access3].keys[thid+1] > end[bid])){
+/taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
 
 match
-j]
-31    
-      dW[k] = image[i + Nr*(j-1)] - Jc;                        
-
-TotalArithmeticInstructions  16
-TotalArithmeticInstructions  16
-offset pattern is
-i + Nr*(j-1)
-and extracted value is
-[' Nr*(j-1)']
-Offset is
-Nr*(j-1)
-3. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dW[k] = image[i + Nr*(j-1)] - Jc;
-
-Checking double store operation
-8   [
-7   W
-      dW
-match
-dW
-Checking double store operation - Done
+taken
+110    
+Division Found
 ####
-26   *
-27   (
-25   r
- image[i + Nr
-match
-image[i + Nr
-(j-1)] - Jc;                        
+104   /
+105   t
+103   /
+
+taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
 
 match
-j-1
-31   )
-      dE[k] = image[i + Nr*(j+1)] - Jc;                        
+taken
+110    
+Found Control Density
+['0.01']
+Bratio found
+temp bratio is  0.64
+Divergence ratio using old  0.64
+                if(knodes[access3].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
 
-TotalArithmeticInstructions  20
-TotalArithmeticInstructions  20
-offset pattern is
-i + Nr*(j+1)
-and extracted value is
-[' Nr*(j+1)']
-Offset is
-Nr*(j+1)
-4. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dE[k] = image[i + Nr*(j+1)] - Jc;
-
-Checking double store operation
-8   [
-7   E
-      dE
-match
-dE
-Checking double store operation - Done
-####
-26   *
-27   (
-25   r
- image[i + Nr
-match
-image[i + Nr
-(j+1)] - Jc;                        
-
-match
-j
-29   +
- 
-
-TotalArithmeticInstructions  20
-TotalArithmeticInstructions  20
-      temp1 = dW[k];
-
-TotalArithmeticInstructions  20
-TotalArithmeticInstructions  20
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
 Checking double store operation
 Checking double store operation - Done
-      temp2 = dE[k];
-
-TotalArithmeticInstructions  20
-TotalArithmeticInstructions  20
-Checking double store operation
-Checking double store operation - Done
-      temp3 = dS[k];
-
-TotalArithmeticInstructions  20
-TotalArithmeticInstructions  20
-Checking double store operation
-Checking double store operation - Done
-      temp4 = dN[k];
-
-TotalArithmeticInstructions  20
-TotalArithmeticInstructions  20
-Checking double store operation
-Checking double store operation - Done
-      G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
-
-TotalArithmeticInstructions  29
-TotalArithmeticInstructions  29
+Division Found
 ####
-17   *
-18   t
-16   1
- (temp1
+66   /
+67   /
+65   	
+                if(knodes[access3].indices[thid] < knodes_elem){		
 match
-temp1
-temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
+knodes[access3].indices[thid] < knodes_elem){
+/only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
 
 match
-temp1
-23    
-####
-31   *
-32   t
-30   2
- + temp2
-match
-temp2
-temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
-
-match
-temp2
-37    
-####
-45   *
-46   t
-44   3
- + temp3
-match
-temp3
-temp3 + temp4*temp4) / (Jc*Jc);
-
-match
-temp3
-51    
-####
-59   *
-60   t
-58   4
- + temp4
-match
-temp4
-temp4) / (Jc*Jc);
-
-match
-temp4
-65   )
-####
-72   *
-73   J
-71   c
-) / (Jc
-match
-Jc
-Jc);
-
-match
-Jc
-75   )
+only
+72    
 Division Found
 ####
 67   /
-68    
-66    
-(temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4
-match
-temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4
- (Jc*Jc);
+68   o
+66   /
+
+only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
 
 match
-Jc
-72   *
- 
-
-TotalArithmeticInstructions  29
-TotalArithmeticInstructions  29
-      L = (temp1 + temp2 + temp3 + temp4) / Jc;             
-
-TotalArithmeticInstructions  33
-TotalArithmeticInstructions  33
+only
+72    
 Division Found
 ####
-42   /
-43    
-41    
-(temp1 + temp2 + temp3 + temp4
+117   /
+118   /
+116    
+ taken once for every iteration of maxheight
 match
-temp1 + temp2 + temp3 + temp4
- Jc;             
+once for every iteration of maxheight
+/BRATIO0.01 BRATIO0.5
 
 match
-Jc;
-47    
- 
-
-TotalArithmeticInstructions  33
-TotalArithmeticInstructions  33
-      num  = (0.5*G2) - ((1.0/16.0)*(L*L)) ;                
-
-TotalArithmeticInstructions  38
-TotalArithmeticInstructions  38
-####
-17   *
-18   G
-16   5
- (0.5
-match
-0.5
-G2) - ((1.0/16.0)*(L*L)) ;                
-
-match
-G2
-20   )
-####
-35   *
-36   (
-34   )
-(1.0/16.0
-match
-1.0/16.0
-(L*L)) ;                
-
-match
-L
-38   *
-####
-38   *
-39   L
-37   L
-
-L)) ;                
-
-match
-L
-40   )
+BRATIO0.01
+129    
 Division Found
 ####
-29   /
-30   1
-28   0
- (0.5*G2) - ((1.0
-match
-0.5*G2) - ((1.0
-16.0)*(L*L)) ;                
+118   /
+119   B
+117   /
+
+BRATIO0.01 BRATIO0.5
 
 match
-16.0
-34   )
-      den  = 1 + (.25*L);                                
+BRATIO0.01
+129    
+Found Control Density
+['0.01']
+['0.5']
+Bratio found
+temp bratio is  0.32
+Divergence ratio using old  0.64
+                    offset_2[bid] = knodes[access3].indices[thid];
 
-TotalArithmeticInstructions  40
-TotalArithmeticInstructions  40
-####
-21   *
-22   L
-20   5
- 1 + (.25
-match
-1 + (.25
-L);                                
-
-match
-L
-23   )
-      qsqr = num/(den*den);                              
-
-TotalArithmeticInstructions  42
-TotalArithmeticInstructions  42
-####
-21   *
-22   d
-20   n
- num/(den
-match
-num/(den
-den);                              
-
-match
-den
-25   )
-Division Found
-####
-16   /
-17   (
-15   m
- num
-(den*den);                              
-
-match
-den
-21   *
- 
-
-TotalArithmeticInstructions  42
-TotalArithmeticInstructions  42
-      den = (qsqr-q0sqr) / (q0sqr * (1+q0sqr)) ;               
-
-TotalArithmeticInstructions  46
-TotalArithmeticInstructions  46
-####
-34   *
-35    
-33    
- (qsqr-q0sqr) / (q0sqr
-match
-qsqr-q0sqr) / (q0sqr
- (1+q0sqr)) ;               
-
-match
-1
-38   +
-Division Found
-####
-25   /
-26    
-24    
-(qsqr-q0sqr
-match
-qsqr-q0sqr
- (q0sqr * (1+q0sqr)) ;               
-
-match
-q0sqr
-33    
-      c[k] = 1.0 / (1.0+den) ;                           
-
-TotalArithmeticInstructions  48
-TotalArithmeticInstructions  48
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
 Checking double store operation
-7   [
-6   c
-      c
+28   [
+27   2
+                    offset_2
 match
-c
-Found variable in List!
+offset_2
 Checking double store operation - Done
-Division Found
-####
-17   /
-18    
-16    
- 1.0
- (1.0+den) ;                           
+                }
 
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
+            }
+
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
+        }
+
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
+        currKnode[bid] = offset[bid];
+
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
+Checking double store operation
+17   [
+16   e
+        currKnode
 match
-1.0
-23   +
- 
+currKnode
+Checking double store operation - Done
+        lastKnode[bid] = offset_2[bid];
 
-TotalArithmeticInstructions  48
-TotalArithmeticInstructions  48
-      if (c[k] < 0) {   	// Always not-taken.           //BRATIO0.0
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
+Checking double store operation
+17   [
+16   e
+        lastKnode
+match
+lastKnode
+Checking double store operation - Done
+    }
 
-TotalArithmeticInstructions  52
-TotalArithmeticInstructions  52
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
+    access2 = currKnode[bid];
+
+TotalArithmeticInstructions  19.18
+TotalArithmeticInstructions  19.18
 Checking double store operation
 Checking double store operation - Done
-Division Found
-####
-25   /
-26   /
-24   	
-      if (c[k] < 0) {   	
+    for(thid = 0; thid < threadsPerBlock; thid++){
+
+TotalArithmeticInstructions  19.2
+TotalArithmeticInstructions  19.2
+        if(knodes[access2].keys[thid] == start[bid]){				//only taken once for each iteration of count //BRATIO0.0001
+
+TotalArithmeticInstructions  19.23
+TotalArithmeticInstructions  19.23
+Checking double store operation
+17   [
+16   s
+        if(knodes
 match
-c[k] < 0) {
-/ Always not-taken.           //BRATIO0.0
-
-match
-Always
-34    
-Division Found
-####
-26   /
-27    
-25   /
-
- Always not-taken.           //BRATIO0.0
-
-match
-Always
-34    
-Division Found
-####
-56   /
-57   /
-55    
- not-taken.
-/BRATIO0.0
-
+if(knodes
+Checking double store operation - Done
 Division Found
 ####
 57   /
-58   B
+58   /
+56   	
+= start[bid]){				
+match
+start[bid]){
+/only taken once for each iteration of count //BRATIO0.0001
+
+match
+only
+63    
+Division Found
+####
+58   /
+59   o
+57   /
+
+only taken once for each iteration of count //BRATIO0.0001
+
+match
+only
+63    
+Division Found
+####
+103   /
+104   /
+102    
+ taken once for each iteration of count
+match
+once for each iteration of count
+/BRATIO0.0001
+
+Division Found
+####
+104   /
+105   B
+103   /
+
+BRATIO0.0001
+
+Found Control Density
+['0.0001']
+Bratio found
+temp bratio is  0.0064
+Divergence ratio using old  0.64
+            recstart[bid] = knodes[access2].indices[thid];
+
+TotalArithmeticInstructions  19.23
+TotalArithmeticInstructions  19.23
+Checking double store operation
+20   [
+19   t
+            recstart
+match
+recstart
+Checking double store operation - Done
+        }
+
+TotalArithmeticInstructions  19.23
+TotalArithmeticInstructions  19.23
+    }
+
+TotalArithmeticInstructions  19.23
+TotalArithmeticInstructions  19.23
+    access4 = lastKnode[bid];
+
+TotalArithmeticInstructions  19.23
+TotalArithmeticInstructions  19.23
+Checking double store operation
+Checking double store operation - Done
+    for(thid = 0; thid < threadsPerBlock; thid++){
+
+TotalArithmeticInstructions  19.2304
+TotalArithmeticInstructions  19.2304
+        if(knodes[access4].keys[thid] == end[bid]){				//only taken once for each iteration of count //BRATIO0.0001
+
+TotalArithmeticInstructions  19.231
+TotalArithmeticInstructions  19.231
+Checking double store operation
+17   [
+16   s
+        if(knodes
+match
+if(knodes
+Checking double store operation - Done
+Division Found
+####
+55   /
 56   /
-
-BRATIO0.0
-
-Found Control Density
-['0.0']
-Bratio found
-temp bratio is  0.0
-Divergence ratio using old  0
-         c[k] = 0;
-
-TotalArithmeticInstructions  52.0
-TotalArithmeticInstructions  52.0
-Checking double store operation
-10   [
-9   c
-         c
+54   	
+= end[bid]){				
 match
-c
-Found variable in List!
-Checking double store operation - Done
-      }                                   
+end[bid]){
+/only taken once for each iteration of count //BRATIO0.0001
 
-TotalArithmeticInstructions  52.0
-TotalArithmeticInstructions  52.0
-      
-
-TotalArithmeticInstructions  52.0
-TotalArithmeticInstructions  52.0
-      else if (c[k] > 1) {  	// Taken BRATIO0.999992 of the time.          
-
-TotalArithmeticInstructions  54.0
-TotalArithmeticInstructions  54.0
-Checking double store operation
-Checking double store operation - Done
+match
+only
+61    
 Division Found
 ####
-29   /
-30   /
-28   	
-      else if (c[k] > 1) {  	
-match
-if (c[k] > 1) {
-/ Taken BRATIO0.999992 of the time.          
+56   /
+57   o
+55   /
+
+only taken once for each iteration of count //BRATIO0.0001
 
 match
-Taken
-37    
+only
+61    
 Division Found
 ####
-30   /
-31    
-29   /
-
- Taken BRATIO0.999992 of the time.          
-
+101   /
+102   /
+100    
+ taken once for each iteration of count
 match
-Taken
-37    
+once for each iteration of count
+/BRATIO0.0001
+
+Division Found
+####
+102   /
+103   B
+101   /
+
+BRATIO0.0001
+
 Found Control Density
-['0.999992']
+['0.0001']
 Bratio found
-temp bratio is  0.000256
-Divergence ratio is  0.000256
-         c[k] = 1;
+temp bratio is  0.0064
+Divergence ratio using old  0.64
+            reclength[bid] = knodes[access4].indices[thid] - recstart[bid]+1;
 
-TotalArithmeticInstructions  54.0
-TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  19.2314
+TotalArithmeticInstructions  19.2314
 Checking double store operation
-10   [
-9   c
-         c
+21   [
+20   h
+            reclength
 match
-c
-Found variable in List!
+reclength
 Checking double store operation - Done
-      }                                   
+        }
 
-TotalArithmeticInstructions  54.0
-TotalArithmeticInstructions  54.0
- 
+TotalArithmeticInstructions  19.2314
+TotalArithmeticInstructions  19.2314
+    }
 
-TotalArithmeticInstructions  54.0
-TotalArithmeticInstructions  54.0
-   }
-
-TotalArithmeticInstructions  54.0
-TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  19.2314
+TotalArithmeticInstructions  19.2314
 }
 
-TotalArithmeticInstructions  54.0
-TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  19.2314
+TotalArithmeticInstructions  19.2314
 ####Annotation Ends####
 
-TotalArithmeticInstructions  54.0
-TotalArithmeticInstructions  54.0
+TotalArithmeticInstructions  19.2314
+TotalArithmeticInstructions  19.2314
 Annotation End Found
 ######################################################
 **********
 The values of this entry are
-Name                 -  dN
-Scope                -  Global
-varType              -  1
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  niter
-Scope                -  Global
+Name                 -  indices
+Scope                -  struct
 varType              -  0
 size                 -  1
 value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  c
-Scope                -  Global
-varType              -  1
-size                 -  1
+Name                 -  
+Scope                -  struct
+varType              -  0
+size                 -  0
 value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  G2
-Scope                -  Global
-varType              -  1
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  r1
-Scope                -  Global
+Name                 -  location
+Scope                -  struct
 varType              -  0
 size                 -  1
 value                -  None
 iteratorVar          -  False
 **********
 The values of this entry are
-Name                 -  image
-Scope                -  Global
-varType              -  1
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  Nc
-Scope                -  Global
+Name                 -  num_keys
+Scope                -  struct
 varType              -  0
-size                 -  1
-value                -  458
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  iter
-Scope                -  Global
-varType              -  0
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  iN
-Scope                -  Global
-varType              -  0
-size                 -  502
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  cN
-Scope                -  Global
-varType              -  1
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  jE
-Scope                -  Global
-varType              -  0
-size                 -  458
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  Nr
-Scope                -  Global
-varType              -  0
-size                 -  1
-value                -  502
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  Jc
-Scope                -  Global
-varType              -  1
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  meanROI
-Scope                -  Global
-varType              -  1
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  tmp
-Scope                -  Global
-varType              -  1
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  lambda
-Scope                -  Global
-varType              -  1
 size                 -  1
 value                -  None
 iteratorVar          -  False
@@ -824,28 +640,19 @@ iteratorVar          -  False
 
 
 TotalTranscendentals - 0
-TotalArithmeticInstructions - 54.0
-NumLoadOperations - 11.0
-NumStoreOperations - 5.999992
+TotalArithmeticInstructions - 19.2314
+NumLoadOperations - 12.2216
+NumStoreOperations - 2.0606
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 NumDoubleAccesses -  0
-Warnings!!!!
-1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dN[k] = image[i-1 + Nr*j] - Jc;
-
-2. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dS[k] = image[i-1 + Nr*j] - Jc;
-
-3. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dW[k] = image[i + Nr*(j-1)] - Jc;
-
-4. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dE[k] = image[i + Nr*(j+1)] - Jc;
-
 
 
 ######################################################
 Transcendental Ratio - L
 Arithmetic Intensity - M
 Global Memory Operation - H
-BranchDivergence - L 0.000256
+BranchDivergence - L 0.64
 ControlDensity -  H
-Floating Point Mul/Div - H
-Total Instruction - H
+Floating Point Mul/Div - L
+Total Instruction - L

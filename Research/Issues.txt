@@ -1,21 +1,16 @@
-CompInt
---------
-Test 1 - new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
-  delta[j] * ly[k]) + (MOMENTUM * oldw[k] identified as mem[A+B] pattern while delta[j] * ly[k] identified as mem[A*B] pattern. Even after no greedy search. 
-Difficult to come up with patterns that identify mem[A*B[i]*k] and dont give issues like above. Also filtering out adds from mem[A+B] is important.
-  As a result, total arithmetic inst - 7 instead of 9 and compint is (7/8) instead of (9/8)
-
-Test 3 -  Complicated with all the unrolling and understanding that max height is 2, so once branch is taken once not taken and both path executed when unrolled
-
-Coalescing
------------
+Coalescing - Verify Fix
+----------------------
 
 Test 3 - knodes[currKnode[bid]] is the issue. Although the access is of type A[B[i]], currKnode[bid] is constant across iteration. As a result we get a coalescing ratio of 3 while actually it is 4.
-Test 4 - Same issue as Test 3
+  ans[bid].value = records[knodes[currKnode[bid]].indices[thid]].value; changed to 
+  int access2 = currKnode[bid];
+  int access5 = knodes[access2].indices[thid];  
+  ans[bid].value = records[access5].value;
+  
 
 
 Talk to Newsha/Karu About this
----------------------------------
+----------------------------------------------------------------------------------------------------------------
 
 Test 20 - dN[k] = image[i-1 + Nr*j] - Jc not parsing them correctly for now. Need more sophisticated mechanism to parse it. Could code, depends on time/deadline!!! Problem - j is constant, as a result, the offset remains constant and incremented by 1. This understanding is lacking in the parser
 Test21 - Similar issue as Test20
