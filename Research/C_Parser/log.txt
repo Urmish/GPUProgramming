@@ -1,33 +1,257 @@
-Parser.py:322: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
-Parser.py:330: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-Parser.py:339: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-Parser.py:347: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
-Parser.py:435: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:447: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:450: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:508: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:520: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:523: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-Parser.py:605: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-Parser.py:660: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 **************************************************************************
 ****			C Code Parser   			      ****
 **************************************************************************
 ****		   Please Use Python 2.7 or later		      ****
 **************************************************************************
-../Input_C_Parser/Test4.txt
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test1.txt
+#define ETA 0.3
+
+#define MOMENTUM 0.3
+
+
+
+float new_dwi;
+
+float *delta;
+
+float  **w;
+
+float **old_w;
+
+float *ly;
+
+int k, j;
+
+int ndelta = 16;
+
+int nly = 65536;
+
+ly[0] = 1.0;
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for (k = 0; k <= nly; k++) { 
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test2.txt
+// int no_of_nodes = 1000000
+
+// bool stop
+
+
+
+do{
+
+    stop = false;
+
+    for(int tid = 0; tid < no_of_nodes; tid++ ) {
+
+        if (h_graph_mask[tid] == true) { //BRATIO0.08 
+
+            h_graph_mask[tid]=false;
+
+      	    for(int i=h_graph_nodes[tid].starting; i < (h_graph_nodes[tid].no_of_edges + h_graph_nodes[tid].starting); i++) {	// This loop runs an average of 3 times per outer loop. //FRATIO3
+
+                int id = h_graph_edges[i];
+
+         	if(!h_graph_visited[id]) {
+
+            	    h_cost[id]=h_cost[tid]+1;
+
+            	    h_updating_graph_mask[id]=true;
+
+                }
+
+            }
+
+        }
+
+    }
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for(int tid=0; tid < no_of_nodes ; tid++ ){
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test3.txt
+count = 10000;
+
+maxheight = 2;
+
+threadsPerBlock = 508;
+
+
+
+long currKnode[10000], offset[10000];
+
+
+
+typedef struct knode {
+
+        int location;
+
+        int indices [509];
+
+        int  keys [509];
+
+        bool is_leaf;
+
+        int num_keys;
+
+} knode;
+
+
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for(bid = 0; bid < count; bid++){
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test4.txt
 count = 6000;
 
 maxheight = 2;
@@ -65,594 +289,1478 @@ for(bid = 0; bid < count; bid++){
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-    access = currKnode[bid];
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test5.txt
+int nelr = 97046;
+
+int NVAR = 5;
+
+float variables[nelr*NVAR], ff_variable[NVAR];
+
+
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for(int i = 0; i < nelr; i++){
 
 TotalArithmeticInstructions  2
 TotalArithmeticInstructions  2
-Checking double store operation
-Checking double store operation - Done
-    access3 = lastKnode[bid];
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test6.txt
+truct float3 { float x, y, z; };
 
-TotalArithmeticInstructions  2
-TotalArithmeticInstructions  2
-Checking double store operation
-Checking double store operation - Done
-    for(i = 0; i < maxheight; i++){ //FRATIO2
+iterations = 2000;
 
-TotalArithmeticInstructions  5
-TotalArithmeticInstructions  5
-Division Found
-####
-36   /
-37   /
-35    
- 0; i < maxheight; i++){
-match
-i < maxheight; i++){
-/FRATIO2
+nelr = 97046;
 
-Division Found
-####
-37   /
-38   F
-36   /
+NVAR = 5;
 
-FRATIO2
+GAMMA = 1.4;
 
-FRATIO2
-        for(thid = 0; thid < threadsPerBlock; thid++){
+VAR_MOMENTUM = 1;
 
-TotalArithmeticInstructions  9
-TotalArithmeticInstructions  9
-            if((knodes[access].keys[thid] <= start[bid]) && (knodes[access].keys[thid+1] > start[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
+VAR_DENSITY = 0;
 
-TotalArithmeticInstructions  19
-TotalArithmeticInstructions  19
-offset pattern is
-thid+1
-and extracted value is
-['1']
-Offset is
-1
-Offset is a int with number <=2
-Checking double store operation
-22   [
-21   s
-            if((knodes
-match
-if((knodes
-Checking double store operation - Done
-Division Found
-####
-105   /
-106   /
-104   	
- start[bid]) && (knodes[access].keys[thid+1] > start[bid])){	
-match
-knodes[access].keys[thid+1] > start[bid])){
-/taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
+VAR_DENSITY_ENERGY = 4;
 
-match
-taken
-112    
-Division Found
-####
-106   /
-107   t
-105   /
+float variables[nelr*NVAR], ff_variable[NVAR], step_factors[nelr], areas[nelr];
 
-taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
 
-match
-taken
-112    
-Division Found
-####
-167   /
-168   /
-166    
- for less than 1% of the iterations of threadsPerBlock
-match
-less than 1% of the iterations of threadsPerBlock
-/BRATIO0.01
 
-Division Found
-####
-168   /
-169   B
-167   /
 
-BRATIO0.01
 
-Found Control Density
-['0.01']
-Bratio found
-temp bratio is  0.64
-Divergence ratio is  0.64
-                if(knodes[access].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
+for(int iter=0; iter < iterations; iter++){
 
-TotalArithmeticInstructions  19.08
-TotalArithmeticInstructions  19.08
-Checking double store operation
-Checking double store operation - Done
-Division Found
-####
-65   /
-66   /
-64   	
-                if(knodes[access].indices[thid] < knodes_elem){		
-match
-knodes[access].indices[thid] < knodes_elem){
-/only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
+    for(int i = 0; i < nelr*NVAR; i++){
 
-match
-only
-71    
-Division Found
-####
-66   /
-67   o
-65   /
+        old_variables[i] = variables[i];
 
-only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
-
-match
-only
-71    
-Division Found
-####
-117   /
-118   /
-116    
- taken once for every iteration of maxheight
-match
-once for every iteration of maxheight
-/BRATIO0.5 //BRATIO0.01
-
-match
-BRATIO0.5
-128    
-Division Found
-####
-118   /
-119   B
-117   /
-
-BRATIO0.5 //BRATIO0.01
-
-match
-BRATIO0.5
-128    
-Division Found
-####
-129   /
-130   /
-128    
-
-/BRATIO0.01
-
-Division Found
-####
-130   /
-131   B
-129   /
-
-BRATIO0.01
-
-Found Control Density
-['0.5']
-['0.01']
-Bratio found
-temp bratio is  0.32
-Divergence ratio using old  0.64
-                    offset[bid] = knodes[access].indices[thid];
-
-TotalArithmeticInstructions  19.08
-TotalArithmeticInstructions  19.08
-Checking double store operation
-26   [
-25   t
-                    offset
-match
-offset
-Checking double store operation - Done
-                }
-
-TotalArithmeticInstructions  19.08
-TotalArithmeticInstructions  19.08
-            }
-
-TotalArithmeticInstructions  19.08
-TotalArithmeticInstructions  19.08
-            if((knodes[access3].keys[thid] <= end[bid]) && (knodes[access3].keys[thid+1] > end[bid])){	//taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
-
-TotalArithmeticInstructions  19.12
-TotalArithmeticInstructions  19.12
-offset pattern is
-thid+1
-and extracted value is
-['1']
-Offset is
-1
-Offset is a int with number <=2
-Checking double store operation
-22   [
-21   s
-            if((knodes
-match
-if((knodes
-Checking double store operation - Done
-Division Found
-####
-103   /
-104   /
-102   	
- end[bid]) && (knodes[access3].keys[thid+1] > end[bid])){	
-match
-knodes[access3].keys[thid+1] > end[bid])){
-/taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
-
-match
-taken
-110    
-Division Found
-####
-104   /
-105   t
-103   /
-
-taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
-
-match
-taken
-110    
-Found Control Density
-['0.01']
-Bratio found
-temp bratio is  0.64
-Divergence ratio using old  0.64
-                if(knodes[access3].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
-
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-Checking double store operation
-Checking double store operation - Done
-Division Found
-####
-66   /
-67   /
-65   	
-                if(knodes[access3].indices[thid] < knodes_elem){		
-match
-knodes[access3].indices[thid] < knodes_elem){
-/only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
-
-match
-only
-72    
-Division Found
-####
-67   /
-68   o
-66   /
-
-only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
-
-match
-only
-72    
-Division Found
-####
-117   /
-118   /
-116    
- taken once for every iteration of maxheight
-match
-once for every iteration of maxheight
-/BRATIO0.01 BRATIO0.5
-
-match
-BRATIO0.01
-129    
-Division Found
-####
-118   /
-119   B
-117   /
-
-BRATIO0.01 BRATIO0.5
-
-match
-BRATIO0.01
-129    
-Found Control Density
-['0.01']
-['0.5']
-Bratio found
-temp bratio is  0.32
-Divergence ratio using old  0.64
-                    offset_2[bid] = knodes[access3].indices[thid];
-
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-Checking double store operation
-28   [
-27   2
-                    offset_2
-match
-offset_2
-Checking double store operation - Done
-                }
-
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-            }
-
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-        }
-
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-        currKnode[bid] = offset[bid];
-
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-Checking double store operation
-17   [
-16   e
-        currKnode
-match
-currKnode
-Checking double store operation - Done
-        lastKnode[bid] = offset_2[bid];
-
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-Checking double store operation
-17   [
-16   e
-        lastKnode
-match
-lastKnode
-Checking double store operation - Done
     }
 
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-    access2 = currKnode[bid];
 
-TotalArithmeticInstructions  19.18
-TotalArithmeticInstructions  19.18
-Checking double store operation
-Checking double store operation - Done
-    for(thid = 0; thid < threadsPerBlock; thid++){
 
-TotalArithmeticInstructions  19.2
-TotalArithmeticInstructions  19.2
-        if(knodes[access2].keys[thid] == start[bid]){				//only taken once for each iteration of count //BRATIO0.0001
+####Annotation Begins####
 
-TotalArithmeticInstructions  19.23
-TotalArithmeticInstructions  19.23
-Checking double store operation
-17   [
-16   s
-        if(knodes
-match
-if(knodes
-Checking double store operation - Done
-Division Found
-####
-57   /
-58   /
-56   	
-= start[bid]){				
-match
-start[bid]){
-/only taken once for each iteration of count //BRATIO0.0001
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for(int i = 0; i < nelr; i++){
 
-match
-only
-63    
-Division Found
-####
-58   /
-59   o
-57   /
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test7.txt
+struct float3 { float x, y, z; };
 
-only taken once for each iteration of count //BRATIO0.0001
+iterations = 2000;
 
-match
-only
-63    
-Division Found
-####
-103   /
-104   /
-102    
- taken once for each iteration of count
-match
-once for each iteration of count
-/BRATIO0.0001
+nelr = 97046;
 
-Division Found
-####
-104   /
-105   B
-103   /
+NVAR = 5;
 
-BRATIO0.0001
+GAMMA = 1.4;
 
-Found Control Density
-['0.0001']
-Bratio found
-temp bratio is  0.0064
-Divergence ratio using old  0.64
-            recstart[bid] = knodes[access2].indices[thid];
+VAR_MOMENTUM = 1;
 
-TotalArithmeticInstructions  19.23
-TotalArithmeticInstructions  19.23
-Checking double store operation
-20   [
-19   t
-            recstart
-match
-recstart
-Checking double store operation - Done
-        }
+VAR_DENSITY = 0;
 
-TotalArithmeticInstructions  19.23
-TotalArithmeticInstructions  19.23
+VAR_DENSITY_ENERGY = 4;
+
+float variables[nelr*NVAR]
+
+float old_variables[nelr*NVAR]
+
+float fluxes[nelr*NVAR];
+
+float ff_variable[NVAR], step_factors[nelr], areas[nelr];
+
+
+
+
+
+for(int iter=0; iter < iterations; iter++){
+
+    for(int i = 0; i < nelr*NVAR; i++){
+
+        old_variables[i] = variables[i];
+
     }
 
-TotalArithmeticInstructions  19.23
-TotalArithmeticInstructions  19.23
-    access4 = lastKnode[bid];
+    for(int i = 0; i < nelr; i++){
 
-TotalArithmeticInstructions  19.23
-TotalArithmeticInstructions  19.23
-Checking double store operation
-Checking double store operation - Done
-    for(thid = 0; thid < threadsPerBlock; thid++){
+        float density = variables[NVAR*i + VAR_DENSITY];
 
-TotalArithmeticInstructions  19.2304
-TotalArithmeticInstructions  19.2304
-        if(knodes[access4].keys[thid] == end[bid]){				//only taken once for each iteration of count //BRATIO0.0001
+        float3 momentum;
 
-TotalArithmeticInstructions  19.231
-TotalArithmeticInstructions  19.231
-Checking double store operation
-17   [
-16   s
-        if(knodes
-match
-if(knodes
-Checking double store operation - Done
-Division Found
-####
-55   /
-56   /
-54   	
-= end[bid]){				
-match
-end[bid]){
-/only taken once for each iteration of count //BRATIO0.0001
+        momentum.x = variables[NVAR*i + (VAR_MOMENTUM+0)];
 
-match
-only
-61    
-Division Found
-####
-56   /
-57   o
-55   /
+        momentum.y = variables[NVAR*i + (VAR_MOMENTUM+1)];
 
-only taken once for each iteration of count //BRATIO0.0001
+        momentum.z = variables[NVAR*i + (VAR_MOMENTUM+2)];
 
-match
-only
-61    
-Division Found
-####
-101   /
-102   /
-100    
- taken once for each iteration of count
-match
-once for each iteration of count
-/BRATIO0.0001
 
-Division Found
-####
-102   /
-103   B
-101   /
 
-BRATIO0.0001
+        float density_energy = variables[NVAR*i + VAR_DENSITY_ENERGY];
 
-Found Control Density
-['0.0001']
-Bratio found
-temp bratio is  0.0064
-Divergence ratio using old  0.64
-            reclength[bid] = knodes[access4].indices[thid] - recstart[bid]+1;
 
-TotalArithmeticInstructions  19.2314
-TotalArithmeticInstructions  19.2314
-Checking double store operation
-21   [
-20   h
-            reclength
-match
-reclength
-Checking double store operation - Done
-        }
 
-TotalArithmeticInstructions  19.2314
-TotalArithmeticInstructions  19.2314
+        float3 velocity;
+
+        velocity.x = momentum.x / density;
+
+        velocity.y = momentum.y / density;
+
+        velocity.z = momentum.z / density;
+
+
+
+        float speed_sqd = velocity.x*velocity.x + velocity.y*velocity.y + velocity.z*velocity.z;
+
+        float pressure = (float(GAMMA)-float(1.0f))*(density_energy - float(0.5f)*density*speed_sqd);
+
+        float speed_of_sound = sqrtf(float(GAMMA)*pressure/density);
+
+        step_factors[i] = float(0.5f) / (sqrtf(areas[i]) * (sqrtf(speed_sqd) + speed_of_sound));
+
     }
 
-TotalArithmeticInstructions  19.2314
-TotalArithmeticInstructions  19.2314
+
+
+    for(int j = 0; j < RK; j++){
+
+        compute_flux(nelr, elements_surrounding_elements, normals, variables, fluxes);
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+        for(int i = 0; i < nelr; i++){
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test8.txt
+#define NTOTAL 8388608
+
+
+
+int *indexmap;
+
+int i, k, j, id;
+
+int ii, ii2, jj, ij2, kk;
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for(int idx=0; idx<NTOTAL; idx++){
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test9.txt
+#define NTOTAL 8388608
+
+#define NX 256
+
+#define NY 256
+
+#define NZ 128
+
+int i, k, j, var;
+
+int niter = 2;
+
+double y0_r[NTOTAL];
+
+double y0_i[NTOTAL];
+
+double x_r[NTOTAL;
+
+double x_i[NTOTAL];
+
+
+
+for (iter = 1; iteri<=niter; iter++) {
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for(int idx=0; idx<NTOTAL; idx++){
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test10.txt
+#define NTOTAL 8388608
+
+#define NX 256
+
+#define NY 256
+
+#define NZ 128
+
+int i, k, j, id;
+
+int niter = 2;
+
+double y1_r[NTOTAL], y1_i[NTOTAL], x_r[NTOTAL], x_i[NTOTAL];
+
+double xout_r[NTOTAL], xout_i[NTOTAL];
+
+
+
+for (iter = 1; iteri<=niter; iter++) {
+
+
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+        for(int idx=0; idx<NTOTAL; idx++){
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test11.txt
+#define NTOTAL 8388608
+
+#define EXPMAX 36864
+
+#define NX 256
+
+#define NY 256
+
+#define NZ 128
+
+int i, k, j, id;
+
+int niter = 1;
+
+int indexmap[NTOTAL];
+
+double u1_r[NTOTAL], u0_r[NTOTAL], u1_r[NTOTAL], u1_i[NTOTAL];
+
+double ex[EXPMAX+1];
+
+
+
+for (iter = 1; iteri<=niter; iter++) {
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for(int idx=0; idx < NTOTAL; idx++){
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test12.txt
+n = 1024000;
+
+float sx[1024000], sy[1024000];
+
+int randIndex[1024000], window[1024000];
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for (i = 0; i<=n; ++i) {
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test13.txt
+n = 1024000;
+
+float sx[1024000], sy[1024000];
+
+int randIndex[1024000], window[1024000];
+
+float randArray[1024000];
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for (i = 0; i<=n; ++i) {
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test14.txt
+n = 1024000;
+
+float sx[1024000], sy[1024000];
+
+int randIndex[1024000], window[1024000], emrIndex[1024000];
+
+float randArray[1024000];
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for (i = 0; i<=n; ++i) {
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test15.txt
+n = 1024000;
+
+float sx[1024000], sy[1024000];
+
+int randIndex[1024000], window[1024000], emrIndex[1024000];
+
+float randArray[1024000];
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for (i = 0; i<=n; ++i) {
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test16.txt
+n = 1024000;
+
+float sx[1024000], sy[1024000];
+
+int randIndex[1024000], window[1024000], emrIndex[1024000];
+
+float randArray[1024000];
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for (i = 0; i<=n; ++i) {
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test17.txt
+#define REC_WINDOW 10
+
+
+
+int rec_count = 10;
+
+float *tmp_lat = (float *) malloc(REC_WINDOW * sizeof(float));
+
+float *z = (float *) malloc(REC_WINDOW * sizeof(float));
+
+float target_lat;
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+while(!done){      //executes for 4280 iterations
+
+TotalArithmeticInstructions  1
+TotalArithmeticInstructions  1
+Division Found
+####
+19   /
+20   /
+18    
+while(!done){
+/executes for 4280 iterations
+
+match
+executes
+29    
+Division Found
+####
+20   /
+21   e
+19   /
+
+executes for 4280 iterations
+
+match
+executes
+29    
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test18.txt
+int Nparticles = 1000, index;
+
+double arrayX[1000];
+
+double arrayY[1000];
+
+double xj[1000];
+
+double yj[1000];
+
+double CDF[1000];
+
+double u[1000];
+
+
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for(j = 0; j<Nparticles; j++)
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+../Input_C_Parser/Test1.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test1.txt']
+../Input_C_Parser/Test2.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test2.txt']
+../Input_C_Parser/Test3.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test3.txt']
+../Input_C_Parser/Test4.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test4.txt']
+../Input_C_Parser/Test5.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test5.txt']
+../Input_C_Parser/Test6.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test6.txt']
+../Input_C_Parser/Test7.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test7.txt']
+../Input_C_Parser/Test8.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test8.txt']
+../Input_C_Parser/Test9.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test9.txt']
+../Input_C_Parser/Test10.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test10.txt']
+../Input_C_Parser/Test11.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test11.txt']
+../Input_C_Parser/Test12.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test12.txt']
+../Input_C_Parser/Test13.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test13.txt']
+../Input_C_Parser/Test14.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test14.txt']
+../Input_C_Parser/Test15.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test15.txt']
+../Input_C_Parser/Test16.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test16.txt']
+../Input_C_Parser/Test17.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test17.txt']
+../Input_C_Parser/Test18.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test18.txt']
+../Input_C_Parser/Test19.txt
+
+['python', '/home/urmish/Documents/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test19.txt
+int Ne = 229916
+
+float image[229916];
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for (i=0; i < Ne; i++) {                                       
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test20.txt
+int Nc = 458;
+
+int Nr = 502;
+
+int niter=100; 
+
+float image[229916]; 
+
+long Nr,Nc;
+
+long Ne;
+
+int niter;  
+
+float lambda;  
+
+int r1,r2,c1,c2; 
+
+long NeROI;     
+
+float meanROI, varROI, q0sqr;     
+
+int iN[502], iS[502];
+
+int jE[458], jW[458];
+
+float Jc;
+
+float dN[229916], dS[229916], dW[229916], dE[229916];
+
+float tmp,sum,sum2;
+
+float G2,L,num,den,qsqr,D;
+
+float c[229916];
+
+float cN,cS,cW,cE;
+
+int iter;    // primary loop
+
+long i,j;    // image row/col
+
+long k;      // image single index    
+
+
+
+for (i=0; i<Nr; i++) {
+
+    iN[i] = i-1;       // holds index of IMAGE row above
+
+    iS[i] = i+1;       // holds index of IMAGE row below
+
 }
 
-TotalArithmeticInstructions  19.2314
-TotalArithmeticInstructions  19.2314
-####Annotation Ends####
-
-TotalArithmeticInstructions  19.2314
-TotalArithmeticInstructions  19.2314
-Annotation End Found
-######################################################
-**********
-The values of this entry are
-Name                 -  indices
-Scope                -  struct
-varType              -  0
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  
-Scope                -  struct
-varType              -  0
-size                 -  0
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  location
-Scope                -  struct
-varType              -  0
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
-The values of this entry are
-Name                 -  num_keys
-Scope                -  struct
-varType              -  0
-size                 -  1
-value                -  None
-iteratorVar          -  False
-**********
 
 
-TotalTranscendentals - 0
-TotalArithmeticInstructions - 19.2314
-NumLoadOperations - 12.2216
-NumStoreOperations - 2.0606
-NumOffsetAccesses -  0
-NumIndirectAccesses -  0
-NumDoubleAccesses -  0
+for (j=0; j<Nc; j++) {
+
+    jW[j] = j-1;       // holds index of IMAGE column on the left
+
+    jE[j] = j+1;       // holds index of IMAGE column on the right
+
+}
 
 
-######################################################
-Transcendental Ratio - L
-Arithmetic Intensity - M
-Global Memory Operation - H
-BranchDivergence - L 0.64
-ControlDensity -  H
-Floating Point Mul/Div - L
-Total Instruction - L
+
+// N/S/W/E boundary conditions, fix surrounding indices outside boundary of IMAGE
+
+iN[0]    = 0;      // changes IMAGE top row index from -1 to 0
+
+iS[Nr-1] = Nr-1;   // changes IMAGE bottom row index from Nr to Nr-1 
+
+jW[0]    = 0;          
+
+
+
+for (iter=0; iter < niter; iter++){
+
+for (j=0; j < Nc; j++) {                                       
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+   for (i=0; i < Nr; i++) {                                  
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test21.txt
+int Nc = 458;
+
+int Nr = 502;
+
+int niter=100; 
+
+float image[229916]; 
+
+long Nr,Nc;
+
+long Ne;
+
+int niter;  
+
+float lambda;  
+
+int r1,r2,c1,c2; 
+
+long NeROI;     
+
+float meanROI, varROI, q0sqr;     
+
+int iN[502], iS[502];
+
+int jE[458], jW[458];
+
+float Jc;
+
+float dN[229916], dS[229916], dW[229916], dE[229916];
+
+float tmp,sum,sum2;
+
+float G2,L,num,den,qsqr,D;
+
+float c[229916];
+
+float cN,cS,cW,cE;
+
+int iter;    // primary loop
+
+long i,j;    // image row/col
+
+long k;      // image single index    
+
+
+
+for (i=0; i<Nr; i++) {
+
+    iN[i] = i-1;       // holds index of IMAGE row above
+
+    iS[i] = i+1;       // holds index of IMAGE row below
+
+}
+
+
+
+for (j=0; j<Nc; j++) {
+
+    jW[j] = j-1;       // holds index of IMAGE column on the left
+
+    jE[j] = j+1;       // holds index of IMAGE column on the right
+
+}
+
+
+
+// N/S/W/E boundary conditions, fix surrounding indices outside boundary of IMAGE
+
+iN[0]    = 0;      // changes IMAGE top row index from -1 to 0
+
+iS[Nr-1] = Nr-1;   // changes IMAGE bottom row index from Nr to Nr-1 
+
+jW[0]    = 0;          
+
+
+
+ 
+
+
+
+for (iter=0; iter < niter; iter++){
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+for (j=0; j<Nc; j++) {                       
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test22.txt
+
+
+int Ne = 229916
+
+float image[229916];
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+    for (i=0; i<Ne; i++) {                 
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:373: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:381: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:390: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:398: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:486: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:498: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:501: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:559: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:571: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:574: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:656: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py:766: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test23.txt
+int rows = 2048;
+
+int cols = 2048;
+
+niter = 2;
+
+int iN[2048], iS[2048], jE[2048], jW[2048];
+
+float Jc;
+
+float dNi[4194304], dS[4194304], dW[4194304], dE[4194304];
+
+float tmp,sum,sum2;
+
+float G2,L,num,den,qsqr,D;
+
+float c[4194304];
+
+float cN,cS,cW,cE;
+
+int iter;   // primary loop
+
+long i,j;    // image row/col
+
+long k;      // image single index    
+
+
+
+for (int i=0; i< rows; i++) {
+
+    iN[i] = i-1;
+
+    iS[i] = i+1;
+
+}
+
+
+
+for (int j=0; j< cols; j++) {
+
+    jW[j] = j-1;
+
+    jE[j] = j+1;
+
+}
+
+
+
+iN[0]    = 0;
+
+iS[rows-1] = rows-1;
+
+jW[0]    = 0;
+
+jE[cols-1] = cols-1;
+
+
+
+for (iter=0; iter<niter; iter++){                                           
+
+
+
+    for (int i = 0; i < rows; i++) {
+
+####Annotation Begins####
+
+Annotation Begin Found
+TotalArithmeticInstructions  0
+TotalArithmeticInstructions  0
+        for (int j = 0; j < cols; j++) {
+
+TotalArithmeticInstructions  2
+TotalArithmeticInstructions  2
+extractEveryVariable
+Traceback (most recent call last):
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 763, in <module>
+    extractEveryVariable(currentLine)
+  File "/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py", line 725, in extractEveryVariable
+    PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar))
+TypeError: __init__() takes exactly 5 arguments (3 given)
+/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test19.txt']
+../Input_C_Parser/Test20.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test20.txt']
+../Input_C_Parser/Test21.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test21.txt']
+../Input_C_Parser/Test22.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test22.txt']
+../Input_C_Parser/Test23.txt
+
+['python', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/home/urmish/Documents/research/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test23.txt']
+There was an error reading Output.txt

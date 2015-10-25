@@ -5,3 +5,10 @@ Test 18 - Multiline initialization instead of something done in one line
 
 Test20 - Changed lines related to indirect memory access pattern. A[B[i]] where B[i]=i-1 is replaced to A[i-1]. This allows the parser to detect that the memory access pattern is regular
 Test21,22 - Same as Test 20
+
+
+#########################3
+1. BRATIO Provided
+2. FRATIO Provided
+3. Multiple Line Initialization
+4. Only // Comments

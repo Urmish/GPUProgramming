@@ -21,6 +21,8 @@ MultiplicationFactorFor = 1 #Useful for scenarios where for loop is executed by 
 MultiplicationFactorIf = 1 #Useful for scenarios where if is taken, different from for as multiplication factor would depend on bratio and we need a multiplication factor proportional to 1/32
 Warnings=[]
 WarningsCounter=1
+PerLineVarInAnnotatedRegion = []
+criticalPath = 0;
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value,iteratorVar):
@@ -51,6 +53,7 @@ class VariableState():
   def getIteratorVar(self):
     return self.iteratorVar
 
+
 class Stack():
   def __init__(self):
     self.items = []
@@ -72,6 +75,42 @@ class Stack():
     self.push(Obj)
     return Obj
 
+class VarInEachLine():
+	def __init__(self,lhs,rhs,forCount,scope):
+		self.lhs = lhs;
+		self.rhs = rhs;
+		self.forCount = forCount;
+		self.scope = scope;
+
+	def printVariables(self):
+		l = ""
+		for i in self.lhs:
+			l=l+" "+i;
+		r= ""
+		for i in self.rhs:
+			r=r+" "+i;
+		print "LHS - "+l
+		print "RHS - "+r
+
+	def setLhs(self,lhsIn):
+		self.lhs = lhsIn
+	
+	def setLhs(self,rhsIn):
+		self.rhs = rhsIn
+	
+	def ifInLhs(self,var):
+		if var in self.lhs:
+			return True
+		else:
+			return False
+
+	def isFor(self):
+		return (self.forCount	> 1)
+	
+	def getScope(self):
+		return self.scope
+
+
 scope = Stack() #Accessed to understand the scope of a variable
 scope.push('Global')
 
@@ -87,6 +126,18 @@ def printVariables():
       variables[key].printValues()
       print "**********"
     return True
+
+def printPerLineVariables():
+	"Prints the contents of PerLineVarInAnnotatedRegion list"
+	print "***********"
+	lineNum = 1
+	for line in PerLineVarInAnnotatedRegion:
+		print "Line "+str(lineNum)
+		line.printVariables()
+		lineNum = lineNum+1
+
+	print "***********"
+	return
 
 def pushVariables(name,
 		  varType,
@@ -623,8 +674,62 @@ def checkForMultFactor(currentLine):
     MultiplicationFactorFor.push(fratio)
   return
 
-###################################Function and Class Definition Ends Here################################################################
+def extractEveryVariable(currentLine):
+	"Extract all input and output variable from the line"
+	rhsVar = []
+	lhsVar = []
+	if re.findall("Annotation.*Begins",currentLine):
+		return
+	if re.findall("Annotation.*Ends",currentLine):
+		return
+	currentLineStripped = currentLine.strip()
+	possibleComment = re.match('^//',currentLineStripped)
+	if(possibleComment):
+		print "This line is a comment"
+		return
+	#Strip comments at the end of a line
+	trailComments = re.findall('//.*',currentLineStripped)
+	print "extractEveryVariable"
+	if (trailComments):
+		currentLineStripped = currentLineStripped.replace(trailComments[0],"")
 
+	#remove initializations like "int", "float" etc
+	currentLineStripped = re.sub(r'\bint\b',"",currentLineStripped)
+	currentLineStripped = re.sub(r'\bfloat\b',"",currentLineStripped)
+	currentLineStripped = re.sub(r'\bdouble\b',"",currentLineStripped)
+	currentLineStripped = re.sub(r'\bif\b',"",currentLineStripped)
+	#currentLineStripped = re.sub(r'\bfor\b',"",currentLineStripped) #Need for, for will only have one variable that is extracted
+	#get lhs and rhs position
+	lhsEnd=0
+	rhsStart=0
+	lhs = ""
+	rhs = ""
+	for match in re.finditer("[\w\d\s]=[\s\d\w]",currentLineStripped):
+		lhsEnd,rhsStart = match.span()
+		break
+	if (rhsStart==0):
+		lhs = ""
+		rhs = currentLineStripped
+	else:
+		lhs = currentLineStripped[0:lhsEnd+1]
+		rhs = currentLineStripped[rhsStart:]
+	
+	lhs = (re.sub('[^a-zA-Z]', ' ',lhs)).strip()
+	rhs = (re.sub('[^a-zA-Z]', ' ',rhs)).strip()
+	
+	#get lhs elements
+	lhsVar = lhs.split()	
+	rhsVar = rhs.split()
+	if (len(lhsVar)==0 and len(rhsVar)==0):
+		return
+	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front()))
+	return 
+
+def instructionLevelParallelism():
+	"Goes backwards to look at instruction level parallelism"
+	
+	return
+###################################Function and Class Definition Ends Here################################################################
 print "**************************************************************************"
 print "****			C Code Parser   			      ****"
 print "**************************************************************************"
@@ -655,15 +760,17 @@ for currentLine in fileHandler:
     checkControlDensity(currentLine)
     checkWarpDivergence(currentLine)
     checkForMultFactor(currentLine)
+    extractEveryVariable(currentLine)
   
   if isEndOfAnnotation(currentLine) :
     global StartAnalyzing
     StartAnalyzing = False
     break
   previousLine = currentLine
-
+instructionLevelParallelism()
 print "######################################################"
 printVariables()
+printPerLineVariables()
 print "\n"
 print "TotalTranscendentals -",TotalTranscendentals
 print "TotalArithmeticInstructions -",TotalArithmeticInstructions
@@ -672,6 +779,7 @@ print "NumStoreOperations -",NumStoreOperations
 print "NumOffsetAccesses - ", NumOffsetAccesses 
 print "NumIndirectAccesses - ", NumIndirectAccesses
 print "NumDoubleAccesses - ", NumDoubleAccesses
+print "criticalPath - ", criticalPath
 if (len(Warnings)>0):
   print "Warnings!!!!"
   for i in Warnings:
@@ -693,14 +801,12 @@ else:
 if (TotalArithmeticInstructions < NumLoadOperations+NumStoreOperations):
   print "Arithmetic Intensity - L"
   writeLine= writeLine+",L"
-elif ((TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))>=1 and (TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))<5 ):
+elif ((TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations)) >=1 and (TotalArithmeticInstructions/(NumLoadOperations+NumStoreOperations))<5 ):
   print "Arithmetic Intensity - M"
   writeLine= writeLine+",M"
 else:
   print "Arithmetic Intensity - H"
   writeLine= writeLine+",H"
-
-
 
 if (NumOffsetAccesses>0 or NumIndirectAccesses>0 or NumDoubleAccesses>0):
   print "Global Memory Operation - L"
@@ -733,8 +839,6 @@ else:
   print "Total Instruction - H"
   writeLine=writeLine+",H"
 
-
 writeLine=writeLine+"\n"
-
 with open('Output.txt','ab') as apfile:
   apfile.write(writeLine);
