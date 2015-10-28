@@ -40,8 +40,8 @@ jW[0]    = 0;
 
 for (iter=0; iter < niter; iter++){
 ####Annotation Begins####
-for (j=0; j<Nc; j++) {                       
-    for (i=0; i<Nr; i++) {
+for (j=0; j<Nc; j++) {     //NTRATIO458                  
+    for (i=0; i<Nr; i++) { //NTRATIO502
         k = i + Nr*j;      
         cN = c[k];        
         cS = c[i+1+Nr*j];

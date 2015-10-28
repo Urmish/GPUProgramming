@@ -37,9 +37,9 @@ iS[Nr-1] = Nr-1;   // changes IMAGE bottom row index from Nr to Nr-1
 jW[0]    = 0;          
 
 for (iter=0; iter < niter; iter++){
-for (j=0; j < Nc; j++) {                                       
+for (j=0; j < Nc; j++) {     //NTRATIO458                                  
 ####Annotation Begins####
-   for (i=0; i < Nr; i++) {                                  
+   for (i=0; i < Nr; i++) { //NTRATIO502
       k = i + Nr*j;                                   
       Jc = image[k];                                     
                      

@@ -23,6 +23,11 @@ Warnings=[]
 WarningsCounter=1
 PerLineVarInAnnotatedRegion = []
 criticalPath = 0;
+nThreadsCount = 1;
+instCountWithFRatio = 0;
+fratioIndex = 999999;
+NumStoreOperationsThisLine = 0;
+NumLoadOperationsThisLine = 0;
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value,iteratorVar):
@@ -57,23 +62,40 @@ class VariableState():
 class Stack():
   def __init__(self):
     self.items = []
+    self.countStack = []
+    self.Count = 0
     
   def isEmpty(self):
     return self.items == []
     
   def push(self, item):
+    self.Count = self.Count+1
+    self.countStack.append(self.Count)
     return self.items.append(item)
+
+  def push_same(self,item):
+    return self.items.append(item)
+
+  def pop_temp(self):
+    return self.items.pop()
   
   def pop(self):
+    self.countStack.pop()
+    self.Count = self.Count-1
     return self.items.pop()
   
   def getElements(self):
     return self.items
 
   def front(self):
-    Obj = self.pop()
-    self.push(Obj)
+    Obj = self.pop_temp()
+    self.push_same(Obj)
     return Obj
+
+  def frontId(self):
+    index = self.countStack.pop()
+    self.countStack.append(index)
+    return index
 
 class VarInEachLine():
 	def __init__(self,lhs,rhs,forCount,scope):
@@ -411,6 +433,10 @@ def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf)
   global NumStoreOperations
   NumStoreOperations = NumStoreOperations + len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   NumLoadOperations  = NumLoadOperations + len(loadOperations) *MultiplicationFactorFor.front()*MultiplicationFactorIf.front() - len(storeOperations)*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  global NumStoreOperationsThisLine
+  global NumLoadOperationsThisLine
+  NumStoreOperationsThisLine = len(storeOperations)
+  NumLoadOperationsThisLine =  len(loadOperations) - len(storeOperations)
   if len(loadOperations) > 0 or len(storeOperations) > 0:
     GlobalMemoryTransaction(currentLine)
     doubleMem(currentLine)
@@ -421,11 +447,12 @@ def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFac
   numArithmetic  = re.findall('\+\+|\+|\-|\*|/|<=|\>=|<<|>>|==|<|>',currentLine, re.I)
   numFalseArithmetic  = re.findall('//',currentLine, re.I) #// interpreted as 2 divisions
   global TotalArithmeticInstructions
-  #print len(numArithmetic)
+  print len(numArithmetic) - len(numFalseArithmetic)
   TotalArithmeticInstructions = TotalArithmeticInstructions + (len(numArithmetic) -len(numFalseArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   print "TotalArithmeticInstructions ", TotalArithmeticInstructions
   #numArithmetic  = re.findall('\w+\[.*?\+.*?\]',currentLine, re.I) 
   numArithmetic  = re.findall('\w+\[[^=]*?\+.*?\]',currentLine, re.I) 
+  print len(numArithmetic)
   for matches in numArithmetic: 
   #Required as for example in line - new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
   #delta[j] * ly[k]) + (MOMENTUM * oldw[k] identified as mem[A+B] pattern while delta[j] * ly[k] identified as mem[A*B] pattern. Even after no greedy search. Difficult to come up with patterns that identify mem[A*B[i]*k] and dont give issues like above. Also filtering out adds from mem[A+B] is important. As a result 2 would be subtracted and number of arithmetic instructions in this would become 2
@@ -434,6 +461,7 @@ def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFac
   TotalArithmeticInstructions = TotalArithmeticInstructions - (len(numArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   #numArithmetic  = re.findall('\w+\[.*?\*.*?\]',currentLine, re.I)
   numArithmetic  = re.findall('\w+\[[^=]*?\*.*?\]',currentLine, re.I)
+  print len(numArithmetic)
   for matches in numArithmetic: 
     if(re.findall('\].*?\[',matches)):
       numArithmetic.remove(matches)
@@ -674,6 +702,21 @@ def checkForMultFactor(currentLine):
     MultiplicationFactorFor.push(fratio)
   return
 
+def nthreads(currentLine):
+  "Checks Multiplicative factor of For Loop within a thread body"
+  ratios = re.findall('NTRATIO\d+',currentLine)
+  print ratios
+  for ratio in ratios:
+    value = re.findall('\d+',ratio)
+    print value
+    global nThreadsCount
+    nThreadsCount = nThreadsCount*int(value[0]) 
+  return
+
+def checkKernelSize(currentLine):
+  
+  return
+
 def extractEveryVariable(currentLine):
 	"Extract all input and output variable from the line"
 	rhsVar = []
@@ -725,10 +768,37 @@ def extractEveryVariable(currentLine):
 	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front()))
 	return 
 
+def instCountForInnerFor(currentLine):
+  "Trip count for inner for loops in case the total instruction count > threshold"
+  ratios = re.findall('FRATIO\d+',currentLine)
+  global fratioIndex
+  global instCountWithFRatio
+  if (ratios):
+    fratioIndex = scope.frontId()
+  if fratioIndex <= scope.frontId():
+    #scope is a stack structure, the index increments by 1 when you insert something and decrements hen pop. All if/while/for under for marked with fratio will have index > fratio marked for 
+    numArithmetic  = re.findall('\+\+|\+|\-|\*|/|<=|\>=|<<|>>|==|<|>',currentLine, re.I)
+    numFalseArithmetic  = re.findall('//',currentLine, re.I) #// interpreted as 2 divisions
+    instCountWithFRatio =  instCountWithFRatio + (len(numArithmetic) -len(numFalseArithmetic))
+    numArithmetic  = re.findall('\w+\[[^=]*?\+.*?\]',currentLine, re.I)
+    for matches in numArithmetic:
+      if(re.findall('\].*?\[',matches)):
+	numArithmetic.remove(matches)
+    instCountWithFRatio = instCountWithFRatio - (len(numArithmetic))
+    numArithmetic  = re.findall('\w+\[[^=]*?\*.*?\]',currentLine, re.I)
+    for matches in numArithmetic:
+      if(re.findall('\].*?\[',matches)):
+	numArithmetic.remove(matches)
+    instCountWithFRatio = instCountWithFRatio - (len(numArithmetic))
+    global NumLoadOperationsThisLine
+    global NumStoreOperationsThisLine
+    instCountWithFRatio = instCountWithFRatio + NumLoadOperationsThisLine + NumStoreOperationsThisLine
+    print "Within Fratio"
+    print instCountWithFRatio
+  return
 def instructionLevelParallelism():
-	"Goes backwards to look at instruction level parallelism"
-	
-	return
+  "Goes backwards to look at instruction level parallelism"	
+  return
 ###################################Function and Class Definition Ends Here################################################################
 print "**************************************************************************"
 print "****			C Code Parser   			      ****"
@@ -751,7 +821,9 @@ for currentLine in fileHandler:
   #Call get variables after scope to detect scenarios like for(int i...)
   getVariables(currentLine)
   isStartOfAnnotation(currentLine)
+  nthreads(currentLine)
   if StartAnalyzing :
+    checkForMultFactor(currentLine)
     Transcendental(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
     ArithmeticInstructions(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
     MemoryOperations(currentLine, MultiplicationFactorFor,MultiplicationFactorIf)
@@ -759,8 +831,9 @@ for currentLine in fileHandler:
     FPDiv(currentLine)
     checkControlDensity(currentLine)
     checkWarpDivergence(currentLine)
-    checkForMultFactor(currentLine)
+    #checkForMultFactor(currentLine)
     extractEveryVariable(currentLine)
+    instCountForInnerFor(currentLine)
   
   if isEndOfAnnotation(currentLine) :
     global StartAnalyzing
@@ -780,6 +853,8 @@ print "NumOffsetAccesses - ", NumOffsetAccesses
 print "NumIndirectAccesses - ", NumIndirectAccesses
 print "NumDoubleAccesses - ", NumDoubleAccesses
 print "criticalPath - ", criticalPath
+print "nThreadsCount - ",nThreadsCount
+print "instCountWithFRatio - ",instCountWithFRatio
 if (len(Warnings)>0):
   print "Warnings!!!!"
   for i in Warnings:
@@ -836,8 +911,16 @@ if (TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreO
   print "Total Instruction - L"
   writeLine=writeLine+",L"
 else:
-  print "Total Instruction - H"
-  writeLine=writeLine+",H"
+  if (TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreOperations < 200):
+    print "Total Instruction - H"
+    writeLine=writeLine+",H"
+  else:
+    if (instCountWithFRatio < 70):
+      print "Total Instruction - L"
+      writeLine=writeLine+",L"
+    else:
+      print "Total Instruction - H"
+      writeLine=writeLine+",H"
 
 writeLine=writeLine+"\n"
 with open('Output.txt','ab') as apfile:

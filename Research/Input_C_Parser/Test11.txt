@@ -11,7 +11,7 @@ double ex[EXPMAX+1];
 
 for (iter = 1; iteri<=niter; iter++) {
 ####Annotation Begins####
-    for(int idx=0; idx < NTOTAL; idx++){
+    for(int idx=0; idx < NTOTAL; idx++){ //NTRATIO8388608
         u1_r[idx] = u0_r[idx] * ex[t*indexmap[idx]];
         u1_i[idx] = u0_i[idx] * ex[t*indexmap[idx]];
     }

@@ -13,7 +13,7 @@ typedef struct knode {
 } knode;
 
 ####Annotation Begins####
-for(bid = 0; bid < count; bid++){
+for(bid = 0; bid < count; bid++){ //NTRATIO10000
     int access = currKnode[bid];
     for(i = 0; i < maxheight; i++){ //FRATIO2
         for(thid = 0; thid < threadsPerBlock; thid++){

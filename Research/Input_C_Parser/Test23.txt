@@ -27,11 +27,11 @@ iS[rows-1] = rows-1;
 jW[0]    = 0;
 jE[cols-1] = cols-1;
 
-for (iter=0; iter<niter; iter++){                                           
+for (iter=0; iter<niter; iter++){ //NTRATIO2
 
-    for (int i = 0; i < rows; i++) {
+    for (int i = 0; i < rows; i++) { //NTRATIO2048
 ####Annotation Begins####
-        for (int j = 0; j < cols; j++) {
+        for (int j = 0; j < cols; j++) { //NTRATIO2048
             // current index
             k = i * cols + j;
  

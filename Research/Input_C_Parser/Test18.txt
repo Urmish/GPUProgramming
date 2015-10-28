@@ -7,7 +7,7 @@ double CDF[1000];
 double u[1000];
 
 ####Annotation Begins####
-for(j = 0; j<Nparticles; j++)
+for(j = 0; j<Nparticles; j++) //NTRATIO1000
 {
    
    int index = -1;

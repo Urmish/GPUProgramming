@@ -16,7 +16,7 @@ do{
         }
     }
 ####Annotation Begins####
-for(int tid=0; tid < no_of_nodes ; tid++ ){
+for(int tid=0; tid < no_of_nodes ; tid++ ){ //NTRATIO1000000
     if (h_updating_graph_mask[tid] == true){		//BRATIO0.08
         h_graph_mask[tid]=true;
         h_graph_visited[tid]=true;

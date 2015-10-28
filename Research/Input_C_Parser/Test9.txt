@@ -11,7 +11,7 @@ double x_i[NTOTAL];
 
 for (iter = 1; iteri<=niter; iter++) {
 ####Annotation Begins####
-    for(int idx=0; idx<NTOTAL; idx++){
+    for(int idx=0; idx<NTOTAL; idx++){ //NTRATIO8388608
         i = idx % NX;
         k = idx / NX;
         j = k % NY;

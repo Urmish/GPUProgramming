@@ -39,7 +39,7 @@ for(int iter=0; iter < iterations; iter++){
     for(int j = 0; j < RK; j++){
         compute_flux(nelr, elements_surrounding_elements, normals, variables, fluxes);
 ####Annotation Begins####
-        for(int i = 0; i < nelr; i++){
+        for(int i = 0; i < nelr; i++){ ##NTRATIO97046
             float factor = step_factors[i]/float(RK+1-j);
  
             variables[NVAR*i + VAR_DENSITY] = old_variables[NVAR*i + VAR_DENSITY] + factor*fluxes[NVAR*i + VAR_DENSITY];

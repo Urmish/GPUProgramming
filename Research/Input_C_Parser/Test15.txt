@@ -3,20 +3,20 @@ float sx[1024000], sy[1024000];
 int randIndex[1024000], window[1024000], emrIndex[1024000];
 float randArray[1024000];
 ####Annotation Begins####
-    for (i = 0; i<=n; ++i) {
+    for (i = 0; i<=n; ++i) { //NTRATIO1024000
         if(window[i] == 1){				//this condition is met once every 32 iterations //BRATIO0.03125
             float temp = 0.0f;
             int upperBound1, upperBound2;
             if(emrIndex[i] > randIndex[i]){		//taken for 50% of the iterations //BRATIO0.03125 //BRATIO0.5
                 upperBound1 = emrIndex[i];
                 upperBound2 = randIndex[i]+1024;
-                for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){
+                for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
                     temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[j]]);
-                }
+                } 
             }else{//BRATIO0.03125 //BRATIO0.5
                 upperBound1 = randIndex[i];
                 upperBound2 = emrIndex[i]+768;
-                for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){
+                for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
                     temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[randIndex[j]]]);
                 }
             }

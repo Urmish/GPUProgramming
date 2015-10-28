@@ -15,7 +15,7 @@ for(int iter=0; iter < iterations; iter++){
     }
 
 ####Annotation Begins####
-    for(int i = 0; i < nelr; i++){
+    for(int i = 0; i < nelr; i++){ //NTRATIO97046
         float density = variables[NVAR*i + VAR_DENSITY];
         float3 momentum;
         momentum.x = variables[NVAR*i + (VAR_MOMENTUM+0)];
