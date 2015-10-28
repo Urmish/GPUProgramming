@@ -60,7 +60,8 @@ class VariableState():
 
 
 class Stack():
-  def __init__(self):
+  def __init__(self,name):
+    self.name = name
     self.items = []
     self.countStack = []
     self.Count = 0
@@ -71,6 +72,7 @@ class Stack():
   def push(self, item):
     self.Count = self.Count+1
     self.countStack.append(self.Count)
+    print self.name+" - pushing "+str(item)
     return self.items.append(item)
 
   def push_same(self,item):
@@ -97,6 +99,8 @@ class Stack():
     self.countStack.append(index)
     return index
 
+  def len(self):
+    return len(self.items)
 class VarInEachLine():
 	def __init__(self,lhs,rhs,forCount,scope):
 		self.lhs = lhs;
@@ -133,13 +137,13 @@ class VarInEachLine():
 		return self.scope
 
 
-scope = Stack() #Accessed to understand the scope of a variable
+scope = Stack('scope') #Accessed to understand the scope of a variable
 scope.push('Global')
 
-MultiplicationFactorFor = Stack()
+MultiplicationFactorFor = Stack('For count stack')
 MultiplicationFactorFor.push(1)
 
-MultiplicationFactorIf = Stack()
+MultiplicationFactorIf = Stack('If ratio stack')
 MultiplicationFactorIf.push(1)
 
 def printVariables():
@@ -325,10 +329,16 @@ def checkStartEndScope(currentline):
     matchElsePrev     = re.search('Else',   previousLine, re.I)
     matchStructPrev     = re.search('struct',   previousLine, re.I)
     matchDoPrev     = re.search('do',   previousLine, re.I)
+    pushToForMultStack = False #Useful when for is outside the annotation region and fratio is not there, we push to scope but not multforstack. So when popping, lead to zero entries in latter
     if matchFor or matchWhile or matchIf or matchForPrev or matchWhilePrev or matchIfPrev or matchStruct or matchStructPrev or matchDo or matchDoPrev or matchElse or matchElsePrev:
       scopeInitializer = ""
       if matchFor or matchForPrev:
 	scopeInitializer = "For"
+	ratios = re.findall('FRATIO\d+',currentLine)
+	if (ratios):
+	  pushToForMultStack = False
+	else:
+	  pushToForMultStack = True
       elif matchWhile or matchWhilePrev:
 	scopeInitializer = "While"
       elif matchIf or matchIfPrev or matchElsePrev or matchElse:
@@ -338,6 +348,9 @@ def checkStartEndScope(currentline):
       elif matchDo or matchDoPrev:
         scopeInitializer = "do"
       scope.push(scopeInitializer)
+      if(pushToForMultStack):
+	MultiplicationFactorFor.push(1)
+	
     else:
       if matchEnd == None: #for scenarios like struct {}, scope ends in same line
         raise RuntimeError('Found a start of scope but was not able to find scope initializer')
@@ -347,8 +360,10 @@ def checkStartEndScope(currentline):
     if StartAnalyzing:
       if scope.front() == "if":
         MultiplicationFactorIf.pop()
-      elif scope.front() == "for":
+	print "Scope Found if, popping, New Length "+str((MultiplicationFactorIf.len()))
+      elif scope.front() == "For":
         MultiplicationFactorFor.pop()
+	print "Scope Found For, popping, New Length "+str((MultiplicationFactorFor.len()))
     scope.pop()
   return
  
@@ -444,11 +459,13 @@ def MemoryOperations(currentLine,MultiplicationFactorFor,MultiplicationFactorIf)
 
 def ArithmeticInstructions(currentLine,MultiplicationFactorFor,MultiplicationFactorIf):
   "Checks for number of arithmetic operations in a line"
-  numArithmetic  = re.findall('\+\+|\+|\-|\*|/|<=|\>=|<<|>>|==|<|>',currentLine, re.I)
+  numArithmetic  = re.findall('\+\+|\+|\-|\*|/|<=|\>=|<<|>>|==|<|>|&&',currentLine, re.I)
+  print numArithmetic
   numFalseArithmetic  = re.findall('//',currentLine, re.I) #// interpreted as 2 divisions
+  print numFalseArithmetic
   global TotalArithmeticInstructions
-  print len(numArithmetic) - len(numFalseArithmetic)
-  TotalArithmeticInstructions = TotalArithmeticInstructions + (len(numArithmetic) -len(numFalseArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
+  print len(numArithmetic) - 2*len(numFalseArithmetic) #2 as // is interpreted as 2 operations
+  TotalArithmeticInstructions = TotalArithmeticInstructions + (len(numArithmetic) -2*len(numFalseArithmetic))*MultiplicationFactorFor.front()*MultiplicationFactorIf.front()
   print "TotalArithmeticInstructions ", TotalArithmeticInstructions
   #numArithmetic  = re.findall('\w+\[.*?\+.*?\]',currentLine, re.I) 
   numArithmetic  = re.findall('\w+\[[^=]*?\+.*?\]',currentLine, re.I) 
@@ -678,7 +695,7 @@ def checkWarpDivergence(currentLine):
     tempBratio=bratio*32 #To see how many warps diverge
     if (32-tempBratio<bratio*32):
       tempBratio = 32-tempBratio
-    tempBratio = tempBratio*MultiplicationFactorFor.front()
+    #tempBratio = tempBratio*MultiplicationFactorFor.front()
     print "temp bratio is ",str(tempBratio)
     if (tempBratio > WarpDivergenceRatio):
       global WarpDivergenceRatio
