@@ -737,13 +737,13 @@ def checkKernelSize(currentLine):
 
 def extractEveryVariable(currentLine):
 	"Extract all input and output variable from the line"
-	pseudoAST.generateAST(currentLine)
-	rhsVar = []
-	lhsVar = []
 	if re.findall("Annotation.*Begins",currentLine):
 		return
 	if re.findall("Annotation.*Ends",currentLine):
 		return
+	pseudoAST.generateAST(currentLine)
+	rhsVar = []
+	lhsVar = []
 	currentLineStripped = currentLine.strip()
 	possibleComment = re.match('^//',currentLineStripped)
 	if(possibleComment):
