@@ -119,7 +119,9 @@ def generateAST(currentLine):
   #tempLine = re.sub(r"[^#][0-9]+[^#]","#0#",tempLine) #This is wrong as even +1 is replaced with #0# since +1 obeys the pattern of no [^#] expr
   #Need to replace all digits with space digit space format
   print tempLine
-  tempLine = re.sub(r'([^a-zA-Z0-9#]+?)', r' \1 ',tempLine)
+  tempLine = re.sub(r'([^a-zA-Z0-9#\.]+?)', r' \1 ',tempLine) #. represents a decimal point
+  print tempLine
+  tempLine = re.sub(r' \d+\.\d+ ',"#0#",tempLine) #Replace Decimal Values first
   print tempLine
   tempLine = re.sub(r' [0-9]+ ',"#0#",tempLine)
   print tempLine
