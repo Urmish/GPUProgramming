@@ -3,6 +3,7 @@ import sys
 import re
 import argparse
 import os
+import pseudoAST
 
 variables = dict()
 TotalTranscendentals = 0
@@ -102,39 +103,39 @@ class Stack():
   def len(self):
     return len(self.items)
 class VarInEachLine():
-	def __init__(self,lhs,rhs,forCount,scope):
-		self.lhs = lhs;
-		self.rhs = rhs;
-		self.forCount = forCount;
-		self.scope = scope;
-
-	def printVariables(self):
-		l = ""
-		for i in self.lhs:
-			l=l+" "+i;
-		r= ""
-		for i in self.rhs:
-			r=r+" "+i;
-		print "LHS - "+l
-		print "RHS - "+r
-
-	def setLhs(self,lhsIn):
-		self.lhs = lhsIn
-	
-	def setLhs(self,rhsIn):
-		self.rhs = rhsIn
-	
-	def ifInLhs(self,var):
-		if var in self.lhs:
-			return True
-		else:
-			return False
-
-	def isFor(self):
-		return (self.forCount	> 1)
-	
-	def getScope(self):
-		return self.scope
+  def __init__(self,lhs,rhs,forCount,scope):
+    self.lhs = lhs;
+    self.rhs = rhs;
+    self.forCount = forCount;
+    self.scope = scope;
+  
+  def printVariables(self):
+    l = ""
+    for i in self.lhs:
+    	l=l+" "+i;
+    r= ""
+    for i in self.rhs:
+    	r=r+" "+i;
+    print "LHS - "+l
+    print "RHS - "+r
+  
+  def setLhs(self,lhsIn):
+    self.lhs = lhsIn
+  
+  def setLhs(self,rhsIn):
+    self.rhs = rhsIn
+  
+  def ifInLhs(self,var):
+    if var in self.lhs:
+    	return True
+    else:
+  	return False
+  
+  def isFor(self):
+    return (self.forCount	> 1)
+  
+  def getScope(self):
+    return self.scope
 
 
 scope = Stack('scope') #Accessed to understand the scope of a variable
@@ -736,6 +737,7 @@ def checkKernelSize(currentLine):
 
 def extractEveryVariable(currentLine):
 	"Extract all input and output variable from the line"
+	pseudoAST.generateAST(currentLine)
 	rhsVar = []
 	lhsVar = []
 	if re.findall("Annotation.*Begins",currentLine):
