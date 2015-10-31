@@ -1,0 +1,15 @@
+1) Finding A[i]
+iterMatch = re.finditer("\w\[.*?\]",cl)
+
+eg - 
+cl = "A[i*Nr+j] = C*D + E*F + B[i*Nr+k]"
+iterMatch = re.finditer("\w\[.*?\]",cl)
+for i in iterMatch:
+  print i
+  i.span()
+
+2) Example cl - "A[i*Nr+j] = C*D + E*F + Z[4+B[i*Nr+k]]"
+Extracting Z[4+B..]
+iterMatch = re.finditer("\w+\[[^\]]*?\[.*?\][^\[]*?\]",cl)
+for i in iterMatch:
+  print i.span()

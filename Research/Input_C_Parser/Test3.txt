@@ -16,7 +16,7 @@ typedef struct knode {
 for(bid = 0; bid < count; bid++){ //NTRATIO10000
     int access = currKnode[bid];
     for(i = 0; i < maxheight; i++){ //FRATIO2
-        for(thid = 0; thid < threadsPerBlock; thid++){//FRATIO508 FRATIO2
+        for(thid = 0; thid < threadsPerBlock; thid++){//FRATIO508 FRATIO2 NTRATIO508
 	     *accessKnode = knodes[access];
              if((accessKnode.keys[thid]) <= keys[bid] && (accessKnode.keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
 		  int offaccess = offset[bid];

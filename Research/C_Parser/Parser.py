@@ -758,6 +758,9 @@ def extractEveryVariable(currentLine):
 	currentLineStripped = re.sub(r'\bfloat\b',"",currentLineStripped)
 	currentLineStripped = re.sub(r'\bdouble\b',"",currentLineStripped)
 	currentLineStripped = re.sub(r'\bif\b',"",currentLineStripped)
+	currentLineStripped = re.sub(r'\bNTRATIO\d+\b',"",currentLineStripped)
+	currentLineStripped = re.sub(r'\bFRATIO\d+\b',"",currentLineStripped)
+	currentLineStripped = re.sub(r'\bBRATIO\d+\.\d+\b',"",currentLineStripped)
 	#currentLineStripped = re.sub(r'\bfor\b',"",currentLineStripped) #Need for, for will only have one variable that is extracted
 	#get lhs and rhs position
 	lhsEnd=0
@@ -782,6 +785,17 @@ def extractEveryVariable(currentLine):
 	rhsVar = rhs.split()
 	if (len(lhsVar)==0 and len(rhsVar)==0):
 		return
+	reqLHSLength = 1
+	if "for" in lhsVar:
+	  reqLHSLength = 2
+	if len(lhsVar) > reqLHSLength:
+	  while len(lhsVar) != reqLHSLength:
+	      if lhsVar[len(lhsVar)-1] in rhsVar:
+		lhsVar.remove(lhsVar[len(lhsVar)-1])
+	      else:
+		rhsVar.append(lhsVar[len(lhsVar)-1])
+		lhsVar.remove(lhsVar[len(lhsVar)-1])
+		
 	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front()))
 	return 
 

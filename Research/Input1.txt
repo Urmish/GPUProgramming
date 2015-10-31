@@ -1,6 +1,6 @@
-int Ne = 229916
+int Ne = 229916;
 float image[229916];
-####Annotation Begins####
+
 for (int i=0; i<Ne; i++) {                 
         image[i] = logf(image[i])*255.0f + image[i+4];                  
 	if (i<100) {	//BRATIO0.03125
@@ -10,4 +10,3 @@ for (int i=0; i<Ne; i++) {
 		}
 	}
 }
-####Annotation Ends####
