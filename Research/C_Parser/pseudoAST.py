@@ -7,11 +7,13 @@ def generateAST(currentLine):
   possibleComment = re.match('^//',currentLineStripped)
   if(possibleComment):
     print "This line is a comment"
-    return
+    return 0
   trailComments = re.findall('//.*',currentLineStripped)
   if (trailComments):
-    currentLineStripped = currentLine.replace(trailComments[0],"")
-  
+    currentLineStripped = currentLineStripped.replace(trailComments[0],"")
+  checkFor = re.findall(r'\bfor\b',currentLineStripped)
+  if (checkFor):
+    return 0
   iterMatch = re.finditer("\w+\[[^\[].*?\]\[[^\[].*?\]",currentLineStripped) #2D Array
   tempLine = currentLineStripped
   remLength = 0
@@ -108,12 +110,16 @@ def generateAST(currentLine):
       remLength= remLength + e-s - 3
   print tempLine
  
+  tempLine = re.sub(r'if',"0=",tempLine) #if statements
+  tempLine = re.sub(r'}',"",tempLine)
+  tempLine = re.sub(r'{',"",tempLine)
   #Every memory operation should be replaced by now, Now we need to change the other variable names to #0# as they could be loaded instantly
   #3 types of variables
   #1. mix letters and digits, temp3
   #2. only words
   #3. only digits (constants) NEED TO AVOID #2# patterns, probably "[^#]\d+[^#]" - DOESNT WORK
   tempLine = re.sub(r"[a-zA-Z]+[0-9]+[a-zA-Z]+","#0#",tempLine)
+  tempLine = re.sub(r"[a-zA-Z]+_+[a-zA-Z]+","#0#",tempLine) #Test1 has new_dw
   tempLine = re.sub(r"[a-zA-Z]+[0-9]+","#0#",tempLine)
   tempLine = re.sub(r"[a-zA-Z]+","#0#",tempLine)
   #tempLine = re.sub(r"[^#][0-9]+[^#]","#0#",tempLine) #This is wrong as even +1 is replaced with #0# since +1 obeys the pattern of no [^#] expr
@@ -128,9 +134,65 @@ def generateAST(currentLine):
   tempLine = re.sub(r'\s+',"",tempLine)
   print tempLine
   #Need to replace all digits with space digit space format
-  
+  tempLine = re.sub(r'#',"",tempLine)
+  tempLine = re.sub(r';',"",tempLine)
   print tempLine
-  return
+  keepGoing = True
+  foundRHS = False
+  defaultOperandValue = -99
+  startIdxPos = 1
+  tempLine2 = tempLine.strip()
+  checkEqual = re.search(r'\b=\b',currentLineStripped)
+  if (bool(checkEqual) == False):
+    return 0
+  while keepGoing == True:
+    #print "In While\n"
+    startIdx = startIdxPos
+    operand1=defaultOperandValue
+    operand2=defaultOperandValue
+    start = 9999
+    end   = 9999
+    while (startIdx < len(tempLine2)):
+      if foundRHS == False:
+        if (tempLine2[startIdx] == "=" and (tempLine2[startIdx-1] != "=" and tempLine2[startIdx-1] != "<" and tempLine2[startIdx-1] != ">")):
+          foundRHS = True
+          startIdxPos = startIdx+1
+        else:
+          foundRHS=False
+      else:
+	currentChar = tempLine2[startIdx]
+	if (currentChar=="(" or currentChar==")"):
+	  operand1 = defaultOperandValue
+	  operand2 = defaultOperandValue
+	elif(bool(re.search("\d",currentChar))):
+	  if(operand1 !=defaultOperandValue):
+	    operand2 = int(currentChar)
+	    end = startIdx
+	    #print tempLine2
+	    tempLine2 = tempLine2[0:start] + str(max(operand1,operand2)+1) + tempLine2[end+1:]
+	    #print tempLine2
+	    startIdx = start + len(str(max(operand1,operand2)+1))
+	    start = 9999
+	    end = 9999
+	    operand1=defaultOperandValue
+	    operand2=defaultOperandValue
+	  else:
+	    operand1 = int(currentChar)
+	    start = startIdx
+      startIdx=startIdx+1
+      #print "Start Index is " + str(startIdx)
+      #print "Length is " + str(len(tempLine2))
+      #print tempLine2
+      tempLine2 = re.sub(r'\((\d)\)',r'\1',tempLine2)
+      #print tempLine2+"\n"
+      if(bool(re.search(r'\d.*=\d$',tempLine2))):
+	keepGoing=False
+	break
+      #keepGoing=False
+  	
+  match = re.search(r'(\d).*=(\d)$',tempLine2)
+  print "Time Taken "+str(max(int(match.group(1)),int(match.group(2))))+"\n"
+  return str(max(int(match.group(1)),int(match.group(2))))
 
 #Test Vectors
 testVec1 = "if((accessKnode.keys[thid] <= start[bid]) && (accessKnode.keys[thid+1] > start[bid])){"
@@ -142,4 +204,10 @@ testVec6 = "u1_r[idx] = u0_r[idx] * ex[t*indexmap[idx]];"
 testVec7 = "offset_2[bid] = knodes[access3].indices[thid] + efc + adasd + 4 + knodes[access3].indices[thid];"
 testVec8 = "A = A[i][k]"
 #Done!
-
+generateAST(testVec1)
+generateAST(testVec2)
+generateAST(testVec3)
+generateAST(testVec4)
+generateAST(testVec5)
+generateAST(testVec6)
+generateAST(testVec7)

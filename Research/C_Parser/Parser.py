@@ -102,12 +102,16 @@ class Stack():
 
   def len(self):
     return len(self.items)
+
 class VarInEachLine():
-  def __init__(self,lhs,rhs,forCount,scope):
+  def __init__(self,lhs,rhs,forCount,scope,ifCount,cyclesToExecute,scopeId):
     self.lhs = lhs;
     self.rhs = rhs;
     self.forCount = forCount;
+    self.ifCount  = ifCount
     self.scope = scope;
+    self.cycles = cyclesToExecute
+    self.scopeId = scopeId
   
   def printVariables(self):
     l = ""
@@ -118,6 +122,10 @@ class VarInEachLine():
     	r=r+" "+i;
     print "LHS - "+l
     print "RHS - "+r
+    print "For Ratio - "+str(self.forCount)
+    print "If  Ratio - "+str(self.ifCount)
+    print "Scope     - "+str(self.scope)
+    print "Cycles    - "+str(self.cycles)
   
   def setLhs(self,lhsIn):
     self.lhs = lhsIn
@@ -741,7 +749,7 @@ def extractEveryVariable(currentLine):
 		return
 	if re.findall("Annotation.*Ends",currentLine):
 		return
-	pseudoAST.generateAST(currentLine)
+	cyclesToExecute = pseudoAST.generateAST(currentLine)
 	rhsVar = []
 	lhsVar = []
 	currentLineStripped = currentLine.strip()
@@ -798,7 +806,7 @@ def extractEveryVariable(currentLine):
 		rhsVar.append(lhsVar[len(lhsVar)-1])
 		lhsVar.remove(lhsVar[len(lhsVar)-1])
 		
-	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front()))
+	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front(),MultiplicationFactorIf.front(),cyclesToExecute,scope.frontId()))
 	return 
 
 def instCountForInnerFor(currentLine):
@@ -863,9 +871,9 @@ for currentLine in fileHandler:
     FPDivMult(currentLine)
     FPDiv(currentLine)
     checkControlDensity(currentLine)
-    checkWarpDivergence(currentLine)
     #checkForMultFactor(currentLine)
     extractEveryVariable(currentLine)
+    checkWarpDivergence(currentLine)
     instCountForInnerFor(currentLine)
   
   if isEndOfAnnotation(currentLine) :
@@ -954,7 +962,8 @@ else:
     else:
       print "Total Instruction - H"
       writeLine=writeLine+",H"
-
+print "Num Threads - nThreadsCount"
+writeLine=writeLine+","+str(nThreadsCount)
 writeLine=writeLine+"\n"
 with open('Output.txt','ab') as apfile:
   apfile.write(writeLine);
