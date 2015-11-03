@@ -1,0 +1,13 @@
+#define REC_WINDOW 10
+
+int rec_count = 10;
+float *tmp_lat = (float *) malloc(REC_WINDOW * sizeof(float));
+float *z = (float *) malloc(REC_WINDOW * sizeof(float));
+float target_lat;
+####Annotation Begins####
+while(!done){      //executes for 4280 iterations //NTRATIO4280
+   for( i = 0 ; i < rec_count ; i++ ){ //NTRATIO10
+      z[i] = sqrtf(( (tmp_lat[i]-target_lat) * (tmp_lat[i]-target_lat) )+( (tmp_long[i]-target_long) * (tmp_long[i]-target_long) ));
+   }
+}      //executes for 4280 iterations
+####Annotation Ends####

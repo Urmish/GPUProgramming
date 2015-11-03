@@ -1,0 +1,16 @@
+n = 1024000;
+float sx[1024000], sy[1024000];
+int randIndex[1024000], window[1024000], emrIndex[1024000];
+float randArray[1024000];
+####Annotation Begins####
+    for (i = 0; i<=n; ++i) { //NTRATIO1024000
+        if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIOA10.03125
+            float temp = 0.0f;
+            int upperBound = randIndex[i]+1024;
+            for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){ //FRATIO1024
+                temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
+            }
+            sy[i] = temp;
+        }
+    }
+####Annotation Ends####

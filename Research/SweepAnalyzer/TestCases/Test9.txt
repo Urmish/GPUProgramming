@@ -1,0 +1,25 @@
+#define NTOTAL 8388608
+#define NX 256
+#define NY 256
+#define NZ 128
+int i, k, j, var;
+int niter = 2;
+double y0_r[NTOTAL];
+double y0_i[NTOTAL];
+double x_r[NTOTAL;
+double x_i[NTOTAL];
+
+for (iter = 1; iteri<=niter; iter++) { //NTRATIO2
+####Annotation Begins####
+    for(int idx=0; idx<NTOTAL; idx++){ //NTRATIO8388608
+        i = idx % NX;
+        k = idx / NX;
+        j = k % NY;
+        k = k / NY;
+        var = j*NX*NZ + k*NX + i;
+ 
+        y0_r[var] = x_r[idx];
+        y0_i[var] = x_i[idx];
+    }
+}
+####Annotation Ends####

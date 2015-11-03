@@ -15,7 +15,7 @@ def generateAST(currentLine):
   checkFor = re.findall(r'\bfor\b',currentLineStripped)
   if (checkFor):
     print "This line is a for"
-    return 0
+    return 1
   iterMatch = re.finditer("\w+\[[^\[].*?\]\[[^\[].*?\]",currentLineStripped) #2D Array
   tempLine = currentLineStripped
   remLength = 0

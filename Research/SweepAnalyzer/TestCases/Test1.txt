@@ -1,0 +1,21 @@
+#define ETA 0.3
+#define MOMENTUM 0.3
+
+float new_dwi;
+float *delta;
+float  **w;
+float **old_w;
+float *ly;
+int k, j;
+int ndelta = 16;
+int nly = 65536;
+ly[0] = 1.0;
+####Annotation Begins####
+for (k = 0; k <= nly; k++) { //NTRATIO65536
+    for (j = 1; j <= ndelta; j++) { //NTRATIO16
+        new_dw = ((ETA * delta[j] * ly[k]) + (MOMENTUM * oldw[k][j]));
+        w[k][j] += new_dw;
+        oldw[k][j] = new_dw;
+    }
+}
+####Annotation Begins####

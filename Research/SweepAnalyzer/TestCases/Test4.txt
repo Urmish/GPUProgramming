@@ -14,18 +14,18 @@ typedef struct knode {
 
 ####Annotation Begins####
 for(bid = 0; bid < count; bid++){ //NTRATIO6000
-    for(thid = 0; thid < threadsPerBlock; thid++){  //NTRATIO508
     access = currKnode[bid];
     access3 = lastKnode[bid];
     for(i = 0; i < maxheight; i++){ //FRATIO2
+        for(thid = 0; thid < threadsPerBlock; thid++){  //FRATIO508 FRATIO2 NTRATIO508
 	     *accessKnode = knodes[access];
-             if((accessKnode.keys[thid] <= start[bid]) && (accessKnode.keys[thid+1] > start[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
-                if(knodes[access].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
+             if((accessKnode.keys[thid] <= start[bid]) && (accessKnode.keys[thid+1] > start[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIOA10.01
+                if(knodes[access].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIOA10.5 //BRATIOA20.01
                     offset[bid] = knodes[access].indices[thid];
                 }
             }
-            if((knodes[access3].keys[thid] <= end[bid]) && (knodes[access3].keys[thid+1] > end[bid])){	//taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
-                if(knodes[access3].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
+            if((knodes[access3].keys[thid] <= end[bid]) && (knodes[access3].keys[thid+1] > end[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIOA30.01
+                if(knodes[access3].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight //BRATIOA30.01 BRATIOA40.5
                     offset_2[bid] = knodes[access3].indices[thid];
                 }
             }
@@ -35,13 +35,13 @@ for(bid = 0; bid < count; bid++){ //NTRATIO6000
     }
     access2 = currKnode[bid];
     for(thid = 0; thid < threadsPerBlock; thid++){
-        if(knodes[access2].keys[thid] == start[bid]){				//only taken once for each iteration of count //BRATIO0.0001
+        if(knodes[access2].keys[thid] == start[bid]){				//only taken once for each iteration of count //BRATIOA50.0001
             recstart[bid] = knodes[access2].indices[thid];
         }
     }
     access4 = lastKnode[bid];
     for(thid = 0; thid < threadsPerBlock; thid++){
-        if(knodes[access4].keys[thid] == end[bid]){				//only taken once for each iteration of count //BRATIO0.0001
+        if(knodes[access4].keys[thid] == end[bid]){				//only taken once for each iteration of count //BRATIOA60.0001
             reclength[bid] = knodes[access4].indices[thid] - recstart[bid]+1;
         }
     }

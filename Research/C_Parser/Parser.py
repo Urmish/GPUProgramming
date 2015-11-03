@@ -144,7 +144,13 @@ class VarInEachLine():
     	return True
     else:
   	return False
-  
+ 
+  def returnFor(self):
+    return self.forCount
+ 
+  def returnIf(self):
+    return self.ifCount
+
   def isFor(self):
     return (self.forCount	> 1)
   
@@ -875,7 +881,8 @@ def instructionLevelParallelism():
   OutgoingList =[]
   j=0
   while i<len(PerLineVarInAnnotatedRegion):
-    if (scopeIdC == PerLineVarInAnnotatedRegion[i].getScopeId()):
+    #if (scopeIdC == PerLineVarInAnnotatedRegion[i].getScopeId()):
+    if (1):
       ReducedAnnotatedRegion.append(PerLineVarInAnnotatedRegion[i])
       IncomingList.append([])
       OutgoingList.append([])
@@ -896,6 +903,8 @@ def instructionLevelParallelism():
     print IncomingList[p]
     print OutgoingList[p]
     print str(ReducedAnnotatedRegion[p].getCycles())
+    print str(ReducedAnnotatedRegion[p].returnIf())
+    print str(ReducedAnnotatedRegion[p].returnFor())
     if (IncomingList[p]==[]):
       Node0.append(p)
     print "\n"
@@ -909,7 +918,7 @@ def instructionLevelParallelism():
     myStack.push(dfsp)
     visited = set()
     distance = [-999]*len(ReducedAnnotatedRegion)
-    distance[dfsp] = ReducedAnnotatedRegion[p].getCycles()
+    distance[dfsp] = ReducedAnnotatedRegion[dfsp].getCycles()*ReducedAnnotatedRegion[dfsp].returnIf()*ReducedAnnotatedRegion[dfsp].returnFor()
     while (myStack.isEmpty() == False):
       vertex = myStack.pop()
       print distance
@@ -921,8 +930,8 @@ def instructionLevelParallelism():
 	  else:
 	    myStack.push(pushi)
 	    print "("+str(vertex)+","+str(distance[vertex])+")"
-	    print "("+str(pushi)+","+str(ReducedAnnotatedRegion[pushi].getCycles())+")"
-	    dist = int(distance[vertex]) + int(ReducedAnnotatedRegion[pushi].getCycles())
+	    print "("+str(pushi)+","+str(ReducedAnnotatedRegion[pushi].getCycles()*ReducedAnnotatedRegion[pushi].returnIf()*ReducedAnnotatedRegion[pushi].returnFor())+")"
+	    dist = int(distance[vertex]) + int(ReducedAnnotatedRegion[pushi].getCycles()*ReducedAnnotatedRegion[pushi].returnIf()*ReducedAnnotatedRegion[pushi].returnFor())
 	    print dist
 	    if (dist>distance[pushi]):
 	      distance[pushi] = dist
@@ -1056,6 +1065,13 @@ else:
       writeLine=writeLine+",H"
 print "Num Threads - "+str(nThreadsCount)
 writeLine=writeLine+","+str(nThreadsCount)
+
+if (CriticalPath<=14):
+  print "Critical Path - L"
+  writeLine=writeLine+",L"
+else :
+  print "Critical Path - H"
+  writeLine=writeLine+",H"
 writeLine=writeLine+"\n"
 with open('Output.txt','ab') as apfile:
   apfile.write(writeLine);

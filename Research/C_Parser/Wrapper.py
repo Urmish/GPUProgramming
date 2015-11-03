@@ -34,9 +34,9 @@ except IOError:
   print "There was an error reading ", args.file_name
   sys.exit()
 
-listErrors = ['Name','Transcedentals','CompInt','Coallesced','Lbdiv32','Lbdiv1024','fmuldiv','ilp16384','numThreads']
-listErrorValues = [0,0,0,0,0,0,0,0,0]
-listErrorsTest = ['','','','','','','','','']
+listErrors = ['Name','Transcedentals','CompInt','Coallesced','Lbdiv32','Lbdiv1024','fmuldiv','ilp16384','numThreads','criticalPath']
+listErrorValues = [0,0,0,0,0,0,0,0,0,0]
+listErrorsTest = ['','','','','','','','','','']
 for lineOutput, lineKey in zip(fileOutputHandler, fileKeyHandler):
   lineOutput = lineOutput.rstrip()
   lineKey = lineKey.rstrip()

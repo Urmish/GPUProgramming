@@ -1,0 +1,43 @@
+int Nparticles = 1000;
+int index;
+double arrayX[1000];
+double arrayY[1000];
+double xj[1000];
+double yj[1000];
+double CDF[1000];
+double u[1000];
+
+####Annotation Begins####
+for(j = 0; j<Nparticles; j++) //NTRATIO1000
+{
+   
+   int index = -1;
+   
+   for(int x = 0; x < Nparticles; x++) {//FRATIO1000
+      if(CDF[x] >= u[j])	//BRATIOA10.06
+      {
+         index = x;
+         break;
+      }
+   }
+ 
+   if(index == -1)		//never taken // BRATIOB20.0
+   {
+      i = Nparticles - 1;
+   }
+   else  //BRATIOD20.0
+   {
+      i = index;
+   }
+   
+   if(i == -1)			//never taken // BRATIOA30.0
+   { 
+      i = Nparticles-1;
+   }
+   
+   xj[j] = arrayX[i];
+   yj[j] = arrayY[i];
+   
+}
+####Annotation Ends####
+

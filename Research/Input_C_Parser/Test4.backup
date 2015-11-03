@@ -14,10 +14,10 @@ typedef struct knode {
 
 ####Annotation Begins####
 for(bid = 0; bid < count; bid++){ //NTRATIO6000
-    for(thid = 0; thid < threadsPerBlock; thid++){  //NTRATIO508
     access = currKnode[bid];
     access3 = lastKnode[bid];
     for(i = 0; i < maxheight; i++){ //FRATIO2
+        for(thid = 0; thid < threadsPerBlock; thid++){  //FRATIO508 FRATIO2 NTRATIO508
 	     *accessKnode = knodes[access];
              if((accessKnode.keys[thid] <= start[bid]) && (accessKnode.keys[thid+1] > start[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
                 if(knodes[access].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01

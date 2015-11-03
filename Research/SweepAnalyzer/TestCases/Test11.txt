@@ -1,0 +1,19 @@
+#define NTOTAL 8388608
+#define EXPMAX 36864
+#define NX 256
+#define NY 256
+#define NZ 128
+int i, k, j, id;
+int niter = 1;
+int indexmap[NTOTAL];
+double u1_r[NTOTAL], u0_r[NTOTAL], u1_r[NTOTAL], u1_i[NTOTAL];
+double ex[EXPMAX+1];
+
+for (iter = 1; iteri<=niter; iter++) {
+####Annotation Begins####
+    for(int idx=0; idx < NTOTAL; idx++){ //NTRATIO8388608
+        u1_r[idx] = u0_r[idx] * ex[t*indexmap[idx]];
+        u1_i[idx] = u0_i[idx] * ex[t*indexmap[idx]];
+    }
+####Annotation Ends####
+}

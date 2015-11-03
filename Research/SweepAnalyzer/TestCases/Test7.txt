@@ -1,0 +1,56 @@
+struct float3 { float x, y, z; };
+iterations = 2000;
+nelr = 97046;
+NVAR = 5;
+GAMMA = 1.4;
+VAR_MOMENTUM = 1;
+VAR_DENSITY = 0;
+VAR_DENSITY_ENERGY = 4;
+float variables[nelr*NVAR]
+float old_variables[nelr*NVAR]
+float fluxes[nelr*NVAR];
+float ff_variable[NVAR], step_factors[nelr], areas[nelr];
+
+
+for(int iter=0; iter < iterations; iter++){
+    for(int i = 0; i < nelr*NVAR; i++){
+        old_variables[i] = variables[i];
+    }
+    for(int i = 0; i < nelr; i++){
+        float density = variables[NVAR*i + VAR_DENSITY];
+        float3 momentum;
+        momentum.x = variables[NVAR*i + (VAR_MOMENTUM+0)];
+        momentum.y = variables[NVAR*i + (VAR_MOMENTUM+1)];
+        momentum.z = variables[NVAR*i + (VAR_MOMENTUM+2)];
+
+        float density_energy = variables[NVAR*i + VAR_DENSITY_ENERGY];
+
+        float3 velocity;
+        velocity.x = momentum.x / density;
+        velocity.y = momentum.y / density;
+        velocity.z = momentum.z / density;
+
+        float speed_sqd = velocity.x*velocity.x + velocity.y*velocity.y + velocity.z*velocity.z;
+        float pressure = (float(GAMMA)-float(1.0f))*(density_energy - float(0.5f)*density*speed_sqd);
+        float speed_of_sound = sqrtf(float(GAMMA)*pressure/density);
+        step_factors[i] = float(0.5f) / (sqrtf(areas[i]) * (sqrtf(speed_sqd) + speed_of_sound));
+    }
+
+    for(int j = 0; j < RK; j++){
+        compute_flux(nelr, elements_surrounding_elements, normals, variables, fluxes);
+####Annotation Begins####
+        for(int i = 0; i < nelr; i++){ ##NTRATIO97046
+            float factor = step_factors[i]/float(RK+1-j);
+ 
+            variables[NVAR*i + VAR_DENSITY] = old_variables[NVAR*i + VAR_DENSITY] + factor*fluxes[NVAR*i + VAR_DENSITY];
+            variables[NVAR*i + VAR_DENSITY_ENERGY] = old_variables[NVAR*i + VAR_DENSITY_ENERGY] + factor*fluxes[NVAR*i + VAR_DENSITY_ENERGY];
+            variables[NVAR*i + 1] = old_variables[NVAR*i + 1] + factor*fluxes[NVAR*i + 1];
+            variables[NVAR*i + 2] = old_variables[NVAR*i + 2] + factor*fluxes[NVAR*i + 2];
+            variables[NVAR*i + 3] = old_variables[NVAR*i + 3] + factor*fluxes[NVAR*i + 3];
+        }
+####Annotation Ends####
+    }
+}
+            variables[NVAR*i + (VAR_MOMENTUM+0)] = old_variables[NVAR*i + (VAR_MOMENTUM+0)] + factor*fluxes[NVAR*i + (VAR_MOMENTUM+0)];
+            variables[NVAR*i + (VAR_MOMENTUM+1)] = old_variables[NVAR*i + (VAR_MOMENTUM+1)] + factor*fluxes[NVAR*i + (VAR_MOMENTUM+1)];
+            variables[NVAR*i + (VAR_MOMENTUM+2)] = old_variables[NVAR*i + (VAR_MOMENTUM+2)] + factor*fluxes[NVAR*i + (VAR_MOMENTUM+2)];

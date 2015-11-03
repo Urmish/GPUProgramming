@@ -1,0 +1,15 @@
+n = 1024000;
+float sx[1024000], sy[1024000];
+int randIndex[1024000], window[1024000];
+####Annotation Begins####
+    for (i = 0; i<=n; ++i) { //NTRATIO1024000
+        if(window[i] == 1){		//BRATIOA10.03125
+            float temp = 0.0f;
+            int upperBound = randIndex[i]+768;
+            for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO768
+                temp += sa * sx[randIndex[j]];
+            }
+            sy[i] = temp;
+        }
+}
+####Annotation Ends####
