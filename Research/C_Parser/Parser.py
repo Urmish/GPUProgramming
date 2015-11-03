@@ -23,12 +23,12 @@ MultiplicationFactorIf = 1 #Useful for scenarios where if is taken, different fr
 Warnings=[]
 WarningsCounter=1
 PerLineVarInAnnotatedRegion = []
-criticalPath = 0;
 nThreadsCount = 1;
 instCountWithFRatio = 0;
 fratioIndex = 999999;
 NumStoreOperationsThisLine = 0;
 NumLoadOperationsThisLine = 0;
+CriticalPath= 0;
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value,iteratorVar):
@@ -127,9 +127,12 @@ class VarInEachLine():
     print "For Ratio - "+str(self.forCount)
     print "If  Ratio - "+str(self.ifCount)
     print "Scope     - "+str(self.scope)
+    print "ScopeId   - "+str(self.scopeId)
     print "Cycles    - "+str(self.cycles)
     print "Line	     - "+str(self.currentLine)
   
+  def getCycles(self):
+    return self.cycles
   def setLhs(self,lhsIn):
     self.lhs = lhsIn
   
@@ -148,6 +151,20 @@ class VarInEachLine():
   def getScope(self):
     return self.scope
 
+  def getLine(self):
+    return self.currentLine
+  
+  def getScopeId(self):
+    return self.scopeId
+  
+  def getLHS(self):
+    return self.lhs
+  
+  def checkLHS(self,lhs):
+    for i in self.rhs:
+      if i in lhs:
+	return True
+    return False
 
 scope = Stack('scope') #Accessed to understand the scope of a variable
 scope.push('Global')
@@ -173,6 +190,7 @@ def printPerLineVariables():
 		print "Line "+str(lineNum)
 		line.printVariables()
 		lineNum = lineNum+1
+		print "***"
 
 	print "***********"
 	return
@@ -808,7 +826,7 @@ def extractEveryVariable(currentLine):
 	      else:
 		rhsVar.append(lhsVar[len(lhsVar)-1])
 		lhsVar.remove(lhsVar[len(lhsVar)-1])
-	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front(),MultiplicationFactorIf.front(),cyclesToExecute,scope.frontId(),currentLine))
+	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front(),MultiplicationFactorIf.front(),int(cyclesToExecute),scope.frontId(),currentLine.strip()))
 	return 
 
 def instCountForInnerFor(currentLine):
@@ -839,8 +857,80 @@ def instCountForInnerFor(currentLine):
     print "Within Fratio"
     print instCountWithFRatio
   return
+
+
 def instructionLevelParallelism():
-  "Goes backwards to look at instruction level parallelism"	
+  "Goes backwards to look at instruction level parallelism"
+  print "ILP!!!"
+  ReducedAnnotatedRegion = []
+  flag = False
+  i = 0
+  while flag==False:
+    if (bool(re.search("NTRATIO",PerLineVarInAnnotatedRegion[i].getLine()))==True):
+      i=i+1
+    else:
+      flag=True
+  scopeIdC = PerLineVarInAnnotatedRegion[i].getScopeId();
+  IncomingList =[]
+  OutgoingList =[]
+  j=0
+  while i<len(PerLineVarInAnnotatedRegion):
+    if (scopeIdC == PerLineVarInAnnotatedRegion[i].getScopeId()):
+      ReducedAnnotatedRegion.append(PerLineVarInAnnotatedRegion[i])
+      IncomingList.append([])
+      OutgoingList.append([])
+      if(j!=0):
+	k = 0
+	while (k < len(ReducedAnnotatedRegion)-1):
+	  if(PerLineVarInAnnotatedRegion[i].checkLHS(ReducedAnnotatedRegion[k].getLHS())):
+	    OutgoingList[k].append(j)
+	    IncomingList[(len(ReducedAnnotatedRegion)-1)].append(k)
+	  k=k+1
+      j=j+1
+    i=i+1
+  print "******"
+  Node0 = []
+  for p in range(len(ReducedAnnotatedRegion)):
+    print p
+    print ReducedAnnotatedRegion[p].getLine()
+    print IncomingList[p]
+    print OutgoingList[p]
+    print str(ReducedAnnotatedRegion[p].getCycles())
+    if (IncomingList[p]==[]):
+      Node0.append(p)
+    print "\n"
+  print "******"
+  possibleCriticalPath = []
+  print "Node 0's -"
+  print Node0
+  for dfsp in Node0:
+    #Do DFS for dfsp
+    myStack = Stack("DFS Stack")
+    myStack.push(dfsp)
+    visited = set()
+    distance = [-999]*len(ReducedAnnotatedRegion)
+    distance[dfsp] = ReducedAnnotatedRegion[p].getCycles()
+    while (myStack.isEmpty() == False):
+      vertex = myStack.pop()
+      print distance
+      if vertex not in visited:
+	visited.add(vertex)
+        for pushi in OutgoingList[vertex]:
+	  if pushi in visited:
+	    continue
+	  else:
+	    myStack.push(pushi)
+	    print "("+str(vertex)+","+str(distance[vertex])+")"
+	    print "("+str(pushi)+","+str(ReducedAnnotatedRegion[pushi].getCycles())+")"
+	    dist = int(distance[vertex]) + int(ReducedAnnotatedRegion[pushi].getCycles())
+	    print dist
+	    if (dist>distance[pushi]):
+	      distance[pushi] = dist
+	      print "Selected!"
+    possibleCriticalPath.append(max(distance))
+  print possibleCriticalPath
+  global CriticalPath
+  CriticalPath = max(possibleCriticalPath)
   return
 ###################################Function and Class Definition Ends Here################################################################
 print "**************************************************************************"
@@ -895,7 +985,7 @@ print "NumStoreOperations -",NumStoreOperations
 print "NumOffsetAccesses - ", NumOffsetAccesses 
 print "NumIndirectAccesses - ", NumIndirectAccesses
 print "NumDoubleAccesses - ", NumDoubleAccesses
-print "criticalPath - ", criticalPath
+print "CriticalPath - ", CriticalPath
 print "nThreadsCount - ",nThreadsCount
 print "instCountWithFRatio - ",instCountWithFRatio
 if (len(Warnings)>0):
