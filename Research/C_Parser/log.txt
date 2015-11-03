@@ -1,409 +1,1326 @@
+Parser.py:422: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+Parser.py:430: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+Parser.py:439: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+  global WarningsCounter
+Parser.py:447: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+Parser.py:543: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+Parser.py:555: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+Parser.py:558: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+Parser.py:616: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+Parser.py:628: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+Parser.py:631: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+  global FoundFLPMulDiv
+Parser.py:713: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+  global WarpDivergenceRatio
+Parser.py:882: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+  global StartAnalyzing
 Hi
-if((accessKnode.keys[thid] <= start[bid]) && (accessKnode.keys[thid+1] > start[bid])){
-if((accessKnode.keys[thid] <= start[bid]) && (accessKnode.keys[thid+1] > start[bid])){
-if((accessKnode.#1# <= #1#) && (accessKnode.#1# > #1#)){
-if((accessKnode.#1# <= #1#) && (accessKnode.#1# > #1#)){
-if((#2# <= #1#) && (#2# > #1#)){
-0=((#2# <= #1#) && (#2# > #1#))
-0 =  (  ( #2#    <  =    #1# )     &  &     ( #2#    >    #1# )  ) 
-0 =  (  ( #2#    <  =    #1# )     &  &     ( #2#    >    #1# )  ) 
-0 =  (  ( #2#    <  =    #1# )     &  &     ( #2#    >    #1# )  ) 
-0=((#2#<=#1#)&&(#2#>#1#))
-0=((2<=1)&&(2>1))
-In While
+scope - pushing Global
+For count stack - pushing 1
+If ratio stack - pushing 1
+**************************************************************************
+****			C Code Parser   			      ****
+**************************************************************************
+****		   Please Use Python 2.7 or later		      ****
+**************************************************************************
+../Input_C_Parser/Test18.txt
+int Nparticles = 1000;
 
-Start Index is 2
-Length is 17
-0=((2<=1)&&(2>1))
-Start Index is 3
-Length is 17
-0=((2<=1)&&(2>1))
-Start Index is 4
-Length is 17
-0=((2<=1)&&(2>1))
-Start Index is 5
-Length is 17
-0=((2<=1)&&(2>1))
-Start Index is 6
-Length is 17
-0=((2<=1)&&(2>1))
-Start Index is 7
-Length is 17
-0=((2<=1)&&(2>1))
-0=((2<=1)&&(2>1))
-0=((3)&&(2>1))
-Start Index is 6
-Length is 14
-0=((3)&&(2>1))
-Start Index is 7
-Length is 12
-0=(3&&(2>1))
-Start Index is 8
-Length is 12
-0=(3&&(2>1))
-Start Index is 9
-Length is 12
-0=(3&&(2>1))
-0=(3&&(2>1))
-0=(3&&(3))
-Start Index is 9
-Length is 10
-0=(3&&(3))
-In While
+[]
+int index;
 
-Start Index is 3
-Length is 8
-0=(3&&3)
-Start Index is 4
-Length is 8
-0=(3&&3)
-Start Index is 5
-Length is 8
-0=(3&&3)
-Start Index is 6
-Length is 8
-0=(3&&3)
-0=(3&&3)
-0=(4)
-Start Index is 5
-Length is 5
-0=(4)
-Time Taken 4
+[]
+double arrayX[1000];
 
-offset_2[bid] = knodes[access3].indices[thid];
-offset_2[bid] = knodes[access3].indices[thid];
-#1# = #1#.#1#;
-#1# = #2#;
-#1# = #2#;
-#1# = #2#;
-#1#    =    #2# ; 
-#1#    =    #2# ; 
-#1#    =    #2# ; 
-#1#=#2#;
-1=2
-In While
+[]
+double arrayY[1000];
 
-Start Index is 2
-Length is 3
-1=2
-Time Taken 2
+[]
+double xj[1000];
 
-reclength[bid] = knodes[access4].indices[thid] - recstart[bid]+1;
-reclength[bid] = knodes[access4].indices[thid] - recstart[bid]+1;
-#1# = #1#.#1# - #1#+1;
-#1# = #2# - #1#+1;
-#1# = #2# - #1#+1;
-#1# = #2# - #1#+1;
-#1#    =    #2#    -    #1# + 1 ; 
-#1#    =    #2#    -    #1# + 1 ; 
-#1#    =    #2#    -    #1# +#0#; 
-#1#=#2#-#1#+#0#;
-1=2-1+0
-In While
+[]
+double yj[1000];
 
-Start Index is 2
-Length is 7
-1=2-1+0
-Start Index is 3
-Length is 7
-1=2-1+0
-Start Index is 4
-Length is 7
-1=2-1+0
-1=2-1+0
-1=3+0
-Start Index is 4
-Length is 5
-1=3+0
-Start Index is 5
-Length is 5
-1=3+0
-In While
+[]
+double CDF[1000];
 
-Start Index is 3
-Length is 5
-1=3+0
-Start Index is 4
-Length is 5
-1=3+0
-1=3+0
-1=4
-Start Index is 4
-Length is 3
-1=4
-Time Taken 4
+[]
+double u[1000];
 
-dN[k] = image[i-1 + Nr*j] - Jc;
-dN[k] = image[i-1 + Nr*j] - Jc;
-#1# = #1# - Jc;
-#1# = #1# - Jc;
-#1# = #1# - Jc;
-#1# = #1# - #0#;
-#1#    =    #1#    -    #0# ; 
-#1#    =    #1#    -    #0# ; 
-#1#    =    #1#    -    #0# ; 
-#1#=#1#-#0#;
-1=1-0
-In While
+[]
 
-Start Index is 2
-Length is 5
-1=1-0
-Start Index is 3
-Length is 5
-1=1-0
-Start Index is 4
-Length is 5
-1=1-0
-1=1-0
-1=2
-Start Index is 4
-Length is 3
-1=2
-Time Taken 2
 
-G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
-G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
-G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
-G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
-G2 = (temp1*temp1 + temp2*temp2 + temp3*temp3 + temp4*temp4) / (Jc*Jc);
-#0# = (#0#*#0# + #0#*#0# + #0#*#0# + #0#*#0#) / (#0#*#0#);
-#0#    =     ( #0# * #0#    +    #0# * #0#    +    #0# * #0#    +    #0# * #0# )     /     ( #0# * #0# )  ; 
-#0#    =     ( #0# * #0#    +    #0# * #0#    +    #0# * #0#    +    #0# * #0# )     /     ( #0# * #0# )  ; 
-#0#    =     ( #0# * #0#    +    #0# * #0#    +    #0# * #0#    +    #0# * #0# )     /     ( #0# * #0# )  ; 
-#0#=(#0#*#0#+#0#*#0#+#0#*#0#+#0#*#0#)/(#0#*#0#);
-0=(0*0+0*0+0*0+0*0)/(0*0)
-In While
+[]
+####Annotation Begins####
 
-Start Index is 2
-Length is 25
-0=(0*0+0*0+0*0+0*0)/(0*0)
-Start Index is 3
-Length is 25
-0=(0*0+0*0+0*0+0*0)/(0*0)
-Start Index is 4
-Length is 25
-0=(0*0+0*0+0*0+0*0)/(0*0)
-Start Index is 5
-Length is 25
-0=(0*0+0*0+0*0+0*0)/(0*0)
-0=(0*0+0*0+0*0+0*0)/(0*0)
-0=(1+0*0+0*0+0*0)/(0*0)
-Start Index is 5
-Length is 23
-0=(1+0*0+0*0+0*0)/(0*0)
-Start Index is 6
-Length is 23
-0=(1+0*0+0*0+0*0)/(0*0)
-Start Index is 7
-Length is 23
-0=(1+0*0+0*0+0*0)/(0*0)
-0=(1+0*0+0*0+0*0)/(0*0)
-0=(1+1+0*0+0*0)/(0*0)
-Start Index is 7
-Length is 21
-0=(1+1+0*0+0*0)/(0*0)
-Start Index is 8
-Length is 21
-0=(1+1+0*0+0*0)/(0*0)
-Start Index is 9
-Length is 21
-0=(1+1+0*0+0*0)/(0*0)
-0=(1+1+0*0+0*0)/(0*0)
-0=(1+1+1+0*0)/(0*0)
-Start Index is 9
-Length is 19
-0=(1+1+1+0*0)/(0*0)
-Start Index is 10
-Length is 19
-0=(1+1+1+0*0)/(0*0)
-Start Index is 11
-Length is 19
-0=(1+1+1+0*0)/(0*0)
-0=(1+1+1+0*0)/(0*0)
-0=(1+1+1+1)/(0*0)
-Start Index is 11
-Length is 17
-0=(1+1+1+1)/(0*0)
-Start Index is 12
-Length is 17
-0=(1+1+1+1)/(0*0)
-Start Index is 13
-Length is 17
-0=(1+1+1+1)/(0*0)
-Start Index is 14
-Length is 17
-0=(1+1+1+1)/(0*0)
-Start Index is 15
-Length is 17
-0=(1+1+1+1)/(0*0)
-0=(1+1+1+1)/(0*0)
-0=(1+1+1+1)/(1)
-Start Index is 15
-Length is 15
-0=(1+1+1+1)/(1)
-In While
+Annotation Begin Found
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  0
+0
+0
+TotalArithmeticInstructions  0
+for(j = 0; j<Nparticles; j++) //NTRATIO1000
 
-Start Index is 3
-Length is 13
-0=(1+1+1+1)/1
-Start Index is 4
-Length is 13
-0=(1+1+1+1)/1
-Start Index is 5
-Length is 13
-0=(1+1+1+1)/1
-0=(1+1+1+1)/1
-0=(2+1+1)/1
-Start Index is 5
-Length is 11
-0=(2+1+1)/1
-Start Index is 6
-Length is 11
-0=(2+1+1)/1
-Start Index is 7
-Length is 11
-0=(2+1+1)/1
-0=(2+1+1)/1
-0=(2+2)/1
-Start Index is 7
-Length is 9
-0=(2+2)/1
-Start Index is 8
-Length is 9
-0=(2+2)/1
-Start Index is 9
-Length is 9
-0=(2+2)/1
-In While
+['NTRATIO1000']
+['1000']
+['<', '++', '/', '/']
+['//']
+2
+TotalArithmeticInstructions  2
+0
+0
+TotalArithmeticInstructions  2
+Division Found
+####
+30   /
+31   /
+29    
+(j = 0; j<Nparticles; j++
+match
+j = 0; j<Nparticles; j++
+/NTRATIO1000
 
-Start Index is 3
-Length is 9
-0=(2+2)/1
-Start Index is 4
-Length is 9
-0=(2+2)/1
-Start Index is 5
-Length is 9
-0=(2+2)/1
-0=(2+2)/1
-0=(3)/1
-Start Index is 5
-Length is 7
-0=(3)/1
-In While
+Division Found
+####
+31   /
+32   N
+30   /
 
-Start Index is 3
-Length is 5
-0=3/1
-Start Index is 4
-Length is 5
-0=3/1
-0=3/1
-0=4
-Start Index is 4
-Length is 3
-0=4
-Time Taken 4
+NTRATIO1000
 
-u1_r[idx] = u0_r[idx] * ex[t*indexmap[idx]];
-u1_r[idx] = u0_r[idx] * #2#;
-#1# = #1# * #2#;
-#1# = #1# * #2#;
-#1# = #1# * #2#;
-#1# = #1# * #2#;
-#1#    =    #1#    *    #2# ; 
-#1#    =    #1#    *    #2# ; 
-#1#    =    #1#    *    #2# ; 
-#1#=#1#*#2#;
-1=1*2
-In While
+generateAST for for(j = 0; j<Nparticles; j++) //NTRATIO1000
+This line is a for
+extractEveryVariable
+Inserting - for(j = 0; j<Nparticles; j++) //NTRATIO1000
 
-Start Index is 2
-Length is 5
-1=1*2
-Start Index is 3
-Length is 5
-1=1*2
-Start Index is 4
-Length is 5
-1=1*2
-1=1*2
-1=3
-Start Index is 4
-Length is 3
-1=3
-Time Taken 3
+{
 
-offset_2[bid] = knodes[access3].indices[thid] + efc + adasd + 4 + knodes[access3].indices[thid];
-offset_2[bid] = knodes[access3].indices[thid] + efc + adasd + 4 + knodes[access3].indices[thid];
-#1# = #1#.#1# + efc + adasd + 4 + #1#.#1#;
-#1# = #2# + efc + adasd + 4 + #2#;
-#1# = #2# + efc + adasd + 4 + #2#;
-#1# = #2# + #0# + #0# + 4 + #2#;
-#1#    =    #2#    +    #0#    +    #0#    +    4    +    #2# ; 
-#1#    =    #2#    +    #0#    +    #0#    +    4    +    #2# ; 
-#1#    =    #2#    +    #0#    +    #0#    +   #0#   +    #2# ; 
-#1#=#2#+#0#+#0#+#0#+#2#;
-1=2+0+0+0+2
-In While
+scope - pushing For
+For count stack - pushing 1
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  2
+0
+0
+TotalArithmeticInstructions  2
+generateAST for {
+{
+{
+{
+{
+{
+{
 
-Start Index is 2
-Length is 11
-1=2+0+0+0+2
-Start Index is 3
-Length is 11
-1=2+0+0+0+2
-Start Index is 4
-Length is 11
-1=2+0+0+0+2
-1=2+0+0+0+2
-1=3+0+0+2
-Start Index is 4
-Length is 9
-1=3+0+0+2
-Start Index is 5
-Length is 9
-1=3+0+0+2
-Start Index is 6
-Length is 9
-1=3+0+0+2
-1=3+0+0+2
-1=3+1+2
-Start Index is 6
-Length is 7
-1=3+1+2
-Start Index is 7
-Length is 7
-1=3+1+2
-In While
 
-Start Index is 3
-Length is 7
-1=3+1+2
-Start Index is 4
-Length is 7
-1=3+1+2
-1=3+1+2
-1=4+2
-Start Index is 4
-Length is 5
-1=4+2
-Start Index is 5
-Length is 5
-1=4+2
-In While
 
-Start Index is 3
-Length is 5
-1=4+2
-Start Index is 4
-Length is 5
-1=4+2
-1=4+2
-1=5
-Start Index is 4
-Length is 3
-1=5
-Time Taken 5
 
+
+
+This line does not have an =
+extractEveryVariable
+   
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  2
+0
+0
+TotalArithmeticInstructions  2
+generateAST for 
+
+
+
+
+
+
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   int index = -1;
+
+[]
+['-']
+[]
+1
+TotalArithmeticInstructions  3
+0
+0
+TotalArithmeticInstructions  3
+generateAST for int index = -1;
+int index = -1;
+int index = -1;
+int index = -1;
+int index = -1;
+int index = -1;
+int index = -1;
+#0# = -1;
+#0#    =     - 1 ; 
+#0#    =     - 1 ; 
+#0#    =     -#0#; 
+#0#=-#0#;
+0=0
+Time Taken 0
+
+extractEveryVariable
+Inserting -    int index = -1;
+
+   
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3
+0
+0
+TotalArithmeticInstructions  3
+generateAST for 
+
+
+
+
+
+
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   for(int x = 0; x < Nparticles; x++) {//FRATIO1000
+
+scope - pushing For
+[]
+FRATIO1000
+For count stack - pushing 1000
+['<', '++', '/', '/']
+['//']
+2
+TotalArithmeticInstructions  2003
+0
+0
+TotalArithmeticInstructions  2003
+Division Found
+####
+40   /
+41   /
+39   {
+ 0; x < Nparticles; x++) {
+match
+x < Nparticles; x++) {
+/FRATIO1000
+
+Division Found
+####
+41   /
+42   F
+40   /
+
+FRATIO1000
+
+generateAST for for(int x = 0; x < Nparticles; x++) {//FRATIO1000
+This line is a for
+extractEveryVariable
+Inserting -    for(int x = 0; x < Nparticles; x++) {//FRATIO1000
+
+Within Fratio
+3
+      if(CDF[x] >= u[j])	//BRATIO0.06
+
+[]
+['>=', '/', '/']
+['//']
+1
+TotalArithmeticInstructions  3003
+0
+0
+TotalArithmeticInstructions  3003
+Checking double store operation
+12   [
+11   F
+      if(CDF
+match
+if(CDF
+Checking double store operation - Done
+Division Found
+####
+25   /
+26   /
+24   	
+ u[j])	
+/BRATIO0.06
+
+Division Found
+####
+26   /
+27   B
+25   /
+
+BRATIO0.06
+
+Found Control Density
+generateAST for if(CDF[x] >= u[j])	//BRATIO0.06
+if(CDF[x] >= u[j])	
+if(CDF[x] >= u[j])	
+if(CDF[x] >= u[j])	
+if(#1# >= #1#)	
+if(#1# >= #1#)	
+if(#1# >= #1#)	
+0=(#1# >= #1#)	
+0 =  ( #1#    >  =    #1# )  	 
+0 =  ( #1#    >  =    #1# )  	 
+0 =  ( #1#    >  =    #1# )  	 
+0=(#1#>=#1#)
+0=(1>=1)
+This line does not have an =
+extractEveryVariable
+Inserting -       if(CDF[x] >= u[j])	//BRATIO0.06
+
+['0.06']
+Bratio found
+temp bratio is  1.92
+Divergence ratio is  1.92
+If ratio stack - pushing 0.06
+Within Fratio
+7
+      {
+
+scope - pushing if
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3003.0
+0
+0
+TotalArithmeticInstructions  3003.0
+generateAST for {
+{
+{
+{
+{
+{
+{
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+Within Fratio
+7
+         index = x;
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3003.0
+0
+0
+TotalArithmeticInstructions  3003.0
+generateAST for index = x;
+index = x;
+index = x;
+index = x;
+index = x;
+index = x;
+index = x;
+#0# = #0#;
+#0#    =    #0# ; 
+#0#    =    #0# ; 
+#0#    =    #0# ; 
+#0#=#0#;
+0=0
+Time Taken 0
+
+extractEveryVariable
+Inserting -          index = x;
+
+Within Fratio
+7
+         break;
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3003.0
+0
+0
+TotalArithmeticInstructions  3003.0
+generateAST for break;
+break;
+break;
+break;
+break;
+break;
+break;
+#0#;
+#0# ; 
+#0# ; 
+#0# ; 
+#0#;
+0
+This line does not have an =
+extractEveryVariable
+Inserting -          break;
+
+Within Fratio
+7
+      }
+
+Scope Found if, popping, New Length 1
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3003.0
+0
+0
+TotalArithmeticInstructions  3003.0
+generateAST for }
+}
+}
+}
+}
+}
+}
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+Within Fratio
+7
+   }
+
+Scope Found For, popping, New Length 2
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3003.0
+0
+0
+TotalArithmeticInstructions  3003.0
+generateAST for }
+}
+}
+}
+}
+}
+}
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+ 
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3003.0
+0
+0
+TotalArithmeticInstructions  3003.0
+generateAST for 
+
+
+
+
+
+
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   if(index == -1)		//never taken // BRATIO0.0
+
+[]
+['==', '-', '/', '/', '/', '/']
+['//', '//']
+2
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+Division Found
+####
+20   /
+21   /
+19   	
+= -1)		
+/never taken // BRATIO0.0
+
+match
+never
+27    
+Division Found
+####
+21   /
+22   n
+20   /
+
+never taken // BRATIO0.0
+
+match
+never
+27    
+Division Found
+####
+34   /
+35   /
+33    
+ taken
+/ BRATIO0.0
+
+Division Found
+####
+35   /
+36    
+34   /
+
+ BRATIO0.0
+
+Found Control Density
+generateAST for if(index == -1)		//never taken // BRATIO0.0
+if(index == -1)		
+if(index == -1)		
+if(index == -1)		
+if(index == -1)		
+if(index == -1)		
+if(index == -1)		
+0=(#0# == -1)		
+0 =  ( #0#    =  =     - 1 )  	  	 
+0 =  ( #0#    =  =     - 1 )  	  	 
+0 =  ( #0#    =  =     -#0#)  	  	 
+0=(#0#==-#0#)
+0=(0==0)
+Time Taken 1
+
+extractEveryVariable
+Inserting -    if(index == -1)		//never taken // BRATIO0.0
+
+['0.0']
+Bratio found
+temp bratio is  0.0
+Divergence ratio using old  1.92
+If ratio stack - pushing 0.0
+   {
+
+scope - pushing if
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+generateAST for {
+{
+{
+{
+{
+{
+{
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+Within Fratio
+7
+      i = Nparticles - 1;
+
+[]
+['-']
+[]
+1
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+generateAST for i = Nparticles - 1;
+i = Nparticles - 1;
+i = Nparticles - 1;
+i = Nparticles - 1;
+i = Nparticles - 1;
+i = Nparticles - 1;
+i = Nparticles - 1;
+#0# = #0# - 1;
+#0#    =    #0#    -    1 ; 
+#0#    =    #0#    -    1 ; 
+#0#    =    #0#    -   #0#; 
+#0#=#0#-#0#;
+0=0-0
+Time Taken 1
+
+extractEveryVariable
+Inserting -       i = Nparticles - 1;
+
+Within Fratio
+8
+   }
+
+Scope Found if, popping, New Length 1
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+generateAST for }
+}
+}
+}
+}
+}
+}
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   else  //BRATIO0.0
+
+[]
+['/', '/']
+['//']
+0
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+Division Found
+####
+9   /
+10   /
+8    
+   else
+/BRATIO0.0
+
+Division Found
+####
+10   /
+11   B
+9   /
+
+BRATIO0.0
+
+generateAST for else  //BRATIO0.0
+else  
+else  
+else  
+else  
+else  
+else  
+#0#  
+#0#      
+#0#      
+#0#      
+#0#
+0
+This line does not have an =
+extractEveryVariable
+Inserting -    else  //BRATIO0.0
+
+['0.0']
+Bratio found
+temp bratio is  0.0
+Divergence ratio using old  1.92
+If ratio stack - pushing 0.0
+   {
+
+scope - pushing if
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+generateAST for {
+{
+{
+{
+{
+{
+{
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+Within Fratio
+8
+      i = index;
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+generateAST for i = index;
+i = index;
+i = index;
+i = index;
+i = index;
+i = index;
+i = index;
+#0# = #0#;
+#0#    =    #0# ; 
+#0#    =    #0# ; 
+#0#    =    #0# ; 
+#0#=#0#;
+0=0
+Time Taken 0
+
+extractEveryVariable
+Inserting -       i = index;
+
+Within Fratio
+8
+   }
+
+Scope Found if, popping, New Length 1
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+generateAST for }
+}
+}
+}
+}
+}
+}
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3005.0
+0
+0
+TotalArithmeticInstructions  3005.0
+generateAST for 
+
+
+
+
+
+
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   if(i == -1)			//never taken // BRATIO0.0
+
+[]
+['==', '-', '/', '/', '/', '/']
+['//', '//']
+2
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+Division Found
+####
+17   /
+18   /
+16   	
+= -1)			
+/never taken // BRATIO0.0
+
+match
+never
+24    
+Division Found
+####
+18   /
+19   n
+17   /
+
+never taken // BRATIO0.0
+
+match
+never
+24    
+Division Found
+####
+31   /
+32   /
+30    
+ taken
+/ BRATIO0.0
+
+Division Found
+####
+32   /
+33    
+31   /
+
+ BRATIO0.0
+
+Found Control Density
+generateAST for if(i == -1)			//never taken // BRATIO0.0
+if(i == -1)			
+if(i == -1)			
+if(i == -1)			
+if(i == -1)			
+if(i == -1)			
+if(i == -1)			
+0=(#0# == -1)			
+0 =  ( #0#    =  =     - 1 )  	  	  	 
+0 =  ( #0#    =  =     - 1 )  	  	  	 
+0 =  ( #0#    =  =     -#0#)  	  	  	 
+0=(#0#==-#0#)
+0=(0==0)
+Time Taken 1
+
+extractEveryVariable
+Inserting -    if(i == -1)			//never taken // BRATIO0.0
+
+['0.0']
+Bratio found
+temp bratio is  0.0
+Divergence ratio using old  1.92
+If ratio stack - pushing 0.0
+   { 
+
+scope - pushing if
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+generateAST for {
+{
+{
+{
+{
+{
+{
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+Within Fratio
+8
+      i = Nparticles-1;
+
+[]
+['-']
+[]
+1
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+generateAST for i = Nparticles-1;
+i = Nparticles-1;
+i = Nparticles-1;
+i = Nparticles-1;
+i = Nparticles-1;
+i = Nparticles-1;
+i = Nparticles-1;
+#0# = #0#-1;
+#0#    =    #0# - 1 ; 
+#0#    =    #0# - 1 ; 
+#0#    =    #0# -#0#; 
+#0#=#0#-#0#;
+0=0-0
+Time Taken 1
+
+extractEveryVariable
+Inserting -       i = Nparticles-1;
+
+Within Fratio
+9
+   }
+
+Scope Found if, popping, New Length 1
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+generateAST for }
+}
+}
+}
+}
+}
+}
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+generateAST for 
+
+
+
+
+
+
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+   xj[j] = arrayX[i];
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+Checking double store operation
+5   [
+4   j
+   xj
+match
+xj
+Found variable in List!
+Checking double store operation - Done
+generateAST for xj[j] = arrayX[i];
+xj[j] = arrayX[i];
+xj[j] = arrayX[i];
+xj[j] = arrayX[i];
+#1# = #1#;
+#1# = #1#;
+#1# = #1#;
+#1# = #1#;
+#1#    =    #1# ; 
+#1#    =    #1# ; 
+#1#    =    #1# ; 
+#1#=#1#;
+1=1
+Time Taken 1
+
+extractEveryVariable
+Inserting -    xj[j] = arrayX[i];
+
+   yj[j] = arrayY[i];
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+Checking double store operation
+5   [
+4   j
+   yj
+match
+yj
+Found variable in List!
+Checking double store operation - Done
+generateAST for yj[j] = arrayY[i];
+yj[j] = arrayY[i];
+yj[j] = arrayY[i];
+yj[j] = arrayY[i];
+#1# = #1#;
+#1# = #1#;
+#1# = #1#;
+#1# = #1#;
+#1#    =    #1# ; 
+#1#    =    #1# ; 
+#1#    =    #1# ; 
+#1#=#1#;
+1=1
+Time Taken 1
+
+extractEveryVariable
+Inserting -    yj[j] = arrayY[i];
+
+   
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+generateAST for 
+
+
+
+
+
+
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+}
+
+Scope Found For, popping, New Length 1
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+generateAST for }
+}
+}
+}
+}
+}
+}
+
+
+
+
+
+
+This line does not have an =
+extractEveryVariable
+####Annotation Ends####
+
+[]
+[]
+[]
+0
+TotalArithmeticInstructions  3007.0
+0
+0
+TotalArithmeticInstructions  3007.0
+Annotation End Found
+######################################################
+**********
+The values of this entry are
+Name                 -  xj
+Scope                -  Global
+varType              -  2
+size                 -  1000
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  index
+Scope                -  For
+varType              -  0
+size                 -  1
+value                -  1
+iteratorVar          -  True
+**********
+The values of this entry are
+Name                 -  arrayY
+Scope                -  Global
+varType              -  2
+size                 -  1000
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  arrayX
+Scope                -  Global
+varType              -  2
+size                 -  1000
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  Nparticles
+Scope                -  Global
+varType              -  0
+size                 -  1
+value                -  1000
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  CDF
+Scope                -  Global
+varType              -  2
+size                 -  1000
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  yj
+Scope                -  Global
+varType              -  2
+size                 -  1000
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  u
+Scope                -  Global
+varType              -  2
+size                 -  1000
+value                -  None
+iteratorVar          -  False
+**********
+The values of this entry are
+Name                 -  x
+Scope                -  For
+varType              -  0
+size                 -  1
+value                -  0
+iteratorVar          -  True
+**********
+***********
+Line 1
+LHS -  for j
+RHS -  j Nparticles j
+For Ratio - 1
+If  Ratio - 1
+Scope     - Global
+Cycles    - 0
+Line	     - for(j = 0; j<Nparticles; j++) //NTRATIO1000
+
+Line 2
+LHS -  index
+RHS - 
+For Ratio - 1
+If  Ratio - 1
+Scope     - For
+Cycles    - 0
+Line	     -    int index = -1;
+
+Line 3
+LHS -  for x
+RHS -  x Nparticles x
+For Ratio - 1000
+If  Ratio - 1
+Scope     - For
+Cycles    - 0
+Line	     -    for(int x = 0; x < Nparticles; x++) {//FRATIO1000
+
+Line 4
+LHS - 
+RHS -  CDF x u j
+For Ratio - 1000
+If  Ratio - 1
+Scope     - For
+Cycles    - 0
+Line	     -       if(CDF[x] >= u[j])	//BRATIO0.06
+
+Line 5
+LHS -  index
+RHS -  x
+For Ratio - 1000
+If  Ratio - 0.06
+Scope     - if
+Cycles    - 0
+Line	     -          index = x;
+
+Line 6
+LHS - 
+RHS -  break
+For Ratio - 1000
+If  Ratio - 0.06
+Scope     - if
+Cycles    - 0
+Line	     -          break;
+
+Line 7
+LHS - 
+RHS -  index
+For Ratio - 1
+If  Ratio - 1
+Scope     - For
+Cycles    - 1
+Line	     -    if(index == -1)		//never taken // BRATIO0.0
+
+Line 8
+LHS -  i
+RHS -  Nparticles
+For Ratio - 1
+If  Ratio - 0.0
+Scope     - if
+Cycles    - 1
+Line	     -       i = Nparticles - 1;
+
+Line 9
+LHS - 
+RHS -  else
+For Ratio - 1
+If  Ratio - 1
+Scope     - For
+Cycles    - 0
+Line	     -    else  //BRATIO0.0
+
+Line 10
+LHS -  i
+RHS -  index
+For Ratio - 1
+If  Ratio - 0.0
+Scope     - if
+Cycles    - 0
+Line	     -       i = index;
+
+Line 11
+LHS - 
+RHS -  i
+For Ratio - 1
+If  Ratio - 1
+Scope     - For
+Cycles    - 1
+Line	     -    if(i == -1)			//never taken // BRATIO0.0
+
+Line 12
+LHS -  i
+RHS -  Nparticles
+For Ratio - 1
+If  Ratio - 0.0
+Scope     - if
+Cycles    - 1
+Line	     -       i = Nparticles-1;
+
+Line 13
+LHS -  xj
+RHS -  arrayX i j
+For Ratio - 1
+If  Ratio - 1
+Scope     - For
+Cycles    - 1
+Line	     -    xj[j] = arrayX[i];
+
+Line 14
+LHS -  yj
+RHS -  arrayY i j
+For Ratio - 1
+If  Ratio - 1
+Scope     - For
+Cycles    - 1
+Line	     -    yj[j] = arrayY[i];
+
+***********
+
+
+TotalTranscendentals - 0
+TotalArithmeticInstructions - 3007.0
+NumLoadOperations - 1002.0
+NumStoreOperations - 1002.0
+NumOffsetAccesses -  0
+NumIndirectAccesses -  0
+NumDoubleAccesses -  2
+criticalPath -  0
+nThreadsCount -  1000
+instCountWithFRatio -  9
+
+
+######################################################
+Transcendental Ratio - L
+Arithmetic Intensity - M
+Global Memory Operation - L
+BranchDivergence - H 1.92
+ControlDensity -  H
+Floating Point Mul/Div - L
+Total Instruction - L
+Num Threads - 1000

@@ -16,4 +16,5 @@ Test21,22 - Same as Test 20
    for
    {
    not allowed. Reason - Issues with scope. Which looks at prev and currentLine. So initialized twice
+6. pseudoAST cannot differentiate between -1 constant a-1
 		  

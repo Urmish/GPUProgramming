@@ -104,7 +104,7 @@ class Stack():
     return len(self.items)
 
 class VarInEachLine():
-  def __init__(self,lhs,rhs,forCount,scope,ifCount,cyclesToExecute,scopeId):
+  def __init__(self,lhs,rhs,forCount,scope,ifCount,cyclesToExecute,scopeId,currentLine):
     self.lhs = lhs;
     self.rhs = rhs;
     self.forCount = forCount;
@@ -112,6 +112,8 @@ class VarInEachLine():
     self.scope = scope;
     self.cycles = cyclesToExecute
     self.scopeId = scopeId
+    self.currentLine = currentLine
+    print "Inserting - "+currentLine
   
   def printVariables(self):
     l = ""
@@ -126,6 +128,7 @@ class VarInEachLine():
     print "If  Ratio - "+str(self.ifCount)
     print "Scope     - "+str(self.scope)
     print "Cycles    - "+str(self.cycles)
+    print "Line	     - "+str(self.currentLine)
   
   def setLhs(self,lhsIn):
     self.lhs = lhsIn
@@ -805,8 +808,7 @@ def extractEveryVariable(currentLine):
 	      else:
 		rhsVar.append(lhsVar[len(lhsVar)-1])
 		lhsVar.remove(lhsVar[len(lhsVar)-1])
-		
-	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front(),MultiplicationFactorIf.front(),cyclesToExecute,scope.frontId()))
+	PerLineVarInAnnotatedRegion.append(VarInEachLine(lhsVar,rhsVar,MultiplicationFactorFor.front(),scope.front(),MultiplicationFactorIf.front(),cyclesToExecute,scope.frontId(),currentLine))
 	return 
 
 def instCountForInnerFor(currentLine):
@@ -962,7 +964,7 @@ else:
     else:
       print "Total Instruction - H"
       writeLine=writeLine+",H"
-print "Num Threads - nThreadsCount"
+print "Num Threads - "+str(nThreadsCount)
 writeLine=writeLine+","+str(nThreadsCount)
 writeLine=writeLine+"\n"
 with open('Output.txt','ab') as apfile:
