@@ -1,0 +1,25 @@
+int num_elements = 65535;
+int depth = 16;
+int key;
+int index;
+initialize key_found = 0   // key_found keeps a track of how many keys we were able to find in the tree.
+
+#####Annotation Begins##############
+for(i=0; i<num_elements; ++i){ //NTRATIO65535
+    key = i;  
+    index = 0;
+   
+    if(key == tree[0]){ //BRATIO0.001
+        key_found = key_found + 1;       
+    }
+      
+    for(i=0; i < depth-1; i++){ //FRATIO16
+        index = (index*2) + 1 + 1; 
+                                             
+        if(key == tree[index]){ //BRATIO0.0625
+            key_found = key_found + 1;
+            break;
+        }
+    }
+}
+#####Annotation Endss##############

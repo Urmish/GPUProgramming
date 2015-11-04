@@ -20,7 +20,7 @@
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -553,7 +553,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -1128,7 +1128,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -2094,7 +2094,7 @@ for(i = 0; i < maxheight; i++){ //FRATIO2
 [3]
 1
 1
-2
+1
 
 
 3
@@ -2194,8 +2194,8 @@ DFS Stack - pushing 0
 [1, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
 DFS Stack - pushing 2
 (0,1)
-(2,2)
-3
+(2,1)
+2
 Selected!
 DFS Stack - pushing 10
 (0,1)
@@ -2212,16 +2212,16 @@ DFS Stack - pushing 12
 (12,2e-05)
 1
 Selected!
-[1, -999, 3, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
-[1, -999, 3, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
-[1, -999, 3, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
-[1, -999, 3, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
+[1, -999, 2, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
+[1, -999, 2, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
+[1, -999, 2, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
+[1, -999, 2, -999, -999, -999, -999, -999, -999, -999, 1, 1, 1]
 DFS Stack - pushing 3
-(2,3)
+(2,2)
 (3,0)
-3
+2
 Selected!
-[1, -999, 3, 3, -999, -999, -999, -999, -999, -999, 1, 1, 1]
+[1, -999, 2, 2, -999, -999, -999, -999, -999, -999, 1, 1, 1]
 DFS Stack - pushing 1
 [-999, 2, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
 DFS Stack - pushing 4
@@ -2288,7 +2288,7 @@ DFS Stack - pushing 12
 Selected!
 [-999, -999, -999, -999, -999, -999, -999, -999, -999, 0.01, 0, 0, 0]
 [-999, -999, -999, -999, -999, -999, -999, -999, -999, 0.01, 0, 0, 0]
-[3, 2, 0.01, 0.01]
+[2, 2, 0.01, 0.01]
 ######################################################
 **********
 The values of this entry are
@@ -2399,7 +2399,7 @@ Line	     - for(i = 0; i < maxheight; i++){ //FRATIO2
 Line 5
 LHS -  accessKnode
 RHS -  knodes access
-For Ratio - 2
+For Ratio - 1
 If  Ratio - 1
 Scope     - For
 ScopeId   - 4
@@ -2516,13 +2516,13 @@ NumStoreOperations - 1.02011
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 NumDoubleAccesses -  0
-CriticalPath -  3
+CriticalPath -  2
 nThreadsCount -  5080000
 instCountWithFRatio -  30
 ninst       -  21.13034
-ilp16k       -  21.0469532603
-ilp32       -  7.08841230548
-ilpRate       -  2.96920556442
+ilp16k       -  21.0746756174
+ilp32       -  9.10536881698
+ilpRate       -  2.31453289163
 
 
 ######################################################
@@ -2557,7 +2557,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -3997,7 +3997,7 @@ for(i = 0; i < maxheight; i++){ //FRATIO2
 [4]
 1
 1
-2
+1
 
 
 4
@@ -4151,8 +4151,8 @@ DFS Stack - pushing 0
 [1, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
 DFS Stack - pushing 3
 (0,1)
-(3,2)
-3
+(3,1)
+2
 Selected!
 DFS Stack - pushing 5
 (0,1)
@@ -4199,11 +4199,11 @@ DFS Stack - pushing 19
 (19,0.0004)
 1
 Selected!
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
 DFS Stack - pushing 10
 (9,1)
 (10,0.005)
@@ -4214,37 +4214,37 @@ DFS Stack - pushing 11
 (11,0.005)
 1
 Selected!
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, -999, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, -999, -999, 1, 1]
 DFS Stack - pushing 16
 (11,1)
 (16,0.0001)
 1
 Selected!
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
 DFS Stack - pushing 12
 (10,1)
 (12,0.005)
 1
 Selected!
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[1, -999, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
 DFS Stack - pushing 4
-(3,3)
+(3,2)
 (4,0)
-3
+2
 Selected!
-[1, -999, -999, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[1, -999, -999, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
 DFS Stack - pushing 1
 [-999, 1, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
 DFS Stack - pushing 3
 (1,1)
-(3,2)
-3
+(3,1)
+2
 Selected!
 DFS Stack - pushing 5
 (1,1)
@@ -4291,11 +4291,11 @@ DFS Stack - pushing 19
 (19,0.0004)
 1
 Selected!
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, -999, -999, -999, -999, 1, 1, -999, -999, 1, 1]
 DFS Stack - pushing 10
 (9,1)
 (10,0.005)
@@ -4306,31 +4306,31 @@ DFS Stack - pushing 11
 (11,0.005)
 1
 Selected!
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, -999, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, -999, -999, 1, 1]
 DFS Stack - pushing 16
 (11,1)
 (16,0.0001)
 1
 Selected!
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, -999, -999, 1, 1, 1, -999, 1, 1]
 DFS Stack - pushing 12
 (10,1)
 (12,0.005)
 1
 Selected!
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
-[-999, 1, -999, 3, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, -999, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
 DFS Stack - pushing 4
-(3,3)
+(3,2)
 (4,0)
-3
+2
 Selected!
-[-999, 1, -999, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
+[-999, 1, -999, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, -999, 1, 1, 1, -999, 1, 1]
 DFS Stack - pushing 2
 [-999, -999, 2, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
 DFS Stack - pushing 13
@@ -4365,7 +4365,7 @@ Selected!
 [-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.0050000000000000001, 0, 0, -999, 0, 0, 0]
 [-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.0050000000000000001, 0, 0, -999, 0, 0, 0]
 [-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.0050000000000000001, 0, 0, -999, 0, 0, 0]
-[3, 3, 2, 0.0050000000000000001]
+[2, 2, 2, 0.0050000000000000001]
 ######################################################
 **********
 The values of this entry are
@@ -4454,7 +4454,7 @@ Line	     - for(i = 0; i < maxheight; i++){ //FRATIO2
 Line 6
 LHS -  accessKnode
 RHS -  knodes access
-For Ratio - 2
+For Ratio - 1
 If  Ratio - 1
 Scope     - For
 ScopeId   - 4
@@ -4631,13 +4631,13 @@ NumStoreOperations - 1.0303
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 NumDoubleAccesses -  0
-CriticalPath -  3
+CriticalPath -  2
 nThreadsCount -  3048000
 instCountWithFRatio -  59
 ninst       -  22.1966
-ilp16k       -  22.1046036789
-ilp32       -  7.20451000002
-ilpRate       -  3.0681619817
+ilp16k       -  22.1351842711
+ilp32       -  9.2978327914
+ilpRate       -  2.38068211891
 
 
 ######################################################
@@ -4672,7 +4672,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -5246,7 +5246,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -6747,7 +6747,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -7870,7 +7870,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -8781,7 +8781,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -9532,7 +9532,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -9909,7 +9909,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -10330,7 +10330,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -10909,7 +10909,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -11526,7 +11526,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -12143,7 +12143,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -13306,7 +13306,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -14611,7 +14611,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -15035,7 +15035,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -16429,7 +16429,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -16685,7 +16685,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -18921,7 +18921,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -19942,7 +19942,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -20206,7 +20206,7 @@ Critical Path - L
   global FoundFLPMulDiv
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1019: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global

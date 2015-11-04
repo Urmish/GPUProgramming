@@ -1,0 +1,49 @@
+//Number of Rows(or Columns) in the filter
+#define SIZE_FILTER 5
+
+//Excess image padding to be applied at each row(or column) boundary
+#define EXCESS_PADDING_PER_DIM_BY_2(size)  ((size - 1) / 2)
+
+//Number of rows(or columns) in the image after padding
+#define PADDED_IMAGE_ROWS_COLS(n) (n + SIZE_FILTER - 1)
+
+//Index of next image pixel to be fetched from memory
+#define INDEX2D(i,j,n,size) ((i - EXCESS_PADDING_PER_DIM_BY_2(size)) + (n * (j - EXCESS_PADDING_PER_DIM_BY_2(size))))
+
+#define WINDOW_SIZE 256
+int ny = 512;
+int nx = 512;
+#####Annotation Begins######
+for( j = EXCESS_PADDING_PER_DIM_BY_2(SIZE_FILTER); j < ny + EXCESS_PADDING_PER_DIM_BY_2(SIZE_FILTER); j++, window1++ ){ //NTRATIO512
+   already_div1 = 0;
+   for( i = EXCESS_PADDING_PER_DIM_BY_2(SIZE_FILTER); i < nx + EXCESS_PADDING_PER_DIM_BY_2(SIZE_FILTER); i++, window2++ ){ //NTRATIO512
+      already_div2 = 0;
+      s = i + (PADDED_IMAGE_ROWS_COLS(nx)*j);
+      sum = 0.0;
+      //Perform convolution
+      //Iterate through all filter rows and corresponding image pixels
+      for( k = 0; k < SIZE_FILTER; k++, window3++){ //FRATIO5
+         already_div3 = 0;
+         //Compute image pixel index corresponding to current filter row
+	  index = (i - (5-1)/2) + ((nx + 4)*(j - (5-1)/2));
+ 
+         for( l = 0; l < SIZE_FILTER; l++, window4++ ){ //FRATIO5
+	    already_div4 = 0;
+            temp_flt[l] = filter[(k*SIZE_FILTER) + l)];
+         }	
+ 
+         for( l = 0; l < SIZE_FILTER; l++ ) { //FRATIO5
+            temp_img[l] =  inputImage[index + l];
+	}
+ 
+         for( l = 0; l < SIZE_FILTER; l++, window5++ ){ //FRATIO5
+      already_div5 = 0;
+            sum += ( temp_flt[l] * temp_img[l]  );
+         }
+      }
+ 
+      //Store to output image
+      outputImage[s] = sum;
+   }
+}
+#####Annotation Ends######

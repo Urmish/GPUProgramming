@@ -903,6 +903,9 @@ def instructionLevelParallelism(useInnerFor):
     #if (scopeIdC == PerLineVarInAnnotatedRegion[i].getScopeId()):
     #if (1):
     if (useInnerFor == False):
+      if (PerLineVarInAnnotatedRegion[i].getScopeId() in useInnerLoopScope):
+	if (bool(re.search("for",PerLineVarInAnnotatedRegion[i].getLine())) == False):
+	  PerLineVarInAnnotatedRegion[i].divFor(PerLineVarInAnnotatedRegion[i].returnFor())
       ReducedAnnotatedRegion.append(PerLineVarInAnnotatedRegion[i])
       IncomingList.append([])
       OutgoingList.append([])
