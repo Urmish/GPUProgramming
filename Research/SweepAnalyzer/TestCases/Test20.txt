@@ -63,11 +63,11 @@ for (j=0; j < Nc; j++) {     //NTRATIO458
       den = (qsqr-q0sqr) / (q0sqr * (1+q0sqr)) ;               
       c[k] = 1.0 / (1.0+den) ;                           
  
-      if (c[k] < 0) {   	// Always not-taken.           //BRATIOB10.0
+      if (c[k] < 0) {   	// Always not-taken.           //BRATIO1B
          c[k] = 0;
       }                                   
       
-      else if (c[k] > 1) {  	// Taken BRATIOD10.999992 of the time.          
+      else if (c[k] > 1) {  	// Taken BRATIO1D of the time.          
          c[k] = 1;
       }                                   
  

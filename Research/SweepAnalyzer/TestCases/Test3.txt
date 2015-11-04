@@ -14,13 +14,13 @@ typedef struct knode {
 
 ####Annotation Begins####
 for(bid = 0; bid < count; bid++){ //NTRATIO10000
+    for(thid = 0; thid < threadsPerBlock; thid++){//NTRATIO508
     int access = currKnode[bid];
     for(i = 0; i < maxheight; i++){ //FRATIO2
-        for(thid = 0; thid < threadsPerBlock; thid++){//FRATIO508 FRATIO2 NTRATIO508
 	     *accessKnode = knodes[access];
-             if((accessKnode.keys[thid]) <= keys[bid] && (accessKnode.keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIOA10.01
+             if((accessKnode.keys[thid]) <= keys[bid] && (accessKnode.keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO1A
 		  int offaccess = offset[bid];
-                  if(knodes[offaccess].indices[thid] < knodes_elem){	//taken once per iteration of maxheight //BRATIOA10.01 BRATIOA20.01
+                  if(knodes[offaccess].indices[thid] < knodes_elem){	//taken once per iteration of maxheight //BRATIO1A BRATIO2A
                       offset[bid] = knodes[offaccess].indices[thid];
                   }
              }
@@ -30,7 +30,7 @@ for(bid = 0; bid < count; bid++){ //NTRATIO10000
     int access2 = currKnode[bid];
  
     for(thid = 0; thid < threadsPerBlock; thid++){
-        if(knodes[access2].keys[thid] == keys[bid]){			//taken once per iteration of count //BRATIOA30.00001
+        if(knodes[access2].keys[thid] == keys[bid]){			//taken once per iteration of count //BRATIO3A
 	    int access5 = knodes[access2].indices[thid];
             ans[bid].value = records[access5].value;
         }

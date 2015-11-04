@@ -14,23 +14,23 @@ for(j = 0; j<Nparticles; j++) //NTRATIO1000
    int index = -1;
    
    for(int x = 0; x < Nparticles; x++) {//FRATIO1000
-      if(CDF[x] >= u[j])	//BRATIOA10.06
+      if(CDF[x] >= u[j])	//BRATIO1A
       {
          index = x;
          break;
       }
    }
  
-   if(index == -1)		//never taken // BRATIOB20.0
+   if(index == -1)		//never taken // BRATIO2B
    {
       i = Nparticles - 1;
    }
-   else  //BRATIOD20.0
+   else  //BRATIOD
    {
       i = index;
    }
    
-   if(i == -1)			//never taken // BRATIOA30.0
+   if(i == -1)			//never taken // BRATIO3A
    { 
       i = Nparticles-1;
    }
