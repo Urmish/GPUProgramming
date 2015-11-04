@@ -29,6 +29,9 @@ fratioIndex = 999999;
 NumStoreOperationsThisLine = 0;
 NumLoadOperationsThisLine = 0;
 CriticalPath= 0;
+useInnerLoopScope = []
+useInnerForTripCount = 1
+useInnerForIfRatio = 1
 ###################################Function and Class Definition Starts Here################################################################
 class VariableState():
   def __init__(self,name,scope,varType,size,value,iteratorVar):
@@ -147,7 +150,13 @@ class VarInEachLine():
  
   def returnFor(self):
     return self.forCount
+
+  def divFor(self,count):
+    self.forCount = self.forCount/count
  
+  def divIf(self,count):
+    self.ifCount = self.ifCount/count
+
   def returnIf(self):
     return self.ifCount
 
@@ -840,10 +849,19 @@ def instCountForInnerFor(currentLine):
   ratios = re.findall('FRATIO\d+',currentLine)
   global fratioIndex
   global instCountWithFRatio
-  if (ratios):
+  if (ratios and len(useInnerLoopScope)==0):
     fratioIndex = scope.frontId()
+    global useInnerForTripCount
+    global useInnerForIfRatio
+    if (useInnerForTripCount == 1 and len(useInnerLoopScope)==0 ):
+      useInnerForTripCount = MultiplicationFactorFor.front()
+      useInnerForIfRatio   = MultiplicationFactorIf.front()
+    useInnerLoopScope.append(fratioIndex)
+    return #If this for loop is huge, possibly, the kernel starts from next instruction, so mark this scope and return and start fetching from next instruction
   if fratioIndex <= scope.frontId():
     #scope is a stack structure, the index increments by 1 when you insert something and decrements hen pop. All if/while/for under for marked with fratio will have index > fratio marked for 
+    if (scope.frontId in useInnerLoopScope) == False: #Used for ILP Calculation. ILP for inner for loops are calculated seperately
+      useInnerLoopScope.append(fratioIndex)
     numArithmetic  = re.findall('\+\+|\+|\-|\*|/|<=|\>=|<<|>>|==|<|>',currentLine, re.I)
     numFalseArithmetic  = re.findall('//',currentLine, re.I) #// interpreted as 2 divisions
     instCountWithFRatio =  instCountWithFRatio + (len(numArithmetic) -len(numFalseArithmetic))
@@ -862,10 +880,11 @@ def instCountForInnerFor(currentLine):
     instCountWithFRatio = instCountWithFRatio + NumLoadOperationsThisLine + NumStoreOperationsThisLine
     print "Within Fratio"
     print instCountWithFRatio
+
   return
 
 
-def instructionLevelParallelism():
+def instructionLevelParallelism(useInnerFor):
   "Goes backwards to look at instruction level parallelism"
   print "ILP!!!"
   ReducedAnnotatedRegion = []
@@ -882,7 +901,8 @@ def instructionLevelParallelism():
   j=0
   while i<len(PerLineVarInAnnotatedRegion):
     #if (scopeIdC == PerLineVarInAnnotatedRegion[i].getScopeId()):
-    if (1):
+    #if (1):
+    if (useInnerFor == False):
       ReducedAnnotatedRegion.append(PerLineVarInAnnotatedRegion[i])
       IncomingList.append([])
       OutgoingList.append([])
@@ -893,7 +913,22 @@ def instructionLevelParallelism():
 	    OutgoingList[k].append(j)
 	    IncomingList[(len(ReducedAnnotatedRegion)-1)].append(k)
 	  k=k+1
-      j=j+1
+      j=j+1 
+    else:
+      if (PerLineVarInAnnotatedRegion[i].getScopeId() in useInnerLoopScope):
+	PerLineVarInAnnotatedRegion[i].divFor(useInnerForTripCount)
+	PerLineVarInAnnotatedRegion[i].divIf(useInnerForIfRatio)
+	ReducedAnnotatedRegion.append(PerLineVarInAnnotatedRegion[i])
+        IncomingList.append([])
+        OutgoingList.append([])
+        if(j!=0):
+	  k = 0
+	  while (k < len(ReducedAnnotatedRegion)-1):
+	    if(PerLineVarInAnnotatedRegion[i].checkLHS(ReducedAnnotatedRegion[k].getLHS())):
+	      OutgoingList[k].append(j)
+	      IncomingList[(len(ReducedAnnotatedRegion)-1)].append(k)
+	    k=k+1
+	j=j+1
     i=i+1
   print "******"
   Node0 = []
@@ -982,7 +1017,12 @@ for currentLine in fileHandler:
     StartAnalyzing = False
     break
   previousLine = currentLine
-instructionLevelParallelism()
+if (TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreOperations >= 200):
+  #CriticalPath = 16000/useInnerForTripCount
+  instructionLevelParallelism(True)
+else:
+  instructionLevelParallelism(False)
+#instructionLevelParallelism(False)
 print "######################################################"
 printVariables()
 printPerLineVariables()
@@ -997,6 +1037,14 @@ print "NumDoubleAccesses - ", NumDoubleAccesses
 print "CriticalPath - ", CriticalPath
 print "nThreadsCount - ",nThreadsCount
 print "instCountWithFRatio - ",instCountWithFRatio
+ninst = TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreOperations
+print "ninst       - ",ninst
+ilp16k = min(16000,ninst*nThreadsCount)/(((min(16000,ninst*nThreadsCount))/ninst) + CriticalPath)
+print "ilp16k       - ",ilp16k
+ilp32 = min(32,ninst*nThreadsCount)/(((min(32,ninst*nThreadsCount))/ninst) + CriticalPath)
+print "ilp32       - ",ilp32
+ilpRate = ilp16k/ilp32
+print "ilpRate       - ",ilpRate
 if (len(Warnings)>0):
   print "Warnings!!!!"
   for i in Warnings:
@@ -1049,6 +1097,13 @@ else:
   print "Floating Point Mul/Div - L" 
   writeLine=writeLine+",L"
 
+#if (ilp16k < 70):
+#  print "Total Instruction - L"
+#  writeLine=writeLine+",L"
+#else:
+#  print "Total Instruction - H"
+#  writeLine=writeLine+",H"
+  
 if (TotalArithmeticInstructions+TotalTranscendentals+NumLoadOperations+NumStoreOperations < 70):
   print "Total Instruction - L"
   writeLine=writeLine+",L"
@@ -1067,6 +1122,7 @@ print "Num Threads - "+str(nThreadsCount)
 writeLine=writeLine+","+str(nThreadsCount)
 
 if (CriticalPath<=14):
+#if (ilpRate<=14):
   print "Critical Path - L"
   writeLine=writeLine+",L"
 else :

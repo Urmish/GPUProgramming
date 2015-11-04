@@ -1,26 +1,26 @@
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -515,6 +515,10 @@ NumDoubleAccesses -  0
 CriticalPath -  4
 nThreadsCount -  1048576
 instCountWithFRatio -  0
+ninst       -  17
+ilp16k       -  16
+ilp32       -  6
+ilpRate       -  2
 
 
 ######################################################
@@ -527,29 +531,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 1048576
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -1086,6 +1090,10 @@ NumDoubleAccesses -  0
 CriticalPath -  2
 nThreadsCount -  1000000
 instCountWithFRatio -  0
+ninst       -  4.24
+ilp16k       -  4.23775399039
+ilp32       -  3.35177865613
+ilpRate       -  1.26432990515
 
 
 ######################################################
@@ -1098,29 +1106,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 1000000
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -1320,8 +1328,6 @@ generateAST for for(i = 0; i < maxheight; i++){ //FRATIO2
 This line is a for
 extractEveryVariable
 Inserting - for(i = 0; i < maxheight; i++){ //FRATIO2
-Within Fratio
-3
 	     *accessKnode = knodes[access];
 
 []
@@ -1362,7 +1368,7 @@ Time Taken 1
 extractEveryVariable
 Inserting - *accessKnode = knodes[access];
 Within Fratio
-5
+2
              if((accessKnode.keys[thid]) <= keys[bid] && (accessKnode.keys[thid+1] > keys[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
 
 scope - pushing For
@@ -1454,7 +1460,7 @@ temp bratio is  0.32
 Divergence ratio is  0.32
 If ratio stack - pushing 0.01
 Within Fratio
-14
+11
 		  int offaccess = offset[bid];
 
 []
@@ -1485,7 +1491,7 @@ Time Taken 1
 extractEveryVariable
 Inserting - int offaccess = offset[bid];
 Within Fratio
-15
+12
                   if(knodes[offaccess].indices[thid] < knodes_elem){	//taken once per iteration of maxheight //BRATIO0.01 BRATIO0.01
 
 scope - pushing if
@@ -1571,7 +1577,7 @@ temp bratio is  0.0032
 Divergence ratio using old  0.32
 If ratio stack - pushing 0.0001
 Within Fratio
-20
+17
                       offset[bid] = knodes[offaccess].indices[thid];
 
 []
@@ -1607,7 +1613,7 @@ Time Taken 2
 extractEveryVariable
 Inserting - offset[bid] = knodes[offaccess].indices[thid];
 Within Fratio
-23
+20
                   }
 
 Scope Found if, popping, New Length 2
@@ -1635,7 +1641,7 @@ generateAST for }
 This line does not have an =
 extractEveryVariable
 Within Fratio
-23
+20
              }
 
 Scope Found For, popping, New Length 4
@@ -1663,7 +1669,7 @@ generateAST for }
 This line does not have an =
 extractEveryVariable
 Within Fratio
-23
+20
         }
 
 Scope Found For, popping, New Length 3
@@ -1905,7 +1911,7 @@ temp bratio is  0.00032
 Divergence ratio using old  0.32
 If ratio stack - pushing 1e-05
 Within Fratio
-29
+26
 	    int access5 = knodes[access2].indices[thid];
 
 []
@@ -1936,7 +1942,7 @@ Time Taken 2
 extractEveryVariable
 Inserting - int access5 = knodes[access2].indices[thid];
 Within Fratio
-31
+28
             ans[bid].value = records[access5].value;
 
 []
@@ -1972,7 +1978,7 @@ Time Taken 2
 extractEveryVariable
 Inserting - ans[bid].value = records[access5].value;
 Within Fratio
-33
+30
         }
 
 Scope Found For, popping, New Length 3
@@ -2512,7 +2518,11 @@ NumIndirectAccesses -  0
 NumDoubleAccesses -  0
 CriticalPath -  3
 nThreadsCount -  5080000
-instCountWithFRatio -  33
+instCountWithFRatio -  30
+ninst       -  21.13034
+ilp16k       -  21.0469532603
+ilp32       -  7.08841230548
+ilpRate       -  2.96920556442
 
 
 ######################################################
@@ -2525,29 +2535,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 5080000
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -2776,8 +2786,6 @@ generateAST for for(i = 0; i < maxheight; i++){ //FRATIO2
 This line is a for
 extractEveryVariable
 Inserting - for(i = 0; i < maxheight; i++){ //FRATIO2
-Within Fratio
-3
 	     *accessKnode = knodes[access];
 
 []
@@ -2818,7 +2826,7 @@ Time Taken 1
 extractEveryVariable
 Inserting - *accessKnode = knodes[access];
 Within Fratio
-5
+2
              if((accessKnode.keys[thid] <= start[bid]) && (accessKnode.keys[thid+1] > start[bid])){	//taken for less than 1% of the iterations of threadsPerBlock //BRATIO0.01
 
 scope - pushing For
@@ -2910,7 +2918,7 @@ temp bratio is  0.32
 Divergence ratio is  0.32
 If ratio stack - pushing 0.01
 Within Fratio
-14
+11
                 if(knodes[access].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight  //BRATIO0.5 //BRATIO0.01
 
 scope - pushing For
@@ -3013,7 +3021,7 @@ temp bratio is  0.16
 Divergence ratio using old  0.32
 If ratio stack - pushing 0.005
 Within Fratio
-20
+17
                     offset[bid] = knodes[access].indices[thid];
 
 []
@@ -3049,7 +3057,7 @@ Time Taken 2
 extractEveryVariable
 Inserting - offset[bid] = knodes[access].indices[thid];
 Within Fratio
-23
+20
                 }
 
 Scope Found For, popping, New Length 5
@@ -3077,7 +3085,7 @@ generateAST for }
 This line does not have an =
 extractEveryVariable
 Within Fratio
-23
+20
             }
 
 Scope Found For, popping, New Length 4
@@ -3105,7 +3113,7 @@ generateAST for }
 This line does not have an =
 extractEveryVariable
 Within Fratio
-23
+20
             if((knodes[access3].keys[thid] <= end[bid]) && (knodes[access3].keys[thid+1] > end[bid])){	//taken for less than 1% of the iterations of threadsPerBlock #BRATIO0.01
 
 scope - pushing For
@@ -3179,7 +3187,7 @@ temp bratio is  0.32
 Divergence ratio using old  0.32
 If ratio stack - pushing 0.01
 Within Fratio
-33
+30
                 if(knodes[access3].indices[thid] < knodes_elem){		//only taken once for every iteration of maxheight //BRATIO0.01 BRATIO0.5
 
 scope - pushing For
@@ -3266,7 +3274,7 @@ temp bratio is  0.16
 Divergence ratio using old  0.32
 If ratio stack - pushing 0.005
 Within Fratio
-38
+35
                     offset_2[bid] = knodes[access3].indices[thid];
 
 []
@@ -3302,7 +3310,7 @@ Time Taken 2
 extractEveryVariable
 Inserting - offset_2[bid] = knodes[access3].indices[thid];
 Within Fratio
-41
+38
                 }
 
 Scope Found For, popping, New Length 5
@@ -3330,7 +3338,7 @@ generateAST for }
 This line does not have an =
 extractEveryVariable
 Within Fratio
-41
+38
             }
 
 Scope Found For, popping, New Length 4
@@ -3358,7 +3366,7 @@ generateAST for }
 This line does not have an =
 extractEveryVariable
 Within Fratio
-41
+38
         }
 
 Scope Found For, popping, New Length 3
@@ -3609,7 +3617,7 @@ temp bratio is  0.0032
 Divergence ratio using old  0.32
 If ratio stack - pushing 0.0001
 Within Fratio
-47
+44
             recstart[bid] = knodes[access2].indices[thid];
 
 []
@@ -3645,7 +3653,7 @@ Time Taken 2
 extractEveryVariable
 Inserting - recstart[bid] = knodes[access2].indices[thid];
 Within Fratio
-50
+47
         }
 
 Scope Found For, popping, New Length 3
@@ -3828,7 +3836,7 @@ temp bratio is  0.0032
 Divergence ratio using old  0.32
 If ratio stack - pushing 0.0001
 Within Fratio
-56
+53
             reclength[bid] = knodes[access4].indices[thid] - recstart[bid]+1;
 
 []
@@ -3864,7 +3872,7 @@ Time Taken 4
 extractEveryVariable
 Inserting - reclength[bid] = knodes[access4].indices[thid] - recstart[bid]+1;
 Within Fratio
-62
+59
         }
 
 Scope Found For, popping, New Length 3
@@ -4625,7 +4633,11 @@ NumIndirectAccesses -  0
 NumDoubleAccesses -  0
 CriticalPath -  3
 nThreadsCount -  3048000
-instCountWithFRatio -  62
+instCountWithFRatio -  59
+ninst       -  22.1966
+ilp16k       -  22.1046036789
+ilp32       -  7.20451000002
+ilpRate       -  3.0681619817
 
 
 ######################################################
@@ -4638,29 +4650,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 3048000
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -5196,6 +5208,10 @@ NumDoubleAccesses -  0
 CriticalPath -  1
 nThreadsCount -  97046
 instCountWithFRatio -  0
+ninst       -  12
+ilp16k       -  11
+ilp32       -  10
+ilpRate       -  1
 
 
 ######################################################
@@ -5208,29 +5224,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 97046
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -6682,6 +6698,10 @@ NumDoubleAccesses -  0
 CriticalPath -  14
 nThreadsCount -  97046
 instCountWithFRatio -  0
+ninst       -  33
+ilp16k       -  32
+ilp32       -  2
+ilpRate       -  16
 Warnings!!!!
 1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- float density = variables[NVAR*i + VAR_DENSITY];
 
@@ -6705,29 +6725,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 97046
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -7799,6 +7819,10 @@ NumDoubleAccesses -  0
 CriticalPath -  6
 nThreadsCount -  97046
 instCountWithFRatio -  0
+ninst       -  31
+ilp16k       -  30
+ilp32       -  4
+ilpRate       -  7
 Warnings!!!!
 1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- variables[NVAR*i + VAR_DENSITY] = old_variables[NVAR*i + VAR_DENSITY] + factor*fluxes[NVAR*i + VAR_DENSITY];
 
@@ -7824,29 +7848,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 97046
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -8719,6 +8743,10 @@ NumDoubleAccesses -  0
 CriticalPath -  9
 nThreadsCount -  8388608
 instCountWithFRatio -  0
+ninst       -  22
+ilp16k       -  21
+ilp32       -  3
+ilpRate       -  7
 
 
 ######################################################
@@ -8731,29 +8759,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 8388608
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -9466,6 +9494,10 @@ NumDoubleAccesses -  2
 CriticalPath -  5
 nThreadsCount -  16777216
 instCountWithFRatio -  0
+ninst       -  13
+ilp16k       -  12
+ilp32       -  4
+ilpRate       -  3
 
 
 ######################################################
@@ -9478,29 +9510,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 16777216
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -9839,6 +9871,10 @@ NumDoubleAccesses -  1
 CriticalPath -  1
 nThreadsCount -  8388608
 instCountWithFRatio -  0
+ninst       -  6
+ilp16k       -  5
+ilp32       -  5
+ilpRate       -  1
 
 
 ######################################################
@@ -9851,29 +9887,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 8388608
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -10251,6 +10287,10 @@ NumDoubleAccesses -  1
 CriticalPath -  6
 nThreadsCount -  8388608
 instCountWithFRatio -  0
+ninst       -  14
+ilp16k       -  13
+ilp32       -  4
+ilpRate       -  3
 Warnings!!!!
 1. Memory Coalescing Warning - ***t*indexmap[idx]*** is an indirect access in line u1_r[idx] = u0_r[idx] * ex[t*indexmap[idx]];
 
@@ -10268,29 +10308,29 @@ Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 8388608
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -10510,8 +10550,6 @@ generateAST for for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO768
 This line is a for
 extractEveryVariable
 Inserting - for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO768
-Within Fratio
-5
                 temp += sa * sx[randIndex[j]];
 
 []
@@ -10556,7 +10594,7 @@ Time Taken 3
 extractEveryVariable
 Inserting - temp += sa * sx[randIndex[j]];
 Within Fratio
-9
+4
             }
 
 Scope Found For, popping, New Length 3
@@ -10683,93 +10721,35 @@ Annotation End Found
 ILP!!!
 ******
 0
-if(window[i] == 1){		//BRATIO0.03125
-[]
-[]
-2
-1
-1
-
-
-1
-float temp = 0.0f;
-[]
-[4, 5]
-0
-0.03125
-1
-
-
-2
-int upperBound = randIndex[i]+768;
-[]
-[3]
-2
-0.03125
-1
-
-
-3
 for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO768
-[2]
-[4]
+[]
+[1]
 1
-0.03125
-768
+1.0
+1
 
 
-4
+1
 temp += sa * sx[randIndex[j]];
-[1, 3]
+[0]
 []
 3
-0.03125
-768
-
-
-5
-sy[i] = temp;
-[1]
-[]
-1
-0.03125
+1.0
 1
 
 
 ******
 Node 0's -
-[0, 1, 2]
+[0]
 DFS Stack - pushing 0
-[2, -999, -999, -999, -999, -999]
+[1.0, -999]
 DFS Stack - pushing 1
-[-999, 0.0, -999, -999, -999, -999]
-DFS Stack - pushing 4
-(1,0.0)
-(4,72.0)
-72
+(0,1.0)
+(1,3.0)
+4
 Selected!
-DFS Stack - pushing 5
-(1,0.0)
-(5,0.03125)
-0
-Selected!
-[-999, 0.0, -999, -999, 72, 0]
-[-999, 0.0, -999, -999, 72, 0]
-DFS Stack - pushing 2
-[-999, -999, 0.0625, -999, -999, -999]
-DFS Stack - pushing 3
-(2,0.0625)
-(3,24.0)
-24
-Selected!
-[-999, -999, 0.0625, 24, -999, -999]
-DFS Stack - pushing 4
-(3,24)
-(4,72.0)
-96
-Selected!
-[-999, -999, 0.0625, 24, 96, -999]
-[2, 72, 96]
+[1.0, 4]
+[4]
 ######################################################
 **********
 The values of this entry are
@@ -10848,8 +10828,8 @@ Line	     - int upperBound = randIndex[i]+768;
 Line 5
 LHS -  for j
 RHS -  andIndex i j upperBound j n j
-For Ratio - 768
-If  Ratio - 0.03125
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 4
 Cycles    - 1
@@ -10858,8 +10838,8 @@ Line	     - for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO768
 Line 6
 LHS - 
 RHS -  temp sa sx randIndex j
-For Ratio - 768
-If  Ratio - 0.03125
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 4
 Cycles    - 3
@@ -10885,9 +10865,13 @@ NumStoreOperations - 1.03125
 NumOffsetAccesses -  0
 NumIndirectAccesses -  1
 NumDoubleAccesses -  0
-CriticalPath -  96
+CriticalPath -  4
 nThreadsCount -  1024000
-instCountWithFRatio -  9
+instCountWithFRatio -  4
+ninst       -  220.09375
+ilp16k       -  208.61503373
+ilp32       -  7.7194136183
+ilpRate       -  27.0247254578
 Warnings!!!!
 1. Memory Coalescing Warning - ***randIndex[j]*** is an indirect access in line temp += sa * sx[randIndex[j]];
 
@@ -10902,30 +10886,30 @@ ControlDensity -  H
 Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 1024000
-Critical Path - H
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+Critical Path - L
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -11172,8 +11156,6 @@ generateAST for for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO1024
 This line is a for
 extractEveryVariable
 Inserting - for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO1024
-Within Fratio
-5
                 temp += sa * (sx[randIndex[j]] + randArray[randIndex[j]]);
 
 []
@@ -11219,7 +11201,7 @@ Time Taken 4
 extractEveryVariable
 Inserting - temp += sa * (sx[randIndex[j]] + randArray[randIndex[j]]);
 Within Fratio
-12
+7
             }
 
 Scope Found For, popping, New Length 3
@@ -11346,93 +11328,35 @@ Annotation End Found
 ILP!!!
 ******
 0
-if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIO0.03125
-[]
-[]
-2
-1
-1
-
-
-1
-float temp = 0.0f;
-[]
-[4, 5]
-0
-0.03125
-1
-
-
-2
-int upperBound = randIndex[i]+1024;
-[]
-[3]
-2
-0.03125
-1
-
-
-3
 for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO1024
-[2]
-[4]
-1
-0.03125
-1024
-
-
-4
-temp += sa * (sx[randIndex[j]] + randArray[randIndex[j]]);
-[1, 3]
 []
-4
-0.03125
-1024
-
-
-5
-sy[i] = temp;
 [1]
-[]
 1
-0.03125
+1.0
+1
+
+
+1
+temp += sa * (sx[randIndex[j]] + randArray[randIndex[j]]);
+[0]
+[]
+4
+1.0
 1
 
 
 ******
 Node 0's -
-[0, 1, 2]
+[0]
 DFS Stack - pushing 0
-[2, -999, -999, -999, -999, -999]
+[1.0, -999]
 DFS Stack - pushing 1
-[-999, 0.0, -999, -999, -999, -999]
-DFS Stack - pushing 4
-(1,0.0)
-(4,128.0)
-128
+(0,1.0)
+(1,4.0)
+5
 Selected!
-DFS Stack - pushing 5
-(1,0.0)
-(5,0.03125)
-0
-Selected!
-[-999, 0.0, -999, -999, 128, 0]
-[-999, 0.0, -999, -999, 128, 0]
-DFS Stack - pushing 2
-[-999, -999, 0.0625, -999, -999, -999]
-DFS Stack - pushing 3
-(2,0.0625)
-(3,32.0)
-32
-Selected!
-[-999, -999, 0.0625, 32, -999, -999]
-DFS Stack - pushing 4
-(3,32)
-(4,128.0)
-160
-Selected!
-[-999, -999, 0.0625, 32, 160, -999]
-[2, 128, 160]
+[1.0, 5]
+[5]
 ######################################################
 **********
 The values of this entry are
@@ -11519,8 +11443,8 @@ Line	     - int upperBound = randIndex[i]+1024;
 Line 5
 LHS -  for j
 RHS -  andIndex i j upperBound j n j
-For Ratio - 1024
-If  Ratio - 0.03125
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 4
 Cycles    - 1
@@ -11529,8 +11453,8 @@ Line	     - for(j=randIndex[i]; j<upperBound && j<n; j++){ //FRATIO1024
 Line 6
 LHS - 
 RHS -  temp sa sx randIndex j randArray randIndex j
-For Ratio - 1024
-If  Ratio - 0.03125
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 4
 Cycles    - 4
@@ -11556,9 +11480,13 @@ NumStoreOperations - 1.03125
 NumOffsetAccesses -  0
 NumIndirectAccesses -  2
 NumDoubleAccesses -  0
-CriticalPath -  160
+CriticalPath -  5
 nThreadsCount -  1024000
-instCountWithFRatio -  12
+instCountWithFRatio -  7
+ninst       -  388.09375
+ilp16k       -  346.116931867
+ilp32       -  6.29617072514
+ilpRate       -  54.972609063
 Warnings!!!!
 1. Memory Coalescing Warning - ***randIndex[j]*** is an indirect access in line temp += sa * (sx[randIndex[j]] + randArray[randIndex[j]]);
 
@@ -11575,30 +11503,30 @@ ControlDensity -  H
 Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 1024000
-Critical Path - H
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+Critical Path - L
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -11845,8 +11773,6 @@ generateAST for for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){ 
 This line is a for
 extractEveryVariable
 Inserting - for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){ //FRATIO1024
-Within Fratio
-7
                 temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
 
 []
@@ -11892,7 +11818,7 @@ Time Taken 4
 extractEveryVariable
 Inserting - temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
 Within Fratio
-14
+7
             }
 
 Scope Found For, popping, New Length 3
@@ -12019,93 +11945,35 @@ Annotation End Found
 ILP!!!
 ******
 0
-if(window[i] == 1){		//this condition is met once every 32 iterations //BRATIO0.03125
-[]
-[]
-2
-1
-1
-
-
-1
-float temp = 0.0f;
-[]
-[4, 5]
-0
-0.03125
-1
-
-
-2
-int upperBound = randIndex[i]+1024;
-[]
-[3]
-2
-0.03125
-1
-
-
-3
 for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){ //FRATIO1024
-[2]
-[4]
-1
-0.03125
-1024
-
-
-4
-temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
-[1, 3]
 []
-4
-0.03125
-1024
-
-
-5
-sy[i] = temp;
 [1]
-[]
 1
-0.03125
+1.0
+1
+
+
+1
+temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
+[0]
+[]
+4
+1.0
 1
 
 
 ******
 Node 0's -
-[0, 1, 2]
+[0]
 DFS Stack - pushing 0
-[2, -999, -999, -999, -999, -999]
+[1.0, -999]
 DFS Stack - pushing 1
-[-999, 0.0, -999, -999, -999, -999]
-DFS Stack - pushing 4
-(1,0.0)
-(4,128.0)
-128
+(0,1.0)
+(1,4.0)
+5
 Selected!
-DFS Stack - pushing 5
-(1,0.0)
-(5,0.03125)
-0
-Selected!
-[-999, 0.0, -999, -999, 128, 0]
-[-999, 0.0, -999, -999, 128, 0]
-DFS Stack - pushing 2
-[-999, -999, 0.0625, -999, -999, -999]
-DFS Stack - pushing 3
-(2,0.0625)
-(3,32.0)
-32
-Selected!
-[-999, -999, 0.0625, 32, -999, -999]
-DFS Stack - pushing 4
-(3,32)
-(4,128.0)
-160
-Selected!
-[-999, -999, 0.0625, 32, 160, -999]
-[2, 128, 160]
+[1.0, 5]
+[5]
 ######################################################
 **********
 The values of this entry are
@@ -12192,8 +12060,8 @@ Line	     - int upperBound = randIndex[i]+1024;
 Line 5
 LHS -  for j
 RHS -  andIndex i j upperBound j n emrIndex j n j
-For Ratio - 1024
-If  Ratio - 0.03125
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 4
 Cycles    - 1
@@ -12202,8 +12070,8 @@ Line	     - for(j=randIndex[i]; j<upperBound && j<n && emrIndex[j]<n; j++){ //FR
 Line 6
 LHS - 
 RHS -  temp sa sx randIndex j sx emrIndex j
-For Ratio - 1024
-If  Ratio - 0.03125
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 4
 Cycles    - 4
@@ -12229,9 +12097,13 @@ NumStoreOperations - 1.03125
 NumOffsetAccesses -  0
 NumIndirectAccesses -  2
 NumDoubleAccesses -  0
-CriticalPath -  160
+CriticalPath -  5
 nThreadsCount -  1024000
-instCountWithFRatio -  14
+instCountWithFRatio -  7
+ninst       -  484.09375
+ilp16k       -  420.48332782
+ilp32       -  6.31649231004
+ilpRate       -  66.5691189319
 Warnings!!!!
 1. Memory Coalescing Warning - ***randIndex[j]*** is an indirect access in line temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
 
@@ -12248,30 +12120,30 @@ ControlDensity -  H
 Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 1024000
-Critical Path - H
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+Critical Path - L
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -12658,8 +12530,6 @@ generateAST for for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j
 This line is a for
 extractEveryVariable
 Inserting - for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
-Within Fratio
-8
                     temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[j]]);
 
 []
@@ -12705,7 +12575,7 @@ Time Taken 5
 extractEveryVariable
 Inserting - temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[j]]);
 Within Fratio
-16
+8
                 } 
 
 Scope Found For, popping, New Length 4
@@ -12925,7 +12795,7 @@ This line is a for
 extractEveryVariable
 Inserting - for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
 Within Fratio
-24
+16
                     temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[randIndex[j]]]);
 
 []
@@ -12971,7 +12841,7 @@ Time Taken 5
 extractEveryVariable
 Inserting - temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[randIndex[j]]]);
 Within Fratio
-33
+25
                 }
 
 Scope Found For, popping, New Length 3
@@ -13124,243 +12994,65 @@ Annotation End Found
 ILP!!!
 ******
 0
-if(window[i] == 1){				//this condition is met once every 32 iterations //BRATIO0.03125
+for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
 []
+[1, 2, 3]
+1
+1.0
+1
+
+
+1
+temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[j]]);
+[0]
 []
+5
+1.0
+1
+
+
 2
+for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
+[0]
+[3]
 1
-1
-
-
-1
-float temp = 0.0f;
-[]
-[7, 12, 13]
-0
-0.03125
-1
-
-
-2
-int upperBound1, upperBound2;
-[]
-[]
-0
-0.03125
+1.0
 1
 
 
 3
-if(emrIndex[i] > randIndex[i]){		//taken for 50% of the iterations //BRATIO0.03125 BRATIO0.5
-[]
-[]
-0
-0.03125
-1
-
-
-4
-upperBound1 = emrIndex[i];
-[]
-[6, 11]
-1
-0.015625
-1
-
-
-5
-upperBound2 = randIndex[i]+1024;
-[]
-[6, 11]
-2
-0.015625
-1
-
-
-6
-for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
-[4, 5]
-[7, 11, 12]
-1
-0.015625
-1024
-
-
-7
-temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[j]]);
-[1, 6]
-[]
-5
-0.015625
-1024
-
-
-8
-else{//BRATIO0.03125 //BRATIO0.5
-[]
-[]
-0
-0.015625
-1
-
-
-9
-upperBound1 = randIndex[i];
-[]
-[11]
-1
-0.015625
-1
-
-
-10
-upperBound2 = emrIndex[i]+768;
-[]
-[11]
-2
-0.015625
-1
-
-
-11
-for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n && j<n; j++){ //FRATIO1024
-[4, 5, 6, 9, 10]
-[12]
-1
-0.015625
-1024
-
-
-12
 temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[randIndex[j]]]);
-[1, 6, 11]
+[0, 2]
 []
 5
-0.015625
-1024
-
-
-13
-sy[i] = temp;
-[1]
-[]
-1
-0.015625
+1.0
 1
 
 
 ******
 Node 0's -
-[0, 1, 2, 3, 4, 5, 8, 9, 10]
+[0]
 DFS Stack - pushing 0
-[2, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
+[1.0, -999, -999, -999]
 DFS Stack - pushing 1
-[-999, 0.0, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 7
-(1,0.0)
-(7,80.0)
-80
+(0,1.0)
+(1,5.0)
+6
 Selected!
-DFS Stack - pushing 12
-(1,0.0)
-(12,80.0)
-80
-Selected!
-DFS Stack - pushing 13
-(1,0.0)
-(13,0.015625)
-0
-Selected!
-[-999, 0.0, -999, -999, -999, -999, -999, 80, -999, -999, -999, -999, 80, 0]
-[-999, 0.0, -999, -999, -999, -999, -999, 80, -999, -999, -999, -999, 80, 0]
-[-999, 0.0, -999, -999, -999, -999, -999, 80, -999, -999, -999, -999, 80, 0]
 DFS Stack - pushing 2
-[-999, -999, 0.0, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
+(0,1.0)
+(2,1.0)
+2
+Selected!
 DFS Stack - pushing 3
-[-999, -999, -999, 0.0, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 4
-[-999, -999, -999, -999, 0.015625, -999, -999, -999, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 6
-(4,0.015625)
-(6,16.0)
-16
+(0,1.0)
+(3,5.0)
+6
 Selected!
-DFS Stack - pushing 11
-(4,0.015625)
-(11,16.0)
-16
-Selected!
-[-999, -999, -999, -999, 0.015625, -999, 16, -999, -999, -999, -999, 16, -999, -999]
-DFS Stack - pushing 12
-(11,16)
-(12,80.0)
-96
-Selected!
-[-999, -999, -999, -999, 0.015625, -999, 16, -999, -999, -999, -999, 16, 96, -999]
-[-999, -999, -999, -999, 0.015625, -999, 16, -999, -999, -999, -999, 16, 96, -999]
-DFS Stack - pushing 7
-(6,16)
-(7,80.0)
-96
-Selected!
-[-999, -999, -999, -999, 0.015625, -999, 16, 96, -999, -999, -999, 16, 96, -999]
-DFS Stack - pushing 5
-[-999, -999, -999, -999, -999, 0.03125, -999, -999, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 6
-(5,0.03125)
-(6,16.0)
-16
-Selected!
-DFS Stack - pushing 11
-(5,0.03125)
-(11,16.0)
-16
-Selected!
-[-999, -999, -999, -999, -999, 0.03125, 16, -999, -999, -999, -999, 16, -999, -999]
-DFS Stack - pushing 12
-(11,16)
-(12,80.0)
-96
-Selected!
-[-999, -999, -999, -999, -999, 0.03125, 16, -999, -999, -999, -999, 16, 96, -999]
-[-999, -999, -999, -999, -999, 0.03125, 16, -999, -999, -999, -999, 16, 96, -999]
-DFS Stack - pushing 7
-(6,16)
-(7,80.0)
-96
-Selected!
-[-999, -999, -999, -999, -999, 0.03125, 16, 96, -999, -999, -999, 16, 96, -999]
-DFS Stack - pushing 8
-[-999, -999, -999, -999, -999, -999, -999, -999, 0.0, -999, -999, -999, -999, -999]
-DFS Stack - pushing 9
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, 0.015625, -999, -999, -999, -999]
-DFS Stack - pushing 11
-(9,0.015625)
-(11,16.0)
-16
-Selected!
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, 0.015625, -999, 16, -999, -999]
-DFS Stack - pushing 12
-(11,16)
-(12,80.0)
-96
-Selected!
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, 0.015625, -999, 16, 96, -999]
-DFS Stack - pushing 10
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.03125, -999, -999, -999]
-DFS Stack - pushing 11
-(10,0.03125)
-(11,16.0)
-16
-Selected!
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.03125, 16, -999, -999]
-DFS Stack - pushing 12
-(11,16)
-(12,80.0)
-96
-Selected!
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.03125, 16, 96, -999]
-[2, 80, 0.0, 0.0, 96, 96, 0.0, 96, 96]
+[1.0, 6, 2, 6]
+[1.0, 6, 2, 6]
+[1.0, 6, 2, 6]
+[6]
 ######################################################
 **********
 The values of this entry are
@@ -13477,8 +13169,8 @@ Line	     - upperBound2 = randIndex[i]+1024;
 Line 8
 LHS -  for j
 RHS -  andIndex i j upperBound j upperBound emrIndex j n j n j
-For Ratio - 1024
-If  Ratio - 0.015625
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 5
 Cycles    - 1
@@ -13487,8 +13179,8 @@ Line	     - for(j=randIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n 
 Line 9
 LHS - 
 RHS -  temp sa sx randIndex emrIndex j sx emrIndex j
-For Ratio - 1024
-If  Ratio - 0.015625
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 5
 Cycles    - 5
@@ -13527,8 +13219,8 @@ Line	     - upperBound2 = emrIndex[i]+768;
 Line 13
 LHS -  for j
 RHS -  mrIndex i j upperBound j upperBound emrIndex j n j n j
-For Ratio - 1024
-If  Ratio - 0.015625
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 5
 Cycles    - 1
@@ -13537,8 +13229,8 @@ Line	     - for(j=emrIndex[i]; j<upperBound1 && j<upperBound2 && emrIndex[j]<n &
 Line 14
 LHS - 
 RHS -  temp sa sx randIndex emrIndex j sx emrIndex randIndex j
-For Ratio - 1024
-If  Ratio - 0.015625
+For Ratio - 1
+If  Ratio - 1.0
 Scope     - For
 ScopeId   - 5
 Cycles    - 5
@@ -13564,9 +13256,13 @@ NumStoreOperations - 1.015625
 NumOffsetAccesses -  0
 NumIndirectAccesses -  7
 NumDoubleAccesses -  0
-CriticalPath -  96
+CriticalPath -  6
 nThreadsCount -  1024000
-instCountWithFRatio -  33
+instCountWithFRatio -  25
+ninst       -  596.203125
+ilp16k       -  487.262778325
+ilp32       -  5.28604701502
+ilpRate       -  92.1790473941
 Warnings!!!!
 1. Memory Coalescing Warning - ***randIndex[emrIndex[j]*** is an indirect access in line temp += sa * (sx[randIndex[emrIndex[j]]] + sx[emrIndex[j]]);
 
@@ -13587,30 +13283,30 @@ ControlDensity -  H
 Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 1024000
-Critical Path - H
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+Critical Path - L
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -14818,6 +14514,10 @@ NumDoubleAccesses -  0
 CriticalPath -  2
 nThreadsCount -  1024000
 instCountWithFRatio -  0
+ninst       -  4.734375
+ilp16k       -  4.73157486878
+ilp32       -  3.65335342879
+ilpRate       -  1.29513198244
 Warnings!!!!
 1. Memory Coalescing Warning - ***randIndex[j]*** is an indirect access in line temp += sa * (sx[randIndex[j]] + sx[emrIndex[j]]);
 
@@ -14889,29 +14589,29 @@ Critical Path - L
 ['python', '/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/../Input_C_Parser/Test16.txt']
 ../Input_C_Parser/Test17.txt
 
-['python', '/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgrammin/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+['python', '/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py', '-file', '/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgrammin/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -15297,6 +14997,10 @@ NumDoubleAccesses -  0
 CriticalPath -  5
 nThreadsCount -  42800
 instCountWithFRatio -  0
+ninst       -  14
+ilp16k       -  13
+ilp32       -  4
+ilpRate       -  3
 
 
 ######################################################
@@ -15309,29 +15013,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 42800
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -15553,8 +15257,6 @@ generateAST for for(int x = 0; x < Nparticles; x++) {//FRATIO1000
 This line is a for
 extractEveryVariable
 Inserting - for(int x = 0; x < Nparticles; x++) {//FRATIO1000
-Within Fratio
-3
       if(CDF[x] >= u[j])	//BRATIO0.06
 
 []
@@ -15611,7 +15313,7 @@ temp bratio is  1.92
 Divergence ratio is  1.92
 If ratio stack - pushing 0.06
 Within Fratio
-7
+4
       {
 
 scope - pushing if
@@ -15639,7 +15341,7 @@ generateAST for {
 This line does not have an =
 extractEveryVariable
 Within Fratio
-7
+4
          index = x;
 
 []
@@ -15668,7 +15370,7 @@ Time Taken 0
 extractEveryVariable
 Inserting - index = x;
 Within Fratio
-7
+4
          break;
 
 []
@@ -15696,7 +15398,7 @@ This line does not have an =
 extractEveryVariable
 Inserting - break;
 Within Fratio
-7
+4
       }
 
 Scope Found if, popping, New Length 1
@@ -15724,7 +15426,7 @@ generateAST for }
 This line does not have an =
 extractEveryVariable
 Within Fratio
-7
+4
    }
 
 Scope Found For, popping, New Length 2
@@ -15874,7 +15576,7 @@ generateAST for {
 This line does not have an =
 extractEveryVariable
 Within Fratio
-7
+4
       i = Nparticles - 1;
 
 []
@@ -15903,7 +15605,7 @@ Time Taken 1
 extractEveryVariable
 Inserting - i = Nparticles - 1;
 Within Fratio
-8
+5
    }
 
 Scope Found if, popping, New Length 1
@@ -16004,7 +15706,7 @@ generateAST for {
 This line does not have an =
 extractEveryVariable
 Within Fratio
-8
+5
       i = index;
 
 []
@@ -16033,7 +15735,7 @@ Time Taken 0
 extractEveryVariable
 Inserting - i = index;
 Within Fratio
-8
+5
    }
 
 Scope Found if, popping, New Length 1
@@ -16183,7 +15885,7 @@ generateAST for {
 This line does not have an =
 extractEveryVariable
 Within Fratio
-8
+5
       i = Nparticles-1;
 
 []
@@ -16212,7 +15914,7 @@ Time Taken 1
 extractEveryVariable
 Inserting - i = Nparticles-1;
 Within Fratio
-9
+6
    }
 
 Scope Found if, popping, New Length 1
@@ -16399,240 +16101,68 @@ Annotation End Found
 ILP!!!
 ******
 0
-int index = -1;
+for(int x = 0; x < Nparticles; x++) {//FRATIO1000
 []
-[5, 8]
+[1]
+1
+1
+1
+
+
+1
+if(CDF[x] >= u[j])	//BRATIO0.06
+[0]
+[]
 0
 1
 1
-
-
-1
-for(int x = 0; x < Nparticles; x++) {//FRATIO1000
-[]
-[2, 3]
-1
-1
-1000
 
 
 2
-if(CDF[x] >= u[j])	//BRATIO0.06
-[1]
+i = Nparticles - 1;
 []
-0
+[]
 1
-1000
+0.0
+0
 
 
 3
-index = x;
-[1]
-[5, 8]
+i = index;
+[]
+[]
 0
-0.06
-1000
+0.0
+0
 
 
 4
-break;
-[]
-[]
-0
-0.06
-1000
-
-
-5
-if(index == -1)		//never taken // BRATIO0.0
-[0, 3]
-[]
-1
-1
-1
-
-
-6
-i = Nparticles - 1;
-[]
-[9, 11, 12]
-1
-0.0
-1
-
-
-7
-else  //BRATIO0.0
-[]
-[]
-0
-1
-1
-
-
-8
-i = index;
-[0, 3]
-[9, 11, 12]
-0
-0.0
-1
-
-
-9
-if(i == -1)			//never taken // BRATIO0.0
-[6, 8]
-[]
-1
-1
-1
-
-
-10
 i = Nparticles-1;
 []
-[11, 12]
+[]
 1
 0.0
-1
-
-
-11
-xj[j] = arrayX[i];
-[6, 8, 10]
-[]
-1
-1
-1
-
-
-12
-yj[j] = arrayY[i];
-[6, 8, 10]
-[]
-1
-1
-1
+0
 
 
 ******
 Node 0's -
-[0, 1, 4, 6, 7, 10]
+[0, 2, 3, 4]
 DFS Stack - pushing 0
-[0, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 5
-(0,0)
-(5,1)
-1
-Selected!
-DFS Stack - pushing 8
-(0,0)
-(8,0.0)
-0
-Selected!
-[0, -999, -999, -999, -999, 1, -999, -999, 0, -999, -999, -999, -999]
-DFS Stack - pushing 9
-(8,0)
-(9,1)
-1
-Selected!
-DFS Stack - pushing 11
-(8,0)
-(11,1)
-1
-Selected!
-DFS Stack - pushing 12
-(8,0)
-(12,1)
-1
-Selected!
-[0, -999, -999, -999, -999, 1, -999, -999, 0, 1, -999, 1, 1]
-[0, -999, -999, -999, -999, 1, -999, -999, 0, 1, -999, 1, 1]
-[0, -999, -999, -999, -999, 1, -999, -999, 0, 1, -999, 1, 1]
-[0, -999, -999, -999, -999, 1, -999, -999, 0, 1, -999, 1, 1]
+[1, -999, -999, -999, -999]
 DFS Stack - pushing 1
-[-999, 1000, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999, -999]
+(0,1)
+(1,0)
+1
+Selected!
+[1, 1, -999, -999, -999]
 DFS Stack - pushing 2
-(1,1000)
-(2,0)
-1000
-Selected!
+[-999, -999, 0.0, -999, -999]
 DFS Stack - pushing 3
-(1,1000)
-(3,0.0)
-1000
-Selected!
-[-999, 1000, 1000, 1000, -999, -999, -999, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 5
-(3,1000)
-(5,1)
-1001
-Selected!
-DFS Stack - pushing 8
-(3,1000)
-(8,0.0)
-1000
-Selected!
-[-999, 1000, 1000, 1000, -999, 1001, -999, -999, 1000, -999, -999, -999, -999]
-DFS Stack - pushing 9
-(8,1000)
-(9,1)
-1001
-Selected!
-DFS Stack - pushing 11
-(8,1000)
-(11,1)
-1001
-Selected!
-DFS Stack - pushing 12
-(8,1000)
-(12,1)
-1001
-Selected!
-[-999, 1000, 1000, 1000, -999, 1001, -999, -999, 1000, 1001, -999, 1001, 1001]
-[-999, 1000, 1000, 1000, -999, 1001, -999, -999, 1000, 1001, -999, 1001, 1001]
-[-999, 1000, 1000, 1000, -999, 1001, -999, -999, 1000, 1001, -999, 1001, 1001]
-[-999, 1000, 1000, 1000, -999, 1001, -999, -999, 1000, 1001, -999, 1001, 1001]
-[-999, 1000, 1000, 1000, -999, 1001, -999, -999, 1000, 1001, -999, 1001, 1001]
+[-999, -999, -999, 0.0, -999]
 DFS Stack - pushing 4
-[-999, -999, -999, -999, 0.0, -999, -999, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 6
-[-999, -999, -999, -999, -999, -999, 0.0, -999, -999, -999, -999, -999, -999]
-DFS Stack - pushing 9
-(6,0.0)
-(9,1)
-1
-Selected!
-DFS Stack - pushing 11
-(6,0.0)
-(11,1)
-1
-Selected!
-DFS Stack - pushing 12
-(6,0.0)
-(12,1)
-1
-Selected!
-[-999, -999, -999, -999, -999, -999, 0.0, -999, -999, 1, -999, 1, 1]
-[-999, -999, -999, -999, -999, -999, 0.0, -999, -999, 1, -999, 1, 1]
-[-999, -999, -999, -999, -999, -999, 0.0, -999, -999, 1, -999, 1, 1]
-DFS Stack - pushing 7
-[-999, -999, -999, -999, -999, -999, -999, 0, -999, -999, -999, -999, -999]
-DFS Stack - pushing 10
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.0, -999, -999]
-DFS Stack - pushing 11
-(10,0.0)
-(11,1)
-1
-Selected!
-DFS Stack - pushing 12
-(10,0.0)
-(12,1)
-1
-Selected!
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.0, 1, 1]
-[-999, -999, -999, -999, -999, -999, -999, -999, -999, -999, 0.0, 1, 1]
-[1, 1001, 0.0, 1, 0, 1]
+[-999, -999, -999, -999, 0.0]
+[1, 0.0, 0.0, 0.0]
 ######################################################
 **********
 The values of this entry are
@@ -16731,7 +16261,7 @@ Line	     - int index = -1;
 Line 3
 LHS -  for x
 RHS -  x Nparticles x
-For Ratio - 1000
+For Ratio - 1
 If  Ratio - 1
 Scope     - For
 ScopeId   - 3
@@ -16741,7 +16271,7 @@ Line	     - for(int x = 0; x < Nparticles; x++) {//FRATIO1000
 Line 4
 LHS - 
 RHS -  CDF x u j
-For Ratio - 1000
+For Ratio - 1
 If  Ratio - 1
 Scope     - For
 ScopeId   - 3
@@ -16781,7 +16311,7 @@ Line	     - if(index == -1)		//never taken // BRATIO0.0
 Line 8
 LHS -  i
 RHS -  Nparticles
-For Ratio - 1
+For Ratio - 0
 If  Ratio - 0.0
 Scope     - if
 ScopeId   - 3
@@ -16801,7 +16331,7 @@ Line	     - else  //BRATIO0.0
 Line 10
 LHS -  i
 RHS -  index
-For Ratio - 1
+For Ratio - 0
 If  Ratio - 0.0
 Scope     - if
 ScopeId   - 3
@@ -16821,7 +16351,7 @@ Line	     - if(i == -1)			//never taken // BRATIO0.0
 Line 12
 LHS -  i
 RHS -  Nparticles
-For Ratio - 1
+For Ratio - 0
 If  Ratio - 0.0
 Scope     - if
 ScopeId   - 3
@@ -16858,9 +16388,13 @@ NumStoreOperations - 1002.0
 NumOffsetAccesses -  0
 NumIndirectAccesses -  0
 NumDoubleAccesses -  2
-CriticalPath -  1001
+CriticalPath -  1
 nThreadsCount -  1000
-instCountWithFRatio -  9
+instCountWithFRatio -  6
+ninst       -  5011.0
+ilp16k       -  3815.90595402
+ilp32       -  31.7969462621
+ilpRate       -  120.008566941
 
 
 ######################################################
@@ -16872,30 +16406,30 @@ ControlDensity -  H
 Floating Point Mul/Div - L
 Total Instruction - L
 Num Threads - 1000
-Critical Path - H
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+Critical Path - L
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -17113,6 +16647,10 @@ NumDoubleAccesses -  0
 CriticalPath -  3
 nThreadsCount -  229916
 instCountWithFRatio -  0
+ninst       -  6
+ilp16k       -  5
+ilp32       -  4
+ilpRate       -  1
 
 
 ######################################################
@@ -17125,29 +16663,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 229916
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -19336,6 +18874,10 @@ NumDoubleAccesses -  0
 CriticalPath -  13
 nThreadsCount -  229916
 instCountWithFRatio -  0
+ninst       -  59.999992
+ilp16k       -  57.2109581615
+ilp32       -  2.36453200728
+ilpRate       -  24.1954678496
 Warnings!!!!
 1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- dN[k] = image[i-1 + Nr*j] - Jc;
 
@@ -19357,29 +18899,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 229916
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -20357,6 +19899,10 @@ NumDoubleAccesses -  0
 CriticalPath -  8
 nThreadsCount -  229916
 instCountWithFRatio -  0
+ninst       -  26
+ilp16k       -  25
+ilp32       -  3
+ilpRate       -  8
 Warnings!!!!
 1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- cS = c[i+1+Nr*j];
 
@@ -20374,29 +19920,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 229916
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -20622,6 +20168,10 @@ NumDoubleAccesses -  0
 CriticalPath -  3
 nThreadsCount -  229916
 instCountWithFRatio -  0
+ninst       -  6
+ilp16k       -  5
+ilp32       -  4
+ilpRate       -  1
 
 
 ######################################################
@@ -20634,29 +20184,29 @@ Floating Point Mul/Div - H
 Total Instruction - L
 Num Threads - 229916
 Critical Path - L
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:446: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
-  global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:454: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:455: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
   global WarningsCounter
 /afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:463: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:471: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:472: SyntaxWarning: name 'WarningsCounter' is assigned to before global declaration
   global WarningsCounter
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:567: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:480: SyntaxWarning: name 'WarningsCounter' is used prior to global declaration
+  global WarningsCounter
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:576: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:579: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:588: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:582: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:591: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:640: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:649: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:652: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:661: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:655: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:664: SyntaxWarning: name 'FoundFLPMulDiv' is assigned to before global declaration
   global FoundFLPMulDiv
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:737: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:746: SyntaxWarning: name 'WarpDivergenceRatio' is used prior to global declaration
   global WarpDivergenceRatio
-/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:981: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
+/afs/cs.wisc.edu/u/u/t/uthakker/Documents/GPUProgramming/Research/C_Parser/Parser.py:1016: SyntaxWarning: name 'StartAnalyzing' is assigned to before global declaration
   global StartAnalyzing
 Hi
 scope - pushing Global
@@ -21790,6 +21340,10 @@ NumDoubleAccesses -  0
 CriticalPath -  8
 nThreadsCount -  4194304
 instCountWithFRatio -  0
+ninst       -  24
+ilp16k       -  23
+ilp32       -  3
+ilpRate       -  7
 Warnings!!!!
 1. Offset seems to be a variable hard to determine! Not marking it as irregular access/access generating many transactions! PLEASE VERIFY!---- cE = c[i*cols + i+1];
 
@@ -21831,5 +21385,5 @@ Lbdiv32  -  0 /23 Failing Tests -
 Lbdiv1024  -  0 /23 Failing Tests -  
 fmuldiv  -  0 /23 Failing Tests -  
 ilp16384  -  0 /23 Failing Tests -  
-numThreads  -  5 /23 Failing Tests -   Test1 Test10 Test11 Test17 Test18
-criticalPath  -  4 /23 Failing Tests -   Test12 Test13 Test14 Test15
+numThreads  -  0 /23 Failing Tests -  
+criticalPath  -  0 /23 Failing Tests -  
